@@ -42,9 +42,9 @@ const Index = () => {
         <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow"></div>
       </div>
 
-      {/* Enhanced Navigation */}
+      {/* Enhanced Navigation - More translucent and darker */}
       <FadeContent>
-        <header className="backdrop-blur-xl bg-slate-950/80 sticky top-0 z-50 transition-all duration-500">
+        <header className="backdrop-blur-xl bg-slate-950/95 sticky top-0 z-50 transition-all duration-500 border-b border-slate-800/40">
           <div className="container mx-auto px-8 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
               <div className="relative">
@@ -69,7 +69,7 @@ const Index = () => {
             </nav>
             <button 
               onClick={() => scrollToSection('cta-final')}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-600/30 text-white hover:bg-slate-700/50 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
+              className="bg-slate-900/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-800/60 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -103,7 +103,7 @@ const Index = () => {
             </FadeContent>
             
             <FadeContent delay={800}>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-4">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
                   className="bg-slate-800/60 backdrop-blur-sm border border-slate-600/40 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
@@ -121,7 +121,7 @@ const Index = () => {
             </FadeContent>
 
             <FadeContent delay={1000}>
-              <p className="text-sm text-slate-400 italic mb-16">
+              <p className="text-sm text-slate-400 italic mb-8">
                 No credit card required. Simple integration.
               </p>
             </FadeContent>
@@ -129,9 +129,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Moved much higher */}
+      {/* AI Bot Section - Reduced spacing */}
       <FadeContent>
-        <section className="py-4 relative">
+        <section className="py-2 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -309,7 +309,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* New Pricing Section with emphasis on being cheapest */}
+      {/* New Pricing Section with professional badge */}
       <FadeContent>
         <section className="py-20 relative">
           <div className="container mx-auto px-6">
@@ -323,11 +323,11 @@ const Index = () => {
             <div className="max-w-4xl mx-auto">
               <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
                 <CardContent className="p-16 text-center relative">
-                  {/* "CHEAPEST" badge - Changed to violet */}
+                  {/* Professional badge - violet translucent */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-6 py-2 text-lg animate-pulse shadow-lg">
-                      🏆 CHEAPEST ON THE MARKET
-                    </Badge>
+                    <div className="bg-gradient-to-r from-violet-900/80 via-violet-800/80 to-violet-900/80 backdrop-blur-sm border border-violet-600/40 text-violet-100 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/40">
+                      CHEAPEST ON THE MARKET
+                    </div>
                   </div>
 
                   {/* Large percentage */}
@@ -476,13 +476,13 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Footer */}
+      {/* Footer - More translucent and darker, reduced size */}
       <FadeContent>
-        <footer className="border-t border-slate-800/30 bg-gradient-to-br from-slate-950/80 via-slate-900/60 to-slate-950/80 backdrop-blur-xl shadow-2xl shadow-slate-900/40">
-          <div className="container mx-auto px-6 py-12">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <footer className="border-t border-slate-800/40 bg-slate-950/95 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
+          <div className="container mx-auto px-6 py-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
               <div className="md:col-span-2">
-                <div className="flex items-center space-x-3 mb-4">
+                <div className="flex items-center space-x-3 mb-3">
                   <div className="relative">
                     <div className="w-8 h-8 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
                       <Zap className="w-5 h-5 text-white" />
@@ -493,16 +493,16 @@ const Index = () => {
                     launchpad.trade
                   </span>
                 </div>
-                <p className="text-slate-300 max-w-sm mb-4 font-medium leading-relaxed">
+                <p className="text-slate-300 max-w-sm mb-3 font-medium leading-relaxed">
                   The fastest and most reliable API to automate your trades on letsbonk.fun.
                 </p>
               </div>
               
-              <div className="space-y-4">
-                <h4 className="font-bold text-white mb-4 text-lg">
+              <div className="space-y-3">
+                <h4 className="font-bold text-white mb-3 text-lg">
                   Product
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   <li>
                     <button
                       onClick={() => scrollToSection('documentation')}
@@ -514,11 +514,11 @@ const Index = () => {
                 </ul>
               </div>
               
-              <div className="space-y-4">
-                <h4 className="font-bold text-white mb-4 text-lg">
+              <div className="space-y-3">
+                <h4 className="font-bold text-white mb-3 text-lg">
                   Support
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {["Discord", "Twitter", "Contact", "Terms of Service", "Privacy Policy"].map((link, i) => (
                     <li key={i}>
                       <a 
@@ -533,7 +533,7 @@ const Index = () => {
               </div>
             </div>
             
-            <Separator className="my-6 bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+            <Separator className="my-4 bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
             
             <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-sm">
               <p className="font-medium">
@@ -543,7 +543,7 @@ const Index = () => {
                 </span>
                 . All rights reserved.
               </p>
-              <div className="flex space-x-6 mt-4 md:mt-0">
+              <div className="flex space-x-6 mt-3 md:mt-0">
                 {["Privacy Policy", "Terms of Service", "Contact"].map((link, i) => (
                   <a 
                     key={i}
