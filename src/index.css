@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -669,53 +670,4 @@ html.lenis {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
-}
-
-/* Modern violet border animation for Trading API Edge section only */
-@property --bg-angle {
-  inherits: false;
-  initial-value: 0deg;
-  syntax: "<angle>";
-}
-
-@keyframes modern-spin {
-  to {
-    --bg-angle: 360deg;
-  }
-}
-
-.modern-gradient-border {
-  /* add the animation, but pause it by default */
-  animation: modern-spin 2.5s infinite linear paused;
-  
-  /**
-   * Using `background-origin` we can create a "border" using two gradients with violet colors
-   */
-  background:
-    /* Background with dark transparency */
-    linear-gradient(
-        to bottom,
-        rgba(15, 15, 25, 0.95),
-        rgba(15, 15, 25, 0.95)
-      )
-      padding-box, /* ends at inner border edges */
-    conic-gradient(
-        from var(--bg-angle),
-        hsla(263, 70%, 50%, 0.6) 0deg,
-        hsla(263, 70%, 50%, 0.8) 90deg,
-        hsla(263, 70%, 50%, 0.6) 180deg,
-        hsla(263, 70%, 50%, 0.4) 270deg,
-        hsla(263, 70%, 50%, 0.6) 360deg
-      )
-      border-box; /* extends to outer border edges */
-  
-  /* a clear border lets the background gradient shine through */
-  border: 4px solid transparent;
-  border-radius: 1rem;
-
-  /* unpause the animation on hover */
-}
-
-.modern-gradient-border:hover {
-  animation-play-state: running;
 }

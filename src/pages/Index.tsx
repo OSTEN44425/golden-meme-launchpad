@@ -121,7 +121,7 @@ const Index = () => {
             </FadeContent>
 
             <FadeContent delay={1000}>
-              <p className="text-sm text-slate-400 italic mb-4">
+              <p className="text-sm text-slate-400 italic mb-16">
                 No credit card required. Simple integration.
               </p>
             </FadeContent>
@@ -129,9 +129,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Moved much higher with minimal spacing */}
+      {/* AI Bot Section - Moved much higher */}
       <FadeContent>
-        <section className="py-0 relative -mt-8">
+        <section className="py-4 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -251,7 +251,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Key Benefits - Trading API Edge with new modern borders */}
+      {/* Key Benefits */}
       <FadeContent>
         <section className="py-20 relative">
           <div className="container mx-auto px-6">
@@ -291,7 +291,7 @@ const Index = () => {
                 }
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
-                  <Card className={`modern-gradient-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm transition-all duration-300 group h-full flex flex-col hover-scale`}>
+                  <Card className={`glowing-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
                     <CardHeader className="pb-4">
                       <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
                         <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
