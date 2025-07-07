@@ -2,24 +2,8 @@
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText as GSAPSplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger, GSAPSplitText);
-
-interface SplitTextProps {
-  text: string;
-  className?: string;
-  delay?: number;
-  duration?: number;
-  ease?: string;
-  splitType?: "chars" | "words" | "lines" | "words, chars";
-  from?: Record<string, any>;
-  to?: Record<string, any>;
-  threshold?: number;
-  rootMargin?: string;
-  textAlign?: "left" | "center" | "right" | "justify";
-  onLetterAnimationComplete?: () => void;
-}
+gsap.registerPlugin(ScrollTrigger);
 
 const SplitText = ({
   text,
@@ -33,42 +17,26 @@ const SplitText = ({
   threshold = 0.1,
   rootMargin = "-100px",
   textAlign = "center",
-  onLetterAnimationComplete = () => {},
-}: SplitTextProps) => {
-  const ref = useRef<HTMLParagraphElement>(null);
+  onLetterAnimationComplete,
+}) => {
+  const ref = useRef(null);
   const animationCompletedRef = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el || animationCompletedRef.current) return;
 
-    const absoluteLines = splitType === "lines";
-    if (absoluteLines) el.style.position = "relative";
-
-    const splitter = new GSAPSplitText(el, {
-      type: splitType,
-      absolute: absoluteLines,
-      linesClass: "split-line",
+    const words = text.split(' ');
+    const spans = words.map((word, index) => {
+      const span = document.createElement('span');
+      span.textContent = word + (index < words.length - 1 ? ' ' : '');
+      span.style.display = 'inline-block';
+      span.style.willChange = 'transform, opacity';
+      return span;
     });
 
-    let targets;
-    switch (splitType) {
-      case "lines":
-        targets = splitter.lines;
-        break;
-      case "words":
-        targets = splitter.words;
-        break;
-      case "words, chars":
-        targets = [...splitter.words, ...splitter.chars];
-        break;
-      default:
-        targets = splitter.chars;
-    }
-
-    targets.forEach((t: any) => {
-      t.style.willChange = "transform, opacity";
-    });
+    el.innerHTML = '';
+    spans.forEach(span => el.appendChild(span));
 
     const startPct = (1 - threshold) * 100;
     const m = /^(-?\d+)px$/.exec(rootMargin);
@@ -86,7 +54,7 @@ const SplitText = ({
       smoothChildTiming: true,
       onComplete: () => {
         animationCompletedRef.current = true;
-        gsap.set(targets, {
+        gsap.set(spans, {
           ...to,
           clearProps: "willChange",
           immediateRender: true,
@@ -95,8 +63,8 @@ const SplitText = ({
       },
     });
 
-    tl.set(targets, { ...from, immediateRender: false, force3D: true });
-    tl.to(targets, {
+    tl.set(spans, { ...from, immediateRender: false, force3D: true });
+    tl.to(spans, {
       ...to,
       duration,
       ease,
@@ -107,8 +75,7 @@ const SplitText = ({
     return () => {
       tl.kill();
       ScrollTrigger.getAll().forEach((t) => t.kill());
-      gsap.killTweensOf(targets);
-      splitter.revert();
+      gsap.killTweensOf(spans);
     };
   }, [
     text,
@@ -128,7 +95,7 @@ const SplitText = ({
       ref={ref}
       className={`split-parent ${className}`}
       style={{
-        textAlign,
+        textAlign: textAlign as any,
         overflow: "hidden",
         display: "inline-block",
         whiteSpace: "normal",
