@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -52,12 +53,10 @@ const Index = () => {
                 </FadeContent>
               ))}
             </nav>
-            <div className="flex items-center">
-              <Button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold shadow-xl hover:shadow-blue-500/30 transition-all duration-300 text-sm px-6 py-2 rounded-full border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm hover:scale-105">
-                <span className="relative z-10">Join the Alpha</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-              </Button>
-            </div>
+            <Button className="glowing-border bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold shadow-xl hover:shadow-blue-500/30 transition-all duration-300 text-sm px-6 py-2 rounded-full border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm hover:scale-105 relative overflow-hidden group">
+              <span className="relative z-10">Join the Alpha</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            </Button>
           </div>
           {/* Subtle separation line */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent"></div>
@@ -70,7 +69,7 @@ const Index = () => {
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={200}>
               <div className="mb-8">
-                <div className="inline-flex items-center space-x-2 glass-effect rounded-full px-6 py-3 text-sm border border-slate-700/30 hover-scale">
+                <div className="inline-flex items-center space-x-2 glowing-border glass-effect rounded-full px-6 py-3 text-sm border border-slate-700/30 hover-scale">
                   <span className="text-blue-400 font-medium">Claim free trial</span>
                   <span className="text-slate-400">Join our discord and claim</span>
                   <span className="text-violet-400 font-medium">Free Trial</span>
@@ -98,11 +97,11 @@ const Index = () => {
             
             <FadeContent delay={800}>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
-                <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold px-8 py-3 rounded-full shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm relative overflow-hidden group">
+                <button className="glowing-border bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold px-8 py-3 rounded-full shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm relative overflow-hidden group">
                   <span className="relative z-10">Join the Alpha</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 </button>
-                <button className="bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
+                <button className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
                   Learn more
                 </button>
               </div>
@@ -123,7 +122,7 @@ const Index = () => {
                 { value: 3000, label: "Monthly Savings", color: "text-blue-400", prefix: "+$" }
               ].map((stat, index) => (
                 <FadeContent key={index} delay={index * 100}>
-                  <div className="group hover:scale-105 transition-all duration-300 hover-scale glass-effect rounded-lg p-6">
+                  <div className="glowing-border group hover:scale-105 transition-all duration-300 hover-scale glass-effect rounded-lg p-6">
                     <div className={`text-4xl lg:text-5xl font-bold ${stat.color} mb-2 font-mono`}>
                       {stat.prefix}
                       <CountUp 
@@ -205,7 +204,7 @@ const Index = () => {
                 }
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
-                  <Card className={`glass-effect ${feature.bgGradient} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
+                  <Card className={`glowing-border glass-effect ${feature.bgGradient} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
                     <CardHeader className="pb-4">
                       <div className={`w-12 h-12 ${feature.bgGradient} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
                         <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
@@ -248,7 +247,7 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* All pricing cards with equal heights */}
               <FadeContent delay={300}>
-                <Card className="glass-effect backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 h-full flex flex-col hover-scale">
+                <Card className="glowing-border glass-effect backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 h-full flex flex-col hover-scale">
                   <CardHeader className="text-center pb-6">
                     <div className="text-sm font-medium text-slate-400 mb-2">ALPHA</div>
                     <div className="text-sm text-slate-400 mb-4">UNLOCK EVERYTHING FOR JUST</div>
@@ -266,7 +265,7 @@ const Index = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600 text-white font-medium transition-all duration-300 modern-button hover-scale">
+                    <Button className="glowing-border w-full bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-500 hover:to-slate-600 text-white font-medium transition-all duration-300 modern-button hover-scale">
                       Get Started
                     </Button>
                   </CardContent>
@@ -278,7 +277,7 @@ const Index = () => {
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-violet-500 text-white font-bold px-4 py-1 text-sm animate-pulse z-10">
                     BEST SELLER
                   </Badge>
-                  <Card className="glass-effect bg-gradient-to-br from-blue-500/10 to-violet-500/10 backdrop-blur-sm border-blue-500/30 relative shadow-xl h-full flex flex-col hover-scale">
+                  <Card className="glowing-border glass-effect bg-gradient-to-br from-blue-500/10 to-violet-500/10 backdrop-blur-sm border-blue-500/30 relative shadow-xl h-full flex flex-col hover-scale">
                     <CardHeader className="text-center pb-6">
                       <div className="text-sm font-medium text-blue-400 mb-2">FULL ACCESS</div>
                       <div className="text-sm text-slate-400 mb-4">THE COMPLETE EXPERIENCE FOR JUST</div>
@@ -296,7 +295,7 @@ const Index = () => {
                           </li>
                         ))}
                       </ul>
-                      <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold transition-all duration-300 shadow-lg modern-button hover-scale">
+                      <Button className="glowing-border w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold transition-all duration-300 shadow-lg modern-button hover-scale">
                         Get Full Access
                       </Button>
                     </CardContent>
@@ -305,7 +304,7 @@ const Index = () => {
               </FadeContent>
 
               <FadeContent delay={500}>
-                <Card className="glass-effect bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm border-yellow-500/30 h-full flex flex-col hover-scale">
+                <Card className="glowing-border glass-effect bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm border-yellow-500/30 h-full flex flex-col hover-scale">
                   <CardHeader className="text-center pb-6">
                     <div className="text-sm font-medium text-yellow-400 mb-2">LIFETIME</div>
                     <div className="text-4xl font-bold text-white mb-1">25 SOL</div>
@@ -322,7 +321,7 @@ const Index = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold transition-all duration-300 shadow-lg modern-button hover-scale">
+                    <Button className="glowing-border w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold transition-all duration-300 shadow-lg modern-button hover-scale">
                       Go Lifetime
                     </Button>
                   </CardContent>
@@ -358,7 +357,7 @@ const Index = () => {
                 text: "It is a magnificent server where you can see many alpha servers together with special filters and privileged options."
               }
             ].map((testimonial, index) => (
-              <Card key={index} className="glass-effect backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 hover-scale">
+              <Card key={index} className="glowing-border glass-effect backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 hover-scale">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3 text-sm">
@@ -417,7 +416,7 @@ const Index = () => {
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`}
-                    className="glass-effect backdrop-blur-sm border-slate-700/30 rounded-lg px-6 hover:border-slate-600/30 transition-all duration-300 hover-scale"
+                    className="glowing-border glass-effect backdrop-blur-sm border-slate-700/30 rounded-lg px-6 hover:border-slate-600/30 transition-all duration-300 hover-scale"
                   >
                     <AccordionTrigger className="text-white text-lg font-bold hover:text-blue-400 transition-colors py-6 text-left font-mono [&[data-state=open]>svg]:hidden">
                       <div className="flex items-center justify-between w-full">
@@ -440,7 +439,7 @@ const Index = () => {
                 <Button 
                   onClick={scrollToTop}
                   variant="ghost" 
-                  className="text-slate-400 hover:text-blue-400 transition-all duration-300 font-medium hover-scale modern-button"
+                  className="glowing-border text-slate-400 hover:text-blue-400 transition-all duration-300 font-medium hover-scale modern-button"
                 >
                   <ArrowUp className="w-4 h-4 mr-2" />
                   Back to Top
