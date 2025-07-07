@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,8 +7,13 @@ import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, M
 import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
+import { useLenis } from "@/hooks/useLenis";
+import { ModernButton } from "@/components/ui/modern-button";
 
 const Index = () => {
+  // Initialize Lenis smooth scroll
+  useLenis();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -96,12 +100,20 @@ const Index = () => {
             
             <FadeContent delay={800}>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
-                <Button size="lg" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover-scale modern-button">
+                <ModernButton 
+                  variant="primary" 
+                  size="lg"
+                  className="hover:scale-105 transform transition-all duration-300"
+                >
                   Join the Alpha
-                </Button>
-                <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white px-8 py-6 text-lg transition-all duration-300 bg-transparent hover-scale modern-button">
+                </ModernButton>
+                <ModernButton 
+                  variant="secondary" 
+                  size="lg"
+                  className="hover:scale-105 transform transition-all duration-300"
+                >
                   Learn more
-                </Button>
+                </ModernButton>
               </div>
             </FadeContent>
           </div>
