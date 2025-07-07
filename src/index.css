@@ -337,7 +337,7 @@ All colors MUST be HSL.
     isolation: isolate;
     position: relative;
     border-radius: var(--radius);
-    border: var(--border-width) solid rgba(34, 40, 49, 0.6);
+    border: var(--border-width) solid hsl(222 84% 5%);
     background: rgba(15, 15, 25, 0.4);
   }
 
@@ -351,13 +351,13 @@ All colors MUST be HSL.
     background-image: conic-gradient(
       from var(--angle),
       transparent 0%,
-      #3B82F6 10%,
-      #60A5FA 25%,
-      #93C5FD 40%,
-      #DBEAFE 50%,
-      #93C5FD 60%,
-      #60A5FA 75%,
-      #3B82F6 90%,
+      rgba(59, 130, 246, 0.8) 10%,
+      rgba(96, 165, 250, 1) 25%,
+      rgba(147, 197, 253, 1) 40%,
+      rgba(219, 234, 254, 1) 50%,
+      rgba(147, 197, 253, 1) 60%,
+      rgba(96, 165, 250, 1) 75%,
+      rgba(59, 130, 246, 0.8) 90%,
       transparent 100%
     );
     background-origin: border-box;
@@ -370,7 +370,7 @@ All colors MUST be HSL.
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     animation: glowing-border-spin 2s linear infinite;
-    filter: blur(0.3px) brightness(2);
+    filter: blur(0.8px) brightness(1.8);
   }
 
   .glowing-border::after {
@@ -379,8 +379,8 @@ All colors MUST be HSL.
     inset: 0;
     border-radius: inherit;
     background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
-      rgba(59, 130, 246, 0.4) 0%, 
-      rgba(147, 197, 253, 0.2) 30%, 
+      rgba(59, 130, 246, 0.3) 0%, 
+      rgba(147, 197, 253, 0.15) 30%, 
       transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -393,7 +393,7 @@ All colors MUST be HSL.
 
   .glowing-border:hover::before {
     animation-duration: 1s;
-    filter: blur(0.5px) brightness(2.5);
+    filter: blur(1px) brightness(2.2);
   }
 }
 
