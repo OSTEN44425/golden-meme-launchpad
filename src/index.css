@@ -1,11 +1,9 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import modern professional fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Import modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -110,33 +108,21 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
-
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: #FAFAFA;
     background: linear-gradient(135deg, hsl(222 84% 5%) 0%, hsl(215 28% 4%) 50%, hsl(222 84% 5%) 100%);
     min-height: 100vh;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    overflow-x: hidden;
   }
   
   .font-mono {
-    font-family: 'JetBrains Mono', 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
+  .font-pro {
+    font-family: 'Poppins', sans-serif;
   }
 
   /* Custom utility classes for violet theme */
@@ -258,8 +244,8 @@ All colors MUST be HSL.
   }
 
   .hover-scale:hover {
-    transform: scale(1.02) translateY(-1px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 
   /* Modern button hover effects */
@@ -361,6 +347,25 @@ All colors MUST be HSL.
     mask-composite: exclude;
     animation: glowing-border-spin 3s linear infinite;
     filter: blur(0.8px) brightness(1.2);
+  }
+
+  .glowing-border:nth-child(2n)::before {
+    animation: glowing-border-spin 4s linear infinite reverse;
+  }
+
+  .glowing-border:nth-child(3n)::before {
+    animation: glowing-border-spin 5s linear infinite;
+    animation-delay: -1s;
+  }
+
+  .glowing-border:nth-child(4n)::before {
+    animation: glowing-border-spin 3.5s linear infinite reverse;
+    animation-delay: -0.5s;
+  }
+
+  .glowing-border:nth-child(5n)::before {
+    animation: glowing-border-spin 4.5s linear infinite;
+    animation-delay: -2s;
   }
 
   .glowing-border::after {
@@ -552,13 +557,55 @@ All colors MUST be HSL.
   }
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
+@keyframes grid-drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(60px, 60px);
+  }
+}
+
+@keyframes grid-drift-reverse {
+  0% {
+    transform: translate(20px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slide-vertical {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
   }
   50% {
-    opacity: .5;
+    opacity: 1;
   }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-horizontal {
+  0% {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Enhanced custom scrollbar */
@@ -594,4 +641,81 @@ All colors MUST be HSL.
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Enhanced accordion animations */
+@keyframes accordion-down {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.3s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.3s ease-out;
+}
+
+/* Navigation hover effects */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(217 91% 60%), hsl(263 70% 50%));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: hsl(217 91% 60%);
+  transform: translateY(-1px);
+}
+
+/* Enhanced custom utility classes for modern effects */
+.bg-gradient-radial {
+  background: radial-gradient(var(--tw-gradient-stops));
+}
+
+/* Enhanced smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default scrollbar behavior for Lenis */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
