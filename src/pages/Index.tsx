@@ -1,4 +1,5 @@
 
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -50,7 +51,7 @@ const Index = () => {
                 Launchpad Trade
               </span>
             </div>
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-8 font-pro">
               {[
                 { name: "Features", id: "features" },
                 { name: "Pricing", id: "pricing" },
@@ -60,20 +61,20 @@ const Index = () => {
                 <FadeContent key={item.name} delay={index * 100}>
                   <button 
                     onClick={() => scrollToSection(item.id)}
-                    className="nav-link-pro text-slate-200 font-pro font-semibold text-sm px-4 py-2 rounded-lg"
+                    className="nav-link-pro text-slate-200 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
                   >
                     {item.name}
                   </button>
                 </FadeContent>
               ))}
             </nav>
-            <Button 
+            <button 
               onClick={() => scrollToSection('pricing')}
-              className="glowing-border bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold shadow-xl hover:shadow-blue-500/30 transition-all duration-300 text-sm px-6 py-2 rounded-full border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm hover:scale-105 relative overflow-hidden group"
+              className="join-alpha-button text-white font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 relative overflow-hidden group"
             >
               <span className="relative z-10">Join the Alpha</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            </Button>
+            </button>
           </div>
           {/* Subtle separation line */}
           <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent"></div>
@@ -116,7 +117,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
                 <button 
                   onClick={() => scrollToSection('pricing')}
-                  className="glowing-border bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold px-8 py-3 rounded-full shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm relative overflow-hidden group"
+                  className="join-alpha-button text-white font-bold px-8 py-3 shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Join the Alpha</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -318,9 +319,10 @@ const Index = () => {
                           </li>
                         ))}
                       </ul>
-                      <Button className="glowing-border w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold transition-all duration-300 shadow-lg modern-button hover-scale">
-                        Get Full Access
-                      </Button>
+                      <button className="join-alpha-button w-full text-white font-bold transition-all duration-300 shadow-lg px-6 py-3 relative overflow-hidden group">
+                        <span className="relative z-10">Get Full Access</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                      </button>
                     </CardContent>
                   </Card>
                 </div>
@@ -462,7 +464,7 @@ const Index = () => {
                 <Button 
                   onClick={scrollToTop}
                   variant="ghost" 
-                  className="glowing-border text-slate-400 hover:text-blue-400 transition-all duration-300 font-medium hover-scale modern-button"
+                  className="back-to-top-hover transition-all duration-300 font-medium hover-scale modern-button"
                 >
                   <ArrowUp className="w-4 h-4 mr-2" />
                   Back to Top
@@ -580,3 +582,4 @@ const Index = () => {
 };
 
 export default Index;
+
