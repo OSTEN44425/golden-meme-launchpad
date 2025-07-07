@@ -27,7 +27,7 @@ const Index = () => {
             <Button variant="ghost" className="text-gray-300 hover:text-violet-400 hover:bg-violet-400/10 border-transparent text-sm transition-all duration-300">
               Log In
             </Button>
-            <Button className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-600 hover:via-violet-700 hover:to-violet-800 text-white font-semibold shadow-xl hover:shadow-violet-500/30 transition-all duration-300 text-sm transform hover:scale-105">
+            <Button className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-400 hover:via-violet-500 hover:to-violet-600 text-white font-semibold shadow-xl hover:shadow-violet-500/30 transition-all duration-300 text-sm transform hover:scale-105">
               Get API Key
             </Button>
           </div>
@@ -74,11 +74,11 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-16">
-              <Button size="lg" className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-600 hover:via-violet-700 hover:to-violet-800 text-white font-bold px-10 py-6 text-lg shadow-2xl hover:shadow-violet-500/30 transition-all duration-300 transform hover:scale-105 rounded-xl">
+              <Button size="lg" className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-400 hover:via-violet-500 hover:to-violet-600 text-white font-bold px-10 py-6 text-lg shadow-2xl hover:shadow-violet-500/30 transition-all duration-300 transform hover:scale-105 rounded-xl">
                 <Zap className="w-5 h-5 mr-3" />
                 Start Now
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-violet-400/60 text-violet-400 hover:border-violet-400 hover:text-white hover:bg-violet-400/20 px-10 py-6 text-lg backdrop-blur-md transition-all duration-300 transform hover:scale-105 rounded-xl bg-violet-400/5">
+              <Button size="lg" variant="outline" className="border-2 border-violet-400 text-violet-400 hover:bg-violet-500 hover:text-white px-10 py-6 text-lg backdrop-blur-md transition-all duration-300 transform hover:scale-105 rounded-xl bg-violet-400/10">
                 <Code className="w-5 h-5 mr-3" />
                 API Documentation
               </Button>
@@ -86,17 +86,17 @@ const Index = () => {
 
             {/* Enhanced integration badges */}
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-70">
-              <div className="flex items-center space-x-3 text-sm bg-white/5 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
+              <div className="flex items-center space-x-3 text-sm bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
                 <div className="w-6 h-6 bg-gradient-to-r from-orange-400 to-red-500 rounded-md"></div>
-                <span>Bonk Protocol</span>
+                <span className="text-white">Bonk Protocol</span>
               </div>
-              <div className="flex items-center space-x-3 text-sm bg-white/5 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
+              <div className="flex items-center space-x-3 text-sm bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
                 <div className="w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-500 rounded-md"></div>
-                <span>PumpFun</span>
+                <span className="text-white">PumpFun</span>
               </div>
-              <div className="flex items-center space-x-3 text-sm bg-white/5 backdrop-blur-md rounded-full px-4 py-2 border border-white/10">
+              <div className="flex items-center space-x-3 text-sm bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
                 <div className="w-6 h-6 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-md"></div>
-                <span>All Launchpads</span>
+                <span className="text-white">All Launchpads</span>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@ const Index = () => {
       <section id="features" className="py-24 relative">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
-            <Badge className="mb-6 bg-violet-500/15 text-violet-400 border-violet-500/30 px-4 py-2 text-sm font-semibold rounded-full">
+            <Badge className="mb-6 bg-violet-500/20 text-violet-400 border-violet-500/40 px-4 py-2 text-sm font-semibold rounded-full">
               FEATURES
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold mb-8">
@@ -254,7 +254,7 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-600 hover:to-violet-700 text-white font-bold transition-all duration-300 shadow-xl text-base py-3 rounded-xl hover:shadow-violet-500/30 transform hover:scale-105">
+                <Button className="w-full bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-400 hover:to-violet-500 text-white font-bold transition-all duration-300 shadow-xl text-base py-3 rounded-xl hover:shadow-violet-500/30 transform hover:scale-105">
                   Try Pro Free
                 </Button>
               </CardContent>
@@ -371,11 +371,11 @@ const Index = () => {
               Join thousands of developers building the future of memecoins on Solana with MemeKit API.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-              <Button size="lg" className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-600 hover:via-violet-700 hover:to-violet-800 text-white font-bold px-10 py-6 text-lg shadow-2xl hover:shadow-violet-500/30 transition-all duration-300 transform hover:scale-105 rounded-xl">
+              <Button size="lg" className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-400 hover:via-violet-500 hover:to-violet-600 text-white font-bold px-10 py-6 text-lg shadow-2xl hover:shadow-violet-500/30 transition-all duration-300 transform hover:scale-105 rounded-xl">
                 <Zap className="w-5 h-5 mr-3" />
                 Start Free
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-violet-400/60 text-violet-400 hover:border-violet-400 hover:text-white hover:bg-violet-400/20 px-10 py-6 text-lg backdrop-blur-md transition-all duration-300 transform hover:scale-105 rounded-xl bg-violet-400/5">
+              <Button size="lg" variant="outline" className="border-2 border-violet-400 text-violet-400 hover:bg-violet-500 hover:text-white px-10 py-6 text-lg backdrop-blur-md transition-all duration-300 transform hover:scale-105 rounded-xl bg-violet-400/10">
                 <Globe className="w-5 h-5 mr-3" />
                 View Live Demo
               </Button>

@@ -34,8 +34,8 @@ export default {
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: 'hsl(263 70% 60%)',
+					foreground: 'hsl(0 0% 100%)'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -46,8 +46,8 @@ export default {
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: 'hsl(263 70% 60%)',
+					foreground: 'hsl(0 0% 100%)'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -60,27 +60,27 @@ export default {
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+					primary: 'hsl(263 70% 60%)',
+					'primary-foreground': 'hsl(0 0% 100%)',
 					accent: 'hsl(var(--sidebar-accent))',
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+					ring: 'hsl(263 70% 60%)'
 				},
 				violet: {
-					DEFAULT: 'hsl(var(--violet))',
-					light: 'hsl(var(--violet-light))',
-					dark: 'hsl(var(--violet-dark))',
-					50: '250 100% 97%',
-					100: '251 91% 95%',
-					200: '251 95% 87%',
-					300: '252 95% 85%',
-					400: '255 92% 76%',
-					500: '263 70% 50%',
-					600: '263 69% 42%',
-					700: '263 69% 35%',
-					800: '263 69% 29%',
-					900: '264 67% 25%',
+					DEFAULT: 'hsl(263 70% 60%)',
+					light: 'hsl(263 70% 70%)',
+					dark: 'hsl(263 70% 50%)',
+					50: 'hsl(250 100% 97%)',
+					100: 'hsl(251 91% 95%)',
+					200: 'hsl(251 95% 87%)',
+					300: 'hsl(252 95% 85%)',
+					400: 'hsl(255 92% 76%)',
+					500: 'hsl(263 70% 60%)',
+					600: 'hsl(263 70% 50%)',
+					700: 'hsl(263 70% 40%)',
+					800: 'hsl(263 70% 30%)',
+					900: 'hsl(263 70% 25%)',
 				}
 			},
 			borderRadius: {
