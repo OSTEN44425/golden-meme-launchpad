@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -337,7 +338,7 @@ All colors MUST be HSL.
     isolation: isolate;
     position: relative;
     border-radius: var(--radius);
-    border: var(--border-width) solid hsl(215 28% 10%);
+    border: var(--border-width) solid transparent;
   }
 
   .glowing-border::before {
@@ -349,13 +350,11 @@ All colors MUST be HSL.
     border-radius: inherit;
     background-image: conic-gradient(
       from var(--angle),
-      hsl(217 100% 65%) 0%,
-      hsl(217 100% 75%) 20%,
-      hsl(217 100% 85%) 40%,
-      hsl(217 100% 95%) 50%,
-      hsl(217 100% 85%) 60%,
-      hsl(217 100% 75%) 80%,
-      hsl(217 100% 65%) 100%
+      #1D4ED8 0%,
+      #3B82F6 25%,
+      #60A5FA 50%,
+      #93C5FD 75%,
+      #1D4ED8 100%
     );
     background-origin: border-box;
     -webkit-mask: linear-gradient(black, black) content-box,
@@ -366,13 +365,11 @@ All colors MUST be HSL.
     mask-clip: content-box, border-box;
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    animation: glowing-border-spin 2s linear infinite;
-    filter: blur(0.3px) brightness(2.5) drop-shadow(0 0 8px hsl(217 100% 70%));
+    animation: glowing-border-spin 3s linear infinite;
   }
 
   .glowing-border:hover::before {
     animation-play-state: paused;
-    filter: blur(0.3px) brightness(3.5) drop-shadow(0 0 15px hsl(217 100% 70%));
   }
 }
 
