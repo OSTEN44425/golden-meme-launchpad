@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -34,17 +35,19 @@ const Index = () => {
       {/* Modern Grid Background */}
       <ModernGrid />
 
-      {/* Background Assets */}
-      <div className="fixed inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/30 to-purple-500/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-full blur-3xl animate-pulse"></div>
+      {/* Enhanced Background Assets with more violet light */}
+      <div className="fixed inset-0 opacity-30 pointer-events-none">
+        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/40 to-purple-500/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/25 to-violet-500/35 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow"></div>
+        <div className="absolute top-3/4 left-1/4 w-28 h-28 bg-gradient-to-br from-violet-500/35 to-purple-600/35 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-violet-400/30 to-violet-600/30 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
       </div>
 
-      {/* Enhanced Navigation - More translucent and darker */}
+      {/* Enhanced Navigation - Much darker, almost black */}
       <FadeContent>
-        <header className="backdrop-blur-xl bg-slate-950/95 sticky top-0 z-50 transition-all duration-500 border-b border-slate-800/40">
+        <header className="backdrop-blur-xl bg-slate-950/98 sticky top-0 z-50 transition-all duration-500 border-b border-slate-800/30">
           <div className="container mx-auto px-8 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
               <div className="relative">
@@ -476,33 +479,33 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Footer - More translucent and darker, reduced size */}
+      {/* Footer - Much darker, almost black */}
       <FadeContent>
-        <footer className="border-t border-slate-800/40 bg-slate-950/95 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
-          <div className="container mx-auto px-6 py-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+        <footer className="border-t border-slate-800/30 bg-slate-950/98 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
+          <div className="container mx-auto px-6 py-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
               <div className="md:col-span-2">
-                <div className="flex items-center space-x-3 mb-3">
+                <div className="flex items-center space-x-3 mb-2">
                   <div className="relative">
-                    <div className="w-8 h-8 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
-                      <Zap className="w-5 h-5 text-white" />
+                    <div className="w-7 h-7 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
+                      <Zap className="w-4 h-4 text-white" />
                     </div>
-                    <div className="absolute inset-0 w-8 h-8 rounded-lg bg-violet-500/20 blur-md animate-pulse"></div>
+                    <div className="absolute inset-0 w-7 h-7 rounded-lg bg-violet-500/20 blur-md animate-pulse"></div>
                   </div>
-                  <span className="text-xl font-bold text-white font-mono tracking-wide">
+                  <span className="text-lg font-bold text-white font-mono tracking-wide">
                     launchpad.trade
                   </span>
                 </div>
-                <p className="text-slate-300 max-w-sm mb-3 font-medium leading-relaxed">
+                <p className="text-slate-300 max-w-sm mb-2 font-medium leading-relaxed text-sm">
                   The fastest and most reliable API to automate your trades on letsbonk.fun.
                 </p>
               </div>
               
-              <div className="space-y-3">
-                <h4 className="font-bold text-white mb-3 text-lg">
+              <div className="space-y-2">
+                <h4 className="font-bold text-white mb-2 text-base">
                   Product
                 </h4>
-                <ul className="space-y-2">
+                <ul className="space-y-1">
                   <li>
                     <button
                       onClick={() => scrollToSection('documentation')}
@@ -514,11 +517,11 @@ const Index = () => {
                 </ul>
               </div>
               
-              <div className="space-y-3">
-                <h4 className="font-bold text-white mb-3 text-lg">
+              <div className="space-y-2">
+                <h4 className="font-bold text-white mb-2 text-base">
                   Support
                 </h4>
-                <ul className="space-y-2">
+                <ul className="space-y-1">
                   {["Discord", "Twitter", "Contact", "Terms of Service", "Privacy Policy"].map((link, i) => (
                     <li key={i}>
                       <a 
@@ -533,7 +536,7 @@ const Index = () => {
               </div>
             </div>
             
-            <Separator className="my-4 bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+            <Separator className="my-3 bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
             
             <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-sm">
               <p className="font-medium">
@@ -543,7 +546,7 @@ const Index = () => {
                 </span>
                 . All rights reserved.
               </p>
-              <div className="flex space-x-6 mt-3 md:mt-0">
+              <div className="flex space-x-6 mt-2 md:mt-0">
                 {["Privacy Policy", "Terms of Service", "Contact"].map((link, i) => (
                   <a 
                     key={i}
