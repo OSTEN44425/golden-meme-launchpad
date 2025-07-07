@@ -30,7 +30,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-x-hidden font-sans relative">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans relative">
       {/* Modern Grid Background */}
       <ModernGrid />
 
@@ -309,71 +309,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
-      {/* Code Excerpt */}
-      <FadeContent>
-        <section id="documentation" className="py-20 relative">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                <span className="text-violet-400">Elegance</span> in Action
-              </h2>
-            </div>
-
-            <div className="max-w-3xl mx-auto">
-              <Card className="glowing-border glass-effect backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 hover-scale">
-                <CardHeader>
-                  <CardTitle className="text-white text-xl font-semibold mb-4">Buy 1 SOL of $MYTOKEN</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="bg-slate-900/60 rounded-lg p-6 font-mono text-sm">
-                    <div className="text-green-400 mb-2"># Python</div>
-                    <div className="text-violet-300">from</div> <div className="text-yellow-300">launchpad_trade</div> <div className="text-violet-300">import</div> <div className="text-yellow-300">LaunchpadClient</div>
-                    <br /><br />
-                    <div className="text-slate-400"># Initialize client</div>
-                    <div className="text-yellow-300">client</div> <div className="text-violet-300">=</div> <div className="text-yellow-300">LaunchpadClient</div><div className="text-white">(</div><div className="text-orange-300">api_key</div><div className="text-violet-300">=</div><div className="text-green-300">"YOUR_API_KEY"</div><div className="text-white">)</div>
-                    <br /><br />
-                    <div className="text-slate-400"># Buy a token in one line</div>
-                    <div className="text-yellow-300">tx_signature</div> <div className="text-violet-300">=</div> <div className="text-yellow-300">client</div><div className="text-white">.</div><div className="text-violet-300">buy</div><div className="text-white">(</div><div className="text-orange-300">token</div><div className="text-violet-300">=</div><div className="text-green-300">"TOKEN_ADDRESS"</div><div className="text-white">,</div> <div className="text-orange-300">sol_amount</div><div className="text-violet-300">=</div><div className="text-purple-300">1.0</div><div className="text-white">)</div>
-                    <br /><br />
-                    <div className="text-violet-300">print</div><div className="text-white">(</div><div className="text-green-300">f"Purchase successful! Signature: </div><div className="text-white">{"{"}</div><div className="text-yellow-300">tx_signature</div><div className="text-white">{"}"}</div><div className="text-green-300">"</div><div className="text-white">)</div>
-                  </div>
-                  <div className="mt-6 text-center">
-                    <Button 
-                      onClick={() => scrollToSection('documentation')}
-                      className="bg-slate-800/50 backdrop-blur-sm border border-slate-600/30 hover:bg-slate-700/50 text-white font-medium transition-all duration-300 modern-button hover-scale"
-                    >
-                      Explore Complete Documentation
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-      </FadeContent>
-
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
-      {/* New Pricing Section */}
+      {/* New Pricing Section with emphasis on being cheapest */}
       <FadeContent>
         <section className="py-20 relative">
           <div className="container mx-auto px-6">
@@ -386,14 +322,24 @@ const Index = () => {
 
             <div className="max-w-4xl mx-auto">
               <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
-                <CardContent className="p-16 text-center">
+                <CardContent className="p-16 text-center relative">
+                  {/* "CHEAPEST" badge */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold px-6 py-2 text-lg animate-pulse shadow-lg">
+                      🏆 CHEAPEST ON THE MARKET
+                    </Badge>
+                  </div>
+
                   {/* Large percentage */}
-                  <div className="mb-8">
+                  <div className="mb-8 mt-4">
                     <div className="text-8xl lg:text-9xl font-bold text-violet-400 mb-4">
                       0.8<span className="text-6xl lg:text-7xl">%</span>
                     </div>
-                    <p className="text-2xl text-slate-300 font-medium">
+                    <p className="text-2xl text-slate-300 font-medium mb-4">
                       Per successful transaction
+                    </p>
+                    <p className="text-lg text-green-400 font-semibold">
+                      🔥 While others charge 2-5%, we keep it simple and fair
                     </p>
                   </div>
 
@@ -410,6 +356,24 @@ const Index = () => {
                         <span>{feature}</span>
                       </div>
                     ))}
+                  </div>
+
+                  {/* Price comparison */}
+                  <div className="mt-12 p-6 bg-slate-900/40 rounded-xl border border-violet-500/20">
+                    <h4 className="text-xl font-bold text-white mb-4">Price Comparison</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                      <div className="text-center">
+                        <div className="text-red-400 font-bold text-lg">Others: 2-5%</div>
+                        <div className="text-slate-400">+ Monthly fees</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl">VS</div>
+                      </div>
+                      <div className="text-center bg-violet-500/20 rounded-lg p-3">
+                        <div className="text-violet-400 font-bold text-lg">Us: 0.8%</div>
+                        <div className="text-green-400">✓ No hidden costs</div>
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
