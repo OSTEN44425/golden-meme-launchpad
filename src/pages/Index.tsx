@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -37,9 +38,9 @@ const Index = () => {
 
       {/* Background Assets */}
       <div className="fixed inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-blue-500/30 to-violet-500/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-violet-500/20 to-pink-500/20 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/30 to-purple-500/30 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow"></div>
       </div>
 
@@ -49,10 +50,10 @@ const Index = () => {
           <div className="container mx-auto px-8 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
               <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                <div className="w-10 h-10 bg-gradient-to-br from-violet-400 via-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/50 group-hover:scale-110 transition-all duration-300">
                   <Zap className="w-6 h-6 text-white drop-shadow-lg" />
                 </div>
-                <div className="absolute inset-0 w-10 h-10 rounded-xl bg-blue-500/30 blur-md animate-pulse"></div>
+                <div className="absolute inset-0 w-10 h-10 rounded-xl bg-violet-500/30 blur-md animate-pulse"></div>
               </div>
               <span className="text-xl font-bold text-white font-mono tracking-wide">
                 launchpad.trade
@@ -62,7 +63,7 @@ const Index = () => {
               <FadeContent delay={100}>
                 <button 
                   onClick={() => scrollToSection('documentation')}
-                  className="text-slate-200 hover:text-blue-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
                 >
                   Documentation
                 </button>
@@ -86,24 +87,24 @@ const Index = () => {
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
               <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
-                The <span className="text-blue-400">Fastest</span> API
+                The <span className="text-violet-400">Fastest</span> API
                 <br />
                 for Trading and Launching on{" "}
                 <TypingAnimation 
                   texts={["letsbonk.fun", "letsbonk.fun", "letsbonk.fun"]} 
-                  className="text-blue-400"
+                  className="text-violet-400"
                 />
               </h1>
             </FadeContent>
             
             <FadeContent delay={600}>
-              <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Integrate professional-grade infrastructure in minutes to automate your trades and token launches. Maximum reliability, minimal fees.
               </p>
             </FadeContent>
             
             <FadeContent delay={800}>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
                   className="bg-slate-800/60 backdrop-blur-sm border border-slate-600/40 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
@@ -121,7 +122,7 @@ const Index = () => {
             </FadeContent>
 
             <FadeContent delay={1000}>
-              <p className="text-sm text-slate-400 italic mb-8">
+              <p className="text-sm text-slate-400 italic mb-4">
                 No credit card required. Simple integration.
               </p>
             </FadeContent>
@@ -131,22 +132,12 @@ const Index = () => {
 
       {/* AI Bot Section */}
       <FadeContent>
-        <section className="py-8 relative">
-          <div className="container mx-auto px-6 text-center">
+        <section className="py-16 relative">
+          <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
         </section>
       </FadeContent>
-
-      {/* Enhanced Section separator */}
-      <div className="relative py-8">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
 
       {/* Social Proof / Trust */}
       <FadeContent>
@@ -167,7 +158,7 @@ const Index = () => {
       {/* Enhanced Section separator */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
@@ -180,15 +171,15 @@ const Index = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Built for <span className="text-blue-400">Your Goals</span>
+                Built for <span className="text-violet-400">Your Goals</span>
               </h2>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               <FadeContent delay={300}>
-                <Card className="glowing-border glass-effect bg-gradient-to-br from-blue-500/10 to-violet-500/10 backdrop-blur-sm border-blue-500/30 relative shadow-xl h-full flex flex-col hover-scale">
+                <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl h-full flex flex-col hover-scale">
                   <CardHeader className="pb-6">
-                    <Badge className="bg-gradient-to-r from-blue-500 to-violet-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
+                    <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
                       BOT DEVELOPERS
                     </Badge>
                     <CardTitle className="text-2xl font-bold text-white mb-4">Create Unstoppable Trading Bots</CardTitle>
@@ -201,7 +192,7 @@ const Index = () => {
                         "Robust and stable API designed for 24/7 operation"
                       ].map((feature, i) => (
                         <li key={i} className="flex items-start text-slate-300">
-                          <CheckCircle className="w-5 h-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-violet-400 mr-3 mt-0.5 flex-shrink-0" />
                           <span className="text-base">{feature}</span>
                         </li>
                       ))}
@@ -211,9 +202,9 @@ const Index = () => {
               </FadeContent>
 
               <FadeContent delay={500}>
-                <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 h-full flex flex-col hover-scale">
+                <Card className="glowing-border glass-effect bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border-purple-500/30 h-full flex flex-col hover-scale">
                   <CardHeader className="pb-6">
-                    <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
+                    <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
                       PROJECT CREATORS
                     </Badge>
                     <CardTitle className="text-2xl font-bold text-white mb-4">Launch Your Token Seamlessly</CardTitle>
@@ -226,7 +217,7 @@ const Index = () => {
                         "Save time and avoid costly manual errors"
                       ].map((feature, i) => (
                         <li key={i} className="flex items-start text-slate-300">
-                          <CheckCircle className="w-5 h-5 text-violet-400 mr-3 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-purple-400 mr-3 mt-0.5 flex-shrink-0" />
                           <span className="text-base">{feature}</span>
                         </li>
                       ))}
@@ -242,7 +233,7 @@ const Index = () => {
       {/* Enhanced Section separator */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
@@ -259,17 +250,17 @@ const Index = () => {
                   icon: Zap,
                   title: "Radical Simplicity",
                   description: "Integrate our API in less than 5 minutes. Clear documentation and logical endpoints to focus on your strategy, not our infrastructure.",
-                  color: "from-blue-500/20 to-cyan-500/20",
-                  borderColor: "border-blue-500/30",
-                  iconColor: "text-blue-400"
+                  color: "from-violet-500/20 to-purple-500/20",
+                  borderColor: "border-violet-500/30",
+                  iconColor: "text-violet-400"
                 },
                 {
                   icon: Rocket,
                   title: "Performance & Stability",
                   description: "Leverage Jito bundles for atomic and priority transactions. Our service relies on the best providers (0slot, astralane) for near-instant execution.",
-                  color: "from-violet-500/20 to-purple-500/20",
-                  borderColor: "border-violet-500/30",
-                  iconColor: "text-violet-400"
+                  color: "from-purple-500/20 to-pink-500/20",
+                  borderColor: "border-purple-500/30",
+                  iconColor: "text-purple-400"
                 },
                 {
                   icon: DollarSign,
@@ -310,10 +301,10 @@ const Index = () => {
       {/* Enhanced Section separator */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></div>
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
 
@@ -323,7 +314,7 @@ const Index = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                <span className="text-blue-400">Elegance</span> in Action
+                <span className="text-violet-400">Elegance</span> in Action
               </h2>
             </div>
 
@@ -335,15 +326,15 @@ const Index = () => {
                 <CardContent>
                   <div className="bg-slate-900/60 rounded-lg p-6 font-mono text-sm">
                     <div className="text-green-400 mb-2"># Python</div>
-                    <div className="text-blue-300">from</div> <div className="text-yellow-300">launchpad_trade</div> <div className="text-blue-300">import</div> <div className="text-yellow-300">LaunchpadClient</div>
+                    <div className="text-violet-300">from</div> <div className="text-yellow-300">launchpad_trade</div> <div className="text-violet-300">import</div> <div className="text-yellow-300">LaunchpadClient</div>
                     <br /><br />
                     <div className="text-slate-400"># Initialize client</div>
-                    <div className="text-yellow-300">client</div> <div className="text-blue-300">=</div> <div className="text-yellow-300">LaunchpadClient</div><div className="text-white">(</div><div className="text-orange-300">api_key</div><div className="text-blue-300">=</div><div className="text-green-300">"YOUR_API_KEY"</div><div className="text-white">)</div>
+                    <div className="text-yellow-300">client</div> <div className="text-violet-300">=</div> <div className="text-yellow-300">LaunchpadClient</div><div className="text-white">(</div><div className="text-orange-300">api_key</div><div className="text-violet-300">=</div><div className="text-green-300">"YOUR_API_KEY"</div><div className="text-white">)</div>
                     <br /><br />
                     <div className="text-slate-400"># Buy a token in one line</div>
-                    <div className="text-yellow-300">tx_signature</div> <div className="text-blue-300">=</div> <div className="text-yellow-300">client</div><div className="text-white">.</div><div className="text-blue-300">buy</div><div className="text-white">(</div><div className="text-orange-300">token</div><div className="text-blue-300">=</div><div className="text-green-300">"TOKEN_ADDRESS"</div><div className="text-white">,</div> <div className="text-orange-300">sol_amount</div><div className="text-blue-300">=</div><div className="text-purple-300">1.0</div><div className="text-white">)</div>
+                    <div className="text-yellow-300">tx_signature</div> <div className="text-violet-300">=</div> <div className="text-yellow-300">client</div><div className="text-white">.</div><div className="text-violet-300">buy</div><div className="text-white">(</div><div className="text-orange-300">token</div><div className="text-violet-300">=</div><div className="text-green-300">"TOKEN_ADDRESS"</div><div className="text-white">,</div> <div className="text-orange-300">sol_amount</div><div className="text-violet-300">=</div><div className="text-purple-300">1.0</div><div className="text-white">)</div>
                     <br /><br />
-                    <div className="text-blue-300">print</div><div className="text-white">(</div><div className="text-green-300">f"Purchase successful! Signature: </div><div className="text-white">{"{"}</div><div className="text-yellow-300">tx_signature</div><div className="text-white">{"}"}</div><div className="text-green-300">"</div><div className="text-white">)</div>
+                    <div className="text-violet-300">print</div><div className="text-white">(</div><div className="text-green-300">f"Purchase successful! Signature: </div><div className="text-white">{"{"}</div><div className="text-yellow-300">tx_signature</div><div className="text-white">{"}"}</div><div className="text-green-300">"</div><div className="text-white">)</div>
                   </div>
                   <div className="mt-6 text-center">
                     <Button 
@@ -364,35 +355,56 @@ const Index = () => {
       {/* Enhanced Section separator */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+          <div className="w-2 h-2 bg-purple-500 rounded-full animate-ping"></div>
         </div>
       </div>
 
-      {/* Community Section - Styled like Discord */}
+      {/* Community Section - Modern Design */}
       <FadeContent>
         <section className="py-24 relative">
           <div className="container mx-auto px-6 max-w-4xl">
-            <Card className="glowing-border glass-effect bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-xl border-slate-600/30 relative shadow-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-violet-500/5 to-transparent"></div>
+            <Card className="relative overflow-hidden bg-gradient-to-br from-slate-900/80 via-slate-800/90 to-slate-900/80 backdrop-blur-2xl border-0 shadow-2xl">
+              {/* Animated background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-purple-500/5 to-pink-500/10"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.15),transparent_50%)] animate-pulse"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.1),transparent_50%)] animate-pulse" style={{animationDelay: '1s'}}></div>
+              
+              {/* Glowing border effect */}
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-violet-500/20 via-purple-500/20 to-pink-500/20 p-[1px]">
+                <div className="w-full h-full bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 rounded-lg"></div>
+              </div>
+              
               <CardContent className="relative z-10 p-12 text-center">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
-                  Join the <span className="text-violet-400">Community</span>
-                </h2>
-                <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                  Connect with other developers, get fast support, and share your strategies on our community channels. Join our community of traders and investors to get the latest news, insights, and analysis on the crypto market.
-                </p>
+                <div className="mb-8">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-violet-500/20 to-purple-500/20 mb-6">
+                    <Users className="w-8 h-8 text-violet-400" />
+                  </div>
+                  <h2 className="text-3xl lg:text-4xl font-bold mb-6 bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Join the Community
+                  </h2>
+                  <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Connect with other developers, get fast support, and share your strategies. Join our community of traders and investors for the latest insights and market analysis.
+                  </p>
+                </div>
+                
                 <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                  <Button className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold px-8 py-3 transition-all duration-300 shadow-lg modern-button hover-scale rounded-full">
-                    <MessageCircle className="w-5 h-5 mr-2" />
-                    Join our Discord
-                  </Button>
-                  <Button className="bg-[#1DA1F2] hover:bg-[#1A91DA] text-white font-bold px-8 py-3 transition-all duration-300 shadow-lg modern-button hover-scale rounded-full">
-                    <Users className="w-5 h-5 mr-2" />
-                    Follow on Twitter
-                  </Button>
+                  <button className="group relative bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold px-8 py-4 transition-all duration-300 shadow-lg rounded-full overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                    <span className="relative z-10 flex items-center">
+                      <MessageCircle className="w-5 h-5 mr-2" />
+                      Join our Discord
+                    </span>
+                  </button>
+                  <button className="group relative bg-[#1DA1F2] hover:bg-[#1A91DA] text-white font-bold px-8 py-4 transition-all duration-300 shadow-lg rounded-full overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                    <span className="relative z-10 flex items-center">
+                      <Users className="w-5 h-5 mr-2" />
+                      Follow on Twitter
+                    </span>
+                  </button>
                 </div>
               </CardContent>
             </Card>
@@ -403,7 +415,7 @@ const Index = () => {
       {/* Enhanced Section separator */}
       <div className="relative py-8">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-2 h-2 bg-orange-500 rounded-full animate-ping"></div>
@@ -415,7 +427,7 @@ const Index = () => {
         <section id="cta-final" className="py-24 relative">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-8">
-              Ready to Dominate <span className="text-blue-400">letsbonk.fun</span>?
+              Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
               className="bg-slate-700/50 backdrop-blur-sm border border-slate-500/30 text-slate-200 hover:bg-slate-600/50 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
@@ -435,10 +447,10 @@ const Index = () => {
               <div className="md:col-span-2">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="relative">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-400 via-blue-500 to-violet-500 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/40">
+                    <div className="w-8 h-8 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
                       <Zap className="w-5 h-5 text-white" />
                     </div>
-                    <div className="absolute inset-0 w-8 h-8 rounded-lg bg-blue-500/20 blur-md animate-pulse"></div>
+                    <div className="absolute inset-0 w-8 h-8 rounded-lg bg-violet-500/20 blur-md animate-pulse"></div>
                   </div>
                   <span className="text-xl font-bold text-white font-mono tracking-wide">
                     launchpad.trade
@@ -457,7 +469,7 @@ const Index = () => {
                   <li>
                     <button
                       onClick={() => scrollToSection('documentation')}
-                      className="text-slate-300 hover:text-blue-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm text-left"
+                      className="text-slate-300 hover:text-violet-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm text-left"
                     >
                       Documentation
                     </button>
@@ -474,7 +486,7 @@ const Index = () => {
                     <li key={i}>
                       <a 
                         href="#" 
-                        className="text-slate-300 hover:text-violet-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm"
+                        className="text-slate-300 hover:text-purple-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm"
                       >
                         {link}
                       </a>
@@ -499,7 +511,7 @@ const Index = () => {
                   <a 
                     key={i}
                     href="#" 
-                    className="hover:text-blue-400 transition-all duration-300 font-medium hover:scale-105 hover:underline decoration-blue-400/50 underline-offset-4"
+                    className="hover:text-violet-400 transition-all duration-300 font-medium hover:scale-105 hover:underline decoration-violet-400/50 underline-offset-4"
                   >
                     {link}
                   </a>

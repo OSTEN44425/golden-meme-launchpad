@@ -57,80 +57,68 @@
   }
 }
 
-/* Typing Animation */
-$slider-name: typing-slider;
-$slides: 3;
-$typing-duration: 3s;
-$tab-letters: 12 12 12;
-$slider-font-size: inherit;
-
-@keyframes cursor {
-  from, to { border-color: transparent; }
-  50% { border-color: #3b82f6; }
-}
-
-@keyframes typing {
-  from { width: 100%; }
-  90%, to { width: 0; }
-}
-
-@keyframes slide {
-  33.33% { font-size: inherit; letter-spacing: 1px; }
-  to { font-size: 0; letter-spacing: 0; }
-}
-
+/* Typing Animation - Fixed version */
 .typing-slider {
   font-family: 'Outfit', 'Manrope', sans-serif;
   font-weight: bold;
   white-space: nowrap;
   display: inline-block;
+  position: relative;
 }
 
 .typing-slider p {
-  position: relative;
-  display: inline;
-  font-size: 0;
-  letter-spacing: 0;
-  animation: slide 9s step-start infinite;
-  color: #3b82f6;
-}
-
-.typing-slider p::after {
-  content: "";
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
-  border-left: 3px solid #3b82f6;
-  background-color: transparent;
-  animation: typing 3s infinite, cursor 1s infinite;
+  left: 0;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #8b5cf6;
+  color: #8b5cf6;
+  font-size: inherit;
+  animation: typing 4s steps(40) infinite, blink-cursor 0.8s infinite;
+  opacity: 0;
 }
 
 .typing-slider p:nth-child(1) {
   animation-delay: 0s;
-}
-
-.typing-slider p:nth-child(1)::after {
-  animation-delay: 0s;
-  animation-timing-function: steps(12), step-end;
+  opacity: 1;
 }
 
 .typing-slider p:nth-child(2) {
-  animation-delay: 3s;
-}
-
-.typing-slider p:nth-child(2)::after {
-  animation-delay: 3s;
-  animation-timing-function: steps(12), step-end;
+  animation-delay: 4s;
 }
 
 .typing-slider p:nth-child(3) {
-  animation-delay: 6s;
+  animation-delay: 8s;
 }
 
-.typing-slider p:nth-child(3)::after {
-  animation-delay: 6s;
-  animation-timing-function: steps(12), step-end;
+@keyframes typing {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+  }
+  90% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes blink-cursor {
+  0%, 50% {
+    border-color: #8b5cf6;
+  }
+  51%, 100% {
+    border-color: transparent;
+  }
 }
 
 /* AI Bot Animation */
@@ -142,6 +130,7 @@ $slider-font-size: inherit;
   display: grid;
   place-items: center;
   animation: blink 2.4s ease infinite, move-head 4.2s linear infinite, mouth 1.2s ease-in infinite;
+  margin: 0 auto;
 }
 
 .ai-bot .head {
