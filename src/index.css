@@ -245,6 +245,11 @@ All colors MUST be HSL.
     animation: slide-horizontal 10s linear infinite;
   }
 
+  /* Animated separators */
+  .animated-separator {
+    animation: separator-glow 2s ease-in-out infinite alternate;
+  }
+
   /* Hover scale animation */
   .hover-scale {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -442,6 +447,17 @@ All colors MUST be HSL.
 @keyframes glowing-border-spin {
   to {
     --angle: 1turn;
+  }
+}
+
+@keyframes separator-glow {
+  from {
+    opacity: 0.6;
+    filter: blur(1px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px) brightness(1.2);
   }
 }
 

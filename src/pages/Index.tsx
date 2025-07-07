@@ -8,11 +8,18 @@ import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, M
 import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
+import ScrollFloat from "@/components/animations/ScrollFloat";
+import SplitText from "@/components/animations/SplitText";
+import BlurText from "@/components/animations/BlurText";
+import TypingAnimation from "@/components/animations/TypingAnimation";
+import AiBot from "@/components/animations/AiBot";
 import { useLenis } from "@/hooks/useLenis";
+import { useRef } from "react";
 
 const Index = () => {
   // Initialize Lenis smooth scroll
   useLenis();
+  const scrollContainerRef = useRef(null);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -30,7 +37,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-x-hidden font-sans relative">
+    <div ref={scrollContainerRef} className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-x-hidden font-sans relative">
       {/* Modern Grid Background */}
       <ModernGrid />
 
@@ -58,19 +65,14 @@ const Index = () => {
               </span>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
-              {[
-                { name: "Documentation", id: "documentation" },
-                { name: "Pricing", id: "pricing" }
-              ].map((item, index) => (
-                <FadeContent key={item.name} delay={index * 100}>
-                  <button 
-                    onClick={() => scrollToSection(item.id)}
-                    className="nav-link-hover text-slate-200 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
-                  >
-                    {item.name}
-                  </button>
-                </FadeContent>
-              ))}
+              <FadeContent delay={100}>
+                <button 
+                  onClick={() => scrollToSection('documentation')}
+                  className="text-slate-200 hover:text-blue-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                >
+                  Documentation
+                </button>
+              </FadeContent>
             </nav>
             <button 
               onClick={() => scrollToSection('cta-final')}
@@ -89,18 +91,21 @@ const Index = () => {
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
-                The <span className="text-blue-400">Fastest</span> API
-                <br />
-                for Trading and Launching on{" "}
-                <span className="text-blue-400">letsbonk.fun</span>
-              </h1>
+              <ScrollFloat scrollContainerRef={scrollContainerRef} containerClassName="mb-8">
+                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+                  The <span className="text-blue-400">Fastest</span> API
+                  <br />
+                  for Trading and Launching on{" "}
+                  <TypingAnimation />
+                </h1>
+              </ScrollFloat>
             </FadeContent>
             
             <FadeContent delay={600}>
-              <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Integrate professional-grade infrastructure in minutes to automate your trades and token launches. Maximum reliability, minimal fees.
-              </p>
+              <SplitText 
+                text="Integrate professional-grade infrastructure in minutes to automate your trades and token launches. Maximum reliability, minimal fees."
+                className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+              />
             </FadeContent>
             
             <FadeContent delay={800}>
@@ -122,7 +127,7 @@ const Index = () => {
             </FadeContent>
 
             <FadeContent delay={1000}>
-              <p className="text-sm text-slate-400 italic">
+              <p className="text-sm text-slate-400 italic mb-8">
                 No credit card required. Simple integration.
               </p>
             </FadeContent>
@@ -130,14 +135,20 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* AI Bot Asset */}
+      <AiBot />
+
+      {/* Animated Section separator */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent my-8 animated-separator"></div>
 
       {/* Social Proof / Trust */}
       <FadeContent>
-        <section className="py-16 relative">
+        <section className="py-8 relative">
           <div className="container mx-auto px-6 text-center">
-            <p className="text-sm text-slate-400 mb-8 uppercase tracking-wider">Compatible with Solana Ecosystem</p>
+            <BlurText 
+              text="Compatible with Solana Ecosystem"
+              className="text-sm text-slate-400 mb-8 uppercase tracking-wider"
+            />
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
               <div className="text-2xl font-bold text-slate-500">Solana</div>
               <div className="text-2xl font-bold text-slate-500">Jito Labs</div>
@@ -149,17 +160,17 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Animated Section separator */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent my-8 animated-separator"></div>
 
       {/* Use Cases Section */}
       <FadeContent>
-        <section className="py-24 relative">
+        <section className="py-16 relative">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+              <ScrollFloat scrollContainerRef={scrollContainerRef} containerClassName="mb-6">
                 Built for <span className="text-blue-400">Your Goals</span>
-              </h2>
+              </ScrollFloat>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -169,7 +180,10 @@ const Index = () => {
                     <Badge className="bg-gradient-to-r from-blue-500 to-violet-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
                       BOT DEVELOPERS
                     </Badge>
-                    <CardTitle className="text-2xl font-bold text-white mb-4">Create Unstoppable Trading Bots</CardTitle>
+                    <SplitText 
+                      text="Create Unstoppable Trading Bots"
+                      className="text-2xl font-bold text-white mb-4"
+                    />
                   </CardHeader>
                   <CardContent className="flex-1">
                     <ul className="space-y-4">
@@ -194,7 +208,10 @@ const Index = () => {
                     <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
                       PROJECT CREATORS
                     </Badge>
-                    <CardTitle className="text-2xl font-bold text-white mb-4">Launch Your Token Seamlessly</CardTitle>
+                    <SplitText 
+                      text="Launch Your Token Seamlessly"
+                      className="text-2xl font-bold text-white mb-4"
+                    />
                   </CardHeader>
                   <CardContent className="flex-1">
                     <ul className="space-y-4">
@@ -217,12 +234,12 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Animated Section separator */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent my-8 animated-separator"></div>
 
       {/* Key Benefits */}
       <FadeContent>
-        <section className="py-24 relative">
+        <section className="py-16 relative">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -265,7 +282,10 @@ const Index = () => {
                       <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
                         <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
                       </div>
-                      <CardTitle className="text-white text-xl font-semibold">{feature.title}</CardTitle>
+                      <BlurText 
+                        text={feature.title}
+                        className="text-white text-xl font-semibold"
+                      />
                     </CardHeader>
                     <CardContent className="flex-1">
                       <p className="text-slate-300 text-sm leading-relaxed">{feature.description}</p>
@@ -278,23 +298,26 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Animated Section separator */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent my-8 animated-separator"></div>
 
       {/* Code Excerpt */}
       <FadeContent>
-        <section id="documentation" className="py-24 relative">
+        <section id="documentation" className="py-16 relative">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+              <ScrollFloat scrollContainerRef={scrollContainerRef} containerClassName="mb-6">
                 <span className="text-blue-400">Elegance</span> in Action
-              </h2>
+              </ScrollFloat>
             </div>
 
             <div className="max-w-3xl mx-auto">
               <Card className="glowing-border glass-effect backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 hover-scale">
                 <CardHeader>
-                  <CardTitle className="text-white text-xl font-semibold mb-4">Buy 1 SOL of $MYTOKEN</CardTitle>
+                  <SplitText 
+                    text="Buy 1 SOL of $MYTOKEN"
+                    className="text-white text-xl font-semibold mb-4"
+                  />
                 </CardHeader>
                 <CardContent>
                   <div className="bg-slate-900/60 rounded-lg p-6 font-mono text-sm">
@@ -325,17 +348,17 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Animated Section separator */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent my-8 animated-separator"></div>
 
       {/* Pricing Section */}
       <FadeContent>
-        <section id="pricing" className="py-24 relative">
+        <section id="pricing" className="py-16 relative">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+              <ScrollFloat scrollContainerRef={scrollContainerRef} containerClassName="mb-6">
                 <span className="text-blue-400">Simple</span> and Predictable Pricing
-              </h2>
+              </ScrollFloat>
             </div>
 
             <div className="max-w-2xl mx-auto">
@@ -368,19 +391,20 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Animated Section separator */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-violet-500/60 to-transparent my-8 animated-separator"></div>
 
       {/* Community Section - Styled like Discord */}
       <FadeContent>
-        <section className="py-24 relative">
+        <section className="py-16 relative">
           <div className="container mx-auto px-6 max-w-4xl">
             <Card className="glowing-border glass-effect bg-gradient-to-br from-slate-800/40 to-slate-900/40 backdrop-blur-xl border-slate-600/30 relative shadow-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-violet-500/5 to-transparent"></div>
               <CardContent className="relative z-10 p-12 text-center">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">
-                  Join the <span className="text-violet-400">Community</span>
-                </h2>
+                <BlurText 
+                  text="Join the Community"
+                  className="text-3xl lg:text-4xl font-bold mb-6 text-white"
+                />
                 <p className="text-lg text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
                   Connect with other developers, get fast support, and share your strategies on our community channels. Join our community of traders and investors to get the latest news, insights, and analysis on the crypto market.
                 </p>
@@ -400,16 +424,17 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Animated Section separator */}
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent my-8 animated-separator"></div>
 
       {/* Final CTA */}
       <FadeContent>
-        <section id="cta-final" className="py-24 relative">
+        <section id="cta-final" className="py-16 relative">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-8">
-              Ready to Dominate <span className="text-blue-400">letsbonk.fun</span>?
-            </h2>
+            <BlurText 
+              text="Ready to Dominate letsbonk.fun?"
+              className="text-3xl lg:text-4xl font-bold mb-8"
+            />
             <button 
               className="bg-slate-700/50 backdrop-blur-sm border border-slate-500/30 text-slate-200 hover:bg-slate-600/50 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
@@ -447,19 +472,14 @@ const Index = () => {
                   Product
                 </h4>
                 <ul className="space-y-3">
-                  {[
-                    { name: "Documentation", id: "documentation" },
-                    { name: "Pricing", id: "pricing" }
-                  ].map((link, i) => (
-                    <li key={i}>
-                      <button
-                        onClick={() => scrollToSection(link.id)}
-                        className="text-slate-300 hover:text-blue-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm text-left"
-                      >
-                        {link.name}
-                      </button>
-                    </li>
-                  ))}
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('documentation')}
+                      className="text-slate-300 hover:text-blue-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm text-left"
+                    >
+                      Documentation
+                    </button>
+                  </li>
                 </ul>
               </div>
               
