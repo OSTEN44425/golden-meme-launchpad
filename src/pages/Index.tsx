@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +7,8 @@ import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, M
 import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
+import TypingAnimation from "@/components/animations/TypingAnimation";
+import AIBot from "@/components/animations/AIBot";
 import { useLenis } from "@/hooks/useLenis";
 
 const Index = () => {
@@ -58,19 +59,14 @@ const Index = () => {
               </span>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
-              {[
-                { name: "Documentation", id: "documentation" },
-                { name: "Pricing", id: "pricing" }
-              ].map((item, index) => (
-                <FadeContent key={item.name} delay={index * 100}>
-                  <button 
-                    onClick={() => scrollToSection(item.id)}
-                    className="nav-link-hover text-slate-200 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
-                  >
-                    {item.name}
-                  </button>
-                </FadeContent>
-              ))}
+              <FadeContent delay={100}>
+                <button 
+                  onClick={() => scrollToSection('documentation')}
+                  className="text-slate-200 hover:text-blue-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                >
+                  Documentation
+                </button>
+              </FadeContent>
             </nav>
             <button 
               onClick={() => scrollToSection('cta-final')}
@@ -93,7 +89,10 @@ const Index = () => {
                 The <span className="text-blue-400">Fastest</span> API
                 <br />
                 for Trading and Launching on{" "}
-                <span className="text-blue-400">letsbonk.fun</span>
+                <TypingAnimation 
+                  texts={["letsbonk.fun", "letsbonk.fun", "letsbonk.fun"]} 
+                  className="text-blue-400"
+                />
               </h1>
             </FadeContent>
             
@@ -104,7 +103,7 @@ const Index = () => {
             </FadeContent>
             
             <FadeContent delay={800}>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
                   className="bg-slate-800/60 backdrop-blur-sm border border-slate-600/40 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
@@ -122,7 +121,7 @@ const Index = () => {
             </FadeContent>
 
             <FadeContent delay={1000}>
-              <p className="text-sm text-slate-400 italic">
+              <p className="text-sm text-slate-400 italic mb-8">
                 No credit card required. Simple integration.
               </p>
             </FadeContent>
@@ -130,12 +129,28 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* AI Bot Section */}
+      <FadeContent>
+        <section className="py-8 relative">
+          <div className="container mx-auto px-6 text-center">
+            <AIBot />
+          </div>
+        </section>
+      </FadeContent>
+
+      {/* Enhanced Section separator */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
       {/* Social Proof / Trust */}
       <FadeContent>
-        <section className="py-16 relative">
+        <section className="py-8 relative">
           <div className="container mx-auto px-6 text-center">
             <p className="text-sm text-slate-400 mb-8 uppercase tracking-wider">Compatible with Solana Ecosystem</p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
@@ -149,12 +164,19 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Enhanced Section separator */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
       {/* Use Cases Section */}
       <FadeContent>
-        <section className="py-24 relative">
+        <section className="py-16 relative">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
@@ -217,8 +239,15 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Enhanced Section separator */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
       {/* Key Benefits */}
       <FadeContent>
@@ -278,8 +307,15 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Enhanced Section separator */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-blue-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
       {/* Code Excerpt */}
       <FadeContent>
@@ -325,51 +361,15 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
-
-      {/* Pricing Section */}
-      <FadeContent>
-        <section id="pricing" className="py-24 relative">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                <span className="text-blue-400">Simple</span> and Predictable Pricing
-              </h2>
-            </div>
-
-            <div className="max-w-2xl mx-auto">
-              <Card className="glowing-border glass-effect bg-gradient-to-br from-blue-500/10 to-violet-500/10 backdrop-blur-sm border-blue-500/30 relative shadow-xl hover-scale">
-                <CardHeader className="text-center pb-6">
-                  <div className="text-sm font-medium text-blue-400 mb-2">TRANSACTION FEE</div>
-                  <div className="text-6xl font-bold text-white mb-4">0.8<span className="text-2xl text-slate-400">%</span></div>
-                  <CardDescription className="text-slate-300 text-lg">
-                    Only on successful transactions. No token creation fees, no monthly subscription fees.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <ul className="space-y-3 mb-8">
-                    {[
-                      "No hidden fees",
-                      "No monthly subscription", 
-                      "Billing only on successful transactions",
-                      "Complete cost transparency"
-                    ].map((feature, i) => (
-                      <li key={i} className="flex items-center justify-center text-slate-300">
-                        <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-      </FadeContent>
-
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Enhanced Section separator */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
       {/* Community Section - Styled like Discord */}
       <FadeContent>
@@ -400,8 +400,15 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Section separator */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent my-16"></div>
+      {/* Enhanced Section separator */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-orange-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
       {/* Final CTA */}
       <FadeContent>
@@ -447,19 +454,14 @@ const Index = () => {
                   Product
                 </h4>
                 <ul className="space-y-3">
-                  {[
-                    { name: "Documentation", id: "documentation" },
-                    { name: "Pricing", id: "pricing" }
-                  ].map((link, i) => (
-                    <li key={i}>
-                      <button
-                        onClick={() => scrollToSection(link.id)}
-                        className="text-slate-300 hover:text-blue-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm text-left"
-                      >
-                        {link.name}
-                      </button>
-                    </li>
-                  ))}
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('documentation')}
+                      className="text-slate-300 hover:text-blue-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm text-left"
+                    >
+                      Documentation
+                    </button>
+                  </li>
                 </ul>
               </div>
               
