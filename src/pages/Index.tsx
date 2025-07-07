@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,103 +6,119 @@ import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Chevron
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans">
-      {/* Navigation */}
-      <header className="border-b border-white/10 backdrop-blur-md bg-black/80 sticky top-0 z-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-x-hidden font-sans">
+      {/* Enhanced Navigation */}
+      <header className="border-b border-violet-500/20 backdrop-blur-xl bg-black/50 sticky top-0 z-50 transition-all duration-300">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-violet-500 via-violet-600 to-violet-700 rounded-lg flex items-center justify-center font-bold text-white shadow-lg text-sm">
-              MK
+          <div className="flex items-center space-x-3 group">
+            <div className="w-10 h-10 bg-gradient-to-br from-violet-500 via-violet-600 to-violet-700 rounded-xl flex items-center justify-center font-bold text-white shadow-2xl text-sm group-hover:scale-110 transition-all duration-300 hover:shadow-violet-500/30">
+              LT
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">MemeKit</span>
+            <span className="text-2xl font-bold bg-gradient-to-r from-white via-violet-200 to-violet-300 bg-clip-text text-transparent hover:from-violet-300 hover:to-white transition-all duration-300">
+              Launchpad Trade
+            </span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-gray-300 hover:text-violet-400 transition-all duration-300 font-medium text-sm hover:scale-105">Features</a>
-            <a href="#pricing" className="text-gray-300 hover:text-violet-400 transition-all duration-300 font-medium text-sm hover:scale-105">Pricing</a>
-            <a href="#docs" className="text-gray-300 hover:text-violet-400 transition-all duration-300 font-medium text-sm hover:scale-105">Documentation</a>
-            <a href="#faq" className="text-gray-300 hover:text-violet-400 transition-all duration-300 font-medium text-sm hover:scale-105">FAQ</a>
+            {["Features", "Pricing", "Documentation", "FAQ"].map((item) => (
+              <a 
+                key={item}
+                href={`#${item.toLowerCase()}`} 
+                className="text-gray-300 hover:text-violet-400 transition-all duration-300 font-medium text-sm relative group hover:scale-105"
+              >
+                {item}
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-violet-500 to-violet-400 group-hover:w-full transition-all duration-300"></div>
+              </a>
+            ))}
           </nav>
           <div className="flex items-center space-x-3">
-            <Button variant="ghost" className="text-gray-300 hover:text-violet-400 hover:bg-violet-400/10 border-transparent text-sm transition-all duration-300">
-              Log In
+            <Button 
+              variant="ghost" 
+              className="text-gray-300 hover:text-violet-400 hover:bg-violet-400/10 border-transparent text-sm transition-all duration-300 hover:scale-105 relative overflow-hidden group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500/0 via-violet-500/10 to-violet-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
+              <span className="relative">Log In</span>
             </Button>
-            <Button className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-400 hover:via-violet-500 hover:to-violet-600 text-white font-semibold shadow-xl hover:shadow-violet-500/30 transition-all duration-300 text-sm transform hover:scale-105">
-              Get API Key
+            <Button className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-400 hover:via-violet-500 hover:to-violet-600 text-white font-semibold shadow-xl hover:shadow-violet-500/40 transition-all duration-300 text-sm transform hover:scale-105 relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <span className="relative">Get API Key</span>
             </Button>
           </div>
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Enhanced Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Enhanced animated background */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-violet-600/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-to-r from-violet-500/10 via-transparent to-violet-400/10 rounded-full blur-2xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-to-r from-violet-500/10 via-transparent to-violet-400/10 rounded-full blur-2xl animate-spin-slow"></div>
           <div className="absolute top-10 right-20 w-40 h-40 bg-violet-400/10 rounded-full blur-2xl animate-bounce delay-500"></div>
+          {/* Floating particles */}
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-violet-400 rounded-full animate-ping delay-700"></div>
+          <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-violet-300 rounded-full animate-ping delay-1000"></div>
         </div>
         
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="mb-8">
-              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-violet-500/15 to-violet-400/15 backdrop-blur-md rounded-full px-6 py-3 text-sm border border-violet-500/30 shadow-xl hover:shadow-violet-500/20 transition-all duration-300 transform hover:scale-105">
-                <Rocket className="w-4 h-4 text-violet-400" />
+            <div className="mb-8 animate-fade-in">
+              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-violet-500/15 to-violet-400/15 backdrop-blur-md rounded-full px-6 py-3 text-sm border border-violet-500/30 shadow-xl hover:shadow-violet-500/20 transition-all duration-300 transform hover:scale-105 group">
+                <Rocket className="w-4 h-4 text-violet-400 group-hover:rotate-12 transition-transform duration-300" />
                 <span className="text-gray-200 font-medium">Developer API • Easy to Use</span>
-                <ArrowRight className="w-3 h-3 text-violet-400" />
+                <ArrowRight className="w-3 h-3 text-violet-400 group-hover:translate-x-1 transition-transform duration-300" />
               </div>
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-black mb-8 leading-tight">
-              <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+            <h1 className="text-4xl lg:text-6xl font-black mb-8 leading-tight animate-fade-in delay-100">
+              <span className="bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent hover:from-violet-200 hover:to-white transition-all duration-500">
                 Deploy & Trade
               </span>
               <br />
-              <span className="bg-gradient-to-r from-violet-400 via-violet-500 to-violet-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-violet-400 via-violet-500 to-violet-600 bg-clip-text text-transparent animate-pulse">
                 Memecoins
               </span>
               <br />
-              <span className="text-white text-3xl lg:text-5xl font-normal">
-                on Bonk & PumpFun
+              <span className="text-white text-2xl lg:text-4xl font-normal">
+                on Solana Protocols
               </span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+            <p className="text-lg lg:text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed font-light animate-fade-in delay-200">
               The complete API to deploy tokens, trade in real-time and integrate all Solana launchpads. 
               <span className="text-violet-400 font-medium"> Bonk, PumpFun and more.</span>
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-16">
-              <Button size="lg" className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-400 hover:via-violet-500 hover:to-violet-600 text-white font-bold px-10 py-6 text-lg shadow-2xl hover:shadow-violet-500/30 transition-all duration-300 transform hover:scale-105 rounded-xl">
-                <Zap className="w-5 h-5 mr-3" />
-                Start Now
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mb-16 animate-fade-in delay-300">
+              <Button size="lg" className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-400 hover:via-violet-500 hover:to-violet-600 text-white font-bold px-10 py-6 text-lg shadow-2xl hover:shadow-violet-500/40 transition-all duration-300 transform hover:scale-110 rounded-xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <Zap className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="relative">Start Now</span>
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-violet-400 text-violet-400 hover:bg-violet-500 hover:text-white px-10 py-6 text-lg backdrop-blur-md transition-all duration-300 transform hover:scale-105 rounded-xl bg-violet-400/10">
-                <Code className="w-5 h-5 mr-3" />
-                API Documentation
+              <Button size="lg" variant="outline" className="border-2 border-violet-400 text-violet-400 hover:bg-violet-600 hover:text-white hover:border-violet-600 px-10 py-6 text-lg backdrop-blur-md transition-all duration-300 transform hover:scale-110 rounded-xl bg-gradient-to-r from-violet-500/10 to-violet-600/10 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-500/0 via-violet-500/20 to-violet-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <Code className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                <span className="relative">API Documentation</span>
               </Button>
             </div>
 
             {/* Enhanced integration badges */}
-            <div className="flex flex-wrap items-center justify-center gap-8 opacity-70">
-              <div className="flex items-center space-x-3 text-sm bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
-                <div className="w-6 h-6 bg-gradient-to-r from-orange-400 to-red-500 rounded-md"></div>
-                <span className="text-white">Bonk Protocol</span>
-              </div>
-              <div className="flex items-center space-x-3 text-sm bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
-                <div className="w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-500 rounded-md"></div>
-                <span className="text-white">PumpFun</span>
-              </div>
-              <div className="flex items-center space-x-3 text-sm bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
-                <div className="w-6 h-6 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-md"></div>
-                <span className="text-white">All Launchpads</span>
-              </div>
+            <div className="flex flex-wrap items-center justify-center gap-8 opacity-80 animate-fade-in delay-400">
+              {[
+                { name: "Bonk Protocol", colors: "from-orange-400 to-red-500" },
+                { name: "PumpFun", colors: "from-purple-400 to-pink-500" },
+                { name: "All Launchpads", colors: "from-blue-400 to-cyan-500" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center space-x-3 text-sm bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20 hover:border-violet-400/50 transition-all duration-300 hover:scale-105 group">
+                  <div className={`w-6 h-6 bg-gradient-to-r ${item.colors} rounded-md group-hover:rotate-12 transition-transform duration-300`}></div>
+                  <span className="text-white group-hover:text-violet-200 transition-colors duration-300">{item.name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section - Enhanced */}
+      {/* Enhanced Stats Section */}
       <section className="py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-violet-500/5 to-transparent"></div>
         <div className="container mx-auto px-6 relative z-10">
@@ -114,14 +129,14 @@ const Index = () => {
               { value: "99.9%", label: "API Uptime", icon: Shield, color: "from-blue-400 to-cyan-600" },
               { value: "1000+", label: "Active Developers", icon: Users, color: "from-pink-400 to-rose-600" }
             ].map((stat, index) => (
-              <Card key={index} className="bg-white/5 backdrop-blur-xl border-white/10 hover:border-violet-400/50 transition-all duration-500 group relative overflow-hidden rounded-2xl">
+              <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-xl border-violet-500/20 hover:border-violet-400/50 transition-all duration-500 group relative overflow-hidden rounded-2xl hover:shadow-2xl hover:shadow-violet-500/20 transform hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-violet-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardContent className="p-8 text-center relative z-10">
-                  <div className={`w-14 h-14 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <div className={`w-14 h-14 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
                     <stat.icon className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-3xl lg:text-4xl font-bold text-white mb-2">{stat.value}</div>
-                  <div className="text-gray-400 font-medium text-base">{stat.label}</div>
+                  <div className="text-3xl lg:text-4xl font-bold text-white mb-2 group-hover:text-violet-200 transition-colors duration-300">{stat.value}</div>
+                  <div className="text-gray-400 font-medium text-base group-hover:text-gray-300 transition-colors duration-300">{stat.label}</div>
                 </CardContent>
               </Card>
             ))}
@@ -129,11 +144,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section - Completely redesigned */}
+      {/* Completely redesigned Features Section */}
       <section id="features" className="py-24 relative">
-        <div className="container mx-auto px-6">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900/20 via-violet-900/10 to-gray-900/20"></div>
+        <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <Badge className="mb-6 bg-violet-500/20 text-violet-400 border-violet-500/40 px-4 py-2 text-sm font-semibold rounded-full">
+            <Badge className="mb-6 bg-gradient-to-r from-violet-500/20 to-violet-600/20 text-violet-300 border-violet-500/30 px-4 py-2 text-sm font-semibold rounded-full backdrop-blur-md">
               FEATURES
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold mb-8">
@@ -150,41 +166,44 @@ const Index = () => {
               {
                 icon: Rocket,
                 title: "Deploy & Launch",
-                description: "Deploy your tokens in seconds on Bonk, PumpFun and all Solana launchpads. Automatic tokenomics configuration and liquidity.",
+                description: "Deploy your tokens instantly on Bonk, PumpFun and all Solana launchpads. Automatic tokenomics configuration and liquidity management.",
                 features: ["Instant deployment", "Multi-launchpads", "Auto liquidity"],
-                gradient: "from-violet-500 to-violet-700"
+                gradient: "from-violet-500 to-violet-700",
+                bgGradient: "from-violet-500/10 to-purple-600/10"
               },
               {
                 icon: TrendingUp,
                 title: "Real-Time Trading",
-                description: "Trade your memecoins directly via API with real-time data, advanced analytics and performance monitoring.",
+                description: "Trade your memecoins directly via API with real-time data, advanced analytics and comprehensive performance monitoring.",
                 features: ["Trading API", "Real-time data", "Advanced analytics"],
-                gradient: "from-blue-500 to-purple-600"
+                gradient: "from-blue-500 to-purple-600",
+                bgGradient: "from-blue-500/10 to-purple-600/10"
               },
               {
                 icon: Layers,
                 title: "Complete Integrations",
-                description: "Connect to all protocols: Bonk, PumpFun, Raydium and more. One API for the entire Solana ecosystem.",
+                description: "Connect to all protocols: Bonk, PumpFun, Raydium and more. One unified API for the entire Solana ecosystem.",
                 features: ["Multi-protocols", "Unified API", "Custom webhooks"],
-                gradient: "from-emerald-500 to-teal-600"
+                gradient: "from-emerald-500 to-teal-600",
+                bgGradient: "from-emerald-500/10 to-teal-600/10"
               }
             ].map((feature, index) => (
-              <Card key={index} className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border-white/20 hover:border-violet-400/50 transition-all duration-500 group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-violet-500/20">
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-violet-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <Card key={index} className={`bg-gradient-to-br ${feature.bgGradient} backdrop-blur-xl border-violet-500/20 hover:border-violet-400/40 transition-all duration-500 group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-violet-500/20 transform hover:scale-105`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardHeader className="relative z-10 p-8">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
+                  <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-xl`}>
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-2xl text-white mb-4 font-bold">{feature.title}</CardTitle>
+                  <CardTitle className="text-2xl text-white mb-4 font-bold group-hover:text-violet-200 transition-colors duration-300">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="relative z-10 px-8 pb-8">
-                  <CardDescription className="text-gray-300 text-base mb-6 leading-relaxed">
+                  <CardDescription className="text-gray-300 text-base mb-6 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                     {feature.description}
                   </CardDescription>
                   <ul className="space-y-3">
                     {feature.features.map((item, i) => (
-                      <li key={i} className="flex items-center text-sm text-gray-300">
-                        <CheckCircle className="w-5 h-5 text-violet-400 mr-3 flex-shrink-0" />
+                      <li key={i} className="flex items-center text-sm text-gray-300 group-hover:text-gray-200 transition-colors duration-300">
+                        <CheckCircle className="w-5 h-5 text-violet-400 mr-3 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />
                         <span className="font-medium">{item}</span>
                       </li>
                     ))}
@@ -196,9 +215,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Pricing Section - Enhanced */}
+      {/* Enhanced Pricing Section */}
       <section id="pricing" className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/30 to-transparent"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl font-bold mb-8">
@@ -212,7 +231,7 @@ const Index = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Starter Plan */}
-            <Card className="bg-white/5 backdrop-blur-xl border-white/10 hover:border-white/20 transition-all duration-300 rounded-3xl">
+            <Card className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-xl border-violet-500/20 hover:border-violet-400/40 transition-all duration-300 rounded-3xl transform hover:scale-105">
               <CardHeader className="text-center pb-8 p-8">
                 <CardTitle className="text-2xl text-white mb-4 font-bold">STARTER</CardTitle>
                 <CardDescription className="text-gray-300 mb-8 text-base">Perfect for testing and small projects</CardDescription>
@@ -228,21 +247,21 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/30 transition-all duration-300 text-base py-3 rounded-xl">
+                <Button className="w-full bg-gradient-to-r from-violet-500/20 to-violet-600/20 hover:from-violet-500/30 hover:to-violet-600/30 text-white border border-violet-500/30 hover:border-violet-400/50 transition-all duration-300 text-base py-3 rounded-xl backdrop-blur-md">
                   Start Free
                 </Button>
               </CardContent>
             </Card>
 
             {/* Pro Plan */}
-            <Card className="bg-gradient-to-br from-violet-500/15 via-violet-500/10 to-violet-600/10 backdrop-blur-xl border-violet-500/40 relative scale-105 shadow-2xl rounded-3xl hover:shadow-violet-500/25">
-              <Badge className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-violet-500 to-violet-600 text-white font-bold px-6 py-2 text-sm rounded-full shadow-lg">
+            <Card className="bg-gradient-to-br from-violet-500/15 via-violet-600/10 to-violet-700/15 backdrop-blur-xl border-violet-400/40 relative scale-105 shadow-2xl rounded-3xl hover:shadow-violet-500/30 transform hover:scale-110 transition-all duration-300">
+              <Badge className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-violet-500 to-violet-600 text-white font-bold px-6 py-2 text-sm rounded-full shadow-lg animate-pulse">
                 POPULAR
               </Badge>
               <CardHeader className="text-center pb-8 p-8">
                 <CardTitle className="text-2xl text-white mb-4 font-bold">PRO</CardTitle>
                 <CardDescription className="text-gray-300 mb-8 text-base">For serious builders</CardDescription>
-                <div className="text-4xl font-bold text-violet-400 mb-3">$99</div>
+                <div className="text-4xl font-bold text-violet-300 mb-3">$99</div>
                 <div className="text-gray-400 text-base">/month</div>
               </CardHeader>
               <CardContent className="p-8 pt-0">
@@ -254,14 +273,15 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-400 hover:to-violet-500 text-white font-bold transition-all duration-300 shadow-xl text-base py-3 rounded-xl hover:shadow-violet-500/30 transform hover:scale-105">
-                  Try Pro Free
+                <Button className="w-full bg-gradient-to-r from-violet-500 to-violet-600 hover:from-violet-400 hover:to-violet-500 text-white font-bold transition-all duration-300 shadow-xl text-base py-3 rounded-xl hover:shadow-violet-500/40 transform hover:scale-105 relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <span className="relative">Try Pro Free</span>
                 </Button>
               </CardContent>
             </Card>
 
             {/* Enterprise Plan */}
-            <Card className="bg-white/5 backdrop-blur-xl border-white/10 hover:border-white/20 transition-all duration-300 rounded-3xl">
+            <Card className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-xl border-violet-500/20 hover:border-violet-400/40 transition-all duration-300 rounded-3xl transform hover:scale-105">
               <CardHeader className="text-center pb-8 p-8">
                 <CardTitle className="text-2xl text-white mb-4 font-bold">ENTERPRISE</CardTitle>
                 <CardDescription className="text-gray-300 mb-8 text-base">For large-scale operations</CardDescription>
@@ -277,7 +297,7 @@ const Index = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-white/30 transition-all duration-300 text-base py-3 rounded-xl">
+                <Button className="w-full bg-gradient-to-r from-violet-500/20 to-violet-600/20 hover:from-violet-500/30 hover:to-violet-600/30 text-white border border-violet-500/30 hover:border-violet-400/50 transition-all duration-300 text-base py-3 rounded-xl backdrop-blur-md">
                   Contact Sales
                 </Button>
               </CardContent>
@@ -286,7 +306,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials - Enhanced */}
+      {/* Enhanced Testimonials Section */}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
@@ -326,9 +346,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section - Enhanced */}
+      {/* Enhanced FAQ Section */}
       <section id="faq" className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/[0.02] to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/20 to-transparent"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl lg:text-5xl font-bold mb-8">
@@ -338,18 +358,18 @@ const Index = () => {
 
           <div className="max-w-4xl mx-auto space-y-6">
             {[
-              { q: "What is MemeKit API?", a: "MemeKit is a comprehensive API platform that allows developers to easily launch, manage and analyze memecoins on Solana protocols like Bonk and PumpFun." },
+              { q: "What is Launchpad Trade API?", a: "Launchpad Trade is a comprehensive API platform that allows developers to easily launch, manage and analyze memecoins on Solana protocols like Bonk and PumpFun." },
               { q: "How fast can I launch a memecoin?", a: "With our API, you can deploy a memecoin in less than 5 minutes on multiple launchpads simultaneously." },
               { q: "Which protocols do you support?", a: "We support Bonk Protocol, PumpFun, Raydium and all major launchpads in the Solana ecosystem." },
               { q: "Do you provide technical support?", a: "Yes, we offer free community support, priority support for Pro plans, and 24/7 support for Enterprise." }
             ].map((faq, index) => (
-              <Card key={index} className="bg-white/5 backdrop-blur-xl border-white/10 hover:border-violet-400/30 transition-all duration-500 rounded-2xl">
-                <CardHeader className="flex flex-row items-center justify-between cursor-pointer p-8">
-                  <CardTitle className="text-white text-xl font-semibold">{faq.q}</CardTitle>
-                  <ChevronDown className="w-5 h-5 text-gray-400" />
+              <Card key={index} className="bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-xl border-violet-500/20 hover:border-violet-400/40 transition-all duration-500 rounded-2xl group hover:shadow-xl hover:shadow-violet-500/10">
+                <CardHeader className="flex flex-row items-center justify-between cursor-pointer p-8 group-hover:bg-violet-500/5 transition-colors duration-300">
+                  <CardTitle className="text-white text-xl font-semibold group-hover:text-violet-200 transition-colors duration-300">{faq.q}</CardTitle>
+                  <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-violet-400 group-hover:rotate-180 transition-all duration-300" />
                 </CardHeader>
                 <CardContent className="px-8 pb-8">
-                  <p className="text-gray-300 leading-relaxed text-base">{faq.a}</p>
+                  <p className="text-gray-300 leading-relaxed text-base group-hover:text-gray-200 transition-colors duration-300">{faq.a}</p>
                 </CardContent>
               </Card>
             ))}
@@ -357,7 +377,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section - Enhanced */}
+      {/* Enhanced CTA Section */}
       <section className="py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-violet-500/10 via-transparent to-violet-600/10"></div>
         <div className="container mx-auto px-6 text-center relative z-10">
@@ -368,32 +388,34 @@ const Index = () => {
               <span className="text-white">?</span>
             </h2>
             <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-              Join thousands of developers building the future of memecoins on Solana with MemeKit API.
+              Join thousands of developers building the future of memecoins on Solana with Launchpad Trade API.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-              <Button size="lg" className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-400 hover:via-violet-500 hover:to-violet-600 text-white font-bold px-10 py-6 text-lg shadow-2xl hover:shadow-violet-500/30 transition-all duration-300 transform hover:scale-105 rounded-xl">
-                <Zap className="w-5 h-5 mr-3" />
-                Start Free
+              <Button size="lg" className="bg-gradient-to-r from-violet-500 via-violet-600 to-violet-700 hover:from-violet-400 hover:via-violet-500 hover:to-violet-600 text-white font-bold px-10 py-6 text-lg shadow-2xl hover:shadow-violet-500/40 transition-all duration-300 transform hover:scale-110 rounded-xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <Zap className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="relative">Start Free</span>
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-violet-400 text-violet-400 hover:bg-violet-500 hover:text-white px-10 py-6 text-lg backdrop-blur-md transition-all duration-300 transform hover:scale-105 rounded-xl bg-violet-400/10">
-                <Globe className="w-5 h-5 mr-3" />
-                View Live Demo
+              <Button size="lg" variant="outline" className="border-2 border-violet-400 text-violet-400 hover:bg-violet-600 hover:text-white hover:border-violet-600 px-10 py-6 text-lg backdrop-blur-md transition-all duration-300 transform hover:scale-110 rounded-xl bg-gradient-to-r from-violet-500/10 to-violet-600/10 relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-500/0 via-violet-500/20 to-violet-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <Globe className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                <span className="relative">View Live Demo</span>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer - Enhanced */}
-      <footer className="border-t border-white/10 bg-black/80 backdrop-blur-md">
+      {/* Enhanced Footer */}
+      <footer className="border-t border-violet-500/20 bg-gradient-to-b from-black/80 to-gray-900/80 backdrop-blur-md">
         <div className="container mx-auto px-6 py-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="space-y-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-violet-500 via-violet-600 to-violet-700 rounded-xl flex items-center justify-center font-bold text-white shadow-xl text-base">
-                  MK
+              <div className="flex items-center space-x-3 group">
+                <div className="w-10 h-10 bg-gradient-to-br from-violet-500 via-violet-600 to-violet-700 rounded-xl flex items-center justify-center font-bold text-white shadow-xl text-base group-hover:scale-110 transition-transform duration-300">
+                  LT
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">MemeKit</span>
+                <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Launchpad Trade</span>
               </div>
               <p className="text-gray-400 leading-relaxed text-base">
                 Building the future of memecoin development on Solana.
@@ -410,7 +432,7 @@ const Index = () => {
                 <ul className="space-y-3">
                   {section.links.map((link, i) => (
                     <li key={i}>
-                      <a href="#" className="text-gray-400 hover:text-violet-400 transition-colors duration-300 text-base">
+                      <a href="#" className="text-gray-400 hover:text-violet-400 transition-all duration-300 text-base hover:translate-x-1 inline-block">
                         {link}
                       </a>
                     </li>
@@ -420,10 +442,10 @@ const Index = () => {
             ))}
           </div>
           
-          <Separator className="my-12 bg-white/10" />
+          <Separator className="my-12 bg-violet-500/20" />
           
           <div className="flex flex-col md:flex-row items-center justify-between text-gray-400 text-base">
-            <p>© 2024 MemeKit. All rights reserved.</p>
+            <p>© 2024 Launchpad Trade. All rights reserved.</p>
             <div className="flex items-center space-x-8 mt-6 md:mt-0">
               <a href="#" className="hover:text-violet-400 transition-colors duration-300">Privacy Policy</a>
               <a href="#" className="hover:text-violet-400 transition-colors duration-300">Terms of Service</a>
