@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -270,6 +271,70 @@ All colors MUST be HSL.
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 
+  /* Glowing border animation */
+  .glow-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #3b82f6, #8b5cf6);
+    background-size: 400% 400%;
+    z-index: -1;
+    opacity: 0;
+    border-radius: inherit;
+    animation: glow-rotate 3s linear infinite;
+    transition: opacity 0.3s ease;
+  }
+
+  .glow-border:hover::before {
+    opacity: 0.7;
+  }
+
+  .glow-border::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  /* Glow border on hover only */
+  .glow-border-hover {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow-border-hover::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #3b82f6, #8b5cf6);
+    background-size: 400% 400%;
+    z-index: -1;
+    opacity: 0;
+    border-radius: inherit;
+    animation: glow-rotate 3s linear infinite;
+    transition: opacity 0.3s ease;
+  }
+
+  .glow-border-hover:hover::before {
+    opacity: 0.5;
+  }
+
   /* Enhanced navigation hover effects */
   .nav-link-enhanced {
     position: relative;
@@ -363,6 +428,18 @@ All colors MUST be HSL.
   }
   to {
     filter: drop-shadow(0 0 20px hsl(217 91% 60% / 0.6));
+  }
+}
+
+@keyframes glow-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
