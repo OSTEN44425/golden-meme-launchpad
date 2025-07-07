@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -26,47 +25,42 @@ const Index = () => {
 
       {/* Enhanced Navigation - Ultra Modern */}
       <FadeContent>
-        <header className="border-b border-slate-700/20 backdrop-blur-xl bg-slate-950/60 sticky top-0 z-50 transition-all duration-500 shadow-lg shadow-slate-950/20">
-          <div className="container mx-auto px-8 py-4 flex items-center justify-between">
+        <header className="border-b border-slate-800/20 backdrop-blur-xl bg-slate-950/40 sticky top-0 z-50 transition-all duration-500">
+          <div className="container mx-auto px-8 py-3 flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
               {/* Enhanced neon lightning logo */}
               <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-xl shadow-blue-500/50 group-hover:scale-110 transition-all duration-300 border border-blue-400/20">
+                <div className="w-9 h-9 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
                   <Zap className="w-5 h-5 text-white drop-shadow-lg" />
                 </div>
-                <div className="absolute inset-0 w-10 h-10 rounded-xl bg-blue-500/30 blur-md animate-pulse"></div>
+                <div className="absolute inset-0 w-9 h-9 rounded-xl bg-blue-500/30 blur-md animate-pulse"></div>
               </div>
-              <span className="text-xl font-bold text-white bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent font-mono tracking-tight">
+              <span className="text-xl font-bold text-white bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent font-mono">
                 Launchpad Trade
               </span>
             </div>
-            <nav className="hidden md:flex items-center space-x-1">
+            <nav className="hidden md:flex items-center space-x-8">
               {["Features", "Pricing", "Testimonials", "FAQ"].map((item, index) => (
                 <FadeContent key={item} delay={index * 100}>
                   <a 
                     href={`#${item.toLowerCase()}`} 
-                    className="text-slate-300 hover:text-blue-300 transition-all duration-300 font-medium text-sm px-4 py-2 rounded-lg hover:bg-slate-800/40 hover:backdrop-blur-sm hover:border hover:border-slate-600/30 hover:shadow-lg hover:shadow-blue-500/10 relative group"
+                    className="text-slate-200 hover:text-blue-300 transition-all duration-300 font-medium text-sm nav-link px-3 py-2 hover-scale"
                   >
                     {item}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-violet-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                   </a>
                 </FadeContent>
               ))}
             </nav>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
               <Button 
                 variant="ghost" 
-                className="text-slate-300 hover:text-white hover:bg-slate-800/40 text-sm transition-all duration-300 border border-transparent hover:border-slate-600/30 font-medium px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-slate-500/10 backdrop-blur-sm"
+                className="text-slate-200 hover:text-white hover:bg-slate-800/30 text-sm transition-all duration-300 border border-transparent hover:border-slate-600/30 font-medium hover-scale"
               >
                 Log In
               </Button>
-              <ModernButton 
-                variant="primary" 
-                size="md"
-                className="font-semibold text-sm px-6 py-2 shadow-xl hover:shadow-blue-500/30 border border-blue-400/20"
-              >
+              <Button className="bg-gradient-to-r from-blue-500 to-violet-600 hover:from-blue-600 hover:to-violet-700 text-white font-semibold shadow-xl hover:shadow-blue-500/25 transition-all duration-300 text-sm px-5 py-2 modern-button hover-scale">
                 Join the Alpha
-              </ModernButton>
+              </Button>
             </div>
           </div>
         </header>
@@ -109,14 +103,14 @@ const Index = () => {
                 <ModernButton 
                   variant="primary" 
                   size="lg"
-                  className="hover:scale-105 transform transition-all duration-300 shadow-2xl hover:shadow-blue-500/40"
+                  className="hover:scale-105 transform transition-all duration-300"
                 >
                   Join the Alpha
                 </ModernButton>
                 <ModernButton 
                   variant="secondary" 
                   size="lg"
-                  className="hover:scale-105 transform transition-all duration-300 shadow-xl hover:shadow-slate-500/20"
+                  className="hover:scale-105 transform transition-all duration-300"
                 >
                   Learn more
                 </ModernButton>
@@ -468,29 +462,29 @@ const Index = () => {
 
       {/* Enhanced Footer - Modern and complete */}
       <FadeContent>
-        <footer className="border-t border-slate-700/30 bg-slate-950/60 backdrop-blur-md">
-          <div className="container mx-auto px-6 py-12">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <footer className="border-t border-slate-800/20 bg-slate-950/40 backdrop-blur-md">
+          <div className="container mx-auto px-6 py-8">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
               <div className="md:col-span-2">
-                <div className="flex items-center space-x-3 mb-4">
+                <div className="flex items-center space-x-3 mb-3">
                   <div className="relative">
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center shadow-xl shadow-blue-500/40 border border-blue-400/20">
-                      <Zap className="w-5 h-5 text-white" />
+                    <div className="w-7 h-7 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/30">
+                      <Zap className="w-4 h-4 text-white" />
                     </div>
-                    <div className="absolute inset-0 w-8 h-8 rounded-lg bg-blue-500/20 blur-md animate-pulse"></div>
+                    <div className="absolute inset-0 w-7 h-7 rounded-lg bg-blue-500/20 blur-md animate-pulse"></div>
                   </div>
-                  <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent font-mono">Launchpad Trade</span>
+                  <span className="text-lg font-bold text-white font-mono">Launchpad Trade</span>
                 </div>
-                <p className="text-slate-300 max-w-sm mb-4 font-medium text-lg leading-relaxed">
-                  <span className="text-blue-400">We've mirrored</span> the past, now we're <span className="text-violet-400">shaping the future</span>.
+                <p className="text-white max-w-sm mb-3 font-semibold">
+                  We've mirrored the past, now we're shaping the future.
                 </p>
                 <div className="flex space-x-4">
-                  <div className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer hover-scale p-2 rounded-lg hover:bg-slate-800/30 hover:shadow-lg hover:shadow-blue-500/10">
+                  <div className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer hover-scale">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer hover-scale p-2 rounded-lg hover:bg-slate-800/30 hover:shadow-lg hover:shadow-blue-500/10">
+                  <div className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer hover-scale">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
                     </svg>
@@ -499,11 +493,11 @@ const Index = () => {
               </div>
               
               <div>
-                <h4 className="font-bold text-blue-400 mb-4 text-lg">Product</h4>
-                <ul className="space-y-3">
+                <h4 className="font-bold text-white mb-3">Product</h4>
+                <ul className="space-y-2">
                   {["Features", "Pricing", "Testimonials", "FAQ"].map((link, i) => (
                     <li key={i}>
-                      <a href={`#${link.toLowerCase()}`} className="text-slate-300 hover:text-violet-400 transition-colors text-sm font-medium hover-scale inline-block py-1 px-2 rounded hover:bg-slate-800/20">
+                      <a href={`#${link.toLowerCase()}`} className="text-white hover:text-blue-400 transition-colors text-sm font-medium hover-scale">
                         {link}
                       </a>
                     </li>
@@ -512,11 +506,11 @@ const Index = () => {
               </div>
               
               <div>
-                <h4 className="font-bold text-violet-400 mb-4 text-lg">Support</h4>
-                <ul className="space-y-3">
+                <h4 className="font-bold text-white mb-3">Support</h4>
+                <ul className="space-y-2">
                   {["Discord", "Documentation", "Help Center", "Contact"].map((link, i) => (
                     <li key={i}>
-                      <a href="#" className="text-slate-300 hover:text-blue-400 transition-colors text-sm font-medium hover-scale inline-block py-1 px-2 rounded hover:bg-slate-800/20">
+                      <a href="#" className="text-white hover:text-blue-400 transition-colors text-sm font-medium hover-scale">
                         {link}
                       </a>
                     </li>
@@ -525,14 +519,14 @@ const Index = () => {
               </div>
             </div>
             
-            <Separator className="my-6 bg-slate-700/30" />
+            <Separator className="my-4 bg-slate-800/20" />
             
-            <div className="flex flex-col md:flex-row items-center justify-between text-sm">
-              <p className="text-slate-300 font-medium">© 2025 Copyright <span className="text-blue-400">Launchpad Trade</span>. All rights reserved.</p>
+            <div className="flex flex-col md:flex-row items-center justify-between text-white text-sm">
+              <p className="font-semibold">© 2025 Copyright Launchpad Trade. All rights reserved.</p>
               <div className="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" className="text-slate-400 hover:text-violet-400 transition-colors font-medium hover-scale py-1 px-2 rounded hover:bg-slate-800/20">Privacy Policy</a>
-                <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors font-medium hover-scale py-1 px-2 rounded hover:bg-slate-800/20">Terms of Service</a>
-                <a href="#" className="text-slate-400 hover:text-violet-400 transition-colors font-medium hover-scale py-1 px-2 rounded hover:bg-slate-800/20">Cookies</a>
+                <a href="#" className="hover:text-blue-400 transition-colors font-medium hover-scale">Privacy Policy</a>
+                <a href="#" className="hover:text-blue-400 transition-colors font-medium hover-scale">Terms of Service</a>
+                <a href="#" className="hover:text-blue-400 transition-colors font-medium hover-scale">Cookies</a>
               </div>
             </div>
           </div>
