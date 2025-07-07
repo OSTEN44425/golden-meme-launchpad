@@ -51,10 +51,10 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Violet theme colors */
-    --violet: 263 70% 50%;
-    --violet-light: 263 70% 60%;
-    --violet-dark: 263 70% 40%;
+    /* Violet theme colors - primary accent color */
+    --violet: 263 70% 60%;
+    --violet-light: 263 70% 70%;
+    --violet-dark: 263 70% 50%;
   }
 
   .dark {
@@ -104,9 +104,31 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    font-size: 14px;
   }
   
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Custom utility classes for violet theme */
+  .text-violet {
+    color: hsl(var(--violet));
+  }
+  
+  .bg-violet {
+    background-color: hsl(var(--violet));
+  }
+  
+  .border-violet {
+    border-color: hsl(var(--violet));
+  }
+  
+  .hover\:bg-violet:hover {
+    background-color: hsl(var(--violet));
+  }
+  
+  .hover\:text-violet:hover {
+    color: hsl(var(--violet));
   }
 }
