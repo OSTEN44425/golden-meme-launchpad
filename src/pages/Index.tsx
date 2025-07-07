@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -79,17 +80,31 @@ const Index = () => {
         </header>
       </FadeContent>
 
-      {/* Hero Section */}
+      {/* Hero Section with Animated Title */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
-                <span className="text-violet-400">The Fastest API</span>
-                <br />
-                <span className="text-white">for Trading and Launching on</span>{" "}
-                <span className="text-violet-400">letsbonk.fun</span>
-              </h1>
+              <div className="mb-8">
+                <div className="relative inline-block">
+                  <h1 className="text-4xl lg:text-6xl font-bold leading-tight relative">
+                    {/* Background text with stroke */}
+                    <span className="absolute inset-0 text-transparent" style={{WebkitTextStroke: '2px #8338ec'}}>
+                      <span className="text-violet-400">The Fastest API</span>
+                      <br />
+                      <span className="text-white">for Trading and Launching on</span>{" "}
+                      <span className="text-violet-400">letsbonk.fun</span>
+                    </span>
+                    {/* Animated foreground text */}
+                    <span className="relative text-white animate-wave-text">
+                      <span className="text-violet-400">The Fastest API</span>
+                      <br />
+                      <span className="text-white">for Trading and Launching on</span>{" "}
+                      <span className="text-violet-400">letsbonk.fun</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
             </FadeContent>
             
             <FadeContent delay={600}>
@@ -102,14 +117,14 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-600/40 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  className="bg-slate-800/60 backdrop-blur-sm border border-violet-500/30 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl shadow-violet-500/20 transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 </button>
                 <button 
                   onClick={() => scrollToSection('documentation')}
-                  className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
+                  className="bg-transparent border-2 border-violet-500/50 text-slate-300 hover:border-violet-400 hover:text-white backdrop-blur-sm hover:bg-violet-500/10 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-violet-500/20"
                 >
                   Explore Documentation
                 </button>
@@ -125,9 +140,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Moved much higher */}
+      {/* AI Bot Section - Moved higher */}
       <FadeContent>
-        <section className="py-4 relative">
+        <section className="py-8 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -136,7 +151,7 @@ const Index = () => {
 
       {/* Social Proof / Trust */}
       <FadeContent>
-        <section className="py-12 relative">
+        <section className="py-16 relative">
           <div className="container mx-auto px-6 text-center">
             <p className="text-sm text-slate-400 mb-8 uppercase tracking-wider">Compatible with Solana Ecosystem</p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
@@ -150,7 +165,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Enhanced Section separator - All violet now */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
@@ -172,7 +187,7 @@ const Index = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               <FadeContent delay={300}>
-                <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl h-full flex flex-col hover-scale">
+                <Card className="bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl shadow-violet-500/10 h-full flex flex-col hover-scale hover:shadow-violet-500/20 transition-all duration-300">
                   <CardHeader className="pb-6">
                     <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
                       BOT DEVELOPERS
@@ -197,7 +212,7 @@ const Index = () => {
               </FadeContent>
 
               <FadeContent delay={500}>
-                <Card className="glowing-border glass-effect bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border-purple-500/30 h-full flex flex-col hover-scale">
+                <Card className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border-violet-500/30 h-full flex flex-col hover-scale hover:shadow-violet-500/20 transition-all duration-300 shadow-xl shadow-violet-500/10">
                   <CardHeader className="pb-6">
                     <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
                       PROJECT CREATORS
@@ -225,19 +240,31 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Enhanced Section separator - Violet */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
 
-      {/* Key Benefits */}
+      {/* Trading API Edge Title */}
       <FadeContent>
-        <section className="py-20 relative">
+        <section className="py-8 relative">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8">
+              <span className="text-white">Trading</span>{" "}
+              <span className="text-violet-400">API Edge</span>
+            </h2>
+          </div>
+        </section>
+      </FadeContent>
+
+      {/* Key Benefits - Updated with violet glow */}
+      <FadeContent>
+        <section className="py-12 relative">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -254,7 +281,7 @@ const Index = () => {
                   title: "Performance & Stability",
                   description: "Leverage Jito bundles for atomic and priority transactions. Our service relies on the best providers (0slot, astralane) for near-instant execution.",
                   color: "from-purple-500/20 to-pink-500/20",
-                  borderColor: "border-purple-500/30",
+                  borderColor: "border-violet-500/30",
                   iconColor: "text-purple-400"
                 },
                 {
@@ -262,7 +289,7 @@ const Index = () => {
                   title: "Lowest & Transparent Fees",
                   description: "A unique and clear fee structure: 0.8% on transactions. That's it. No hidden fees, no subscription.",
                   color: "from-green-500/20 to-emerald-500/20",
-                  borderColor: "border-green-500/30",
+                  borderColor: "border-violet-500/30",
                   iconColor: "text-green-400"
                 },
                 {
@@ -270,12 +297,12 @@ const Index = () => {
                   title: "Exemplary Documentation",
                   description: "Copy-paste guides, complete API reference, and tutorials to get you operational immediately.",
                   color: "from-orange-500/20 to-red-500/20",
-                  borderColor: "border-orange-500/30",
+                  borderColor: "border-violet-500/30",
                   iconColor: "text-orange-400"
                 }
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
-                  <Card className={`glowing-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
+                  <Card className={`bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-violet-400/50 hover:shadow-violet-500/20 transition-all duration-300 group h-full flex flex-col hover-scale shadow-xl shadow-violet-500/10`}>
                     <CardHeader className="pb-4">
                       <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
                         <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
@@ -293,7 +320,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Enhanced Section separator - Violet */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
@@ -303,7 +330,7 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Code Excerpt */}
+      {/* Code Excerpt - Updated with violet glow */}
       <FadeContent>
         <section id="documentation" className="py-20 relative">
           <div className="container mx-auto px-6">
@@ -314,7 +341,7 @@ const Index = () => {
             </div>
 
             <div className="max-w-3xl mx-auto">
-              <Card className="glowing-border glass-effect backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 hover-scale">
+              <Card className="backdrop-blur-sm border-violet-500/30 hover:border-violet-400/40 hover:shadow-violet-500/20 transition-all duration-300 hover-scale shadow-xl shadow-violet-500/10">
                 <CardHeader>
                   <CardTitle className="text-white text-xl font-semibold mb-4">Buy 1 SOL of $MYTOKEN</CardTitle>
                 </CardHeader>
@@ -334,7 +361,7 @@ const Index = () => {
                   <div className="mt-6 text-center">
                     <Button 
                       onClick={() => scrollToSection('documentation')}
-                      className="bg-slate-800/50 backdrop-blur-sm border border-slate-600/30 hover:bg-slate-700/50 text-white font-medium transition-all duration-300 modern-button hover-scale"
+                      className="bg-slate-800/50 backdrop-blur-sm border border-violet-500/30 hover:bg-slate-700/50 hover:shadow-violet-500/20 text-white font-medium transition-all duration-300 modern-button hover-scale"
                     >
                       Explore Complete Documentation
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -347,35 +374,49 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Enhanced Section separator - Violet */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-purple-500 rounded-full animate-ping"></div>
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
 
-      {/* Community Section - Improved Design with darker background */}
+      {/* Community Section - Updated with Discord/Twitter icons and improved styling */}
       <FadeContent>
         <section className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
-              {/* Animated gradient border - darker */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-slate-700/40 via-slate-600/40 to-slate-700/40 rounded-3xl opacity-30 group-hover:opacity-50 blur-sm transition-all duration-500 animate-pulse"></div>
+              {/* Violet animated gradient border */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-600/20 via-violet-500/30 to-violet-600/20 rounded-3xl opacity-50 group-hover:opacity-70 blur-sm transition-all duration-500 animate-pulse"></div>
               
-              {/* Main container - much darker background */}
-              <div className="relative bg-gradient-to-br from-slate-950/98 via-slate-900/98 to-slate-950/98 rounded-3xl border border-slate-700/30 backdrop-blur-xl overflow-hidden">
-                {/* Floating gradient orbs - darker */}
-                <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-slate-700/10 to-slate-600/10 rounded-full blur-2xl animate-pulse"></div>
-                <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-slate-600/10 to-slate-700/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+              {/* Main container with Discord/Twitter background icons */}
+              <div className="relative bg-gradient-to-br from-slate-950/95 via-slate-900/95 to-slate-950/95 rounded-3xl border border-violet-500/20 backdrop-blur-xl overflow-hidden">
+                {/* Background Discord/Twitter Icons */}
+                <div className="absolute top-8 left-8 opacity-10">
+                  <MessageCircle className="w-24 h-24 text-violet-400" />
+                </div>
+                <div className="absolute bottom-8 right-8 opacity-10">
+                  <Users className="w-32 h-32 text-violet-400" />
+                </div>
+                <div className="absolute top-1/2 right-16 opacity-5">
+                  <MessageCircle className="w-20 h-20 text-violet-400" />
+                </div>
+                <div className="absolute bottom-16 left-16 opacity-5">
+                  <Users className="w-28 h-28 text-violet-400" />
+                </div>
+                
+                {/* Floating gradient orbs - violet theme */}
+                <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-violet-500/5 to-purple-500/5 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-purple-500/5 to-violet-500/5 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
                 
                 {/* Content */}
                 <div className="relative p-16 text-center">
                   <div className="mb-8">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-slate-800/40 to-slate-700/40 border border-slate-600/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
-                      <Users className="w-10 h-10 text-slate-300" />
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-violet-500/10 to-purple-500/10 border border-violet-500/20 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
+                      <Users className="w-10 h-10 text-violet-400" />
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
                       <span className="text-white">Join the</span>{" "}
@@ -387,15 +428,15 @@ const Index = () => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                    <button className="group/btn relative bg-gradient-to-r from-slate-700/80 to-slate-600/80 hover:from-slate-600/90 hover:to-slate-500/90 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-slate-600/30">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                    <button className="group/btn relative bg-slate-800/40 backdrop-blur-sm hover:bg-slate-700/50 text-slate-300 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-violet-500/20 border border-violet-500/20 hover:border-violet-400/30">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <MessageCircle className="w-6 h-6 mr-3" />
                         Join our Discord
                       </span>
                     </button>
-                    <button className="group/btn relative bg-gradient-to-r from-slate-700/80 to-slate-600/80 hover:from-slate-600/90 hover:to-slate-500/90 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-slate-600/30">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                    <button className="group/btn relative bg-slate-800/40 backdrop-blur-sm hover:bg-slate-700/50 text-slate-300 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-violet-500/20 border border-violet-500/20 hover:border-violet-400/30">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <Users className="w-6 h-6 mr-3" />
                         Follow on Twitter
@@ -409,17 +450,17 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Enhanced Section separator - Violet */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-orange-500 rounded-full animate-ping"></div>
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
 
-      {/* Final CTA */}
+      {/* Final CTA - Updated with violet glow */}
       <FadeContent>
         <section id="cta-final" className="py-20 relative">
           <div className="container mx-auto px-6 text-center">
@@ -427,10 +468,10 @@ const Index = () => {
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-slate-700/50 backdrop-blur-sm border border-slate-500/30 text-slate-200 hover:bg-slate-600/50 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+              className="bg-slate-700/50 backdrop-blur-sm border border-violet-500/30 text-slate-200 hover:bg-slate-600/50 hover:text-white hover:shadow-violet-500/20 font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key and Start</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </button>
           </div>
         </section>
