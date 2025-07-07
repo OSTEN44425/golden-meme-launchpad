@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 /* Import professional fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -243,12 +243,6 @@ All colors MUST be HSL.
 
   .animate-slide-horizontal {
     animation: slide-horizontal 10s linear infinite;
-  }
-
-  /* Wave text animation for the main title */
-  .animate-wave-text {
-    color: #c19bf5;
-    animation: wave-animate 4s ease-in-out infinite;
   }
 
   /* Hover scale animation */
@@ -558,38 +552,6 @@ All colors MUST be HSL.
   100% {
     transform: translateX(100vw);
     opacity: 0;
-  }
-}
-
-/* Wave animation for title text */
-@keyframes wave-animate {
-  0%,
-  100% {
-    clip-path: polygon(
-      0% 45%,
-      16% 44%,
-      33% 50%,
-      54% 60%,
-      70% 61%,
-      84% 59%,
-      100% 52%,
-      100% 100%,
-      0% 100%
-    );
-  }
-
-  50% {
-    clip-path: polygon(
-      0% 60%,
-      15% 65%,
-      34% 66%,
-      51% 62%,
-      67% 50%,
-      84% 45%,
-      100% 46%,
-      100% 100%,
-      0% 100%
-    );
   }
 }
 
