@@ -8,7 +8,6 @@ import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
 import { useLenis } from "@/hooks/useLenis";
-import { ModernButton } from "@/components/ui/modern-button";
 
 const Index = () => {
   // Initialize Lenis smooth scroll
@@ -23,9 +22,9 @@ const Index = () => {
       {/* Modern Grid Background */}
       <ModernGrid />
 
-      {/* Enhanced Navigation - Ultra Modern */}
+      {/* Enhanced Navigation with separation */}
       <FadeContent>
-        <header className="border-b border-slate-800/30 backdrop-blur-xl bg-slate-950/60 sticky top-0 z-50 transition-all duration-500 shadow-lg shadow-slate-900/20">
+        <header className="backdrop-blur-xl bg-slate-950/80 sticky top-0 z-50 transition-all duration-500">
           <div className="container mx-auto px-8 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
               {/* Enhanced neon lightning logo */}
@@ -53,19 +52,15 @@ const Index = () => {
                 </FadeContent>
               ))}
             </nav>
-            <div className="flex items-center space-x-4">
-              <Button 
-                variant="ghost" 
-                className="text-slate-200 hover:text-white hover:bg-slate-800/40 text-sm transition-all duration-300 border border-transparent hover:border-slate-600/40 font-semibold px-4 py-2 rounded-lg backdrop-blur-sm"
-              >
-                Log In
-              </Button>
-              <Button className="bg-gradient-to-r from-blue-500 via-blue-600 to-violet-600 hover:from-blue-600 hover:via-blue-700 hover:to-violet-700 text-white font-bold shadow-xl hover:shadow-blue-500/30 transition-all duration-300 text-sm px-6 py-2 rounded-lg border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm hover:scale-105">
+            <div className="flex items-center">
+              <Button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold shadow-xl hover:shadow-blue-500/30 transition-all duration-300 text-sm px-6 py-2 rounded-full border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm hover:scale-105">
                 <span className="relative z-10">Join the Alpha</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
               </Button>
             </div>
           </div>
+          {/* Subtle separation line */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent"></div>
         </header>
       </FadeContent>
 
@@ -103,20 +98,13 @@ const Index = () => {
             
             <FadeContent delay={800}>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
-                <ModernButton 
-                  variant="primary" 
-                  size="lg"
-                  className="hover:scale-105 transform transition-all duration-300"
-                >
-                  Join the Alpha
-                </ModernButton>
-                <ModernButton 
-                  variant="secondary" 
-                  size="lg"
-                  className="hover:scale-105 transform transition-all duration-300"
-                >
+                <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold px-8 py-3 rounded-full shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm relative overflow-hidden group">
+                  <span className="relative z-10">Join the Alpha</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                </button>
+                <button className="bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
                   Learn more
-                </ModernButton>
+                </button>
               </div>
             </FadeContent>
           </div>
