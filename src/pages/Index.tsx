@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, ChevronDown, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp } from "lucide-react";
+import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp } from "lucide-react";
 import FadeContent from "@/components/animations/FadeContent";
 import StarBorder from "@/components/animations/StarBorder";
 import CountUp from "@/components/animations/CountUp";
@@ -20,43 +20,43 @@ const Index = () => {
       {/* Tech Grid Background */}
       <TechGrid />
 
-      {/* Enhanced Navigation - Much Thinner */}
+      {/* Enhanced Navigation - Ultra Modern */}
       <FadeContent>
-        <header className="border-b border-slate-800/20 backdrop-blur-xl bg-slate-950/50 sticky top-0 z-50 transition-all duration-500">
-          <div className="container mx-auto px-6 py-3 flex items-center justify-between">
+        <header className="border-b border-slate-800/10 backdrop-blur-xl bg-slate-950/30 sticky top-0 z-50 transition-all duration-500">
+          <div className="container mx-auto px-8 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
               {/* Enhanced neon lightning logo */}
               <div className="relative">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
-                  <Zap className="w-5 h-5 text-white drop-shadow-lg" />
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/50 group-hover:scale-110 transition-all duration-300">
+                  <Zap className="w-6 h-6 text-white drop-shadow-lg" />
                 </div>
-                <div className="absolute inset-0 w-8 h-8 rounded-lg bg-blue-500/30 blur-md animate-pulse"></div>
+                <div className="absolute inset-0 w-10 h-10 rounded-xl bg-blue-500/30 blur-md animate-pulse"></div>
               </div>
-              <span className="text-xl font-bold text-white bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold text-white bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent font-mono">
                 Launchpad Trade
               </span>
             </div>
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-10">
               {["Features", "Pricing", "Testimonials", "FAQ"].map((item, index) => (
                 <FadeContent key={item} delay={index * 100}>
                   <a 
                     href={`#${item.toLowerCase()}`} 
-                    className="text-slate-300 hover:text-blue-400 transition-all duration-300 font-medium text-sm nav-link px-3 py-2"
+                    className="text-slate-200 hover:text-blue-300 transition-all duration-300 font-semibold text-base nav-link px-4 py-2 hover-scale"
                   >
                     {item}
                   </a>
                 </FadeContent>
               ))}
             </nav>
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-4">
               <Button 
                 variant="ghost" 
-                className="text-slate-300 hover:text-white hover:bg-slate-800/50 text-sm transition-all duration-300 border border-transparent hover:border-slate-700/50 font-medium"
+                className="text-slate-200 hover:text-white hover:bg-slate-800/30 text-base transition-all duration-300 border border-transparent hover:border-slate-600/30 font-semibold hover-scale"
               >
                 Log In
               </Button>
               <StarBorder color="#60a5fa" speed="4s">
-                <Button className="bg-gradient-to-r from-blue-500 to-violet-600 hover:from-blue-600 hover:to-violet-700 text-white font-semibold shadow-lg hover:shadow-blue-500/25 transition-all duration-300 text-sm">
+                <Button className="bg-gradient-to-r from-blue-500 to-violet-600 hover:from-blue-600 hover:to-violet-700 text-white font-bold shadow-xl hover:shadow-blue-500/25 transition-all duration-300 text-base px-6 py-3">
                   Join the Alpha
                 </Button>
               </StarBorder>
@@ -102,12 +102,12 @@ const Index = () => {
             <FadeContent delay={800}>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
                 <StarBorder color="#3b82f6" speed="3s">
-                  <Button size="lg" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
+                  <Button size="lg" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium px-8 py-6 text-lg shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover-scale">
                     Join the Alpha
                   </Button>
                 </StarBorder>
                 <StarBorder color="#8b5cf6" speed="4s">
-                  <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white px-8 py-6 text-lg transition-all duration-300 bg-transparent">
+                  <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-white px-8 py-6 text-lg transition-all duration-300 bg-transparent hover-scale">
                     Learn more
                   </Button>
                 </StarBorder>
@@ -117,20 +117,20 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats section with CountUp */}
+      {/* Stats section with CountUp - Enhanced text */}
       <FadeContent>
         <section className="py-16 relative">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
-                { value: 10000, label: "Callers Monitored", color: "text-blue-400", suffix: "+" },
-                { value: 25000000, label: "Messages Mirrored", color: "text-blue-400", suffix: "+" },
-                { value: 400, label: "Call Latency (avg)", color: "text-blue-400", suffix: "ms" },
-                { value: 3000, label: "Monthly Savings", color: "text-blue-400", prefix: "+$" }
+                { value: 10000, label: "Callers Monitored", color: "text-white", suffix: "+" },
+                { value: 25000000, label: "Messages Mirrored", color: "text-white", suffix: "+" },
+                { value: 400, label: "Call Latency (avg)", color: "text-white", suffix: "ms" },
+                { value: 3000, label: "Monthly Savings", color: "text-white", prefix: "+$" }
               ].map((stat, index) => (
                 <FadeContent key={index} delay={index * 100}>
-                  <div className="group hover:scale-105 transition-all duration-300">
-                    <div className={`text-4xl lg:text-5xl font-bold ${stat.color} mb-2`}>
+                  <div className="group hover:scale-105 transition-all duration-300 hover-scale">
+                    <div className={`text-4xl lg:text-5xl font-bold ${stat.color} mb-2 font-mono`}>
                       {stat.prefix}
                       <CountUp 
                         to={stat.value} 
@@ -140,7 +140,7 @@ const Index = () => {
                       />
                       {stat.suffix}
                     </div>
-                    <div className="text-slate-400 text-sm font-medium">{stat.label}</div>
+                    <div className="text-slate-200 text-base font-semibold">{stat.label}</div>
                   </div>
                 </FadeContent>
               ))}
@@ -149,7 +149,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Features Section - Enhanced with more colors and equal heights */}
+      {/* Features Section - Equal heights and more colors */}
       <FadeContent>
         <section id="features" className="py-24 relative">
           <div className="container mx-auto px-6">
@@ -173,6 +173,7 @@ const Index = () => {
                   color: "from-blue-500/20 to-cyan-500/20",
                   borderColor: "border-blue-500/30",
                   iconColor: "text-blue-400",
+                  bgGradient: "bg-gradient-to-br from-blue-500/10 to-cyan-500/10",
                   items: [
                     "Consolidate data from 13+ groups into a single customizable Discord channel or website column.",
                     "Build and manage your own aggregator on Discord or our website in minutes.",
@@ -186,6 +187,7 @@ const Index = () => {
                   color: "from-violet-500/20 to-purple-500/20",
                   borderColor: "border-violet-500/30",
                   iconColor: "text-violet-400",
+                  bgGradient: "bg-gradient-to-br from-violet-500/10 to-purple-500/10",
                   items: [
                     "Full history: messages/day, calls/day, win rate/day, average ROI/day.",
                     "Custom Caller Score — filter by score, win rate, ROI, message count, call count, successful calls, or specific groups.",
@@ -199,6 +201,7 @@ const Index = () => {
                   color: "from-green-500/20 to-emerald-500/20",
                   borderColor: "border-green-500/30",
                   iconColor: "text-green-400",
+                  bgGradient: "bg-gradient-to-br from-green-500/10 to-emerald-500/10",
                   items: [
                     "Receive a daily summary - on Discord or via the web-app showing:",
                     "Profitable token recommendations.",
@@ -209,9 +212,9 @@ const Index = () => {
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
                   <StarBorder color={feature.iconColor.replace('text-', '#')} speed="6s">
-                    <Card className={`bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col`}>
+                    <Card className={`${feature.bgGradient} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
                       <CardHeader className="pb-4">
-                        <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
+                        <div className={`w-12 h-12 ${feature.bgGradient} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
                           <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
                         </div>
                         <CardTitle className="text-white text-xl font-semibold">{feature.title}</CardTitle>
@@ -251,10 +254,10 @@ const Index = () => {
             </FadeContent>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {/* Alpha Plan */}
+              {/* All pricing cards with equal heights */}
               <FadeContent delay={300}>
                 <StarBorder color="#60a5fa" speed="5s">
-                  <Card className="bg-slate-900/30 backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 h-full flex flex-col">
+                  <Card className="bg-slate-900/30 backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 h-full flex flex-col hover-scale">
                     <CardHeader className="text-center pb-6">
                       <div className="text-sm font-medium text-slate-400 mb-2">ALPHA</div>
                       <div className="text-sm text-slate-400 mb-4">UNLOCK EVERYTHING FOR JUST</div>
@@ -282,14 +285,13 @@ const Index = () => {
                 </StarBorder>
               </FadeContent>
 
-              {/* Full Access Plan */}
               <FadeContent delay={400}>
                 <div className="relative">
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-violet-500 text-white font-bold px-4 py-1 text-sm animate-pulse z-10">
                     BEST SELLER
                   </Badge>
                   <StarBorder color="#3b82f6" speed="3s">
-                    <Card className="bg-gradient-to-br from-blue-500/10 to-violet-500/10 backdrop-blur-sm border-blue-500/30 relative shadow-xl h-full flex flex-col">
+                    <Card className="bg-gradient-to-br from-blue-500/10 to-violet-500/10 backdrop-blur-sm border-blue-500/30 relative shadow-xl h-full flex flex-col hover-scale">
                       <CardHeader className="text-center pb-6">
                         <div className="text-sm font-medium text-blue-400 mb-2">FULL ACCESS</div>
                         <div className="text-sm text-slate-400 mb-4">THE COMPLETE EXPERIENCE FOR JUST</div>
@@ -318,10 +320,9 @@ const Index = () => {
                 </div>
               </FadeContent>
 
-              {/* Lifetime Plan */}
               <FadeContent delay={500}>
                 <StarBorder color="#f59e0b" speed="4s">
-                  <Card className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm border-yellow-500/30 h-full flex flex-col">
+                  <Card className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm border-yellow-500/30 h-full flex flex-col hover-scale">
                     <CardHeader className="text-center pb-6">
                       <div className="text-sm font-medium text-yellow-400 mb-2">LIFETIME</div>
                       <div className="text-4xl font-bold text-white mb-1">25 SOL</div>
@@ -377,7 +378,7 @@ const Index = () => {
                 text: "It is a magnificent server where you can see many alpha servers together with special filters and privileged options."
               }
             ].map((testimonial, index) => (
-              <Card key={index} className="bg-slate-900/30 backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300">
+              <Card key={index} className="bg-slate-900/30 backdrop-blur-sm border-slate-700/30 hover:border-slate-600/30 transition-all duration-300 hover-scale">
                 <CardContent className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3 text-sm">
@@ -393,12 +394,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Enhanced FAQ Section with improved typography */}
+      {/* Enhanced FAQ Section with + and - icons */}
       <FadeContent>
         <section id="faq" className="py-24">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl lg:text-5xl font-bold">
+              <h2 className="text-4xl lg:text-5xl font-bold font-mono">
                 <span className="text-blue-400">F</span>requently{" "}
                 <span className="text-blue-400">A</span>sked{" "}
                 <span className="text-blue-400">Q</span>uestions
@@ -436,12 +437,18 @@ const Index = () => {
                   <AccordionItem 
                     key={index} 
                     value={`item-${index}`}
-                    className="bg-slate-900/30 backdrop-blur-sm border-slate-700/30 rounded-lg px-6 hover:border-slate-600/30 transition-all duration-300"
+                    className="bg-slate-900/30 backdrop-blur-sm border-slate-700/30 rounded-lg px-6 hover:border-slate-600/30 transition-all duration-300 hover-scale"
                   >
-                    <AccordionTrigger className="text-white text-lg font-semibold hover:text-blue-400 transition-colors py-6 text-left">
-                      {faq.q}
+                    <AccordionTrigger className="text-white text-lg font-bold hover:text-blue-400 transition-colors py-6 text-left font-mono [&[data-state=open]>svg]:hidden">
+                      <div className="flex items-center justify-between w-full">
+                        <span>{faq.q}</span>
+                        <div className="flex items-center">
+                          <Plus className="h-5 w-5 shrink-0 transition-transform duration-200 group-data-[state=open]:hidden" />
+                          <Minus className="h-5 w-5 shrink-0 transition-transform duration-200 hidden group-data-[state=open]:block" />
+                        </div>
+                      </div>
                     </AccordionTrigger>
-                    <AccordionContent className="text-slate-300 pb-6 leading-relaxed text-base">
+                    <AccordionContent className="text-slate-300 pb-6 leading-relaxed text-base font-medium">
                       {faq.a}
                     </AccordionContent>
                   </AccordionItem>
@@ -453,7 +460,7 @@ const Index = () => {
                 <Button 
                   onClick={scrollToTop}
                   variant="ghost" 
-                  className="text-slate-400 hover:text-blue-400 transition-all duration-300 font-medium"
+                  className="text-slate-400 hover:text-blue-400 transition-all duration-300 font-medium hover-scale"
                 >
                   <ArrowUp className="w-4 h-4 mr-2" />
                   Back to Top
@@ -464,10 +471,10 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Footer - Thinner and more complete */}
+      {/* Enhanced Footer - Modern and complete */}
       <FadeContent>
-        <footer className="border-t border-slate-800/20 bg-slate-950/50 backdrop-blur-md">
-          <div className="container mx-auto px-6 py-12">
+        <footer className="border-t border-slate-800/10 bg-slate-950/30 backdrop-blur-md">
+          <div className="container mx-auto px-6 py-10">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
               <div className="md:col-span-2">
                 <div className="flex items-center space-x-3 mb-4">
@@ -477,18 +484,18 @@ const Index = () => {
                     </div>
                     <div className="absolute inset-0 w-8 h-8 rounded-lg bg-blue-500/20 blur-md animate-pulse"></div>
                   </div>
-                  <span className="text-xl font-semibold text-white">Launchpad Trade</span>
+                  <span className="text-xl font-bold text-white font-mono">Launchpad Trade</span>
                 </div>
-                <p className="text-slate-400 max-w-sm mb-4">
+                <p className="text-slate-300 max-w-sm mb-4 font-semibold">
                   We've mirrored the past, now we're shaping the future.
                 </p>
                 <div className="flex space-x-4">
-                  <div className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer">
+                  <div className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer hover-scale">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <div className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer">
+                  <div className="text-slate-400 hover:text-blue-400 transition-colors cursor-pointer hover-scale">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
                     </svg>
@@ -497,11 +504,11 @@ const Index = () => {
               </div>
               
               <div>
-                <h4 className="font-semibold text-white mb-4">Product</h4>
+                <h4 className="font-bold text-white mb-4">Product</h4>
                 <ul className="space-y-2">
                   {["Features", "Pricing", "Testimonials", "FAQ"].map((link, i) => (
                     <li key={i}>
-                      <a href={`#${link.toLowerCase()}`} className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
+                      <a href={`#${link.toLowerCase()}`} className="text-slate-300 hover:text-blue-400 transition-colors text-sm font-semibold hover-scale">
                         {link}
                       </a>
                     </li>
@@ -510,11 +517,11 @@ const Index = () => {
               </div>
               
               <div>
-                <h4 className="font-semibold text-white mb-4">Support</h4>
+                <h4 className="font-bold text-white mb-4">Support</h4>
                 <ul className="space-y-2">
                   {["Discord", "Documentation", "Help Center", "Contact"].map((link, i) => (
                     <li key={i}>
-                      <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">
+                      <a href="#" className="text-slate-300 hover:text-blue-400 transition-colors text-sm font-semibold hover-scale">
                         {link}
                       </a>
                     </li>
@@ -523,14 +530,14 @@ const Index = () => {
               </div>
             </div>
             
-            <Separator className="my-6 bg-slate-800/20" />
+            <Separator className="my-6 bg-slate-800/10" />
             
-            <div className="flex flex-col md:flex-row items-center justify-between text-slate-400 text-sm">
-              <p>© 2025 Copyright Launchpad Trade. All rights reserved.</p>
+            <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-sm">
+              <p className="font-semibold">© 2025 Copyright Launchpad Trade. All rights reserved.</p>
               <div className="flex space-x-6 mt-4 md:mt-0">
-                <a href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-blue-400 transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-blue-400 transition-colors">Cookies</a>
+                <a href="#" className="hover:text-blue-400 transition-colors font-semibold hover-scale">Privacy Policy</a>
+                <a href="#" className="hover:text-blue-400 transition-colors font-semibold hover-scale">Terms of Service</a>
+                <a href="#" className="hover:text-blue-400 transition-colors font-semibold hover-scale">Cookies</a>
               </div>
             </div>
           </div>

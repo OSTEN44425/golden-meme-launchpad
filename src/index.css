@@ -223,6 +223,15 @@ All colors MUST be HSL.
   .animate-pulse-slow {
     animation: pulse 4s ease-in-out infinite;
   }
+
+  /* Hover scale animation */
+  .hover-scale {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes fade-in {
