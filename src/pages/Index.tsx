@@ -34,12 +34,39 @@ const Index = () => {
       {/* Modern Grid Background */}
       <ModernGrid />
 
-      {/* Background Assets */}
+      {/* Enhanced Background Assets with more animations */}
       <div className="fixed inset-0 opacity-20 pointer-events-none">
-        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/30 to-purple-500/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow"></div>
+        {/* Animated grid overlay */}
+        <div className="animated-grid"></div>
+        
+        {/* Enhanced floating particles */}
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={`particle-${i}`}
+            className="bg-particle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 10}s`,
+              animationDuration: `${12 + Math.random() * 8}s`
+            }}
+          />
+        ))}
+        
+        {/* Floating geometric shapes */}
+        <div className="floating-shape w-16 h-16 border border-violet-400/20 rounded-full top-1/4 left-1/4" />
+        <div className="floating-shape w-12 h-12 border border-blue-400/20 rotate-45 top-3/4 right-1/4" />
+        <div className="floating-shape w-20 h-20 border border-purple-400/20 rounded-lg top-1/2 left-3/4 animate-drift" />
+        <div className="floating-shape w-8 h-8 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-full top-1/3 right-1/3 animate-orbit" />
+        <div className="floating-shape w-14 h-14 border-2 border-cyan-400/20 rotate-12 top-4/5 left-1/5 animate-float-delayed" />
+        
+        {/* Enhanced gradient orbs with more movement */}
+        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/30 to-purple-500/30 rounded-full blur-3xl animate-pulse animate-drift"></div>
+        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl animate-float animate-orbit"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-full blur-3xl animate-pulse animate-float-delayed"></div>
+        <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow animate-drift"></div>
+        <div className="absolute bottom-1/3 left-1/5 w-28 h-28 bg-gradient-to-br from-blue-500/25 to-indigo-500/25 rounded-full blur-3xl animate-glow animate-orbit"></div>
+        <div className="absolute top-3/4 right-1/5 w-20 h-20 bg-gradient-to-br from-pink-500/25 to-rose-500/25 rounded-full blur-2xl animate-pulse-slow animate-float"></div>
       </div>
 
       {/* Enhanced Navigation */}
@@ -251,7 +278,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Key Benefits */}
+      {/* Key Benefits - Updated with new border animation */}
       <FadeContent>
         <section className="py-20 relative">
           <div className="container mx-auto px-6">
@@ -262,7 +289,6 @@ const Index = () => {
                   title: "Radical Simplicity",
                   description: "Integrate our API in less than 5 minutes. Clear documentation and logical endpoints to focus on your strategy, not our infrastructure.",
                   color: "from-violet-500/20 to-purple-500/20",
-                  borderColor: "border-violet-500/30",
                   iconColor: "text-violet-400"
                 },
                 {
@@ -270,7 +296,6 @@ const Index = () => {
                   title: "Performance & Stability",
                   description: "Leverage Jito bundles for atomic and priority transactions. Our service relies on the best providers (0slot, astralane) for near-instant execution.",
                   color: "from-purple-500/20 to-pink-500/20",
-                  borderColor: "border-purple-500/30",
                   iconColor: "text-purple-400"
                 },
                 {
@@ -278,7 +303,6 @@ const Index = () => {
                   title: "Lowest & Transparent Fees",
                   description: "A unique and clear fee structure: 0.8% on transactions. That's it. No hidden fees, no subscription.",
                   color: "from-violet-500/20 to-emerald-500/20",
-                  borderColor: "border-violet-500/30",
                   iconColor: "text-violet-400"
                 },
                 {
@@ -286,14 +310,13 @@ const Index = () => {
                   title: "Exemplary Documentation",
                   description: "Copy-paste guides, complete API reference, and tutorials to get you operational immediately.",
                   color: "from-violet-500/20 to-red-500/20",
-                  borderColor: "border-violet-500/30",
                   iconColor: "text-violet-400"
                 }
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
-                  <Card className={`glowing-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
+                  <Card className={`trading-card-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm transition-all duration-300 group h-full flex flex-col hover-scale`}>
                     <CardHeader className="pb-4">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
+                      <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border border-violet-500/30`}>
                         <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
                       </div>
                       <CardTitle className="text-white text-xl font-semibold">{feature.title}</CardTitle>
