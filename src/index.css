@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -111,7 +112,7 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Manrope', 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     color: #FAFAFA;
     background: linear-gradient(135deg, hsl(222 84% 5%) 0%, hsl(215 28% 4%) 50%, hsl(222 84% 5%) 100%);
     min-height: 100vh;
@@ -125,22 +126,10 @@ All colors MUST be HSL.
     font-family: 'Outfit', 'Manrope', sans-serif;
   }
 
-  /* Headers use professional font - increased sizes */
+  /* Headers use professional font */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Manrope', sans-serif;
     font-weight: 700;
-  }
-
-  h1 {
-    font-size: 1.2em;
-  }
-
-  h2 {
-    font-size: 1.15em;
-  }
-
-  h3 {
-    font-size: 1.1em;
   }
 
   /* Custom utility classes for violet theme */
@@ -195,25 +184,6 @@ All colors MUST be HSL.
 
   .border-blue-500 {
     border-color: hsl(217 91% 60%);
-  }
-
-  /* Blue light effect for hero title */
-  .hero-title-glow {
-    position: relative;
-  }
-
-  .hero-title-glow::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: 100px;
-    background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0.1) 50%, transparent 70%);
-    blur: 20px;
-    z-index: -1;
-    animation: pulse 3s ease-in-out infinite;
   }
 }
 
@@ -273,20 +243,6 @@ All colors MUST be HSL.
 
   .animate-slide-horizontal {
     animation: slide-horizontal 10s linear infinite;
-  }
-
-  /* Enhanced floating elements */
-  .animate-float-delayed {
-    animation: float 8s ease-in-out infinite;
-    animation-delay: 2s;
-  }
-
-  .animate-drift {
-    animation: drift 15s ease-in-out infinite;
-  }
-
-  .animate-orbit {
-    animation: orbit 20s linear infinite;
   }
 
   /* Hover scale animation */
@@ -359,42 +315,7 @@ All colors MUST be HSL.
     width: 100%;
   }
 
-  /* New Trading API Edge border animation - specific class */
-  .trading-api-edge-border {
-    --border-angle: 0turn;
-    border: solid 5px transparent;
-    border-radius: 2rem;
-    
-    --main-bg: conic-gradient(
-        from var(--border-angle),
-        rgba(15, 23, 42, 0.9),
-        rgba(15, 15, 25, 0.8) 5%,
-        rgba(15, 15, 25, 0.8) 60%,
-        rgba(15, 23, 42, 0.9) 95%
-      );
-    
-    --gradient-border: conic-gradient(
-      from var(--border-angle), 
-      transparent 25%, 
-      rgba(59, 130, 246, 0.8), 
-      rgba(147, 51, 234, 0.8) 99%, 
-      transparent
-    );
-    
-    background: 
-      var(--main-bg) padding-box,
-      var(--gradient-border) border-box, 
-      var(--main-bg) border-box;
-    
-    background-position: center center;
-    animation: trading-border-spin 3s linear infinite;
-  }
-
-  .trading-api-edge-border:hover {
-    animation-play-state: paused;
-  }
-
-  /* Glowing border animation - restored for other sections */
+  /* Glowing border animation with darker blue */
   .glowing-border {
     --border-width: 2px;
     --radius: 12px;
@@ -510,127 +431,12 @@ All colors MUST be HSL.
     background: rgba(59, 130, 246, 0.1);
     transform: translateY(-2px);
   }
-
-  /* Enhanced background animations */
-  .bg-particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3));
-    border-radius: 50%;
-    animation: particle-float 12s ease-in-out infinite;
-  }
-
-  .bg-particle:nth-child(odd) {
-    animation-delay: -2s;
-    animation-duration: 15s;
-  }
-
-  .bg-particle:nth-child(even) {
-    animation-delay: -4s;
-    animation-duration: 18s;
-  }
-
-  /* Animated grid overlay */
-  .animated-grid {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    animation: grid-drift 25s linear infinite;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Floating geometric shapes */
-  .floating-shape {
-    position: absolute;
-    opacity: 0.1;
-    animation: shape-float 20s ease-in-out infinite;
-  }
-
-  .floating-shape:nth-child(1) { animation-delay: 0s; }
-  .floating-shape:nth-child(2) { animation-delay: -3s; }
-  .floating-shape:nth-child(3) { animation-delay: -6s; }
-  .floating-shape:nth-child(4) { animation-delay: -9s; }
-  .floating-shape:nth-child(5) { animation-delay: -12s; }
-
-  /* Enhanced background particles */
-  .enhanced-bg-particle {
-    position: absolute;
-    border-radius: 50%;
-    background: linear-gradient(45deg, rgba(59, 130, 246, 0.4), rgba(147, 51, 234, 0.4));
-    animation: enhanced-particle-float 20s ease-in-out infinite;
-    filter: blur(1px);
-  }
-
-  .enhanced-bg-particle:nth-child(1) { 
-    width: 6px; height: 6px; 
-    top: 10%; left: 20%; 
-    animation-delay: 0s; 
-  }
-  .enhanced-bg-particle:nth-child(2) { 
-    width: 4px; height: 4px; 
-    top: 30%; right: 15%; 
-    animation-delay: -3s; 
-  }
-  .enhanced-bg-particle:nth-child(3) { 
-    width: 8px; height: 8px; 
-    bottom: 20%; left: 10%; 
-    animation-delay: -6s; 
-  }
-  .enhanced-bg-particle:nth-child(4) { 
-    width: 3px; height: 3px; 
-    top: 60%; right: 30%; 
-    animation-delay: -9s; 
-  }
-  .enhanced-bg-particle:nth-child(5) { 
-    width: 5px; height: 5px; 
-    bottom: 40%; left: 40%; 
-    animation-delay: -12s; 
-  }
-
-  /* Floating light orbs */
-  .floating-light-orb {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(147, 51, 234, 0.1) 50%, transparent 70%);
-    animation: light-orb-float 25s ease-in-out infinite;
-    filter: blur(2px);
-  }
-
-  .floating-light-orb:nth-child(1) { 
-    width: 60px; height: 60px; 
-    top: 15%; left: 5%; 
-    animation-delay: 0s; 
-  }
-  .floating-light-orb:nth-child(2) { 
-    width: 80px; height: 80px; 
-    top: 45%; right: 8%; 
-    animation-delay: -8s; 
-  }
-  .floating-light-orb:nth-child(3) { 
-    width: 40px; height: 40px; 
-    bottom: 25%; left: 15%; 
-    animation-delay: -16s; 
-  }
 }
 
-@property --border-angle {
+@property --angle {
   syntax: "<angle>";
   inherits: true;
   initial-value: 0turn;
-}
-
-@keyframes trading-border-spin {
-  to {
-    --border-angle: 1turn;
-  }
 }
 
 @keyframes glowing-border-spin {
@@ -700,95 +506,6 @@ All colors MUST be HSL.
   }
   90% {
     transform: translate3d(0, -1px, 0);
-  }
-}
-
-@keyframes drift {
-  0%, 100% {
-    transform: translateX(0) translateY(0) rotate(0deg);
-  }
-  25% {
-    transform: translateX(20px) translateY(-15px) rotate(90deg);
-  }
-  50% {
-    transform: translateX(-10px) translateY(-30px) rotate(180deg);
-  }
-  75% {
-    transform: translateX(-25px) translateY(-10px) rotate(270deg);
-  }
-}
-
-@keyframes orbit {
-  0% {
-    transform: rotate(0deg) translateX(100px) rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg) translateX(100px) rotate(-360deg);
-  }
-}
-
-@keyframes particle-float {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
-    opacity: 0.3;
-  }
-  25% {
-    transform: translateY(-100px) translateX(50px) scale(1.2);
-    opacity: 0.6;
-  }
-  50% {
-    transform: translateY(-200px) translateX(-30px) scale(0.8);
-    opacity: 0.4;
-  }
-  75% {
-    transform: translateY(-150px) translateX(-80px) scale(1.1);
-    opacity: 0.7;
-  }
-}
-
-@keyframes enhanced-particle-float {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
-    opacity: 0.4;
-  }
-  25% {
-    transform: translateY(-150px) translateX(80px) scale(1.5) rotate(90deg);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-300px) translateX(-50px) scale(0.6) rotate(180deg);
-    opacity: 0.3;
-  }
-  75% {
-    transform: translateY(-200px) translateX(-120px) scale(1.2) rotate(270deg);
-    opacity: 0.9;
-  }
-}
-
-@keyframes light-orb-float {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
-    opacity: 0.2;
-  }
-  33% {
-    transform: translateY(-80px) translateX(60px) scale(1.3);
-    opacity: 0.4;
-  }
-  66% {
-    transform: translateY(-40px) translateX(-40px) scale(0.8);
-    opacity: 0.3;
-  }
-}
-
-@keyframes shape-float {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg) scale(1);
-  }
-  33% {
-    transform: translateY(-50px) rotate(120deg) scale(1.1);
-  }
-  66% {
-    transform: translateY(-25px) rotate(240deg) scale(0.9);
   }
 }
 
