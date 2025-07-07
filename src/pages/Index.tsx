@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -86,9 +85,9 @@ const Index = () => {
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
               <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
-                The <span className="text-violet-400">Fastest</span> API
+                The <span className="text-white">Fastest</span> API
                 <br />
-                for Trading and Launching on{" "}
+                for <span className="text-violet-400">Trading</span> and <span className="text-white">Launching</span> on{" "}
                 <span className="text-violet-400">letsbonk.fun</span>
               </h1>
             </FadeContent>
@@ -128,7 +127,7 @@ const Index = () => {
 
       {/* AI Bot Section */}
       <FadeContent>
-        <section className="py-8 relative">
+        <section className="py-16 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -363,23 +362,23 @@ const Index = () => {
         <section className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
-              {/* Advanced animated background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 via-slate-800/80 to-slate-900/60 backdrop-blur-3xl rounded-3xl border border-slate-700/20 shadow-2xl"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-purple-500/10 to-pink-500/5 rounded-3xl"></div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.15),transparent_50%)] rounded-3xl animate-pulse"></div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.1),transparent_50%)] rounded-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+              {/* Subtle animated background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 via-slate-800/60 to-slate-900/40 backdrop-blur-xl rounded-3xl border border-slate-700/30 shadow-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-slate-500/5 to-slate-500/5 rounded-3xl"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(139,92,246,0.08),transparent_50%)] rounded-3xl animate-pulse"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(100,100,120,0.06),transparent_50%)] rounded-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
               
-              {/* Glowing border effect */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-violet-500/30 via-purple-500/30 to-pink-500/30 rounded-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
+              {/* Subtle glowing border effect */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-slate-600/20 via-slate-500/20 to-slate-600/20 rounded-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-300 blur-sm"></div>
               
-              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 rounded-3xl p-16 text-center backdrop-blur-xl">
+              <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 rounded-3xl p-16 text-center backdrop-blur-xl">
                 <div className="mb-8">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-violet-500/20 to-purple-500/20 mb-8 group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-10 h-10 text-violet-400" />
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-slate-700/20 to-slate-600/20 mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <Users className="w-10 h-10 text-slate-300" />
                   </div>
                   <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
                     <span className="text-white">Join the</span>{" "}
-                    <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Community</span>
+                    <span className="text-violet-400">Community</span>
                   </h2>
                   <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
                     Connect with other developers, get fast support, and share your strategies. Join our community of traders and investors for the latest insights and market analysis.
@@ -387,14 +386,14 @@ const Index = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                  <button className="group/btn relative bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold px-10 py-5 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(88,101,242,0.3)]">
+                  <button className="group/btn relative bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(88,101,242,0.2)]">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                     <span className="relative z-10 flex items-center text-lg">
                       <MessageCircle className="w-6 h-6 mr-3" />
                       Join our Discord
                     </span>
                   </button>
-                  <button className="group/btn relative bg-[#1DA1F2] hover:bg-[#1A91DA] text-white font-bold px-10 py-5 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(29,161,242,0.3)]">
+                  <button className="group/btn relative bg-[#1DA1F2] hover:bg-[#1A91DA] text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(29,161,242,0.2)]">
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                     <span className="relative z-10 flex items-center text-lg">
                       <Users className="w-6 h-6 mr-3" />
