@@ -31,35 +31,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-x-hidden font-sans relative">
-      {/* Enhanced Modern Grid Background */}
+      {/* Modern Grid Background */}
       <ModernGrid />
 
-      {/* Enhanced animated background particles */}
-      <div className="fixed inset-0 opacity-30 pointer-events-none z-0">
-        {/* Floating geometric shapes */}
-        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-violet-500/20 rounded-full animate-particles"></div>
-        <div className="absolute top-3/4 right-1/4 w-6 h-6 bg-blue-500/20 rounded-full animate-particles" style={{animationDelay: '3s'}}></div>
-        <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-violet-400/30 rounded-full animate-particles" style={{animationDelay: '6s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-5 h-5 bg-blue-400/25 rounded-full animate-particles" style={{animationDelay: '9s'}}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-4 h-4 bg-violet-500/20 rounded-full animate-particles" style={{animationDelay: '12s'}}></div>
-        
-        {/* Animated lines */}
-        <div className="absolute top-20 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent animate-slide-horizontal"></div>
-        <div className="absolute top-40 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent animate-slide-horizontal" style={{animationDelay: '5s'}}></div>
-        <div className="absolute left-20 top-0 w-px h-full bg-gradient-to-b from-transparent via-violet-500/20 to-transparent animate-slide-vertical"></div>
-        <div className="absolute right-40 top-0 w-px h-full bg-gradient-to-b from-transparent via-blue-500/20 to-transparent animate-slide-vertical" style={{animationDelay: '7s'}}></div>
-      </div>
-
       {/* Background Assets */}
-      <div className="fixed inset-0 opacity-25 pointer-events-none z-0">
+      <div className="fixed inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/30 to-purple-500/30 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/25 to-pink-500/25 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/25 to-violet-500/25 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow"></div>
-        
-        {/* Additional animated elements */}
-        <div className="absolute top-1/3 right-1/2 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-violet-500/20 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-28 h-28 bg-gradient-to-br from-violet-500/25 to-blue-500/25 rounded-full blur-3xl animate-pulse-slow"></div>
       </div>
 
       {/* Enhanced Navigation */}
@@ -108,7 +88,7 @@ const Index = () => {
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
-              <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
                 <span className="text-violet-400">The Fastest API</span>
                 <br />
                 <span className="text-white">for Trading and Launching on</span>{" "}
@@ -117,7 +97,7 @@ const Index = () => {
             </FadeContent>
             
             <FadeContent delay={600}>
-              <p className="text-xl lg:text-2xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Integrate professional-grade infrastructure in minutes to automate your trades and token launches. Maximum reliability, minimal fees.
               </p>
             </FadeContent>
@@ -126,14 +106,14 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-6">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-600/40 text-white hover:bg-slate-700/60 font-bold px-10 py-4 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group text-lg"
+                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-600/40 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 </button>
                 <button 
                   onClick={() => scrollToSection('documentation')}
-                  className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 text-lg"
+                  className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
                 >
                   Explore Documentation
                 </button>
@@ -141,7 +121,7 @@ const Index = () => {
             </FadeContent>
 
             <FadeContent delay={1000}>
-              <p className="text-base text-slate-400 italic mb-8">
+              <p className="text-sm text-slate-400 italic mb-16">
                 No credit card required. Simple integration.
               </p>
             </FadeContent>
@@ -149,9 +129,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Reduced spacing */}
+      {/* AI Bot Section - Moved much higher */}
       <FadeContent>
-        <section className="py-2 relative">
+        <section className="py-4 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
