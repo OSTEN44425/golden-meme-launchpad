@@ -337,7 +337,7 @@ All colors MUST be HSL.
     isolation: isolate;
     position: relative;
     border-radius: var(--radius);
-    border: var(--border-width) solid hsl(222 84% 5%);
+    border: var(--border-width) solid rgba(59, 130, 246, 0.1);
     background: rgba(15, 15, 25, 0.4);
   }
 
@@ -350,15 +350,13 @@ All colors MUST be HSL.
     border-radius: inherit;
     background-image: conic-gradient(
       from var(--angle),
-      transparent 0%,
-      rgba(59, 130, 246, 0.8) 10%,
-      rgba(96, 165, 250, 1) 25%,
-      rgba(147, 197, 253, 1) 40%,
-      rgba(219, 234, 254, 1) 50%,
-      rgba(147, 197, 253, 1) 60%,
-      rgba(96, 165, 250, 1) 75%,
-      rgba(59, 130, 246, 0.8) 90%,
-      transparent 100%
+      transparent 70%,
+      rgba(59, 130, 246, 0.3) 80%,
+      rgba(96, 165, 250, 0.8) 85%,
+      rgba(147, 197, 253, 1) 90%,
+      rgba(96, 165, 250, 0.8) 95%,
+      rgba(59, 130, 246, 0.3) 100%,
+      transparent 10%
     );
     background-origin: border-box;
     -webkit-mask: linear-gradient(black, black) content-box,
@@ -369,8 +367,27 @@ All colors MUST be HSL.
     mask-clip: content-box, border-box;
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    animation: glowing-border-spin 2s linear infinite;
-    filter: blur(0.8px) brightness(1.8);
+    animation: glowing-border-spin 3s linear infinite;
+    filter: blur(1px) brightness(1.5);
+  }
+
+  .glowing-border:nth-child(2n)::before {
+    animation: glowing-border-spin 4s linear infinite reverse;
+  }
+
+  .glowing-border:nth-child(3n)::before {
+    animation: glowing-border-spin 5s linear infinite;
+    animation-delay: -1s;
+  }
+
+  .glowing-border:nth-child(4n)::before {
+    animation: glowing-border-spin 3.5s linear infinite reverse;
+    animation-delay: -0.5s;
+  }
+
+  .glowing-border:nth-child(5n)::before {
+    animation: glowing-border-spin 4.5s linear infinite;
+    animation-delay: -2s;
   }
 
   .glowing-border::after {
@@ -379,8 +396,8 @@ All colors MUST be HSL.
     inset: 0;
     border-radius: inherit;
     background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
-      rgba(59, 130, 246, 0.3) 0%, 
-      rgba(147, 197, 253, 0.15) 30%, 
+      rgba(59, 130, 246, 0.2) 0%, 
+      rgba(147, 197, 253, 0.1) 30%, 
       transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -392,8 +409,8 @@ All colors MUST be HSL.
   }
 
   .glowing-border:hover::before {
-    animation-duration: 1s;
-    filter: blur(1px) brightness(2.2);
+    animation-duration: 2s;
+    filter: blur(1.2px) brightness(2);
   }
 }
 
