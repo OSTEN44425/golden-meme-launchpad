@@ -42,9 +42,9 @@ const Index = () => {
         <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow"></div>
       </div>
 
-      {/* Enhanced Navigation - More translucent and darker */}
+      {/* Enhanced Navigation */}
       <FadeContent>
-        <header className="backdrop-blur-2xl bg-black/60 sticky top-0 z-50 transition-all duration-500 border-b border-white/5">
+        <header className="backdrop-blur-xl bg-slate-950/80 sticky top-0 z-50 transition-all duration-500">
           <div className="container mx-auto px-8 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
               <div className="relative">
@@ -129,18 +129,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Reduced padding */}
+      {/* AI Bot Section - Moved much higher */}
       <FadeContent>
-        <section className="py-2 relative">
+        <section className="py-4 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
         </section>
       </FadeContent>
 
-      {/* Social Proof / Trust - Reduced margin */}
+      {/* Social Proof / Trust */}
       <FadeContent>
-        <section className="py-8 relative">
+        <section className="py-12 relative">
           <div className="container mx-auto px-6 text-center">
             <p className="text-sm text-slate-400 mb-8 uppercase tracking-wider">Compatible with Solana Ecosystem</p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
@@ -229,7 +229,87 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* New Pricing Section with professional violet badge */}
+      {/* Violet Section separator */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
+      {/* Trading API Edge Title */}
+      <FadeContent>
+        <section className="py-12 relative">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-16">
+              <span className="text-white">Trading</span>{" "}
+              <span className="text-violet-400">API Edge</span>
+            </h2>
+          </div>
+        </section>
+      </FadeContent>
+
+      {/* Key Benefits */}
+      <FadeContent>
+        <section className="py-20 relative">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  icon: Zap,
+                  title: "Radical Simplicity",
+                  description: "Integrate our API in less than 5 minutes. Clear documentation and logical endpoints to focus on your strategy, not our infrastructure.",
+                  color: "from-violet-500/20 to-purple-500/20",
+                  borderColor: "border-violet-500/30",
+                  iconColor: "text-violet-400"
+                },
+                {
+                  icon: Rocket,
+                  title: "Performance & Stability",
+                  description: "Leverage Jito bundles for atomic and priority transactions. Our service relies on the best providers (0slot, astralane) for near-instant execution.",
+                  color: "from-purple-500/20 to-pink-500/20",
+                  borderColor: "border-purple-500/30",
+                  iconColor: "text-purple-400"
+                },
+                {
+                  icon: DollarSign,
+                  title: "Lowest & Transparent Fees",
+                  description: "A unique and clear fee structure: 0.8% on transactions. That's it. No hidden fees, no subscription.",
+                  color: "from-violet-500/20 to-emerald-500/20",
+                  borderColor: "border-violet-500/30",
+                  iconColor: "text-violet-400"
+                },
+                {
+                  icon: FileText,
+                  title: "Exemplary Documentation",
+                  description: "Copy-paste guides, complete API reference, and tutorials to get you operational immediately.",
+                  color: "from-violet-500/20 to-red-500/20",
+                  borderColor: "border-violet-500/30",
+                  iconColor: "text-violet-400"
+                }
+              ].map((feature, index) => (
+                <FadeContent key={index} delay={index * 200}>
+                  <Card className={`glowing-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
+                    <CardHeader className="pb-4">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
+                        <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
+                      </div>
+                      <CardTitle className="text-white text-xl font-semibold">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-1">
+                      <p className="text-slate-300 text-sm leading-relaxed">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </FadeContent>
+              ))}
+            </div>
+          </div>
+        </section>
+      </FadeContent>
+
+      {/* New Pricing Section with emphasis on being cheapest */}
       <FadeContent>
         <section className="py-20 relative">
           <div className="container mx-auto px-6">
@@ -243,11 +323,11 @@ const Index = () => {
             <div className="max-w-4xl mx-auto">
               <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
                 <CardContent className="p-16 text-center relative">
-                  {/* Professional violet badge */}
+                  {/* "CHEAPEST" badge - Changed to violet */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-gradient-to-r from-violet-600/90 to-violet-800/90 backdrop-blur-xl border border-violet-400/30 text-white font-bold px-8 py-3 text-sm rounded-full shadow-2xl shadow-violet-500/20">
-                      CHEAPEST ON THE MARKET
-                    </div>
+                    <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-6 py-2 text-lg animate-pulse shadow-lg">
+                      🏆 CHEAPEST ON THE MARKET
+                    </Badge>
                   </div>
 
                   {/* Large percentage */}
@@ -369,6 +449,16 @@ const Index = () => {
         </section>
       </FadeContent>
 
+      {/* Violet Section separator */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
       {/* Final CTA */}
       <FadeContent>
         <section id="cta-final" className="py-20 relative">
@@ -386,9 +476,9 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Footer - More translucent and darker */}
+      {/* Footer */}
       <FadeContent>
-        <footer className="border-t border-slate-800/30 bg-black/70 backdrop-blur-2xl shadow-2xl shadow-slate-900/40">
+        <footer className="border-t border-slate-800/30 bg-gradient-to-br from-slate-950/80 via-slate-900/60 to-slate-950/80 backdrop-blur-xl shadow-2xl shadow-slate-900/40">
           <div className="container mx-auto px-6 py-12">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
               <div className="md:col-span-2">
