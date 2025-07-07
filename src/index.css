@@ -112,10 +112,49 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Manrope', 'Inter', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     color: #FAFAFA;
     background: linear-gradient(135deg, hsl(222 84% 5%) 0%, hsl(215 28% 4%) 50%, hsl(222 84% 5%) 100%);
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Enhanced animated background elements */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    animation: floating-orbs 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(45deg, rgba(59, 130, 246, 0.03) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(147, 51, 234, 0.03) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(59, 130, 246, 0.03) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(147, 51, 234, 0.03) 75%);
+    background-size: 60px 60px;
+    background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+    animation: grid-drift 25s linear infinite;
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
   }
   
   .font-mono {
@@ -245,14 +284,19 @@ All colors MUST be HSL.
     animation: slide-horizontal 10s linear infinite;
   }
 
-  /* Hover scale animation */
+  /* Floating particles animation */
+  .animate-particles {
+    animation: floating-particles 15s ease-in-out infinite;
+  }
+
+  /* Enhanced hover effects */
   .hover-scale {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
 
   .hover-scale:hover {
     transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
 
   /* Modern button hover effects */
@@ -315,7 +359,7 @@ All colors MUST be HSL.
     width: 100%;
   }
 
-  /* Glowing border animation with darker blue */
+  /* Glowing border animation */
   .glowing-border {
     --border-width: 2px;
     --radius: 12px;
@@ -509,6 +553,21 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes floating-orbs {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+  }
+  50% {
+    transform: translateY(0px) translateX(-10px) scale(0.9);
+  }
+  75% {
+    transform: translateY(20px) translateX(5px) scale(1.05);
+  }
+}
+
 @keyframes grid-drift {
   0% {
     transform: translate(0, 0);
@@ -518,12 +577,22 @@ All colors MUST be HSL.
   }
 }
 
-@keyframes grid-drift-reverse {
-  0% {
-    transform: translate(20px, 20px);
+@keyframes floating-particles {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.4;
   }
-  100% {
-    transform: translate(0, 0);
+  25% {
+    transform: translateY(-30px) rotate(90deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(0px) rotate(180deg);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translateY(20px) rotate(270deg);
+    opacity: 0.7;
   }
 }
 
