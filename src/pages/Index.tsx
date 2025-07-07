@@ -36,15 +36,15 @@ const Index = () => {
       <ModernGrid />
 
       {/* Enhanced Background Assets with more violet light */}
-      <div className="fixed inset-0 opacity-30 pointer-events-none">
-        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/40 to-purple-500/40 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/25 to-violet-500/35 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow"></div>
-        <div className="absolute top-3/4 left-1/4 w-28 h-28 bg-gradient-to-br from-violet-500/35 to-purple-600/35 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-violet-400/30 to-violet-600/30 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-10 left-1/2 w-24 h-24 bg-gradient-to-br from-violet-500/25 to-purple-500/25 rounded-full blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
-        <div className="absolute bottom-32 left-20 w-18 h-18 bg-gradient-to-br from-violet-400/35 to-violet-500/35 rounded-full blur-2xl animate-float" style={{animationDelay: '4s'}}></div>
+      <div className="fixed inset-0 opacity-40 pointer-events-none">
+        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/50 to-purple-500/50 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/40 to-pink-500/40 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/35 to-violet-500/45 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/40 to-teal-500/40 rounded-full blur-2xl animate-bounce-slow"></div>
+        <div className="absolute top-3/4 left-1/4 w-28 h-28 bg-gradient-to-br from-violet-500/45 to-purple-600/45 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-violet-400/40 to-violet-600/40 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-10 left-1/2 w-24 h-24 bg-gradient-to-br from-violet-500/35 to-purple-500/35 rounded-full blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
+        <div className="absolute bottom-32 left-20 w-18 h-18 bg-gradient-to-br from-violet-400/45 to-violet-500/45 rounded-full blur-2xl animate-float" style={{animationDelay: '4s'}}></div>
       </div>
 
       {/* Enhanced Navigation - Much darker, almost black */}
@@ -130,6 +130,12 @@ const Index = () => {
         <div className="absolute bottom-60 right-20 opacity-20">
           <Target className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '4s'}} />
         </div>
+        <div className="absolute top-60 left-16 opacity-15">
+          <Settings className="w-5 h-5 text-violet-400 animate-bounce-slow" style={{animationDelay: '5s'}} />
+        </div>
+        <div className="absolute bottom-32 right-1/3 opacity-20">
+          <Activity className="w-6 h-6 text-purple-400 animate-pulse" style={{animationDelay: '6s'}} />
+        </div>
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
@@ -152,7 +158,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-4">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-white hover:bg-slate-800/80 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  className="bg-slate-900/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-800/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -177,7 +183,7 @@ const Index = () => {
 
       {/* AI Bot Section - Positioned higher */}
       <FadeContent>
-        <section className="py-2 relative -mt-20">
+        <section className="py-2 relative -mt-40">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -196,6 +202,12 @@ const Index = () => {
           </div>
           <div className="absolute bottom-4 left-1/3 opacity-15">
             <Server className="w-5 h-5 text-violet-400 animate-bounce-slow" style={{animationDelay: '2s'}} />
+          </div>
+          <div className="absolute top-16 right-1/4 opacity-12">
+            <Lock className="w-4 h-4 text-violet-400 animate-pulse" style={{animationDelay: '2.5s'}} />
+          </div>
+          <div className="absolute bottom-8 right-12 opacity-15">
+            <Cpu className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '3s'}} />
           </div>
 
           <div className="container mx-auto px-6 text-center">
@@ -233,6 +245,12 @@ const Index = () => {
           </div>
           <div className="absolute bottom-10 left-16 opacity-15">
             <Settings className="w-5 h-5 text-violet-400 animate-bounce-slow" style={{animationDelay: '4s'}} />
+          </div>
+          <div className="absolute top-32 left-1/4 opacity-12">
+            <Target className="w-5 h-5 text-violet-400 animate-pulse" style={{animationDelay: '4.5s'}} />
+          </div>
+          <div className="absolute bottom-20 right-20 opacity-15">
+            <Zap className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '5s'}} />
           </div>
 
           <div className="container mx-auto px-6">
@@ -318,7 +336,13 @@ const Index = () => {
             <Wifi className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '2.5s'}} />
           </div>
           <div className="absolute bottom-6 left-1/4 opacity-15">
-            <Activity className="w-6 h-6 text-violet-400 animate-bounce-slow" style={{animationDelayDuration: '3s'}} />
+            <Activity className="w-6 h-6 text-violet-400 animate-bounce-slow" style={{animationDelay: '3s'}} />
+          </div>
+          <div className="absolute top-16 right-1/3 opacity-12">
+            <Database className="w-5 h-5 text-purple-400 animate-pulse" style={{animationDelay: '3.5s'}} />
+          </div>
+          <div className="absolute bottom-12 right-16 opacity-15">
+            <Cpu className="w-6 h-6 text-violet-400 animate-float" style={{animationDelay: '4s'}} />
           </div>
 
           <div className="container mx-auto px-6 text-center">
@@ -342,6 +366,12 @@ const Index = () => {
           </div>
           <div className="absolute bottom-16 left-12 opacity-15">
             <Shield className="w-6 h-6 text-violet-400 animate-bounce-slow" style={{animationDelay: '5s'}} />
+          </div>
+          <div className="absolute top-24 left-1/3 opacity-12">
+            <Zap className="w-5 h-5 text-violet-400 animate-pulse" style={{animationDelay: '5.5s'}} />
+          </div>
+          <div className="absolute bottom-24 right-1/4 opacity-15">
+            <Server className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '6s'}} />
           </div>
 
           <div className="container mx-auto px-6">
@@ -412,6 +442,12 @@ const Index = () => {
           <div className="absolute bottom-12 left-1/3 opacity-15">
             <DollarSign className="w-6 h-6 text-violet-400 animate-bounce-slow" style={{animationDelay: '6s'}} />
           </div>
+          <div className="absolute top-20 right-1/4 opacity-12">
+            <Award className="w-5 h-5 text-violet-400 animate-pulse" style={{animationDelay: '6.5s'}} />
+          </div>
+          <div className="absolute bottom-20 right-12 opacity-15">
+            <Target className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '7s'}} />
+          </div>
 
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
@@ -426,7 +462,7 @@ const Index = () => {
                 <CardContent className="p-16 text-center relative">
                   {/* Professional badge - darker violet translucent */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-gradient-to-r from-violet-800/60 via-violet-700/70 to-violet-800/60 backdrop-blur-md border border-violet-600/40 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
+                    <div className="bg-gradient-to-r from-violet-800/40 via-violet-700/50 to-violet-800/40 backdrop-blur-md border border-violet-600/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/20">
                       CHEAPEST ON THE MARKET
                     </div>
                   </div>
@@ -474,6 +510,12 @@ const Index = () => {
           </div>
           <div className="absolute bottom-16 left-16 opacity-15">
             <MessageCircle className="w-6 h-6 text-violet-400 animate-bounce-slow" style={{animationDelay: '5s'}} />
+          </div>
+          <div className="absolute top-32 left-1/3 opacity-12">
+            <Star className="w-5 h-5 text-violet-400 animate-pulse" style={{animationDelay: '5.5s'}} />
+          </div>
+          <div className="absolute bottom-24 right-1/4 opacity-15">
+            <Sparkles className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '6s'}} />
           </div>
 
           <div className="container mx-auto px-6 max-w-5xl">
@@ -561,7 +603,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator */}
+      {/* Violet Section separator above footer */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
@@ -579,7 +621,7 @@ const Index = () => {
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-slate-200 hover:bg-slate-800/80 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+              className="bg-slate-900/60 backdrop-blur-sm border border-slate-700/40 text-slate-200 hover:bg-slate-800/60 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key and Start</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -587,12 +629,6 @@ const Index = () => {
           </div>
         </section>
       </FadeContent>
-
-      {/* Footer separator line - matching header */}
-      <div className="relative h-px w-full">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/20 to-transparent animate-pulse"></div>
-        <div className="absolute left-0 w-full h-px bg-gradient-to-r from-violet-400/10 via-violet-500/30 to-violet-400/10 animate-pulse" style={{animationDelay: '0.5s'}}></div>
-      </div>
 
       {/* Footer - Much darker, almost black with reduced size */}
       <FadeContent>
