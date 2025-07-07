@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -75,7 +76,11 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </button>
           </div>
-          <div className="w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent"></div>
+          {/* Animated violet separator line */}
+          <div className="relative h-px">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/70 to-transparent animate-pulse"></div>
+            <div className="absolute left-1/4 w-1/2 h-px bg-gradient-to-r from-violet-400/50 via-violet-500/90 to-violet-400/50 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+          </div>
         </header>
       </FadeContent>
 
@@ -150,7 +155,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Violet Section separator */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
@@ -225,15 +230,27 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Violet Section separator */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
+
+      {/* Trading API Edge Title */}
+      <FadeContent>
+        <section className="py-12 relative">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-16">
+              <span className="text-white">Trading</span>{" "}
+              <span className="text-violet-400">API Edge</span>
+            </h2>
+          </div>
+        </section>
+      </FadeContent>
 
       {/* Key Benefits */}
       <FadeContent>
@@ -261,17 +278,17 @@ const Index = () => {
                   icon: DollarSign,
                   title: "Lowest & Transparent Fees",
                   description: "A unique and clear fee structure: 0.8% on transactions. That's it. No hidden fees, no subscription.",
-                  color: "from-green-500/20 to-emerald-500/20",
-                  borderColor: "border-green-500/30",
-                  iconColor: "text-green-400"
+                  color: "from-violet-500/20 to-emerald-500/20",
+                  borderColor: "border-violet-500/30",
+                  iconColor: "text-violet-400"
                 },
                 {
                   icon: FileText,
                   title: "Exemplary Documentation",
                   description: "Copy-paste guides, complete API reference, and tutorials to get you operational immediately.",
-                  color: "from-orange-500/20 to-red-500/20",
-                  borderColor: "border-orange-500/30",
-                  iconColor: "text-orange-400"
+                  color: "from-violet-500/20 to-red-500/20",
+                  borderColor: "border-violet-500/30",
+                  iconColor: "text-violet-400"
                 }
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
@@ -293,7 +310,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Violet Section separator */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
@@ -347,27 +364,33 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Violet Section separator */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-purple-500 rounded-full animate-ping"></div>
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
 
-      {/* Community Section - Improved Design with darker background */}
+      {/* Community Section - Improved Design with decorative icons */}
       <FadeContent>
         <section className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
-              {/* Animated gradient border - darker */}
+              {/* Animated gradient border */}
               <div className="absolute -inset-1 bg-gradient-to-r from-slate-700/40 via-slate-600/40 to-slate-700/40 rounded-3xl opacity-30 group-hover:opacity-50 blur-sm transition-all duration-500 animate-pulse"></div>
               
-              {/* Main container - much darker background */}
+              {/* Main container */}
               <div className="relative bg-gradient-to-br from-slate-950/98 via-slate-900/98 to-slate-950/98 rounded-3xl border border-slate-700/30 backdrop-blur-xl overflow-hidden">
-                {/* Floating gradient orbs - darker */}
+                {/* Decorative Discord/Twitter icons in corners */}
+                <MessageCircle className="absolute top-8 left-8 w-16 h-16 text-violet-500/20 animate-pulse" />
+                <Users className="absolute top-8 right-8 w-16 h-16 text-blue-500/20 animate-pulse" style={{animationDelay: '1s'}} />
+                <MessageCircle className="absolute bottom-8 left-8 w-16 h-16 text-blue-500/20 animate-pulse" style={{animationDelay: '2s'}} />
+                <Users className="absolute bottom-8 right-8 w-16 h-16 text-violet-500/20 animate-pulse" style={{animationDelay: '3s'}} />
+                
+                {/* Floating gradient orbs */}
                 <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-slate-700/10 to-slate-600/10 rounded-full blur-2xl animate-pulse"></div>
                 <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-slate-600/10 to-slate-700/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
                 
@@ -387,14 +410,14 @@ const Index = () => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                    <button className="group/btn relative bg-gradient-to-r from-slate-700/80 to-slate-600/80 hover:from-slate-600/90 hover:to-slate-500/90 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-slate-600/30">
+                    <button className="group/btn relative bg-slate-700/30 hover:bg-slate-600/40 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/30 backdrop-blur-sm">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <MessageCircle className="w-6 h-6 mr-3" />
                         Join our Discord
                       </span>
                     </button>
-                    <button className="group/btn relative bg-gradient-to-r from-slate-700/80 to-slate-600/80 hover:from-slate-600/90 hover:to-slate-500/90 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-slate-600/30">
+                    <button className="group/btn relative bg-slate-700/30 hover:bg-slate-600/40 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/30 backdrop-blur-sm">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <Users className="w-6 h-6 mr-3" />
@@ -409,13 +432,13 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Enhanced Section separator */}
+      {/* Violet Section separator */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-orange-500 rounded-full animate-ping"></div>
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
 
