@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp, FileText, DollarSign, Headphones, MessageCircle } from "lucide-react";
+import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp, FileText, DollarSign, Headphones, MessageCircle, Sparkles, Target, Timer, Award, Cpu, Server, Wifi } from "lucide-react";
 import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
@@ -43,11 +43,13 @@ const Index = () => {
         <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow"></div>
         <div className="absolute top-3/4 left-1/4 w-28 h-28 bg-gradient-to-br from-violet-500/35 to-purple-600/35 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
         <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-violet-400/30 to-violet-600/30 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-10 left-1/2 w-24 h-24 bg-gradient-to-br from-violet-500/25 to-purple-500/25 rounded-full blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
+        <div className="absolute bottom-32 left-20 w-18 h-18 bg-gradient-to-br from-violet-400/35 to-violet-500/35 rounded-full blur-2xl animate-float" style={{animationDelay: '4s'}}></div>
       </div>
 
       {/* Enhanced Navigation - Much darker, almost black */}
       <FadeContent>
-        <header className="backdrop-blur-xl bg-slate-950/98 sticky top-0 z-50 transition-all duration-500 border-b border-slate-800/30">
+        <header className="backdrop-blur-xl bg-slate-950/99 sticky top-0 z-50 transition-all duration-500 border-b border-slate-800/30">
           <div className="container mx-auto px-8 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
               <div className="relative">
@@ -88,6 +90,17 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Decorative icons for hero */}
+        <div className="absolute top-20 left-20 opacity-20">
+          <Sparkles className="w-8 h-8 text-violet-400 animate-pulse" />
+        </div>
+        <div className="absolute top-32 right-32 opacity-15">
+          <Target className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '1s'}} />
+        </div>
+        <div className="absolute bottom-40 left-32 opacity-20">
+          <Timer className="w-7 h-7 text-violet-500 animate-bounce-slow" style={{animationDelay: '2s'}} />
+        </div>
+
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -144,6 +157,14 @@ const Index = () => {
       {/* Social Proof / Trust */}
       <FadeContent>
         <section className="py-12 relative">
+          {/* Decorative icons for social proof */}
+          <div className="absolute top-6 left-10 opacity-15">
+            <Award className="w-6 h-6 text-violet-400 animate-pulse" />
+          </div>
+          <div className="absolute top-8 right-16 opacity-10">
+            <Cpu className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '1.5s'}} />
+          </div>
+
           <div className="container mx-auto px-6 text-center">
             <p className="text-sm text-slate-400 mb-8 uppercase tracking-wider">Compatible with Solana Ecosystem</p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
@@ -170,6 +191,14 @@ const Index = () => {
       {/* Use Cases Section */}
       <FadeContent>
         <section className="py-16 relative">
+          {/* Decorative icons for use cases */}
+          <div className="absolute top-10 left-8 opacity-15">
+            <Code className="w-7 h-7 text-violet-400 animate-pulse" style={{animationDelay: '2s'}} />
+          </div>
+          <div className="absolute top-20 right-12 opacity-10">
+            <Rocket className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '3s'}} />
+          </div>
+
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
@@ -245,6 +274,14 @@ const Index = () => {
       {/* Trading API Edge Title */}
       <FadeContent>
         <section className="py-12 relative">
+          {/* Decorative icons for API edge */}
+          <div className="absolute top-6 left-12 opacity-15">
+            <Server className="w-6 h-6 text-violet-400 animate-pulse" style={{animationDelay: '1s'}} />
+          </div>
+          <div className="absolute top-8 right-10 opacity-10">
+            <Wifi className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '2.5s'}} />
+          </div>
+
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-4xl lg:text-5xl font-bold mb-16">
               <span className="text-white">Trading</span>{" "}
@@ -257,6 +294,14 @@ const Index = () => {
       {/* Key Benefits */}
       <FadeContent>
         <section className="py-20 relative">
+          {/* Decorative icons for benefits */}
+          <div className="absolute top-16 left-6 opacity-15">
+            <Activity className="w-7 h-7 text-violet-400 animate-pulse" style={{animationDelay: '1.5s'}} />
+          </div>
+          <div className="absolute top-32 right-8 opacity-10">
+            <Database className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '3.5s'}} />
+          </div>
+
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -315,6 +360,14 @@ const Index = () => {
       {/* New Pricing Section with professional badge */}
       <FadeContent>
         <section className="py-20 relative">
+          {/* Decorative icons for pricing */}
+          <div className="absolute top-12 left-10 opacity-15">
+            <TrendingUp className="w-6 h-6 text-violet-400 animate-pulse" style={{animationDelay: '2s'}} />
+          </div>
+          <div className="absolute top-24 right-14 opacity-10">
+            <BarChart3 className="w-7 h-7 text-purple-400 animate-float" style={{animationDelay: '4s'}} />
+          </div>
+
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
@@ -326,9 +379,9 @@ const Index = () => {
             <div className="max-w-4xl mx-auto">
               <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
                 <CardContent className="p-16 text-center relative">
-                  {/* Professional badge - violet translucent */}
+                  {/* Professional badge - darker violet translucent */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-gradient-to-r from-violet-900/80 via-violet-800/80 to-violet-900/80 backdrop-blur-sm border border-violet-600/40 text-violet-100 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/40">
+                    <div className="bg-gradient-to-r from-violet-950/70 via-violet-900/75 to-violet-950/70 backdrop-blur-md border border-violet-700/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
                       CHEAPEST ON THE MARKET
                     </div>
                   </div>
@@ -367,6 +420,14 @@ const Index = () => {
       {/* Community Section - Enhanced with Telegram button and better distributed decorative icons */}
       <FadeContent>
         <section className="py-20 relative">
+          {/* Decorative icons for community */}
+          <div className="absolute top-16 left-8 opacity-15">
+            <Globe className="w-6 h-6 text-violet-400 animate-pulse" style={{animationDelay: '1s'}} />
+          </div>
+          <div className="absolute top-28 right-10 opacity-10">
+            <Settings className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '3s'}} />
+          </div>
+
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
               {/* Animated gradient border */}
@@ -479,37 +540,43 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Footer - Much darker, almost black */}
+      {/* Footer separator line - matching header */}
+      <div className="relative h-px w-full">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/20 to-transparent animate-pulse"></div>
+        <div className="absolute left-0 w-full h-px bg-gradient-to-r from-violet-400/10 via-violet-500/30 to-violet-400/10 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+      </div>
+
+      {/* Footer - Much darker, almost black with reduced size */}
       <FadeContent>
-        <footer className="border-t border-slate-800/30 bg-slate-950/98 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
-          <div className="container mx-auto px-6 py-6">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+        <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
+          <div className="container mx-auto px-6 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-3">
               <div className="md:col-span-2">
-                <div className="flex items-center space-x-3 mb-2">
+                <div className="flex items-center space-x-3 mb-1">
                   <div className="relative">
-                    <div className="w-7 h-7 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
-                      <Zap className="w-4 h-4 text-white" />
+                    <div className="w-6 h-6 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
+                      <Zap className="w-3 h-3 text-white" />
                     </div>
-                    <div className="absolute inset-0 w-7 h-7 rounded-lg bg-violet-500/20 blur-md animate-pulse"></div>
+                    <div className="absolute inset-0 w-6 h-6 rounded-lg bg-violet-500/20 blur-md animate-pulse"></div>
                   </div>
-                  <span className="text-lg font-bold text-white font-mono tracking-wide">
+                  <span className="text-base font-bold text-white font-mono tracking-wide">
                     launchpad.trade
                   </span>
                 </div>
-                <p className="text-slate-300 max-w-sm mb-2 font-medium leading-relaxed text-sm">
+                <p className="text-slate-300 max-w-sm mb-1 font-medium leading-relaxed text-xs">
                   The fastest and most reliable API to automate your trades on letsbonk.fun.
                 </p>
               </div>
               
-              <div className="space-y-2">
-                <h4 className="font-bold text-white mb-2 text-base">
+              <div className="space-y-1">
+                <h4 className="font-bold text-white mb-1 text-sm">
                   Product
                 </h4>
-                <ul className="space-y-1">
+                <ul className="space-y-0.5">
                   <li>
                     <button
                       onClick={() => scrollToSection('documentation')}
-                      className="text-slate-300 hover:text-violet-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm text-left"
+                      className="text-slate-300 hover:text-violet-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm text-left"
                     >
                       Documentation
                     </button>
@@ -517,16 +584,16 @@ const Index = () => {
                 </ul>
               </div>
               
-              <div className="space-y-2">
-                <h4 className="font-bold text-white mb-2 text-base">
+              <div className="space-y-1">
+                <h4 className="font-bold text-white mb-1 text-sm">
                   Support
                 </h4>
-                <ul className="space-y-1">
+                <ul className="space-y-0.5">
                   {["Discord", "Twitter", "Contact", "Terms of Service", "Privacy Policy"].map((link, i) => (
                     <li key={i}>
                       <a 
                         href="#" 
-                        className="text-slate-300 hover:text-purple-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm"
+                        className="text-slate-300 hover:text-purple-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm"
                       >
                         {link}
                       </a>
@@ -536,9 +603,9 @@ const Index = () => {
               </div>
             </div>
             
-            <Separator className="my-3 bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+            <Separator className="my-2 bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
             
-            <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-sm">
+            <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-xs">
               <p className="font-medium">
                 © 2025 Copyright{" "}
                 <span className="text-white font-semibold">
@@ -546,7 +613,7 @@ const Index = () => {
                 </span>
                 . All rights reserved.
               </p>
-              <div className="flex space-x-6 mt-2 md:mt-0">
+              <div className="flex space-x-4 mt-1 md:mt-0">
                 {["Privacy Policy", "Terms of Service", "Contact"].map((link, i) => (
                   <a 
                     key={i}
