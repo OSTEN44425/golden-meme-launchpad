@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -289,7 +288,7 @@ const Index = () => {
                     <div className="text-slate-400"># Acheter un token en une seule ligne</div>
                     <div className="text-yellow-300">tx_signature</div> <div className="text-blue-300">=</div> <div className="text-yellow-300">client</div><div className="text-white">.</div><div className="text-blue-300">buy</div><div className="text-white">(</div><div className="text-orange-300">token</div><div className="text-blue-300">=</div><div className="text-green-300">"TOKEN_ADDRESS"</div><div className="text-white">,</div> <div className="text-orange-300">sol_amount</div><div className="text-blue-300">=</div><div className="text-purple-300">1.0</div><div className="text-white">)</div>
                     <br /><br />
-                    <div className="text-blue-300">print</div><div className="text-white">(</div><div className="text-green-300">f"Achat réussi ! Signature : </div><div className="text-white">{tx_signature}</div><div className="text-green-300">"</div><div className="text-white">)</div>
+                    <div className="text-blue-300">print</div><div className="text-white">(</div><div className="text-green-300">f"Achat réussi ! Signature : </div><div className="text-white">{"{"}</div><div className="text-yellow-300">tx_signature</div><div className="text-white">{"}"}</div><div className="text-green-300">"</div><div className="text-white">)</div>
                   </div>
                   <div className="mt-6 text-center">
                     <Button 
