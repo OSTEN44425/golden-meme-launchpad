@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -126,9 +125,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Moved higher */}
+      {/* AI Bot Section - Moved much higher */}
       <FadeContent>
-        <section className="py-8 relative">
+        <section className="py-4 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -358,25 +357,25 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Community Section - Improved Design */}
+      {/* Community Section - Improved Design with darker background */}
       <FadeContent>
         <section className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
-              {/* Animated gradient border */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 rounded-3xl opacity-30 group-hover:opacity-50 blur-sm transition-all duration-500 animate-pulse"></div>
+              {/* Animated gradient border - darker */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-slate-700/40 via-slate-600/40 to-slate-700/40 rounded-3xl opacity-30 group-hover:opacity-50 blur-sm transition-all duration-500 animate-pulse"></div>
               
-              {/* Main container */}
-              <div className="relative bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 rounded-3xl border border-violet-500/20 backdrop-blur-xl overflow-hidden">
-                {/* Floating gradient orbs */}
-                <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-full blur-2xl animate-pulse"></div>
-                <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+              {/* Main container - much darker background */}
+              <div className="relative bg-gradient-to-br from-slate-950/98 via-slate-900/98 to-slate-950/98 rounded-3xl border border-slate-700/30 backdrop-blur-xl overflow-hidden">
+                {/* Floating gradient orbs - darker */}
+                <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-slate-700/10 to-slate-600/10 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-slate-600/10 to-slate-700/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
                 
                 {/* Content */}
                 <div className="relative p-16 text-center">
                   <div className="mb-8">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-violet-500/20 to-purple-500/20 border border-violet-500/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
-                      <Users className="w-10 h-10 text-violet-400" />
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-slate-800/40 to-slate-700/40 border border-slate-600/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
+                      <Users className="w-10 h-10 text-slate-300" />
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
                       <span className="text-white">Join the</span>{" "}
@@ -388,15 +387,15 @@ const Index = () => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                    <button className="group/btn relative bg-gradient-to-r from-[#5865F2] to-[#4752C4] hover:from-[#4752C4] hover:to-[#5865F2] text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(88,101,242,0.3)] border border-[#5865F2]/20">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                    <button className="group/btn relative bg-gradient-to-r from-slate-700/80 to-slate-600/80 hover:from-slate-600/90 hover:to-slate-500/90 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-slate-600/30">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <MessageCircle className="w-6 h-6 mr-3" />
                         Join our Discord
                       </span>
                     </button>
-                    <button className="group/btn relative bg-gradient-to-r from-[#1DA1F2] to-[#1A91DA] hover:from-[#1A91DA] hover:to-[#1DA1F2] text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(29,161,242,0.3)] border border-[#1DA1F2]/20">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                    <button className="group/btn relative bg-gradient-to-r from-slate-700/80 to-slate-600/80 hover:from-slate-600/90 hover:to-slate-500/90 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-slate-600/30">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <Users className="w-6 h-6 mr-3" />
                         Follow on Twitter
