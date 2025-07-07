@@ -14,6 +14,17 @@ const Index = () => {
   // Initialize Lenis smooth scroll
   useLenis();
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    }
+  };
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -23,7 +34,7 @@ const Index = () => {
       {/* Modern Grid Background */}
       <ModernGrid />
 
-      {/* Enhanced Navigation with separation */}
+      {/* Enhanced Navigation with professional fonts */}
       <FadeContent>
         <header className="backdrop-blur-xl bg-slate-950/80 sticky top-0 z-50 transition-all duration-500">
           <div className="container mx-auto px-8 py-4 flex items-center justify-between">
@@ -40,20 +51,26 @@ const Index = () => {
               </span>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
-              {["Features", "Pricing", "Testimonials", "FAQ"].map((item, index) => (
-                <FadeContent key={item} delay={index * 100}>
-                  <a 
-                    href={`#${item.toLowerCase()}`} 
-                    className="relative text-slate-200 hover:text-blue-300 transition-all duration-300 font-semibold text-sm px-4 py-2 rounded-lg hover:bg-slate-800/20 group"
+              {[
+                { name: "Features", id: "features" },
+                { name: "Pricing", id: "pricing" },
+                { name: "Testimonials", id: "testimonials" },
+                { name: "FAQ", id: "faq" }
+              ].map((item, index) => (
+                <FadeContent key={item.name} delay={index * 100}>
+                  <button 
+                    onClick={() => scrollToSection(item.id)}
+                    className="nav-link-pro text-slate-200 font-pro font-semibold text-sm px-4 py-2 rounded-lg"
                   >
-                    <span className="relative z-10">{item}</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
-                    <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-violet-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
-                  </a>
+                    {item.name}
+                  </button>
                 </FadeContent>
               ))}
             </nav>
-            <Button className="glowing-border bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold shadow-xl hover:shadow-blue-500/30 transition-all duration-300 text-sm px-6 py-2 rounded-full border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm hover:scale-105 relative overflow-hidden group">
+            <Button 
+              onClick={() => scrollToSection('pricing')}
+              className="glowing-border bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold shadow-xl hover:shadow-blue-500/30 transition-all duration-300 text-sm px-6 py-2 rounded-full border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm hover:scale-105 relative overflow-hidden group"
+            >
               <span className="relative z-10">Join the Alpha</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </Button>
@@ -97,11 +114,17 @@ const Index = () => {
             
             <FadeContent delay={800}>
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
-                <button className="glowing-border bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold px-8 py-3 rounded-full shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm relative overflow-hidden group">
+                <button 
+                  onClick={() => scrollToSection('pricing')}
+                  className="glowing-border bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold px-8 py-3 rounded-full shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 border border-blue-400/20 hover:border-blue-300/30 backdrop-blur-sm relative overflow-hidden group"
+                >
                   <span className="relative z-10">Join the Alpha</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 </button>
-                <button className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
+                <button 
+                  onClick={() => scrollToSection('features')}
+                  className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
+                >
                   Learn more
                 </button>
               </div>
@@ -490,14 +513,19 @@ const Index = () => {
                   Product
                 </h4>
                 <ul className="space-y-3">
-                  {["Features", "Pricing", "Testimonials", "FAQ"].map((link, i) => (
+                  {[
+                    { name: "Features", id: "features" },
+                    { name: "Pricing", id: "pricing" },
+                    { name: "Testimonials", id: "testimonials" },
+                    { name: "FAQ", id: "faq" }
+                  ].map((link, i) => (
                     <li key={i}>
-                      <a 
-                        href={`#${link.toLowerCase()}`} 
-                        className="text-slate-300 hover:text-blue-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm"
+                      <button
+                        onClick={() => scrollToSection(link.id)}
+                        className="text-slate-300 hover:text-blue-400 transition-all duration-300 text-sm font-medium hover:translate-x-1 block py-1 hover:bg-slate-800/20 px-2 rounded-md backdrop-blur-sm text-left"
                       >
-                        {link}
-                      </a>
+                        {link.name}
+                      </button>
                     </li>
                   ))}
                 </ul>

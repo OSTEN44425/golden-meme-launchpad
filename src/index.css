@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* Import modern fonts */
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -110,7 +110,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Figtree', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: #FAFAFA;
     background: linear-gradient(135deg, hsl(222 84% 5%) 0%, hsl(215 28% 4%) 50%, hsl(222 84% 5%) 100%);
@@ -119,6 +119,10 @@ All colors MUST be HSL.
   
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-pro {
+    font-family: 'Poppins', sans-serif;
   }
 
   /* Custom utility classes for violet theme */
@@ -273,40 +277,14 @@ All colors MUST be HSL.
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 
-  /* Enhanced navigation hover effects */
-  .nav-link-enhanced {
+  /* Professional navigation hover effects */
+  .nav-link-pro {
     position: relative;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 0.3s ease;
   }
 
-  .nav-link-enhanced::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-    opacity: 0;
-    border-radius: 0.5rem;
-    transition: opacity 0.3s ease;
-  }
-
-  .nav-link-enhanced:hover::before {
-    opacity: 1;
-  }
-
-  .nav-link-enhanced::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-  }
-
-  .nav-link-enhanced:hover::after {
-    width: 100%;
+  .nav-link-pro:hover {
+    color: hsl(217 91% 60%);
   }
 
   /* Footer link animations */
@@ -330,7 +308,7 @@ All colors MUST be HSL.
     width: 100%;
   }
 
-  /* Glowing border animation */
+  /* Glowing border animation with darker blue */
   .glowing-border {
     --border-width: 2px;
     --radius: 12px;
@@ -351,11 +329,11 @@ All colors MUST be HSL.
     background-image: conic-gradient(
       from var(--angle),
       transparent 70%,
-      rgba(59, 130, 246, 0.3) 80%,
-      rgba(96, 165, 250, 0.8) 85%,
-      rgba(147, 197, 253, 1) 90%,
-      rgba(96, 165, 250, 0.8) 95%,
-      rgba(59, 130, 246, 0.3) 100%,
+      rgba(30, 64, 175, 0.4) 80%,
+      rgba(37, 99, 235, 0.8) 85%,
+      rgba(59, 130, 246, 1) 90%,
+      rgba(37, 99, 235, 0.8) 95%,
+      rgba(30, 64, 175, 0.4) 100%,
       transparent 10%
     );
     background-origin: border-box;
@@ -396,8 +374,8 @@ All colors MUST be HSL.
     inset: 0;
     border-radius: inherit;
     background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
-      rgba(59, 130, 246, 0.2) 0%, 
-      rgba(147, 197, 253, 0.1) 30%, 
+      rgba(30, 64, 175, 0.3) 0%, 
+      rgba(37, 99, 235, 0.15) 30%, 
       transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
