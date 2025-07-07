@@ -86,7 +86,7 @@ const Index = () => {
                 L'<span className="text-blue-400 animate-glow">API</span> la plus{" "}
                 <span className="text-violet-400 animate-glow">Rapide</span>
                 <br />
-                pour Trader sur{" "}
+                pour Trader et Lancer sur{" "}
                 <span className="text-blue-400 animate-glow">letsbonk.fun</span>
               </h1>
             </FadeContent>
@@ -155,7 +155,7 @@ const Index = () => {
                 <Card className="glowing-border glass-effect bg-gradient-to-br from-blue-500/10 to-violet-500/10 backdrop-blur-sm border-blue-500/30 relative shadow-xl h-full flex flex-col hover-scale">
                   <CardHeader className="pb-6">
                     <Badge className="bg-gradient-to-r from-blue-500 to-violet-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
-                      DÉVELOPPEURS
+                      DÉVELOPPEURS DE BOTS
                     </Badge>
                     <CardTitle className="text-2xl font-bold text-white mb-4">Créez des Bots de Trading Imparables</CardTitle>
                   </CardHeader>
@@ -180,7 +180,7 @@ const Index = () => {
                 <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 h-full flex flex-col hover-scale">
                   <CardHeader className="pb-6">
                     <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
-                      CRÉATEURS
+                      CRÉATEURS DE PROJETS
                     </Badge>
                     <CardTitle className="text-2xl font-bold text-white mb-4">Lancez Votre Token sans Friction</CardTitle>
                   </CardHeader>
@@ -289,7 +289,7 @@ const Index = () => {
                     <div className="text-slate-400"># Acheter un token en une seule ligne</div>
                     <div className="text-yellow-300">tx_signature</div> <div className="text-blue-300">=</div> <div className="text-yellow-300">client</div><div className="text-white">.</div><div className="text-blue-300">buy</div><div className="text-white">(</div><div className="text-orange-300">token</div><div className="text-blue-300">=</div><div className="text-green-300">"TOKEN_ADDRESS"</div><div className="text-white">,</div> <div className="text-orange-300">sol_amount</div><div className="text-blue-300">=</div><div className="text-purple-300">1.0</div><div className="text-white">)</div>
                     <br /><br />
-                    <div className="text-blue-300">print</div><div className="text-white">(</div><div className="text-green-300">f"Achat réussi ! Signature : </div><div className="text-white">{</div><div className="text-yellow-300">tx_signature</div><div className="text-white">}</div><div className="text-green-300">"</div><div className="text-white">)</div>
+                    <div className="text-blue-300">print</div><div className="text-white">(</div><div className="text-green-300">f"Achat réussi ! Signature : </div><div className="text-white">{tx_signature}</div><div className="text-green-300">"</div><div className="text-white">)</div>
                   </div>
                   <div className="mt-6 text-center">
                     <Button 
