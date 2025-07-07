@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -132,7 +131,7 @@ const Index = () => {
             </FadeContent>
             
             <FadeContent delay={800}>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
                   className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-white hover:bg-slate-800/80 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
@@ -147,12 +146,6 @@ const Index = () => {
                   Explore Documentation
                 </button>
               </div>
-            </FadeContent>
-
-            <FadeContent delay={1000}>
-              <p className="text-sm text-slate-400 italic mb-8">
-                No credit card required. Simple integration.
-              </p>
             </FadeContent>
           </div>
         </div>
@@ -476,6 +469,16 @@ const Index = () => {
         </section>
       </FadeContent>
 
+      {/* Violet Section separator before footer */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-1 h-1 bg-violet-500/60 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
       {/* Footer - Much darker, almost black with reduced size */}
       <FadeContent>
         <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
@@ -556,6 +559,16 @@ const Index = () => {
           </div>
         </footer>
       </FadeContent>
+
+      {/* Violet Section separator at bottom */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
     </div>
   );
 };
