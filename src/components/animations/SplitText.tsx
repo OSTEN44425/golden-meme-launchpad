@@ -95,7 +95,7 @@ const SplitText = ({
       ref={ref}
       className={`split-parent ${className}`}
       style={{
-        textAlign,
+        textAlign: textAlign as any,
         overflow: "hidden",
         display: "inline-block",
         whiteSpace: "normal",

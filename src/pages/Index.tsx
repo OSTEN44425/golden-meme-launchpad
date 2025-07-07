@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -125,7 +124,7 @@ const Index = () => {
       </section>
 
       {/* Animated Section separator */}
-      <div className="relative py-8">
+      <div className="relative py-4">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gradient-to-r from-transparent via-violet-500/50 to-transparent"></div>
         </div>
@@ -136,7 +135,7 @@ const Index = () => {
 
       {/* Social Proof / Trust */}
       <FadeContent>
-        <section className="py-12 relative">
+        <section className="py-8 relative">
           <div className="container mx-auto px-6 text-center">
             <BlurText 
               text="Compatible with Solana Ecosystem" 
@@ -154,7 +153,7 @@ const Index = () => {
       </FadeContent>
 
       {/* Animated Section separator */}
-      <div className="relative py-8">
+      <div className="relative py-4">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gradient-to-r from-transparent via-violet-500/50 to-transparent"></div>
         </div>
@@ -165,7 +164,7 @@ const Index = () => {
 
       {/* Use Cases Section */}
       <FadeContent>
-        <section className="py-16 relative">
+        <section className="py-12 relative">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <BlurText 
