@@ -337,7 +337,7 @@ All colors MUST be HSL.
     isolation: isolate;
     position: relative;
     border-radius: var(--radius);
-    border: var(--border-width) solid hsl(215 28% 17%); /* Darker border */
+    border: var(--border-width) solid hsl(215 28% 10%);
   }
 
   .glowing-border::before {
@@ -349,28 +349,30 @@ All colors MUST be HSL.
     border-radius: inherit;
     background-image: conic-gradient(
       from var(--angle),
-      hsl(217 91% 60%) 0%,
-      hsl(217 91% 80%) 25%,
-      hsl(217 91% 90%) 50%,
-      hsl(217 91% 80%) 75%,
-      hsl(217 91% 60%) 100%
+      hsl(217 100% 65%) 0%,
+      hsl(217 100% 75%) 20%,
+      hsl(217 100% 85%) 40%,
+      hsl(217 100% 95%) 50%,
+      hsl(217 100% 85%) 60%,
+      hsl(217 100% 75%) 80%,
+      hsl(217 100% 65%) 100%
     );
     background-origin: border-box;
     -webkit-mask: linear-gradient(black, black) content-box,
                   linear-gradient(black, black);
     mask: linear-gradient(black, black) content-box,
-        linear-gradient(black, black);
+          linear-gradient(black, black);
     -webkit-mask-clip: content-box, border-box;
     mask-clip: content-box, border-box;
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    animation: glowing-border-spin 3s linear infinite;
-    filter: blur(0.5px) brightness(1.5);
+    animation: glowing-border-spin 2s linear infinite;
+    filter: blur(0.3px) brightness(2.5) drop-shadow(0 0 8px hsl(217 100% 70%));
   }
 
   .glowing-border:hover::before {
     animation-play-state: paused;
-    filter: blur(0.5px) brightness(2);
+    filter: blur(0.3px) brightness(3.5) drop-shadow(0 0 15px hsl(217 100% 70%));
   }
 }
 
