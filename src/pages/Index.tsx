@@ -71,10 +71,34 @@ const Index = () => {
                   Documentation
                 </button>
               </FadeContent>
+              <FadeContent delay={150}>
+                <button 
+                  onClick={() => scrollToSection('trading-api-edge')}
+                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                >
+                  Edge
+                </button>
+              </FadeContent>
+              <FadeContent delay={200}>
+                <button 
+                  onClick={() => scrollToSection('pricing')}
+                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                >
+                  Pricing
+                </button>
+              </FadeContent>
+              <FadeContent delay={250}>
+                <button 
+                  onClick={() => scrollToSection('community')}
+                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                >
+                  Community
+                </button>
+              </FadeContent>
             </nav>
             <button 
               onClick={() => scrollToSection('cta-final')}
-              className="bg-slate-900/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-800/60 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
+              className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-white hover:bg-slate-800/80 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -90,15 +114,21 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Decorative icons for hero */}
+        {/* Decorative icons for hero - more tech-focused icons */}
         <div className="absolute top-20 left-20 opacity-20">
           <Sparkles className="w-8 h-8 text-violet-400 animate-pulse" />
         </div>
         <div className="absolute top-32 right-32 opacity-15">
-          <Target className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '1s'}} />
+          <Rocket className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '1s'}} />
         </div>
         <div className="absolute bottom-40 left-32 opacity-20">
-          <Timer className="w-7 h-7 text-violet-500 animate-bounce-slow" style={{animationDelay: '2s'}} />
+          <Code className="w-7 h-7 text-violet-500 animate-bounce-slow" style={{animationDelay: '2s'}} />
+        </div>
+        <div className="absolute top-40 left-1/2 opacity-15">
+          <Zap className="w-5 h-5 text-violet-400 animate-pulse" style={{animationDelay: '3s'}} />
+        </div>
+        <div className="absolute bottom-60 right-20 opacity-20">
+          <Target className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '4s'}} />
         </div>
 
         <div className="container mx-auto px-6 text-center relative z-10">
@@ -122,7 +152,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-4">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-600/40 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-white hover:bg-slate-800/80 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -145,9 +175,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Reduced spacing */}
+      {/* AI Bot Section - Positioned higher */}
       <FadeContent>
-        <section className="py-2 relative">
+        <section className="py-2 relative -mt-20">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -157,12 +187,15 @@ const Index = () => {
       {/* Social Proof / Trust */}
       <FadeContent>
         <section className="py-12 relative">
-          {/* Decorative icons for social proof */}
+          {/* Decorative icons for social proof - blockchain/crypto focused */}
           <div className="absolute top-6 left-10 opacity-15">
-            <Award className="w-6 h-6 text-violet-400 animate-pulse" />
+            <Shield className="w-6 h-6 text-violet-400 animate-pulse" />
           </div>
           <div className="absolute top-8 right-16 opacity-10">
-            <Cpu className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '1.5s'}} />
+            <Database className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '1.5s'}} />
+          </div>
+          <div className="absolute bottom-4 left-1/3 opacity-15">
+            <Server className="w-5 h-5 text-violet-400 animate-bounce-slow" style={{animationDelay: '2s'}} />
           </div>
 
           <div className="container mx-auto px-6 text-center">
@@ -191,12 +224,15 @@ const Index = () => {
       {/* Use Cases Section */}
       <FadeContent>
         <section className="py-16 relative">
-          {/* Decorative icons for use cases */}
+          {/* Decorative icons for use cases - development focused */}
           <div className="absolute top-10 left-8 opacity-15">
             <Code className="w-7 h-7 text-violet-400 animate-pulse" style={{animationDelay: '2s'}} />
           </div>
           <div className="absolute top-20 right-12 opacity-10">
             <Rocket className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '3s'}} />
+          </div>
+          <div className="absolute bottom-10 left-16 opacity-15">
+            <Settings className="w-5 h-5 text-violet-400 animate-bounce-slow" style={{animationDelay: '4s'}} />
           </div>
 
           <div className="container mx-auto px-6">
@@ -273,13 +309,16 @@ const Index = () => {
 
       {/* Trading API Edge Title */}
       <FadeContent>
-        <section className="py-12 relative">
-          {/* Decorative icons for API edge */}
+        <section id="trading-api-edge" className="py-12 relative">
+          {/* Decorative icons for API edge - performance focused */}
           <div className="absolute top-6 left-12 opacity-15">
             <Server className="w-6 h-6 text-violet-400 animate-pulse" style={{animationDelay: '1s'}} />
           </div>
           <div className="absolute top-8 right-10 opacity-10">
             <Wifi className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '2.5s'}} />
+          </div>
+          <div className="absolute bottom-6 left-1/4 opacity-15">
+            <Activity className="w-6 h-6 text-violet-400 animate-bounce-slow" style={{animationDelayDuration: '3s'}} />
           </div>
 
           <div className="container mx-auto px-6 text-center">
@@ -294,12 +333,15 @@ const Index = () => {
       {/* Key Benefits */}
       <FadeContent>
         <section className="py-20 relative">
-          {/* Decorative icons for benefits */}
+          {/* Decorative icons for benefits - feature focused */}
           <div className="absolute top-16 left-6 opacity-15">
             <Activity className="w-7 h-7 text-violet-400 animate-pulse" style={{animationDelay: '1.5s'}} />
           </div>
           <div className="absolute top-32 right-8 opacity-10">
             <Database className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '3.5s'}} />
+          </div>
+          <div className="absolute bottom-16 left-12 opacity-15">
+            <Shield className="w-6 h-6 text-violet-400 animate-bounce-slow" style={{animationDelay: '5s'}} />
           </div>
 
           <div className="container mx-auto px-6">
@@ -359,13 +401,16 @@ const Index = () => {
 
       {/* New Pricing Section with professional badge */}
       <FadeContent>
-        <section className="py-20 relative">
-          {/* Decorative icons for pricing */}
+        <section id="pricing" className="py-20 relative">
+          {/* Decorative icons for pricing - money/business focused */}
           <div className="absolute top-12 left-10 opacity-15">
             <TrendingUp className="w-6 h-6 text-violet-400 animate-pulse" style={{animationDelay: '2s'}} />
           </div>
           <div className="absolute top-24 right-14 opacity-10">
             <BarChart3 className="w-7 h-7 text-purple-400 animate-float" style={{animationDelay: '4s'}} />
+          </div>
+          <div className="absolute bottom-12 left-1/3 opacity-15">
+            <DollarSign className="w-6 h-6 text-violet-400 animate-bounce-slow" style={{animationDelay: '6s'}} />
           </div>
 
           <div className="container mx-auto px-6">
@@ -381,7 +426,7 @@ const Index = () => {
                 <CardContent className="p-16 text-center relative">
                   {/* Professional badge - darker violet translucent */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-gradient-to-r from-violet-950/70 via-violet-900/75 to-violet-950/70 backdrop-blur-md border border-violet-700/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
+                    <div className="bg-gradient-to-r from-violet-800/60 via-violet-700/70 to-violet-800/60 backdrop-blur-md border border-violet-600/40 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
                       CHEAPEST ON THE MARKET
                     </div>
                   </div>
@@ -419,13 +464,16 @@ const Index = () => {
 
       {/* Community Section - Enhanced with Telegram button and better distributed decorative icons */}
       <FadeContent>
-        <section className="py-20 relative">
-          {/* Decorative icons for community */}
+        <section id="community" className="py-20 relative">
+          {/* Decorative icons for community - social focused */}
           <div className="absolute top-16 left-8 opacity-15">
             <Globe className="w-6 h-6 text-violet-400 animate-pulse" style={{animationDelay: '1s'}} />
           </div>
           <div className="absolute top-28 right-10 opacity-10">
-            <Settings className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '3s'}} />
+            <Users className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '3s'}} />
+          </div>
+          <div className="absolute bottom-16 left-16 opacity-15">
+            <MessageCircle className="w-6 h-6 text-violet-400 animate-bounce-slow" style={{animationDelay: '5s'}} />
           </div>
 
           <div className="container mx-auto px-6 max-w-5xl">
@@ -531,7 +579,7 @@ const Index = () => {
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-slate-700/50 backdrop-blur-sm border border-slate-500/30 text-slate-200 hover:bg-slate-600/50 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+              className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-slate-200 hover:bg-slate-800/80 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key and Start</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -550,7 +598,7 @@ const Index = () => {
       <FadeContent>
         <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
           <div className="container mx-auto px-6 py-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-3">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
               <div className="md:col-span-2">
                 <div className="flex items-center space-x-3 mb-1">
                   <div className="relative">
@@ -602,8 +650,6 @@ const Index = () => {
                 </ul>
               </div>
             </div>
-            
-            <Separator className="my-2 bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
             
             <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-xs">
               <p className="font-medium">
