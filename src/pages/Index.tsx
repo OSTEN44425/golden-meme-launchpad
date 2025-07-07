@@ -145,10 +145,10 @@ const Index = () => {
             <p className="text-sm text-slate-400 mb-8 uppercase tracking-wider">Compatible with Solana Ecosystem</p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
               <div className="text-2xl font-bold text-slate-500">Solana</div>
-              <div className="text-2xl font-bold text-slate-500">Jito Labs</div>
               <div className="text-2xl font-bold text-slate-500">letsbonk.fun</div>
+              <div className="text-2xl font-bold text-slate-500">Jito Labs</div>
+              <div className="text-2xl font-bold text-slate-500">Temporal</div>
               <div className="text-2xl font-bold text-slate-500">0slot</div>
-              <div className="text-2xl font-bold text-slate-500">astralane</div>
             </div>
           </div>
         </section>
@@ -323,9 +323,9 @@ const Index = () => {
             <div className="max-w-4xl mx-auto">
               <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
                 <CardContent className="p-16 text-center relative">
-                  {/* "CHEAPEST" badge */}
+                  {/* "CHEAPEST" badge - Changed to violet */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold px-6 py-2 text-lg animate-pulse shadow-lg">
+                    <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-6 py-2 text-lg animate-pulse shadow-lg">
                       🏆 CHEAPEST ON THE MARKET
                     </Badge>
                   </div>
@@ -337,9 +337,6 @@ const Index = () => {
                     </div>
                     <p className="text-2xl text-slate-300 font-medium mb-4">
                       Per successful transaction
-                    </p>
-                    <p className="text-lg text-green-400 font-semibold">
-                      🔥 While others charge 2-5%, we keep it simple and fair
                     </p>
                   </div>
 
@@ -356,24 +353,6 @@ const Index = () => {
                         <span>{feature}</span>
                       </div>
                     ))}
-                  </div>
-
-                  {/* Price comparison */}
-                  <div className="mt-12 p-6 bg-slate-900/40 rounded-xl border border-violet-500/20">
-                    <h4 className="text-xl font-bold text-white mb-4">Price Comparison</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                      <div className="text-center">
-                        <div className="text-red-400 font-bold text-lg">Others: 2-5%</div>
-                        <div className="text-slate-400">+ Monthly fees</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl">VS</div>
-                      </div>
-                      <div className="text-center bg-violet-500/20 rounded-lg p-3">
-                        <div className="text-violet-400 font-bold text-lg">Us: 0.8%</div>
-                        <div className="text-green-400">✓ No hidden costs</div>
-                      </div>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
