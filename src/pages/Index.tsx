@@ -121,7 +121,7 @@ const Index = () => {
             </FadeContent>
 
             <FadeContent delay={1000}>
-              <p className="text-sm text-slate-400 italic mb-8">
+              <p className="text-sm text-slate-400 italic mb-4">
                 No credit card required. Simple integration.
               </p>
             </FadeContent>
@@ -129,9 +129,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Moved much higher with reduced spacing */}
+      {/* AI Bot Section - Moved much higher with minimal spacing */}
       <FadeContent>
-        <section className="py-2 relative">
+        <section className="py-0 relative -mt-8">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>

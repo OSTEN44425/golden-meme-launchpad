@@ -701,11 +701,11 @@ html.lenis {
       padding-box, /* ends at inner border edges */
     conic-gradient(
         from var(--bg-angle),
-        hsl(263 70% 50%) 0deg,
-        hsl(280 70% 60%) 90deg,
-        hsl(263 70% 50%) 180deg,
-        hsl(240 70% 60%) 270deg,
-        hsl(263 70% 50%) 360deg
+        hsla(263, 70%, 50%, 0.6) 0deg,
+        hsla(263, 70%, 50%, 0.8) 90deg,
+        hsla(263, 70%, 50%, 0.6) 180deg,
+        hsla(263, 70%, 50%, 0.4) 270deg,
+        hsla(263, 70%, 50%, 0.6) 360deg
       )
       border-box; /* extends to outer border edges */
   
