@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -337,7 +338,7 @@ All colors MUST be HSL.
     isolation: isolate;
     position: relative;
     border-radius: var(--radius);
-    border: var(--border-width) solid rgba(55, 65, 81, 0.6);
+    border: var(--border-width) solid transparent;
   }
 
   .glowing-border::before {
@@ -348,13 +349,13 @@ All colors MUST be HSL.
     border: inherit;
     border-radius: inherit;
     background-image: conic-gradient(
-    from var(--angle),
-    rgba(55, 65, 81, 0.6) 70%,
-    #3B82F6 85%,
-    #60A5FA 90%,
-    #3B82F6 95%,
-    rgba(55, 65, 81, 0.6) 100%
-  );
+      from var(--angle),
+      #1D4ED8 0%,
+      #3B82F6 25%,
+      #60A5FA 50%,
+      #93C5FD 75%,
+      #1D4ED8 100%
+    );
     background-origin: border-box;
     -webkit-mask: linear-gradient(black, black) content-box,
                   linear-gradient(black, black);
