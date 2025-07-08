@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,7 @@ import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
 import AIBot from "@/components/animations/AIBot";
+import MouseLightEffect from "@/components/animations/MouseLightEffect";
 import { useLenis } from "@/hooks/useLenis";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -244,6 +246,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans relative">
+      {/* Mouse Light Effect */}
+      <MouseLightEffect />
+      
       {/* Modern Grid Background */}
       <ModernGrid />
 
