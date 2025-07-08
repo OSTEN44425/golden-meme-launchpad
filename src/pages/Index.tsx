@@ -253,26 +253,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       {/* Modern Grid Background */}
       <ModernGrid />
 
-      {/* Left Floating Decoration */}
-      <FloatingDecoration 
-        side="left" 
-        icons={[
-          { icon: Send, position: 'top', delay: 0 },
-          { icon: Users, position: 'middle', delay: 1 },
-          { icon: MessageCircle, position: 'bottom', delay: 2 }
-        ]} 
-      />
-
-      {/* Right Floating Decoration */}
-      <FloatingDecoration 
-        side="right" 
-        icons={[
-          { icon: Bell, position: 'top', delay: 0.5 },
-          { icon: Search, position: 'middle', delay: 1.5 },
-          { icon: Star, position: 'bottom', delay: 2.5 }
-        ]} 
-      />
-
       {/* Enhanced Navigation */}
       <FadeContent>
         <header className="backdrop-blur-xl bg-slate-950/99 sticky top-0 z-50 transition-all duration-500 border-b border-slate-800/30">
@@ -340,6 +320,26 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
       {/* Hero Section - Better spacing */}
       <section className="relative flex items-center justify-center pt-40 pb-20">
+        {/* Left Floating Decoration - Only in hero section */}
+        <FloatingDecoration 
+          side="left" 
+          icons={[
+            { icon: Send, position: 'top', delay: 0 },
+            { icon: Users, position: 'middle', delay: 1 },
+            { icon: MessageCircle, position: 'bottom', delay: 2 }
+          ]} 
+        />
+
+        {/* Right Floating Decoration - Only in hero section */}
+        <FloatingDecoration 
+          side="right" 
+          icons={[
+            { icon: Bell, position: 'top', delay: 0.5 },
+            { icon: Search, position: 'middle', delay: 1.5 },
+            { icon: Star, position: 'bottom', delay: 2.5 }
+          ]} 
+        />
+
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
