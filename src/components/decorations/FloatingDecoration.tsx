@@ -15,20 +15,8 @@ const FloatingDecoration: React.FC<FloatingDecorationProps> = ({ side, icons }) 
   const isLeft = side === 'left';
   
   return (
-    <div className={`fixed ${isLeft ? 'left-8' : 'right-8'} top-1/2 -translate-y-1/2 z-10 hidden lg:block`}>
+    <div className={`absolute ${isLeft ? 'left-12' : 'right-12'} top-1/2 -translate-y-1/2 z-10 hidden xl:block`}>
       <div className="relative h-80">
-        {/* Connecting lines */}
-        <div className="absolute inset-0 flex flex-col justify-between">
-          {/* Line from top to middle */}
-          <div className={`absolute top-16 ${isLeft ? 'left-8' : 'right-8'} w-px h-16 bg-gradient-to-b from-violet-500/60 to-violet-400/40`} />
-          {/* Line from middle to bottom */}
-          <div className={`absolute top-32 ${isLeft ? 'left-8' : 'right-8'} w-px h-16 bg-gradient-to-b from-violet-400/40 to-violet-500/60`} />
-          
-          {/* Horizontal connecting lines */}
-          <div className={`absolute top-20 ${isLeft ? 'left-8' : 'right-0'} ${isLeft ? 'w-6' : 'w-6'} h-px bg-gradient-to-${isLeft ? 'r' : 'l'} from-violet-500/60 to-transparent`} />
-          <div className={`absolute top-36 ${isLeft ? 'left-8' : 'right-0'} ${isLeft ? 'w-6' : 'w-6'} h-px bg-gradient-to-${isLeft ? 'r' : 'l'} from-violet-500/60 to-transparent`} />
-        </div>
-
         {/* Icon containers */}
         {icons.map((iconItem, index) => {
           const IconComponent = iconItem.icon;
@@ -44,11 +32,11 @@ const FloatingDecoration: React.FC<FloatingDecorationProps> = ({ side, icons }) 
                 animationDuration: '6s' 
               }}
             >
-              <div className="w-16 h-16 bg-slate-800/80 backdrop-blur-sm border border-violet-500/30 rounded-xl flex items-center justify-center shadow-lg group hover:border-violet-400/50 transition-all duration-300 hover:shadow-violet-500/20 hover:shadow-xl">
-                <IconComponent className="w-8 h-8 text-violet-400 group-hover:text-violet-300 transition-colors duration-300" />
+              <div className="w-14 h-14 bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl flex items-center justify-center shadow-2xl group hover:border-violet-400/30 transition-all duration-500 hover:shadow-violet-500/10 hover:shadow-2xl hover:bg-black/60">
+                <IconComponent className="w-7 h-7 text-white/70 group-hover:text-violet-300 transition-colors duration-500" />
                 
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-xl bg-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+                {/* Subtle glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
           );
