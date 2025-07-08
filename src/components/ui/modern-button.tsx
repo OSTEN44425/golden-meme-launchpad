@@ -14,7 +14,7 @@ const ModernButton = React.forwardRef<HTMLButtonElement, ModernButtonProps>(
     
     const variantClasses = {
       primary: 'bg-gradient-to-r from-violet-600 via-violet-500 to-violet-600 text-white shadow-lg hover:shadow-xl hover:shadow-violet-500/25 border border-violet-500/20',
-      secondary: 'bg-slate-950 backdrop-blur-md border-2 border-slate-950 text-slate-300 hover:border-slate-900 hover:text-slate-100 hover:bg-slate-900 shadow-lg',
+      secondary: 'bg-slate-950 backdrop-blur-md border-2 border-gray-900 text-slate-400 hover:border-gray-800 hover:text-slate-200 hover:bg-gray-950 shadow-lg',
       ghost: 'bg-transparent text-slate-300 hover:text-white hover:bg-slate-800/30'
     };
     
@@ -36,16 +36,16 @@ const ModernButton = React.forwardRef<HTMLButtonElement, ModernButtonProps>(
         {...props}
       >
         {/* Animated background overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out" />
         
         {/* Glow effect for primary variant */}
         {variant === 'primary' && (
-          <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-violet-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-violet-600 opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-300" />
         )}
         
         {/* Dark glow for secondary variant */}
         {variant === 'secondary' && (
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 to-slate-900 opacity-0 group-hover:opacity-60 blur-lg transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-800 opacity-0 group-hover:opacity-20 blur-lg transition-opacity duration-300" />
         )}
         
         {/* Content */}

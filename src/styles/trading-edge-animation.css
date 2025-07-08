@@ -19,7 +19,8 @@
 }
 
 .trading-edge-card .animated-border-box-glow {
-  filter: blur(15px);
+  filter: blur(8px);
+  opacity: 0.3;
 }
 
 .trading-edge-card .animated-border-box:before, 
@@ -35,7 +36,7 @@
   height: 600px;
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-image: conic-gradient(rgba(0,0,0,0), #8b5cf6, rgba(0,0,0,0) 25%);
+  background-image: conic-gradient(rgba(0,0,0,0), rgba(139, 92, 246, 0.4), rgba(0,0,0,0) 25%);
   animation: rotate 4s linear infinite;
 }
 
