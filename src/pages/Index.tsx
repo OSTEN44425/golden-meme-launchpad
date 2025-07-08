@@ -237,7 +237,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     toast({
       title: "✓ Copied to clipboard",
       description: "Code example ready to use",
-      duration: 2000,
+      duration: 1000,
       className: "bg-black/90 backdrop-blur-md border-violet-500/20 text-white shadow-2xl rounded-xl border",
     });
   };
@@ -313,7 +313,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       </FadeContent>
 
       {/* Hero Section - Better spacing */}
-      <section className="relative flex items-center justify-center pt-24 pb-16">
+      <section className="relative flex items-center justify-center pt-32 pb-20">
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -354,7 +354,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
       {/* AI Bot Section - Higher position */}
       <FadeContent>
-        <section className="py-12 relative">
+        <section className="py-16 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -420,7 +420,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         <select 
                           value={selectedLanguage}
                           onChange={(e) => setSelectedLanguage(e.target.value)}
-                          className="bg-gradient-to-r from-slate-800/80 to-slate-700/80 backdrop-blur-md border border-violet-500/30 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer appearance-none pr-10 shadow-lg hover:bg-slate-700/90 transition-all duration-300"
+                          className="bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-md border border-violet-500/40 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/70 focus:ring-2 focus:ring-violet-500/30 cursor-pointer appearance-none pr-10 shadow-lg hover:bg-slate-700/95 transition-all duration-300"
                         >
                           {Object.entries(codeExamples).map(([key, lang]) => (
                             <option key={key} value={key} className="bg-slate-800 text-slate-300 py-2">
@@ -433,7 +433,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                       </div>
                       <button 
                         onClick={copyToClipboard}
-                        className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-gradient-to-r from-slate-800/60 to-slate-700/60 backdrop-blur-md px-4 py-3 rounded-xl hover:bg-slate-700/80 border border-slate-700/50 hover:border-violet-500/30 shadow-lg group"
+                        className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-gradient-to-r from-slate-800/70 to-slate-700/70 backdrop-blur-md px-4 py-3 rounded-xl hover:bg-slate-700/85 border border-slate-700/60 hover:border-violet-500/40 shadow-lg group"
                       >
                         <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
                         <span className="font-medium">Copy</span>
@@ -442,18 +442,22 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-slate-950/80 rounded-lg p-6 border border-slate-800/50 font-mono text-sm overflow-x-auto">
+                  <div className="bg-slate-950/90 rounded-lg p-6 border border-slate-800/60 font-mono text-sm overflow-x-auto">
                     <pre className="text-slate-300">
                       <code dangerouslySetInnerHTML={{
                         __html: codeExamples[selectedLanguage].code
-                          .replace(/import|from|def|class|interface|const|let|var|function|async|await|struct|impl|use/g, '<span style="color: #c792ea">$&</span>')
-                          .replace(/"[^"]*"/g, '<span style="color: #a3f7a3">$&</span>')
-                          .replace(/'[^']*'/g, '<span style="color: #a3f7a3">$&</span>')
-                          .replace(/`[^`]*`/g, '<span style="color: #a3f7a3">$&</span>')
-                          .replace(/#.*$/gm, '<span style="color: #646cff">$&</span>')
-                          .replace(/\b(True|False|None|true|false|null|Ok|Err|Some|self)\b/g, '<span style="color: #ff9cac">$&</span>')
-                          .replace(/\b(\d+\.?\d*)\b/g, '<span style="color: #ffcb6b">$&</span>')
-                          .replace(/\b(if|else|elif|for|while|match|return|try|catch|throw|async|await|fn|pub|mut|let|const|var)\b/g, '<span style="color: #c792ea">$&</span>')
+                          .replace(/\b(import|from|def|class|interface|const|let|var|function|async|await|struct|impl|use|fn|pub|mut)\b/g, '<span style="color: #c678dd">$&</span>')
+                          .replace(/"[^"]*"/g, '<span style="color: #98c379">$&</span>')
+                          .replace(/'[^']*'/g, '<span style="color: #98c379">$&</span>')
+                          .replace(/`[^`]*`/g, '<span style="color: #98c379">$&</span>')
+                          .replace(/#.*$/gm, '<span style="color: #5c6370">$&</span>')
+                          .replace(/\b(True|False|None|true|false|null|Ok|Err|Some|self)\b/g, '<span style="color: #e06c75">$&</span>')
+                          .replace(/\b(\d+\.?\d*)\b/g, '<span style="color: #d19a66">$&</span>')
+                          .replace(/\b(if|else|elif|for|while|match|return|try|catch|throw)\b/g, '<span style="color: #c678dd">$&</span>')
+                          .replace(/\b(API_KEY|BASE_URL|headers|payload|response|result)\b/g, '<span style="color: #61afef">$&</span>')
+                          .replace(/\b(requests|fetch|print|console|println!)\b/g, '<span style="color: #56b6c2">$&</span>')
+                          .replace(/[{}()[\]]/g, '<span style="color: #abb2bf">$&</span>')
+                          .replace(/[:=+\-*/<>&|!]/g, '<span style="color: #abb2bf">$&</span>')
                       }}/>
                     </pre>
                   </div>
@@ -674,25 +678,63 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Community Section - Improved styling */}
+      {/* Community Section - Dark background with social icons */}
       <FadeContent>
         <section id="community" className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/10 via-purple-500/10 to-violet-500/10 rounded-3xl opacity-40 group-hover:opacity-60 blur-sm transition-all duration-500 animate-pulse"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/20 via-purple-500/20 to-violet-500/20 rounded-3xl opacity-40 group-hover:opacity-60 blur-sm transition-all duration-500 animate-pulse"></div>
               
               <div className="relative bg-gradient-to-br from-slate-950/95 via-slate-900/95 to-slate-950/95 rounded-3xl border border-violet-500/30 backdrop-blur-xl overflow-hidden">
-                {/* Background decorative icons */}
+                {/* Background decorative icons with Discord, Twitter, and Telegram */}
                 <div className="absolute inset-0 overflow-hidden">
-                  <MessageCircle className="absolute top-8 left-8 w-12 h-12 text-violet-500/20 opacity-60" />
-                  <Users className="absolute top-16 right-12 w-16 h-16 text-purple-500/20 opacity-50" />
-                  <MessageCircle className="absolute bottom-12 left-16 w-10 h-10 text-violet-500/15 opacity-40" />
-                  <Users className="absolute bottom-8 right-8 w-14 h-14 text-purple-500/20 opacity-60" />
-                  <Code className="absolute top-1/2 left-4 w-8 h-8 text-violet-500/15 opacity-30" />
-                  <Globe className="absolute top-1/3 right-4 w-12 h-12 text-purple-500/20 opacity-45" />
-                  <Zap className="absolute top-1/4 left-1/4 w-6 h-6 text-violet-500/15 opacity-25" />
-                  <Rocket className="absolute bottom-1/4 right-1/4 w-8 h-8 text-purple-500/15 opacity-35" />
-                  <Settings className="absolute top-3/4 left-1/3 w-7 h-7 text-violet-500/15 opacity-20" />
+                  {/* Discord icons */}
+                  <div className="absolute top-8 left-8 w-12 h-12 text-violet-500/30 opacity-80">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                  </div>
+                  <div className="absolute top-16 right-12 w-16 h-16 text-purple-500/25 opacity-70">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                  </div>
+                  
+                  {/* Twitter icons */}
+                  <div className="absolute bottom-12 left-16 w-10 h-10 text-violet-500/20 opacity-60">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </div>
+                  <div className="absolute bottom-8 right-8 w-14 h-14 text-purple-500/25 opacity-75">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                  </div>
+                  
+                  {/* Telegram icons */}
+                  <div className="absolute top-1/2 left-4 w-8 h-8 text-violet-500/20 opacity-50">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                  </div>
+                  <div className="absolute top-1/3 right-4 w-12 h-12 text-purple-500/25 opacity-65">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                  </div>
+                  
+                  {/* Additional decorative icons */}
+                  <div className="absolute top-3/4 left-1/3 w-7 h-7 text-violet-500/15 opacity-40">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                  </div>
+                  <div className="absolute bottom-1/4 right-1/4 w-8 h-8 text-purple-500/20 opacity-55">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </div>
                 </div>
                 
                 <div className="relative p-16 text-center">
@@ -710,24 +752,36 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                    <button className="group/btn relative bg-gradient-to-br from-violet-500/10 to-purple-500/10 hover:from-violet-500/20 hover:to-purple-500/20 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/30 backdrop-blur-sm">
+                    <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-slate-700/60 backdrop-blur-sm">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
-                        <MessageCircle className="w-6 h-6 mr-3" />
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                          </svg>
+                        </div>
                         Join our Discord
                       </span>
                     </button>
-                    <button className="group/btn relative bg-gradient-to-br from-violet-500/10 to-purple-500/10 hover:from-violet-500/20 hover:to-purple-500/20 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/30 backdrop-blur-sm">
+                    <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-slate-700/60 backdrop-blur-sm">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
-                        <Users className="w-6 h-6 mr-3" />
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                          </svg>
+                        </div>
                         Follow on Twitter
                       </span>
                     </button>
-                    <button className="group/btn relative bg-gradient-to-br from-violet-500/10 to-purple-500/10 hover:from-violet-500/20 hover:to-purple-500/20 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/30 backdrop-blur-sm">
+                    <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-slate-700/60 backdrop-blur-sm">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
-                        <MessageCircle className="w-6 h-6 mr-3" />
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                          </svg>
+                        </div>
                         Join our Telegram
                       </span>
                     </button>
@@ -739,7 +793,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator */}
+      {/* Violet Section separator before footer */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
@@ -765,16 +819,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
-
-      {/* Violet Section separator before footer */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
 
       {/* Footer */}
       <FadeContent>
