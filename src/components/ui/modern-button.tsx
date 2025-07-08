@@ -13,7 +13,7 @@ const ModernButton = React.forwardRef<HTMLButtonElement, ModernButtonProps>(
     const baseClasses = 'relative inline-flex items-center justify-center font-semibold transition-all duration-300 overflow-hidden group';
     
     const variantClasses = {
-      primary: 'bg-gradient-to-r from-blue-600 via-blue-500 to-violet-600 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/25 border border-blue-500/20',
+      primary: 'bg-gradient-to-r from-violet-600 via-violet-500 to-violet-600 text-white shadow-lg hover:shadow-xl hover:shadow-violet-500/25 border border-violet-500/20',
       secondary: 'bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20',
       ghost: 'bg-transparent text-slate-300 hover:text-white hover:bg-slate-800/30'
     };
@@ -38,9 +38,9 @@ const ModernButton = React.forwardRef<HTMLButtonElement, ModernButtonProps>(
         {/* Animated background overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out" />
         
-        {/* Glow effect for primary variant */}
+        {/* Glow effect for primary variant - changed to violet */}
         {variant === 'primary' && (
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-violet-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-violet-600 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
         )}
         
         {/* Content */}

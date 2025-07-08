@@ -352,7 +352,7 @@ All colors MUST be HSL.
     width: 100%;
   }
 
-  /* Glowing border animation with darker blue */
+  /* Glowing border animation with violet instead of blue */
   .glowing-border {
     --border-width: 2px;
     --radius: 12px;
@@ -373,11 +373,11 @@ All colors MUST be HSL.
     background-image: conic-gradient(
       from var(--angle),
       transparent 70%,
-      rgba(15, 23, 42, 0.2) 80%,
-      rgba(30, 58, 138, 0.6) 85%,
-      rgba(37, 99, 235, 0.9) 90%,
-      rgba(30, 58, 138, 0.6) 95%,
-      rgba(15, 23, 42, 0.2) 100%,
+      rgba(139, 92, 246, 0.2) 80%,
+      rgba(139, 92, 246, 0.6) 85%,
+      rgba(139, 92, 246, 0.9) 90%,
+      rgba(139, 92, 246, 0.6) 95%,
+      rgba(139, 92, 246, 0.2) 100%,
       transparent 10%
     );
     background-origin: border-box;
@@ -418,8 +418,8 @@ All colors MUST be HSL.
     inset: 0;
     border-radius: inherit;
     background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
-      rgba(30, 58, 138, 0.2) 0%, 
-      rgba(37, 99, 235, 0.1) 30%, 
+      rgba(139, 92, 246, 0.2) 0%, 
+      rgba(139, 92, 246, 0.1) 30%, 
       transparent 70%);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -448,7 +448,7 @@ All colors MUST be HSL.
   /* Navigation button hover - only text color change */
   .nav-button-hover {
     transition: color 0.3s ease;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(59, 130, 246, 0.9));
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(139, 92, 246, 0.9));
     color: white;
   }
 
@@ -464,8 +464,8 @@ All colors MUST be HSL.
   }
 
   .back-to-top-hover:hover {
-    color: hsl(217 91% 60%);
-    background: rgba(59, 130, 246, 0.1);
+    color: hsl(263 70% 50%);
+    background: rgba(139, 92, 246, 0.1);
     transform: translateY(-2px);
   }
 }
@@ -513,10 +513,10 @@ All colors MUST be HSL.
 
 @keyframes glow {
   from {
-    filter: drop-shadow(0 0 5px hsl(217 91% 60% / 0.3));
+    filter: drop-shadow(0 0 5px hsl(263 70% 50% / 0.3));
   }
   to {
-    filter: drop-shadow(0 0 20px hsl(217 91% 60% / 0.6));
+    filter: drop-shadow(0 0 20px hsl(263 70% 50% / 0.6));
   }
 }
 
@@ -608,13 +608,13 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, hsl(217 91% 60%), hsl(263 70% 50%));
+  background: linear-gradient(135deg, hsl(263 70% 50%), hsl(263 70% 60%));
   border-radius: 4px;
   box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, hsl(217 91% 70%), hsl(263 70% 60%));
+  background: linear-gradient(135deg, hsl(263 70% 60%), hsl(263 70% 70%));
 }
 
 /* Enhanced glassmorphism effects */
@@ -664,7 +664,7 @@ html {
   left: 50%;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, hsl(217 91% 60%), hsl(263 70% 50%));
+  background: linear-gradient(90deg, hsl(263 70% 50%), hsl(263 70% 60%));
   transition: all 0.3s ease;
   transform: translateX(-50%);
 }
@@ -674,7 +674,7 @@ html {
 }
 
 .nav-link:hover {
-  color: hsl(217 91% 60%);
+  color: hsl(263 70% 50%);
   transform: translateY(-1px);
 }
 
