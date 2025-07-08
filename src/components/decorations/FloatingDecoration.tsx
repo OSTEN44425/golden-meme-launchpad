@@ -14,7 +14,7 @@ const FloatingDecoration: React.FC<FloatingDecorationProps> = ({ side, icons }) 
   const isLeft = side === 'left';
   
   return (
-    <div className={`absolute ${isLeft ? 'left-32' : 'right-32'} top-1/2 -translate-y-1/2 z-10 hidden lg:block`}>
+    <div className={`absolute ${isLeft ? 'left-38' : 'right-38'} top-1/2 -translate-y-1/2 z-10 hidden lg:block`}>
       <div className="relative h-80">
         {/* Icon containers */}
         {icons.map((iconItem, index) => {
