@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -706,9 +707,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                       <div className="mb-8 mt-4 relative">
                         <div className="text-8xl lg:text-9xl font-bold text-violet-400 mb-4 relative">
                           0.8<span className="text-6xl lg:text-7xl">%</span>
-                          {/* Subtle violet glow effect */}
-                          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-full h-4 bg-violet-500/20 blur-xl rounded-full animate-pulse"></div>
-                          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-2 bg-violet-400/30 blur-md rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                          {/* Adjusted violet glow effect - narrower, taller, positioned higher */}
+                          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1/2 h-6 bg-violet-500/25 blur-lg rounded-full animate-pulse"></div>
+                          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-3 bg-violet-400/35 blur-md rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
                         </div>
                         <p className="text-2xl text-slate-300 font-medium mb-4">
                           Per successful transaction
