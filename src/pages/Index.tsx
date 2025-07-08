@@ -426,8 +426,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Modern Language Selector - Custom Dropdown */}
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <button className="bg-black/40 backdrop-blur-2xl border border-violet-500/30 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer shadow-2xl hover:bg-black/60 transition-all duration-300 hover:border-violet-500/50 flex items-center gap-3 hover:shadow-violet-500/20">
-                              <span className="text-violet-300">{codeExamples[selectedLanguage].name}</span>
+                            <button className="bg-black/40 backdrop-blur-2xl border border-violet-500/30 text-white px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer shadow-2xl hover:bg-black/60 transition-all duration-300 hover:border-violet-500/50 flex items-center gap-3 hover:shadow-violet-500/20">
+                              <span className="text-white">{codeExamples[selectedLanguage].name}</span>
                               <ChevronDown className="w-4 h-4 text-violet-400 group-hover:rotate-180 transition-transform duration-300" />
                             </button>
                           </DropdownMenuTrigger>
@@ -440,7 +440,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                                 key={key}
                                 onClick={() => setSelectedLanguage(key)}
                                 className={`text-slate-300 hover:text-white hover:bg-violet-500/20 rounded-lg px-4 py-3 cursor-pointer transition-all duration-300 font-medium backdrop-blur-sm border border-transparent hover:border-violet-500/30 hover:shadow-lg ${
-                                  selectedLanguage === key ? 'bg-violet-500/25 text-violet-300 border-violet-500/40 shadow-md' : ''
+                                  selectedLanguage === key ? 'bg-violet-500/25 text-white border-violet-500/40 shadow-md' : ''
                                 }`}
                               >
                                 <span className="flex items-center gap-2">
@@ -455,10 +455,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Copy Button - Improved */}
                         <button 
                           onClick={copyToClipboard}
-                          className="flex items-center space-x-2 text-sm text-slate-300 hover:text-violet-300 transition-all duration-300 bg-black/40 backdrop-blur-2xl px-5 py-3 rounded-xl hover:bg-black/60 border border-violet-500/30 hover:border-violet-500/50 shadow-2xl group hover:shadow-violet-500/20"
+                          className="flex items-center space-x-2 text-sm text-white hover:text-white transition-all duration-300 bg-black/40 backdrop-blur-2xl px-5 py-3 rounded-xl hover:bg-black/60 border border-violet-500/30 hover:border-violet-500/50 shadow-2xl group hover:shadow-violet-500/20"
                         >
                           <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200 text-violet-400" />
-                          <span className="font-medium text-violet-300">Copy</span>
+                          <span className="font-medium text-white">Copy</span>
                         </button>
                       </div>
                     </div>
@@ -538,7 +538,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               <FadeContent delay={300}>
                 <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl h-full flex flex-col hover-scale">
                   <CardHeader className="pb-6">
-                    <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
+                    <Badge className="bg-black/60 backdrop-blur-sm border border-violet-500/40 text-white font-bold px-4 py-1 text-sm mb-4 w-fit">
                       BOT DEVELOPERS
                     </Badge>
                     <CardTitle className="text-2xl font-bold text-white mb-4">Create Unstoppable Trading Bots</CardTitle>
@@ -563,7 +563,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               <FadeContent delay={500}>
                 <Card className="glowing-border glass-effect bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border-purple-500/30 h-full flex flex-col hover-scale">
                   <CardHeader className="pb-6">
-                    <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
+                    <Badge className="bg-black/60 backdrop-blur-sm border border-violet-500/40 text-white font-bold px-4 py-1 text-sm mb-4 w-fit">
                       PROJECT CREATORS
                     </Badge>
                     <CardTitle className="text-2xl font-bold text-white mb-4">Launch Your Token Seamlessly</CardTitle>
