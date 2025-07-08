@@ -20,85 +20,104 @@ const FloatingElements: React.FC<FloatingElementsProps> = ({ side }) => {
   ];
 
   const icons = side === 'left' ? leftIcons : rightIcons;
-  const positionClass = side === 'left' ? 'left-8' : 'right-8';
+  const positionClass = side === 'left' ? 'left-32 lg:left-48' : 'right-32 lg:right-48';
 
   return (
     <div className={`absolute ${positionClass} top-1/2 transform -translate-y-1/2 z-10 hidden lg:block`}>
-      <div className="relative space-y-16">
-        {/* Lignes de connexion élégantes */}
+      <div className="relative">
+        {/* Lignes de connexion entre les icônes */}
         <svg 
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          style={{ width: '120px', height: '250px', left: side === 'left' ? '30px' : '-90px' }}
+          className="absolute inset-0 w-full h-full pointer-events-none z-0"
+          style={{ width: '120px', height: '320px', left: side === 'left' ? '30px' : '-90px', top: '-140px' }}
         >
           <defs>
-            <linearGradient id={`gradient-${side}`} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="rgba(139, 92, 246, 0.4)" />
-              <stop offset="50%" stopColor="rgba(59, 130, 246, 0.3)" />
-              <stop offset="100%" stopColor="rgba(16, 185, 129, 0.2)" />
+            <linearGradient id={`connection-gradient-${side}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="rgba(139, 92, 246, 0.6)" />
+              <stop offset="50%" stopColor="rgba(59, 130, 246, 0.4)" />
+              <stop offset="100%" stopColor="rgba(16, 185, 129, 0.6)" />
             </linearGradient>
           </defs>
           
-          {/* Lignes droites élégantes reliant les éléments */}
-          <line
-            x1={side === 'left' ? "40" : "80"}
-            y1="40"
-            x2={side === 'left' ? "40" : "80"}
-            y2="210"
-            stroke={`url(#gradient-${side})`}
-            strokeWidth="1"
-            strokeDasharray="4,4"
+          {/* Ligne courbe reliant icône 1 à icône 2 */}
+          <path
+            d={side === 'left' ? "M 40 160 Q 20 200 40 240" : "M 80 160 Q 100 200 80 240"}
+            stroke={`url(#connection-gradient-${side})`}
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="6,4"
             className="animate-pulse"
-            style={{ animationDuration: '2s' }}
+            style={{ animationDuration: '3s' }}
           />
           
-          {/* Points de connexion */}
+          {/* Ligne courbe reliant icône 2 à icône 3 */}
+          <path
+            d={side === 'left' ? "M 40 240 Q 60 280 40 320" : "M 80 240 Q 60 280 80 320"}
+            stroke={`url(#connection-gradient-${side})`}
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="6,4"
+            className="animate-pulse"
+            style={{ animationDuration: '3s', animationDelay: '1s' }}
+          />
+          
+          {/* Points de connexion lumineux */}
           <circle
             cx={side === 'left' ? "40" : "80"}
-            cy="40"
-            r="2"
-            fill="rgba(139, 92, 246, 0.6)"
+            cy="160"
+            r="3"
+            fill="rgba(139, 92, 246, 0.8)"
+            className="animate-pulse"
           />
           <circle
             cx={side === 'left' ? "40" : "80"}
-            cy="125"
-            r="2"
-            fill="rgba(59, 130, 246, 0.6)"
+            cy="240"
+            r="3"
+            fill="rgba(59, 130, 246, 0.8)"
+            className="animate-pulse"
+            style={{ animationDelay: '1s' }}
           />
           <circle
             cx={side === 'left' ? "40" : "80"}
-            cy="210"
-            r="2"
-            fill="rgba(16, 185, 129, 0.6)"
+            cy="320"
+            r="3"
+            fill="rgba(16, 185, 129, 0.8)"
+            className="animate-pulse"
+            style={{ animationDelay: '2s' }}
           />
         </svg>
 
-        {/* Éléments flottants modernes */}
-        {icons.map((item, index) => (
-          <div
-            key={index}
-            className="relative group animate-bounce"
-            style={{ 
-              animationDelay: item.delay,
-              animationDuration: '3s',
-              animationIterationCount: 'infinite'
-            }}
-          >
-            {/* Effet de lueur moderne */}
-            <div className={`absolute -inset-2 bg-gradient-to-r ${item.color} rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500`}></div>
-            
-            {/* Container principal moderne */}
-            <div className={`relative w-14 h-14 bg-black/90 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 hover:border-violet-400/30 shadow-2xl hover:shadow-violet-500/20`}>
-              <item.icon className="w-7 h-7 text-white group-hover:text-violet-300 transition-colors duration-300" />
+        {/* Éléments flottants plus grands et modernes */}
+        <div className="space-y-20 relative z-10">
+          {icons.map((item, index) => (
+            <div
+              key={index}
+              className="relative group animate-bounce"
+              style={{ 
+                animationDelay: item.delay,
+                animationDuration: '4s',
+                animationIterationCount: 'infinite'
+              }}
+            >
+              {/* Effet de lueur moderne plus prononcé */}
+              <div className={`absolute -inset-4 bg-gradient-to-r ${item.color} rounded-3xl blur-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500`}></div>
               
-              {/* Ring animé subtil */}
-              <div className="absolute inset-0 rounded-2xl border border-violet-400/20 animate-pulse" style={{ animationDuration: '4s' }}></div>
-            </div>
+              {/* Container principal plus grand et moderne */}
+              <div className={`relative w-20 h-20 bg-black/95 backdrop-blur-xl border border-white/20 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 hover:border-violet-400/50 shadow-2xl hover:shadow-violet-500/30`}>
+                <item.icon className="w-9 h-9 text-white group-hover:text-violet-300 transition-colors duration-300 drop-shadow-lg" />
+                
+                {/* Ring animé plus visible */}
+                <div className="absolute inset-0 rounded-3xl border-2 border-violet-400/30 animate-pulse" style={{ animationDuration: '3s' }}></div>
+                
+                {/* Ring externe qui pulse */}
+                <div className="absolute -inset-2 rounded-3xl border border-violet-400/20 animate-ping" style={{ animationDuration: '4s' }}></div>
+              </div>
 
-            {/* Points décoratifs */}
-            <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-violet-400/70 rounded-full animate-ping"></div>
-            <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-blue-400/50 rounded-full animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-          </div>
-        ))}
+              {/* Points décoratifs plus visibles */}
+              <div className="absolute -top-2 -right-2 w-2 h-2 bg-violet-400 rounded-full animate-ping shadow-lg shadow-violet-400/50"></div>
+              <div className="absolute -bottom-2 -left-2 w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse shadow-lg shadow-blue-400/50" style={{ animationDelay: '2s' }}></div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
