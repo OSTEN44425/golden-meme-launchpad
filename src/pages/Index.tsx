@@ -4,12 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp, FileText, DollarSign, Headphones, MessageCircle, Sparkles, Target, Timer, Award, Cpu, Server, Wifi, BookOpen, Copy, ChevronDown } from "lucide-react";
+import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp, FileText, DollarSign, Headphones, MessageCircle, Sparkles, Target, Timer, Award, Cpu, Server, Wifi, BookOpen, Copy, ChevronDown, Send, Bell, Search } from "lucide-react";
 import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
 import AIBot from "@/components/animations/AIBot";
 import MouseLightEffect from "@/components/animations/MouseLightEffect";
+import FloatingDecoration from "@/components/decorations/FloatingDecoration";
 import { useLenis } from "@/hooks/useLenis";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -251,6 +252,26 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       
       {/* Modern Grid Background */}
       <ModernGrid />
+
+      {/* Left Floating Decoration */}
+      <FloatingDecoration 
+        side="left" 
+        icons={[
+          { icon: Send, position: 'top', delay: 0 },
+          { icon: Users, position: 'middle', delay: 1 },
+          { icon: MessageCircle, position: 'bottom', delay: 2 }
+        ]} 
+      />
+
+      {/* Right Floating Decoration */}
+      <FloatingDecoration 
+        side="right" 
+        icons={[
+          { icon: Bell, position: 'top', delay: 0.5 },
+          { icon: Search, position: 'middle', delay: 1.5 },
+          { icon: Star, position: 'bottom', delay: 2.5 }
+        ]} 
+      />
 
       {/* Enhanced Navigation */}
       <FadeContent>
