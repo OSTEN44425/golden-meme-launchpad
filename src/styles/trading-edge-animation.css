@@ -1,0 +1,70 @@
+
+/* Trading API Edge Card Animation Styles */
+.trading-edge-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.trading-edge-card .bar {
+  position: absolute;
+  width: 4rem;
+  height: 0.25rem;
+  background: #8b5cf6;
+  transition: all 1s linear;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+.trading-edge-card .bar.delay {
+  animation-delay: 0.5s;
+}
+
+.trading-edge-card .bar.top {
+  top: -0.25rem;
+  left: -0.25rem;
+  animation-name: h-move-edge;
+}
+
+.trading-edge-card .bar.right {
+  top: 1.5rem;
+  right: -2.25rem;
+  transform: rotate(90deg);
+  animation-name: v-move-edge;
+}
+
+.trading-edge-card .bar.bottom {
+  bottom: -0.25rem;
+  left: -0.25rem;
+  animation-name: h-move-edge;
+}
+
+.trading-edge-card .bar.left {
+  top: 1.5rem;
+  left: -2.25rem;
+  transform: rotate(90deg);
+  animation-name: v-move-edge;
+}
+
+@keyframes h-move-edge {
+  0% {
+    left: -0.25rem;
+  }
+  100% {
+    left: calc(100% + 0.25rem);
+  }
+}
+
+@keyframes v-move-edge {
+  0% {
+    top: -0.25rem;
+  }
+  100% {
+    top: calc(100% + 1.75rem);
+  }
+}
+
+/* Pause animation on hover */
+.trading-edge-card:hover .bar {
+  animation-play-state: paused;
+}
