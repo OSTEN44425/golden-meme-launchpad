@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +11,7 @@ import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
 import AIBot from "@/components/animations/AIBot";
 import MouseLightEffect from "@/components/animations/MouseLightEffect";
+import FloatingDecoration from "@/components/decorations/FloatingDecoration";
 import { useLenis } from "@/hooks/useLenis";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -303,7 +305,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             </nav>
             <button 
               onClick={() => scrollToSection('cta-final')}
-              className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group violet-glow-button"
+              className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -319,6 +321,26 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
       {/* Hero Section - Better spacing */}
       <section className="relative flex items-center justify-center pt-40 pb-20">
+        {/* Left Floating Decoration - Only in hero section */}
+        <FloatingDecoration 
+          side="left" 
+          icons={[
+            { icon: Send, position: 'top', delay: 0 },
+            { icon: Users, position: 'middle', delay: 1 },
+            { icon: MessageCircle, position: 'bottom', delay: 2 }
+          ]} 
+        />
+
+        {/* Right Floating Decoration - Only in hero section */}
+        <FloatingDecoration 
+          side="right" 
+          icons={[
+            { icon: Bell, position: 'top', delay: 0.5 },
+            { icon: Search, position: 'middle', delay: 1.5 },
+            { icon: Star, position: 'bottom', delay: 2.5 }
+          ]} 
+        />
+
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -340,7 +362,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 hover:text-white font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group violet-glow-button"
+                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 hover:text-white font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -651,21 +673,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
-                  <div className="relative h-full">
-                    <div className="animated-border-box"></div>
-                    <div className="animated-border-box-glow"></div>
-                    <Card className={`glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm transition-all duration-300 group h-full flex flex-col hover-scale relative z-10`}>
-                      <CardHeader className="pb-4">
-                        <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
-                          <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
-                        </div>
-                        <CardTitle className="text-white text-xl font-semibold">{feature.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="flex-1">
-                        <p className="text-slate-300 text-sm leading-relaxed">{feature.description}</p>
-                      </CardContent>
-                    </Card>
-                  </div>
+                  <Card className={`glowing-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
+                    <CardHeader className="pb-4">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
+                        <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
+                      </div>
+                      <CardTitle className="text-white text-xl font-semibold">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-1">
+                      <p className="text-slate-300 text-sm leading-relaxed">{feature.description}</p>
+                    </CardContent>
+                  </Card>
                 </FadeContent>
               ))}
             </div>
@@ -808,7 +826,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     
                     <FadeContent delay={600}>
                       <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60 violet-glow-button">
+                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
@@ -819,7 +837,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             Join our Discord
                           </span>
                         </button>
-                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60 violet-glow-button">
+                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
@@ -830,7 +848,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             Follow on Twitter
                           </span>
                         </button>
-                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60 violet-glow-button">
+                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
@@ -859,7 +877,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-black/80 backdrop-blur-xl border border-violet-500/40 text-slate-200 hover:bg-black/90 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 relative overflow-hidden group hover:border-violet-400/60 violet-glow-button"
+              className="bg-black/80 backdrop-blur-xl border border-violet-500/40 text-slate-200 hover:bg-black/90 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 relative overflow-hidden group hover:border-violet-400/60"
             >
               <span className="relative z-10">Get my API Key and Start</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
