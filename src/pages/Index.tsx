@@ -111,8 +111,8 @@ const Index = () => {
         </header>
       </FadeContent>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Reduced padding to move content up */}
+      <section className="relative flex items-center justify-center overflow-hidden pt-16 pb-8">
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -131,7 +131,7 @@ const Index = () => {
             </FadeContent>
             
             <FadeContent delay={800}>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
                   className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-white hover:bg-slate-800/80 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
@@ -151,9 +151,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Positioned higher */}
+      {/* AI Bot Section - Positioned higher with more top margin */}
       <FadeContent>
-        <section className="py-2 relative -mt-60">
+        <section className="py-2 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
