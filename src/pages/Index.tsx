@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -12,7 +13,6 @@ import MouseLightEffect from "@/components/animations/MouseLightEffect";
 import { useLenis } from "@/hooks/useLenis";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-import SplitText from "@/components/animations/SplitText";
 
 const Index = () => {
   // Initialize Lenis smooth scroll
@@ -323,23 +323,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                <SplitText 
-                  text="The Fastest API"
-                  className="text-violet-400"
-                  delay={50}
-                />
+                <span className="text-violet-400">The Fastest API</span>
                 <br />
-                <SplitText 
-                  text="for Trading and Launching on"
-                  className="text-white"
-                  delay={50}
-                />
-                {" "}
-                <SplitText 
-                  text="letsbonk.fun"
-                  className="text-violet-400"
-                  delay={50}
-                />
+                <span className="text-white">for Trading and Launching on</span>{" "}
+                <span className="text-violet-400">letsbonk.fun</span>
               </h1>
             </FadeContent>
             
@@ -411,111 +398,98 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                <SplitText 
-                  text="API"
-                  className="text-white"
-                  delay={80}
-                />
-                {" "}
-                <SplitText 
-                  text="Documentation"
-                  className="text-violet-400"
-                  delay={80}
-                />
+                <span className="text-white">API</span>{" "}
+                <span className="text-violet-400">Documentation</span>
               </h2>
-              <FadeContent delay={300}>
-                <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                  Get started with our simple and powerful API in minutes. Copy, paste, and start trading.
-                </p>
-              </FadeContent>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                Get started with our simple and powerful API in minutes. Copy, paste, and start trading.
+              </p>
             </div>
 
-            <FadeContent delay={500}>
-              <div className="max-w-4xl mx-auto">
-                <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-violet-500/30">
-                          <Code className="w-5 h-5 text-violet-400" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-white text-xl font-semibold">API Integration</CardTitle>
-                          <CardDescription className="text-slate-400">Quick start example to buy tokens</CardDescription>
-                        </div>
+            <div className="max-w-4xl mx-auto">
+              <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-violet-500/30">
+                        <Code className="w-5 h-5 text-violet-400" />
                       </div>
-                      <div className="flex items-center space-x-4">
-                        {/* Modern Language Selector */}
-                        <div className="relative">
-                          <select 
-                            value={selectedLanguage}
-                            onChange={(e) => setSelectedLanguage(e.target.value)}
-                            className="bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-md border border-violet-500/40 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/70 focus:ring-2 focus:ring-violet-500/30 cursor-pointer appearance-none pr-10 shadow-lg hover:bg-slate-700/95 transition-all duration-300"
-                          >
-                            {Object.entries(codeExamples).map(([key, lang]) => (
-                              <option key={key} value={key} className="bg-slate-800 text-slate-300 py-2">
-                                {lang.name}
-                              </option>
-                            ))}
-                          </select>
-                          <ChevronDown className="w-4 h-4 text-violet-400 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
-                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                        </div>
-                        <button 
-                          onClick={copyToClipboard}
-                          className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-gradient-to-r from-slate-800/70 to-slate-700/70 backdrop-blur-md px-4 py-3 rounded-xl hover:bg-slate-700/85 border border-slate-700/60 hover:border-violet-500/40 shadow-lg group"
+                      <div>
+                        <CardTitle className="text-white text-xl font-semibold">API Integration</CardTitle>
+                        <CardDescription className="text-slate-400">Quick start example to buy tokens</CardDescription>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-4">
+                      {/* Modern Language Selector */}
+                      <div className="relative">
+                        <select 
+                          value={selectedLanguage}
+                          onChange={(e) => setSelectedLanguage(e.target.value)}
+                          className="bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-md border border-violet-500/40 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/70 focus:ring-2 focus:ring-violet-500/30 cursor-pointer appearance-none pr-10 shadow-lg hover:bg-slate-700/95 transition-all duration-300"
                         >
-                          <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
-                          <span className="font-medium">Copy</span>
-                        </button>
+                          {Object.entries(codeExamples).map(([key, lang]) => (
+                            <option key={key} value={key} className="bg-slate-800 text-slate-300 py-2">
+                              {lang.name}
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronDown className="w-4 h-4 text-violet-400 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                      </div>
+                      <button 
+                        onClick={copyToClipboard}
+                        className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-gradient-to-r from-slate-800/70 to-slate-700/70 backdrop-blur-md px-4 py-3 rounded-xl hover:bg-slate-700/85 border border-slate-700/60 hover:border-violet-500/40 shadow-lg group"
+                      >
+                        <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
+                        <span className="font-medium">Copy</span>
+                      </button>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-slate-950/90 rounded-lg p-6 border border-slate-800/60 font-mono text-sm overflow-x-auto">
+                    <pre className="text-slate-300 whitespace-pre-wrap">
+                      <code 
+                        dangerouslySetInnerHTML={{
+                          __html: codeExamples[selectedLanguage].code
+                            // Keywords
+                            .replace(/\b(import|from|def|class|async|function|const|let|var|if|else|return|await|interface|type|struct|impl|fn|use|match|Ok|Err)\b/g, '<span style="color: #c678dd">$1</span>')
+                            // Strings
+                            .replace(/"([^"]*)"/g, '<span style="color: #98c379">"$1"</span>')
+                            .replace(/'([^']*)'/g, '<span style="color: #98c379">\'$1\'</span>')
+                            .replace(/`([^`]*)`/g, '<span style="color: #98c379">`$1`</span>')
+                            // Comments
+                            .replace(/(#[^\n]*)/g, '<span style="color: #5c6370">$1</span>')
+                            .replace(/(\/\/[^\n]*)/g, '<span style="color: #5c6370">$1</span>')
+                            // Numbers
+                            .replace(/\b(\d+\.?\d*)\b/g, '<span style="color: #d19a66">$1</span>')
+                            // Function names
+                            .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<span style="color: #61afef">$1</span>(')
+                            // Types
+                            .replace(/:\s*([A-Z][a-zA-Z0-9_]*)/g, ': <span style="color: #e5c07b">$1</span>')
+                        }}
+                      />
+                    </pre>
+                  </div>
+                  <div className="mt-6 flex justify-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl w-full text-center">
+                      <div className="flex flex-col items-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                        <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
+                        <span className="text-slate-300 text-sm font-medium">0.8% fee only</span>
+                      </div>
+                      <div className="flex flex-col items-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                        <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
+                        <span className="text-slate-300 text-sm font-medium">Jito bundles included</span>
+                      </div>
+                      <div className="flex flex-col items-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                        <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
+                        <span className="text-slate-300 text-sm font-medium">Priority transactions</span>
                       </div>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="bg-slate-950/90 rounded-lg p-6 border border-slate-800/60 font-mono text-sm overflow-x-auto">
-                      <pre className="text-slate-300 whitespace-pre-wrap">
-                        <code 
-                          dangerouslySetInnerHTML={{
-                            __html: codeExamples[selectedLanguage].code
-                              // Keywords
-                              .replace(/\b(import|from|def|class|async|function|const|let|var|if|else|return|await|interface|type|struct|impl|fn|use|match|Ok|Err)\b/g, '<span style="color: #c678dd">$1</span>')
-                              // Strings
-                              .replace(/"([^"]*)"/g, '<span style="color: #98c379">"$1"</span>')
-                              .replace(/'([^']*)'/g, '<span style="color: #98c379">\'$1\'</span>')
-                              .replace(/`([^`]*)`/g, '<span style="color: #98c379">`$1`</span>')
-                              // Comments
-                              .replace(/(#[^\n]*)/g, '<span style="color: #5c6370">$1</span>')
-                              .replace(/(\/\/[^\n]*)/g, '<span style="color: #5c6370">$1</span>')
-                              // Numbers
-                              .replace(/\b(\d+\.?\d*)\b/g, '<span style="color: #d19a66">$1</span>')
-                              // Function names
-                              .replace(/\b([a-zA-Z_][a-zA-Z0-9_]*)\s*\(/g, '<span style="color: #61afef">$1</span>(')
-                              // Types
-                              .replace(/:\s*([A-Z][a-zA-Z0-9_]*)/g, ': <span style="color: #e5c07b">$1</span>')
-                          }}
-                        />
-                      </pre>
-                    </div>
-                    <div className="mt-6 flex justify-center">
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl w-full text-center">
-                        <div className="flex flex-col items-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
-                          <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
-                          <span className="text-slate-300 text-sm font-medium">0.8% fee only</span>
-                        </div>
-                        <div className="flex flex-col items-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
-                          <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
-                          <span className="text-slate-300 text-sm font-medium">Jito bundles included</span>
-                        </div>
-                        <div className="flex flex-col items-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
-                          <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
-                          <span className="text-slate-300 text-sm font-medium">Priority transactions</span>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </FadeContent>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
       </FadeContent>
@@ -526,11 +500,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                Built for <SplitText 
-                  text="Your Goals"
-                  className="text-violet-400"
-                  delay={80}
-                />
+                Built for <span className="text-violet-400">Your Goals</span>
               </h2>
             </div>
 
@@ -594,17 +564,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         <section id="edge" className="py-12 relative">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-4xl lg:text-5xl font-bold mb-16">
-              <SplitText 
-                text="Trading"
-                className="text-white"
-                delay={80}
-              />
-              {" "}
-              <SplitText 
-                text="API Edge"
-                className="text-violet-400"
-                delay={80}
-              />
+              <span className="text-white">Trading</span>{" "}
+              <span className="text-violet-400">API Edge</span>
             </h2>
           </div>
         </section>
@@ -672,60 +633,47 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       <FadeContent>
         <section id="pricing" className="py-20 relative">
           <div className="container mx-auto px-6">
-            <FadeContent delay={200}>
-              <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                  <SplitText 
-                    text="API"
-                    className="text-white"
-                    delay={80}
-                  />
-                  {" "}
-                  <SplitText 
-                    text="Pricing"
-                    className="text-violet-400"
-                    delay={80}
-                  />
-                </h2>
-              </div>
-            </FadeContent>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                <span className="text-white">API</span>{" "}
+                <span className="text-violet-400">Pricing</span>
+              </h2>
+            </div>
 
-            <FadeContent delay={600}>
-              <div className="max-w-4xl mx-auto">
-                <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
-                  <CardContent className="p-16 text-center relative">
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                      <div className="bg-gradient-to-r from-violet-950/70 via-violet-900/75 to-violet-950/70 backdrop-blur-md border border-violet-700/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
-                        CHEAPEST ON THE MARKET
+            <div className="max-w-4xl mx-auto">
+              <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
+                <CardContent className="p-16 text-center relative">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-gradient-to-r from-violet-950/70 via-violet-900/75 to-violet-950/70 backdrop-blur-md border border-violet-700/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
+                      CHEAPEST ON THE MARKET
+                    </div>
+                  </div>
+
+                  <div className="mb-8 mt-4">
+                    <div className="text-8xl lg:text-9xl font-bold text-violet-400 mb-4">
+                      0.8<span className="text-6xl lg:text-7xl">%</span>
+                    </div>
+                    <p className="text-2xl text-slate-300 font-medium mb-4">
+                      Per successful transaction
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    {[
+                      "No monthly fees",
+                      "No subscription fees", 
+                      "No fees on read-only API calls",
+                      "No fees on failed transactions"
+                    ].map((feature, i) => (
+                      <div key={i} className="flex items-center text-slate-300 text-lg">
+                        <CheckCircle className="w-6 h-6 text-violet-400 mr-4 flex-shrink-0" />
+                        <span>{feature}</span>
                       </div>
-                    </div>
-
-                    <div className="mb-8 mt-4">
-                      <div className="text-8xl lg:text-9xl font-bold text-violet-400 mb-4">
-                        0.8<span className="text-6xl lg:text-7xl">%</span>
-                      </div>
-                      <p className="text-2xl text-slate-300 font-medium mb-4">
-                        Per successful transaction
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                      {[
-                        "No monthly fees",
-                        "No subscription fees", 
-                        "No fees on read-only API calls",
-                        "No fees on failed transactions"
-                      ].map((feature, i) => (
-                        <div key={i} className="flex items-center text-slate-300 text-lg">
-                          <CheckCircle className="w-6 h-6 text-violet-400 mr-4 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </FadeContent>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
       </FadeContent>
@@ -734,110 +682,93 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       <FadeContent>
         <section id="community" className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
-            <FadeContent delay={300}>
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-black/40 via-black/50 to-black/40 rounded-3xl opacity-60 group-hover:opacity-80 blur-sm transition-all duration-500"></div>
-                
-                <div className="relative bg-black/80 backdrop-blur-sm border-slate-700/50 border rounded-3xl overflow-hidden hover-scale transition-all duration-300 hover:border-slate-600/60 hover:shadow-2xl hover:shadow-black/20">
-                  {/* Background decorative icons - one in each corner */}
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    {/* Top-left corner */}
-                    <div className="absolute top-8 left-8 w-5 h-5 text-slate-600/20 opacity-40">
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-                      </svg>
-                    </div>
-                    
-                    {/* Top-right corner */}
-                    <div className="absolute top-8 right-8 w-5 h-5 text-slate-600/20 opacity-40">
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                      </svg>
-                    </div>
-                    
-                    {/* Bottom-left corner */}
-                    <div className="absolute bottom-8 left-8 w-5 h-5 text-slate-600/20 opacity-40">
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                      </svg>
-                    </div>
-                    
-                    {/* Bottom-right corner */}
-                    <div className="absolute bottom-8 right-8 w-5 h-5 text-slate-600/20 opacity-40">
-                      <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-                      </svg>
-                    </div>
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-black/40 via-black/50 to-black/40 rounded-3xl opacity-60 group-hover:opacity-80 blur-sm transition-all duration-500"></div>
+              
+              <div className="relative bg-black/80 backdrop-blur-sm border-slate-700/50 border rounded-3xl overflow-hidden hover-scale transition-all duration-300 hover:border-slate-600/60 hover:shadow-2xl hover:shadow-black/20">
+                {/* Background decorative icons - one in each corner */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                  {/* Top-left corner */}
+                  <div className="absolute top-8 left-8 w-5 h-5 text-slate-600/20 opacity-40">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
                   </div>
                   
-                  <div className="relative p-16 text-center">
-                    <div className="mb-8">
-                      <FadeContent delay={500}>
-                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-slate-800/40 to-slate-700/40 border border-slate-600/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
-                          <Users className="w-10 h-10 text-slate-300" />
-                        </div>
-                      </FadeContent>
-                      <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-                        <SplitText 
-                          text="Join the"
-                          className="text-white"
-                          delay={80}
-                        />
-                        {" "}
-                        <SplitText 
-                          text="Community"
-                          className="text-violet-400"
-                          delay={80}
-                        />
-                      </h2>
-                      <FadeContent delay={800}>
-                        <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                          Connect with other developers, get fast support, and share your strategies. Join our community of traders and investors for the latest insights and market analysis.
-                        </p>
-                      </FadeContent>
+                  {/* Top-right corner */}
+                  <div className="absolute top-8 right-8 w-5 h-5 text-slate-600/20 opacity-40">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </div>
+                  
+                  {/* Bottom-left corner */}
+                  <div className="absolute bottom-8 left-8 w-5 h-5 text-slate-600/20 opacity-40">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                  </div>
+                  
+                  {/* Bottom-right corner */}
+                  <div className="absolute bottom-8 right-8 w-5 h-5 text-slate-600/20 opacity-40">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                  </div>
+                </div>
+                
+                <div className="relative p-16 text-center">
+                  <div className="mb-8">
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-slate-800/40 to-slate-700/40 border border-slate-600/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
+                      <Users className="w-10 h-10 text-slate-300" />
                     </div>
-                    
-                    <FadeContent delay={1000}>
-                      <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                        <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
-                          <span className="relative z-10 flex items-center text-lg">
-                            <div className="w-6 h-6 mr-3">
-                              <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-                              </svg>
-                            </div>
-                            Join our Discord
-                          </span>
-                        </button>
-                        <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
-                          <span className="relative z-10 flex items-center text-lg">
-                            <div className="w-6 h-6 mr-3">
-                              <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                              </svg>
-                            </div>
-                            Follow on Twitter
-                          </span>
-                        </button>
-                        <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
-                          <span className="relative z-10 flex items-center text-lg">
-                            <div className="w-6 h-6 mr-3">
-                              <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                              </svg>
-                            </div>
-                            Join our Telegram
-                          </span>
-                        </button>
-                      </div>
-                    </FadeContent>
+                    <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+                      <span className="text-white">Join the</span>{" "}
+                      <span className="text-violet-400">Community</span>
+                    </h2>
+                    <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                      Connect with other developers, get fast support, and share your strategies. Join our community of traders and investors for the latest insights and market analysis.
+                    </p>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
+                    <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                      <span className="relative z-10 flex items-center text-lg">
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                          </svg>
+                        </div>
+                        Join our Discord
+                      </span>
+                    </button>
+                    <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                      <span className="relative z-10 flex items-center text-lg">
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                          </svg>
+                        </div>
+                        Follow on Twitter
+                      </span>
+                    </button>
+                    <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                      <span className="relative z-10 flex items-center text-lg">
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                          </svg>
+                        </div>
+                        Join our Telegram
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
-            </FadeContent>
+            </div>
           </div>
         </section>
       </FadeContent>
@@ -847,20 +778,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         <section id="cta-final" className="py-20 relative">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-8">
-              Ready to Dominate <SplitText 
-                text="letsbonk.fun"
-                className="text-violet-400"
-                delay={80}
-              />?
+              Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
-            <FadeContent delay={400}>
-              <button 
-                className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-slate-200 hover:bg-slate-700/60 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
-              >
-                <span className="relative z-10">Get my API Key and Start</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-              </button>
-            </FadeContent>
+            <button 
+              className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-slate-200 hover:bg-slate-700/60 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+            >
+              <span className="relative z-10">Get my API Key and Start</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            </button>
           </div>
         </section>
       </FadeContent>
