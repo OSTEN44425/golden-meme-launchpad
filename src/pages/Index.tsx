@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,10 +10,11 @@ import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
 import AIBot from "@/components/animations/AIBot";
 import MouseLightEffect from "@/components/animations/MouseLightEffect";
-import FloatingDecoration from "@/components/decorations/FloatingDecoration";
+import TradingEdgeCard from "@/components/animations/TradingEdgeCard";
 import { useLenis } from "@/hooks/useLenis";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import "@/styles/trading-edge-animation.css";
 
 const Index = () => {
   // Initialize Lenis smooth scroll
@@ -321,26 +321,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
       {/* Hero Section - Better spacing */}
       <section className="relative flex items-center justify-center pt-40 pb-20">
-        {/* Left Floating Decoration - Only in hero section */}
-        <FloatingDecoration 
-          side="left" 
-          icons={[
-            { icon: Send, position: 'top', delay: 0 },
-            { icon: Users, position: 'middle', delay: 1 },
-            { icon: MessageCircle, position: 'bottom', delay: 2 }
-          ]} 
-        />
-
-        {/* Right Floating Decoration - Only in hero section */}
-        <FloatingDecoration 
-          side="right" 
-          icons={[
-            { icon: Bell, position: 'top', delay: 0.5 },
-            { icon: Search, position: 'middle', delay: 1.5 },
-            { icon: Star, position: 'bottom', delay: 2.5 }
-          ]} 
-        />
-
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -633,57 +613,39 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Key Benefits */}
+      {/* Key Benefits - Updated to use TradingEdgeCard */}
       <FadeContent>
         <section className="py-12 relative">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
-                  icon: Zap,
+                  icon: <Zap className="w-6 h-6" />,
                   title: "Radical Simplicity",
-                  description: "Integrate our API in less than 5 minutes. Clear documentation and logical endpoints to focus on your strategy, not our infrastructure.",
-                  color: "from-violet-500/20 to-purple-500/20",
-                  borderColor: "border-violet-500/30",
-                  iconColor: "text-violet-400"
+                  description: "Integrate our API in less than 5 minutes. Clear documentation and logical endpoints to focus on your strategy, not our infrastructure."
                 },
                 {
-                  icon: Rocket,
+                  icon: <Rocket className="w-6 h-6" />,
                   title: "Performance & Stability",
-                  description: "Leverage Jito bundles for atomic and priority transactions. Our service relies on the best providers (0slot, astralane) for near-instant execution.",
-                  color: "from-purple-500/20 to-pink-500/20",
-                  borderColor: "border-purple-500/30",
-                  iconColor: "text-purple-400"
+                  description: "Leverage Jito bundles for atomic and priority transactions. Our service relies on the best providers (0slot, astralane) for near-instant execution."
                 },
                 {
-                  icon: DollarSign,
+                  icon: <DollarSign className="w-6 h-6" />,
                   title: "Lowest & Transparent Fees",
-                  description: "A unique and clear fee structure: 0.8% on transactions. That's it. No hidden fees, no subscription.",
-                  color: "from-violet-500/20 to-emerald-500/20",
-                  borderColor: "border-violet-500/30",
-                  iconColor: "text-violet-400"
+                  description: "A unique and clear fee structure: 0.8% on transactions. That's it. No hidden fees, no subscription."
                 },
                 {
-                  icon: FileText,
+                  icon: <FileText className="w-6 h-6" />,
                   title: "Exemplary Documentation",
-                  description: "Copy-paste guides, complete API reference, and tutorials to get you operational immediately.",
-                  color: "from-violet-500/20 to-red-500/20",
-                  borderColor: "border-violet-500/30",
-                  iconColor: "text-violet-400"
+                  description: "Copy-paste guides, complete API reference, and tutorials to get you operational immediately."
                 }
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
-                  <Card className={`glowing-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
-                    <CardHeader className="pb-4">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
-                        <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
-                      </div>
-                      <CardTitle className="text-white text-xl font-semibold">{feature.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-1">
-                      <p className="text-slate-300 text-sm leading-relaxed">{feature.description}</p>
-                    </CardContent>
-                  </Card>
+                  <TradingEdgeCard
+                    title={feature.title}
+                    description={feature.description}
+                    icon={feature.icon}
+                  />
                 </FadeContent>
               ))}
             </div>
@@ -768,7 +730,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </div>
       </div>
 
-      {/* Community Section - Modified background and icons */}
+      {/* Community Section - Updated with darker blue buttons */}
       <FadeContent>
         <section id="community" className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
@@ -826,8 +788,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     
                     <FadeContent delay={600}>
                       <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="group/btn relative bg-blue-950/80 backdrop-blur-xl border border-blue-900/60 text-blue-100 hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] hover:border-blue-800/70 hover:bg-blue-900/90">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -837,8 +799,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             Join our Discord
                           </span>
                         </button>
-                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="group/btn relative bg-blue-950/80 backdrop-blur-xl border border-blue-900/60 text-blue-100 hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] hover:border-blue-800/70 hover:bg-blue-900/90">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -848,8 +810,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             Follow on Twitter
                           </span>
                         </button>
-                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="group/btn relative bg-blue-950/80 backdrop-blur-xl border border-blue-900/60 text-blue-100 hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(59,130,246,0.3)] hover:border-blue-800/70 hover:bg-blue-900/90">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -869,7 +831,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Final CTA */}
+      {/* Final CTA - Updated with darker blue button */}
       <FadeContent>
         <section id="cta-final" className="py-20 relative">
           <div className="container mx-auto px-6 text-center">
@@ -877,10 +839,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-black/80 backdrop-blur-xl border border-violet-500/40 text-slate-200 hover:bg-black/90 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 relative overflow-hidden group hover:border-violet-400/60"
+              className="bg-blue-950/80 backdrop-blur-xl border border-blue-900/60 text-blue-100 hover:bg-blue-900/90 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 relative overflow-hidden group hover:border-blue-800/70"
             >
               <span className="relative z-10">Get my API Key and Start</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </button>
           </div>
         </section>
