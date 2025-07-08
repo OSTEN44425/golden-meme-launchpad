@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -34,16 +35,16 @@ const Index = () => {
       {/* Modern Grid Background */}
       <ModernGrid />
 
-      {/* Enhanced Background Assets with more violet light - removed pink light */}
-      <div className="fixed inset-0 opacity-40 pointer-events-none">
-        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/50 to-purple-500/50 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 right-10 w-24 h-24 bg-gradient-to-br from-purple-500/40 to-violet-500/40 rounded-full blur-2xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/35 to-violet-500/45 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/40 to-teal-500/40 rounded-full blur-2xl animate-bounce-slow"></div>
-        <div className="absolute top-3/4 left-1/4 w-28 h-28 bg-gradient-to-br from-violet-500/45 to-purple-600/45 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-violet-400/40 to-violet-600/40 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-10 left-1/2 w-24 h-24 bg-gradient-to-br from-violet-500/35 to-purple-500/35 rounded-full blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
-        <div className="absolute bottom-32 left-20 w-18 h-18 bg-gradient-to-br from-violet-400/45 to-violet-500/45 rounded-full blur-2xl animate-float" style={{animationDelay: '4s'}}></div>
+      {/* Enhanced Background Assets with more violet light */}
+      <div className="fixed inset-0 opacity-30 pointer-events-none">
+        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-violet-500/40 to-purple-500/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full blur-2xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-gradient-to-br from-cyan-500/25 to-violet-500/35 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/4 left-1/3 w-16 h-16 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-2xl animate-bounce-slow"></div>
+        <div className="absolute top-3/4 left-1/4 w-28 h-28 bg-gradient-to-br from-violet-500/35 to-purple-600/35 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/3 right-1/3 w-20 h-20 bg-gradient-to-br from-violet-400/30 to-violet-600/30 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-10 left-1/2 w-24 h-24 bg-gradient-to-br from-violet-500/25 to-purple-500/25 rounded-full blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
+        <div className="absolute bottom-32 left-20 w-18 h-18 bg-gradient-to-br from-violet-400/35 to-violet-500/35 rounded-full blur-2xl animate-float" style={{animationDelay: '4s'}}></div>
       </div>
 
       {/* Enhanced Navigation - Much darker, almost black */}
@@ -70,34 +71,10 @@ const Index = () => {
                   Documentation
                 </button>
               </FadeContent>
-              <FadeContent delay={150}>
-                <button 
-                  onClick={() => scrollToSection('trading-api-edge')}
-                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
-                >
-                  Edge
-                </button>
-              </FadeContent>
-              <FadeContent delay={200}>
-                <button 
-                  onClick={() => scrollToSection('pricing')}
-                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
-                >
-                  Pricing
-                </button>
-              </FadeContent>
-              <FadeContent delay={250}>
-                <button 
-                  onClick={() => scrollToSection('community')}
-                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
-                >
-                  Community
-                </button>
-              </FadeContent>
             </nav>
             <button 
               onClick={() => scrollToSection('cta-final')}
-              className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-white hover:bg-slate-800/80 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
+              className="bg-slate-900/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-800/60 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -111,8 +88,19 @@ const Index = () => {
         </header>
       </FadeContent>
 
-      {/* Hero Section - Reduced padding to move content up */}
-      <section className="relative flex items-center justify-center overflow-hidden pt-16 pb-8">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Decorative icons for hero */}
+        <div className="absolute top-20 left-20 opacity-20">
+          <Sparkles className="w-8 h-8 text-violet-400 animate-pulse" />
+        </div>
+        <div className="absolute top-32 right-32 opacity-15">
+          <Target className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '1s'}} />
+        </div>
+        <div className="absolute bottom-40 left-32 opacity-20">
+          <Timer className="w-7 h-7 text-violet-500 animate-bounce-slow" style={{animationDelay: '2s'}} />
+        </div>
+
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -131,10 +119,10 @@ const Index = () => {
             </FadeContent>
             
             <FadeContent delay={800}>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-4">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-white hover:bg-slate-800/80 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-600/40 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -147,11 +135,17 @@ const Index = () => {
                 </button>
               </div>
             </FadeContent>
+
+            <FadeContent delay={1000}>
+              <p className="text-sm text-slate-400 italic mb-8">
+                No credit card required. Simple integration.
+              </p>
+            </FadeContent>
           </div>
         </div>
       </section>
 
-      {/* AI Bot Section - Positioned higher with more top margin */}
+      {/* AI Bot Section - Reduced spacing */}
       <FadeContent>
         <section className="py-2 relative">
           <div className="container mx-auto px-6 flex justify-center">
@@ -163,6 +157,14 @@ const Index = () => {
       {/* Social Proof / Trust */}
       <FadeContent>
         <section className="py-12 relative">
+          {/* Decorative icons for social proof */}
+          <div className="absolute top-6 left-10 opacity-15">
+            <Award className="w-6 h-6 text-violet-400 animate-pulse" />
+          </div>
+          <div className="absolute top-8 right-16 opacity-10">
+            <Cpu className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '1.5s'}} />
+          </div>
+
           <div className="container mx-auto px-6 text-center">
             <p className="text-sm text-slate-400 mb-8 uppercase tracking-wider">Compatible with Solana Ecosystem</p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
@@ -189,6 +191,14 @@ const Index = () => {
       {/* Use Cases Section */}
       <FadeContent>
         <section className="py-16 relative">
+          {/* Decorative icons for use cases */}
+          <div className="absolute top-10 left-8 opacity-15">
+            <Code className="w-7 h-7 text-violet-400 animate-pulse" style={{animationDelay: '2s'}} />
+          </div>
+          <div className="absolute top-20 right-12 opacity-10">
+            <Rocket className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '3s'}} />
+          </div>
+
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
@@ -263,7 +273,15 @@ const Index = () => {
 
       {/* Trading API Edge Title */}
       <FadeContent>
-        <section id="trading-api-edge" className="py-12 relative">
+        <section className="py-12 relative">
+          {/* Decorative icons for API edge */}
+          <div className="absolute top-6 left-12 opacity-15">
+            <Server className="w-6 h-6 text-violet-400 animate-pulse" style={{animationDelay: '1s'}} />
+          </div>
+          <div className="absolute top-8 right-10 opacity-10">
+            <Wifi className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '2.5s'}} />
+          </div>
+
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-4xl lg:text-5xl font-bold mb-16">
               <span className="text-white">Trading</span>{" "}
@@ -276,6 +294,14 @@ const Index = () => {
       {/* Key Benefits */}
       <FadeContent>
         <section className="py-20 relative">
+          {/* Decorative icons for benefits */}
+          <div className="absolute top-16 left-6 opacity-15">
+            <Activity className="w-7 h-7 text-violet-400 animate-pulse" style={{animationDelay: '1.5s'}} />
+          </div>
+          <div className="absolute top-32 right-8 opacity-10">
+            <Database className="w-6 h-6 text-purple-400 animate-float" style={{animationDelay: '3.5s'}} />
+          </div>
+
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -333,7 +359,15 @@ const Index = () => {
 
       {/* New Pricing Section with professional badge */}
       <FadeContent>
-        <section id="pricing" className="py-20 relative">
+        <section className="py-20 relative">
+          {/* Decorative icons for pricing */}
+          <div className="absolute top-12 left-10 opacity-15">
+            <TrendingUp className="w-6 h-6 text-violet-400 animate-pulse" style={{animationDelay: '2s'}} />
+          </div>
+          <div className="absolute top-24 right-14 opacity-10">
+            <BarChart3 className="w-7 h-7 text-purple-400 animate-float" style={{animationDelay: '4s'}} />
+          </div>
+
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6">
@@ -347,7 +381,7 @@ const Index = () => {
                 <CardContent className="p-16 text-center relative">
                   {/* Professional badge - darker violet translucent */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="bg-gradient-to-r from-violet-900/60 via-violet-800/70 to-violet-900/60 backdrop-blur-md border border-violet-700/40 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
+                    <div className="bg-gradient-to-r from-violet-950/70 via-violet-900/75 to-violet-950/70 backdrop-blur-md border border-violet-700/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
                       CHEAPEST ON THE MARKET
                     </div>
                   </div>
@@ -385,7 +419,15 @@ const Index = () => {
 
       {/* Community Section - Enhanced with Telegram button and better distributed decorative icons */}
       <FadeContent>
-        <section id="community" className="py-20 relative">
+        <section className="py-20 relative">
+          {/* Decorative icons for community */}
+          <div className="absolute top-16 left-8 opacity-15">
+            <Globe className="w-6 h-6 text-violet-400 animate-pulse" style={{animationDelay: '1s'}} />
+          </div>
+          <div className="absolute top-28 right-10 opacity-10">
+            <Settings className="w-5 h-5 text-purple-400 animate-float" style={{animationDelay: '3s'}} />
+          </div>
+
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
               {/* Animated gradient border */}
@@ -393,6 +435,35 @@ const Index = () => {
               
               {/* Main container */}
               <div className="relative bg-gradient-to-br from-slate-950/98 via-slate-900/98 to-slate-950/98 rounded-3xl border border-slate-700/30 backdrop-blur-xl overflow-hidden">
+                {/* Better distributed decorative social media icons - positioned in empty spaces */}
+                {/* Discord icon - top left area, away from title */}
+                <div className="absolute top-12 left-8 w-10 h-10 text-violet-500/20 animate-pulse">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                  </svg>
+                </div>
+                
+                {/* Twitter icon - top right area, smaller */}
+                <div className="absolute top-14 right-12 w-8 h-8 text-blue-400/20 animate-pulse" style={{animationDelay: '1s'}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </div>
+                
+                {/* Telegram icon - center left area */}
+                <div className="absolute top-1/2 left-6 w-12 h-12 text-violet-500/20 animate-pulse" style={{animationDelay: '2s'}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.17c-.07-.08-.17-.05-.24-.03-.1.03-1.67 1.06-4.71 3.11-.45.3-.85.45-1.21.44-.4-.01-1.16-.23-1.73-.42-.7-.23-1.26-.35-1.21-.74.03-.2.36-.4.98-.6 3.76-1.65 6.26-2.74 7.51-3.26 3.58-1.54 4.32-1.81 4.81-1.82.11 0 .35.03.5.17.13.12.17.27.19.38-.01.06-.01.24-.05.38z"/>
+                  </svg>
+                </div>
+                
+                {/* Discord icon - center right area */}
+                <div className="absolute top-1/2 right-8 w-9 h-9 text-blue-500/20 animate-pulse" style={{animationDelay: '2.5s'}}>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                  </svg>
+                </div>
+                
                 {/* Floating gradient orbs */}
                 <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-slate-700/10 to-slate-600/10 rounded-full blur-2xl animate-pulse"></div>
                 <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-br from-slate-600/10 to-slate-700/10 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
@@ -442,7 +513,7 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator above footer */}
+      {/* Violet Section separator */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
@@ -460,7 +531,7 @@ const Index = () => {
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-slate-900/80 backdrop-blur-sm border border-slate-700/50 text-slate-200 hover:bg-slate-800/80 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+              className="bg-slate-700/50 backdrop-blur-sm border border-slate-500/30 text-slate-200 hover:bg-slate-600/50 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key and Start</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -469,21 +540,17 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator before footer */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-1 h-1 bg-violet-500/60 rounded-full animate-ping"></div>
-        </div>
+      {/* Footer separator line - matching header */}
+      <div className="relative h-px w-full">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/20 to-transparent animate-pulse"></div>
+        <div className="absolute left-0 w-full h-px bg-gradient-to-r from-violet-400/10 via-violet-500/30 to-violet-400/10 animate-pulse" style={{animationDelay: '0.5s'}}></div>
       </div>
 
       {/* Footer - Much darker, almost black with reduced size */}
       <FadeContent>
         <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
           <div className="container mx-auto px-6 py-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-3">
               <div className="md:col-span-2">
                 <div className="flex items-center space-x-3 mb-1">
                   <div className="relative">
@@ -536,6 +603,8 @@ const Index = () => {
               </div>
             </div>
             
+            <Separator className="my-2 bg-gradient-to-r from-transparent via-slate-700/50 to-transparent" />
+            
             <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-xs">
               <p className="font-medium">
                 © 2025 Copyright{" "}
@@ -559,16 +628,6 @@ const Index = () => {
           </div>
         </footer>
       </FadeContent>
-
-      {/* Violet Section separator at bottom */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
     </div>
   );
 };
