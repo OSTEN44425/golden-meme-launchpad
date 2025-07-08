@@ -1,70 +1,59 @@
 
-/* Trading API Edge Card Animation Styles */
+/* Trading API Edge Card Animation Styles with Animated Border */
+
 .trading-edge-card {
   overflow: hidden;
   position: relative;
 }
 
-.trading-edge-card .bar {
+.trading-edge-card .animated-border-box, 
+.trading-edge-card .animated-border-box-glow {
+  max-height: 200px;
+  max-width: 250px;
+  height: 100%;
+  width: 100%;
   position: absolute;
-  width: 5rem;
-  height: 0.5rem;
-  background: #8b5cf6;
-  transition: all 1s linear;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
+  overflow: hidden; 
+  z-index: 0;
+  border-radius: 16px;
 }
 
-.trading-edge-card .bar.delay {
-  animation-delay: 0.5s;
+.trading-edge-card .animated-border-box-glow {
+  overflow: hidden;
+  filter: blur(20px);
 }
 
-.trading-edge-card .bar.top {
-  top: -0.5rem;
-  left: -0.5rem;
-  animation-name: h-move-edge;
+.trading-edge-card .animated-border-box:before, 
+.trading-edge-card .animated-border-box-glow:before {
+  content: '';
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  position: absolute;
+  width: 99999px;
+  height: 99999px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: conic-gradient(rgba(0,0,0,0), #8b5cf6, rgba(0,0,0,0) 25%);
+  animation: rotate 4s linear infinite;
 }
 
-.trading-edge-card .bar.right {
-  top: 1.8rem;
-  right: -2.8rem;
-  transform: rotate(90deg);
-  animation-name: v-move-edge;
+.trading-edge-card .animated-border-box:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 2px;
+  top: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 14px;
 }
 
-.trading-edge-card .bar.bottom {
-  bottom: -0.5rem;
-  left: -0.5rem;
-  animation-name: h-move-edge;
-}
-
-.trading-edge-card .bar.left {
-  top: 1.8rem;
-  left: -2.8rem;
-  transform: rotate(90deg);
-  animation-name: v-move-edge;
-}
-
-@keyframes h-move-edge {
-  0% {
-    left: -0.5rem;
-  }
+@keyframes rotate {
   100% {
-    left: calc(100% + 0.5rem);
+    transform: translate(-50%, -50%) rotate(1turn);
   }
-}
-
-@keyframes v-move-edge {
-  0% {
-    top: -0.5rem;
-  }
-  100% {
-    top: calc(100% + 2.3rem);
-  }
-}
-
-/* Pause animation on hover */
-.trading-edge-card:hover .bar {
-  animation-play-state: paused;
 }

@@ -9,12 +9,10 @@ interface TradingEdgeCardProps {
 
 const TradingEdgeCard: React.FC<TradingEdgeCardProps> = ({ title, description, icon }) => {
   return (
-    <div className="trading-edge-card relative bg-slate-900/50 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-8 group hover:bg-slate-800/60 transition-all duration-300">
-      {/* Animated border bars */}
-      <div className="bar top"></div>
-      <div className="bar right delay"></div>
-      <div className="bar bottom delay"></div>
-      <div className="bar left"></div>
+    <div className="trading-edge-card relative bg-slate-950/60 backdrop-blur-sm border border-slate-800/50 rounded-2xl p-8 group hover:bg-slate-900/70 transition-all duration-300">
+      {/* Animated border elements */}
+      <div className="animated-border-box"></div>
+      <div className="animated-border-box-glow"></div>
       
       <div className="relative z-10">
         <div className="mb-6 text-violet-400">
