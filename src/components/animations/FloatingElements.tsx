@@ -20,12 +20,11 @@ const FloatingElements: React.FC<FloatingElementsProps> = ({ side }) => {
   ];
 
   const icons = side === 'left' ? leftIcons : rightIcons;
-  const positionClass = side === 'left' ? 'left-16 lg:left-24' : 'right-16 lg:right-24';
+  const positionClass = side === 'left' ? 'left-20 lg:left-32' : 'right-20 lg:right-32';
 
   return (
     <div className={`absolute ${positionClass} top-1/2 transform -translate-y-1/2 z-10 hidden lg:block`}>
       <div className="relative">
-        {/* Éléments flottants plus grands et modernes */}
         <div className="space-y-20 relative z-10">
           {icons.map((item, index) => (
             <div
@@ -37,10 +36,10 @@ const FloatingElements: React.FC<FloatingElementsProps> = ({ side }) => {
                 animationIterationCount: 'infinite'
               }}
             >
-              {/* Effet de lueur violette fixe */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-violet-400 to-purple-500 rounded-3xl blur-2xl opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+              {/* Effet de lueur violette avec opacité réduite */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-violet-400 to-purple-500 rounded-3xl blur-2xl opacity-20 group-hover:opacity-35 transition-opacity duration-500"></div>
               
-              {/* Container principal plus grand et moderne */}
+              {/* Container principal */}
               <div className="relative w-20 h-20 bg-black/95 backdrop-blur-xl border border-white/20 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-all duration-300 hover:border-violet-400/50 shadow-2xl hover:shadow-violet-500/30">
                 <item.icon className="w-9 h-9 text-white group-hover:text-violet-300 transition-colors duration-300 drop-shadow-lg" />
               </div>
