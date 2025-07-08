@@ -10,6 +10,7 @@ import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
 import AIBot from "@/components/animations/AIBot";
 import MouseLightEffect from "@/components/animations/MouseLightEffect";
+import FloatingElements from "@/components/animations/FloatingElements";
 import { useLenis } from "@/hooks/useLenis";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -251,6 +252,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       
       {/* Modern Grid Background */}
       <ModernGrid />
+
+      {/* Floating Elements */}
+      <FloatingElements side="left" />
+      <FloatingElements side="right" />
 
       {/* Enhanced Navigation */}
       <FadeContent>
@@ -847,124 +852,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Final CTA */}
-      <FadeContent>
-        <section id="cta-final" className="py-20 relative">
-          <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-8">
-              Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
-            </h2>
-            <button 
-              className="bg-black/80 backdrop-blur-xl border border-violet-500/40 text-slate-200 hover:bg-black/90 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 relative overflow-hidden group hover:border-violet-400/60"
-            >
-              <span className="relative z-10">Get my API Key and Start</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-            </button>
-          </div>
-        </section>
-      </FadeContent>
-
-      {/* Violet Section separator before footer */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <FadeContent>
-        <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
-          <div className="container mx-auto px-6 py-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
-              <div className="md:col-span-2">
-                <div className="flex items-center space-x-3 mb-1">
-                  <div className="relative">
-                    <div className="w-6 h-6 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
-                      <Zap className="w-3 h-3 text-white" />
-                    </div>
-                    <div className="absolute inset-0 w-6 h-6 rounded-lg bg-violet-500/20 blur-md animate-pulse"></div>
-                  </div>
-                  <span className="text-base font-bold text-white font-mono tracking-wide">
-                    launchpad.trade
-                  </span>
-                </div>
-                <p className="text-slate-300 max-w-sm mb-1 font-medium leading-relaxed text-xs">
-                  The fastest and most reliable API to automate your trades on letsbonk.fun.
-                </p>
-              </div>
-              
-              <div className="space-y-1">
-                <h4 className="font-bold text-white mb-1 text-sm flex items-center">
-                  <Code className="w-4 h-4 mr-2 text-violet-400" />
-                  Product
-                </h4>
-                <ul className="space-y-0.5">
-                  <li>
-                    <button
-                      onClick={() => scrollToSection('documentation')}
-                      className="text-slate-300 hover:text-violet-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm text-left"
-                    >
-                      Documentation
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="space-y-1">
-                <h4 className="font-bold text-white mb-1 text-sm flex items-center">
-                  <Headphones className="w-4 h-4 mr-2 text-violet-400" />
-                  Support
-                </h4>
-                <ul className="space-y-0.5">
-                  {[
-                    { name: "Discord", icon: MessageCircle },
-                    { name: "Twitter", icon: Users },
-                    { name: "Contact", icon: MessageCircle },
-                    { name: "Terms of Service", icon: FileText },
-                    { name: "Privacy Policy", icon: Shield }
-                  ].map((link, i) => (
-                    <li key={i}>
-                      <a 
-                        href="#" 
-                        className="text-slate-300 hover:text-purple-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm flex items-center"
-                      >
-                        <link.icon className="w-3 h-3 mr-2 opacity-60" />
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            
-            <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-xs">
-              <p className="font-medium">
-                © 2025 Copyright{" "}
-                <span className="text-white font-semibold">
-                  launchpad.trade
-                </span>
-                . All rights reserved.
-              </p>
-              <div className="flex space-x-4 mt-1 md:mt-0">
-                {["Privacy Policy", "Terms of Service", "Contact"].map((link, i) => (
-                  <a 
-                    key={i}
-                    href="#" 
-                    className="hover:text-violet-400 transition-all duration-300 font-medium hover:scale-105 hover:underline decoration-violet-400/50 underline-offset-4"
-                  >
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </footer>
-      </FadeContent>
-    </div>
-  );
-};
-
-export default Index;
+      {/*
