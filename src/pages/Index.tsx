@@ -426,24 +426,27 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Modern Language Selector - Custom Dropdown */}
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <button className="bg-black/80 backdrop-blur-xl border border-violet-500/40 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/70 focus:ring-2 focus:ring-violet-500/30 cursor-pointer shadow-2xl hover:bg-black/90 transition-all duration-300 hover:border-violet-500/60 flex items-center gap-3">
-                              <span>{codeExamples[selectedLanguage].name}</span>
-                              <ChevronDown className="w-4 h-4 text-violet-400" />
+                            <button className="bg-black/40 backdrop-blur-2xl border border-violet-500/30 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer shadow-2xl hover:bg-black/60 transition-all duration-300 hover:border-violet-500/50 flex items-center gap-3 hover:shadow-violet-500/20">
+                              <span className="text-violet-300">{codeExamples[selectedLanguage].name}</span>
+                              <ChevronDown className="w-4 h-4 text-violet-400 group-hover:rotate-180 transition-transform duration-300" />
                             </button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent 
-                            className="bg-black/95 backdrop-blur-xl border border-violet-500/30 shadow-2xl rounded-xl p-2 min-w-[140px] z-50"
+                            className="bg-black/70 backdrop-blur-2xl border border-violet-500/30 shadow-2xl shadow-black/50 rounded-xl p-2 min-w-[160px] z-50"
                             align="end"
                           >
                             {Object.entries(codeExamples).map(([key, lang]) => (
                               <DropdownMenuItem
                                 key={key}
                                 onClick={() => setSelectedLanguage(key)}
-                                className={`text-slate-300 hover:text-white hover:bg-violet-500/20 rounded-lg px-4 py-2 cursor-pointer transition-all duration-200 font-medium ${
-                                  selectedLanguage === key ? 'bg-violet-500/30 text-violet-400' : ''
+                                className={`text-slate-300 hover:text-white hover:bg-violet-500/20 rounded-lg px-4 py-3 cursor-pointer transition-all duration-300 font-medium backdrop-blur-sm border border-transparent hover:border-violet-500/30 hover:shadow-lg ${
+                                  selectedLanguage === key ? 'bg-violet-500/25 text-violet-300 border-violet-500/40 shadow-md' : ''
                                 }`}
                               >
-                                {lang.name}
+                                <span className="flex items-center gap-2">
+                                  <div className="w-2 h-2 rounded-full bg-violet-400 opacity-60"></div>
+                                  {lang.name}
+                                </span>
                               </DropdownMenuItem>
                             ))}
                           </DropdownMenuContent>
@@ -452,10 +455,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Copy Button - Improved */}
                         <button 
                           onClick={copyToClipboard}
-                          className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-black/80 backdrop-blur-xl px-4 py-3 rounded-xl hover:bg-black/90 border border-violet-500/40 hover:border-violet-500/60 shadow-2xl group"
+                          className="flex items-center space-x-2 text-sm text-slate-300 hover:text-violet-300 transition-all duration-300 bg-black/40 backdrop-blur-2xl px-5 py-3 rounded-xl hover:bg-black/60 border border-violet-500/30 hover:border-violet-500/50 shadow-2xl group hover:shadow-violet-500/20"
                         >
-                          <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
-                          <span className="font-medium">Copy</span>
+                          <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200 text-violet-400" />
+                          <span className="font-medium text-violet-300">Copy</span>
                         </button>
                       </div>
                     </div>
