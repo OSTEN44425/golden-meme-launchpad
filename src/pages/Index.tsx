@@ -1,19 +1,160 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp, FileText, DollarSign, Headphones, MessageCircle, Sparkles, Target, Timer, Award, Cpu, Server, Wifi, BookOpen, Copy } from "lucide-react";
+import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp, FileText, DollarSign, Headphones, MessageCircle, Sparkles, Target, Timer, Award, Cpu, Server, Wifi, BookOpen, Copy, ChevronDown } from "lucide-react";
 import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
 import AIBot from "@/components/animations/AIBot";
 import { useLenis } from "@/hooks/useLenis";
+import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const Index = () => {
   // Initialize Lenis smooth scroll
   useLenis();
+  const { toast } = useToast();
+  const [selectedLanguage, setSelectedLanguage] = useState('python');
+
+  const codeExamples = {
+    python: {
+      name: 'Python',
+      code: `import requests
+
+# Configuration
+API_KEY = "your_api_key_here"
+BASE_URL = "https://api.launchpad.trade"
+
+# Buy token example
+def buy_token(token_address, amount_sol):
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+    
+    payload = {
+        "token_address": token_address,
+        "amount_sol": amount_sol,
+        "slippage": 0.5,
+        "priority_fee": "high"
+    }
+    
+    response = requests.post(
+        f"{BASE_URL}/v1/trade/buy",
+        headers=headers,
+        json=payload
+    )
+    
+    return response.json()
+
+# Execute trade
+result = buy_token("So11111111111111111111111111111111111112", 0.1)
+print(f"Transaction: {result['signature']}")`
+    },
+    javascript: {
+      name: 'JavaScript',
+      code: `const API_KEY = "your_api_key_here";
+const BASE_URL = "https://api.launchpad.trade";
+
+// Buy token example
+async function buyToken(tokenAddress, amountSol) {
+    const response = await fetch(\`\${BASE_URL}/v1/trade/buy\`, {
+        method: 'POST',
+        headers: {
+            'Authorization': \`Bearer \${API_KEY}\`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            token_address: tokenAddress,
+            amount_sol: amountSol,
+            slippage: 0.5,
+            priority_fee: "high"
+        })
+    });
+    
+    return await response.json();
+}
+
+// Execute trade
+const result = await buyToken("So11111111111111111111111111111111111112", 0.1);
+console.log(\`Transaction: \${result.signature}\`);`
+    },
+    typescript: {
+      name: 'TypeScript',
+      code: `interface TradeRequest {
+    token_address: string;
+    amount_sol: number;
+    slippage: number;
+    priority_fee: string;
+}
+
+interface TradeResponse {
+    signature: string;
+    status: string;
+}
+
+const API_KEY: string = "your_api_key_here";
+const BASE_URL: string = "https://api.launchpad.trade";
+
+// Buy token example
+async function buyToken(tokenAddress: string, amountSol: number): Promise<TradeResponse> {
+    const response = await fetch(\`\${BASE_URL}/v1/trade/buy\`, {
+        method: 'POST',
+        headers: {
+            'Authorization': \`Bearer \${API_KEY}\`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            token_address: tokenAddress,
+            amount_sol: amountSol,
+            slippage: 0.5,
+            priority_fee: "high"
+        } as TradeRequest)
+    });
+    
+    return await response.json();
+}
+
+// Execute trade
+const result: TradeResponse = await buyToken("So11111111111111111111111111111111111112", 0.1);
+console.log(\`Transaction: \${result.signature}\`);`
+    },
+    rust: {
+      name: 'Rust',
+      code: `use reqwest;
+use serde_json::json;
+
+const API_KEY: &str = "your_api_key_here";
+const BASE_URL: &str = "https://api.launchpad.trade";
+
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let client = reqwest::Client::new();
+    
+    let payload = json!({
+        "token_address": "So11111111111111111111111111111111111112",
+        "amount_sol": 0.1,
+        "slippage": 0.5,
+        "priority_fee": "high"
+    });
+    
+    let response = client
+        .post(&format!("{}/v1/trade/buy", BASE_URL))
+        .header("Authorization", format!("Bearer {}", API_KEY))
+        .header("Content-Type", "application/json")
+        .json(&payload)
+        .send()
+        .await?;
+    
+    let result: serde_json::Value = response.json().await?;
+    println!("Transaction: {}", result["signature"]);
+    
+    Ok(())
+}`
+    }
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -28,6 +169,15 @@ const Index = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(codeExamples[selectedLanguage].code);
+    toast({
+      title: "Copied to clipboard!",
+      description: "Code example has been copied to your clipboard.",
+      duration: 2000,
+    });
   };
 
   return (
@@ -86,7 +236,7 @@ const Index = () => {
             </nav>
             <button 
               onClick={() => scrollToSection('cta-final')}
-              className="bg-slate-800/80 backdrop-blur-sm border border-slate-700/60 text-white hover:bg-slate-700/80 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
+              className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -100,12 +250,12 @@ const Index = () => {
         </header>
       </FadeContent>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Section - Moved higher */}
+      <section className="relative flex items-center justify-center pt-8 pb-4">
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span className="text-violet-400">The Fastest API</span>
                 <br />
                 <span className="text-white">for Trading and Launching on</span>{" "}
@@ -114,7 +264,7 @@ const Index = () => {
             </FadeContent>
             
             <FadeContent delay={600}>
-              <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-slate-300 mb-6 max-w-3xl mx-auto leading-relaxed">
                 Integrate professional-grade infrastructure in minutes to automate your trades and token launches. Maximum reliability, minimal fees.
               </p>
             </FadeContent>
@@ -123,7 +273,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-4">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-800/80 backdrop-blur-sm border border-slate-700/60 text-white hover:bg-slate-700/80 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -140,9 +290,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Repositioned higher with less spacing */}
+      {/* AI Bot Section - Moved higher */}
       <FadeContent>
-        <section className="py-2 relative -mt-16">
+        <section className="py-4 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -198,64 +348,106 @@ const Index = () => {
                         <Code className="w-5 h-5 text-violet-400" />
                       </div>
                       <div>
-                        <CardTitle className="text-white text-xl font-semibold">Python Integration</CardTitle>
+                        <CardTitle className="text-white text-xl font-semibold">API Integration</CardTitle>
                         <CardDescription className="text-slate-400">Quick start example to buy tokens</CardDescription>
                       </div>
                     </div>
-                    <button className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300">
-                      <Copy className="w-4 h-4" />
-                      <span>Copy</span>
-                    </button>
+                    <div className="flex items-center space-x-4">
+                      {/* Language Selector */}
+                      <div className="relative">
+                        <select 
+                          value={selectedLanguage}
+                          onChange={(e) => setSelectedLanguage(e.target.value)}
+                          className="bg-slate-800/50 border border-slate-700/50 text-slate-300 px-4 py-2 rounded-lg text-sm font-medium focus:outline-none focus:border-violet-500/50 cursor-pointer appearance-none pr-8"
+                        >
+                          {Object.entries(codeExamples).map(([key, lang]) => (
+                            <option key={key} value={key} className="bg-slate-800 text-slate-300">
+                              {lang.name}
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none" />
+                      </div>
+                      <button 
+                        onClick={copyToClipboard}
+                        className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-slate-800/30 px-3 py-2 rounded-lg hover:bg-slate-700/30"
+                      >
+                        <Copy className="w-4 h-4" />
+                        <span>Copy</span>
+                      </button>
+                    </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-slate-950/50 rounded-lg p-6 border border-slate-800/30 font-mono text-sm overflow-x-auto">
+                  <div className="bg-slate-950/80 rounded-lg p-6 border border-slate-800/50 font-mono text-sm overflow-x-auto">
                     <pre className="text-slate-300">
-{`import requests
-
-# Configuration
-API_KEY = "your_api_key_here"
-BASE_URL = "https://api.launchpad.trade"
-
-# Buy token example
-def buy_token(token_address, amount_sol):
-    headers = {
-        "Authorization": f"Bearer {API_KEY}",
-        "Content-Type": "application/json"
-    }
-    
-    payload = {
-        "token_address": token_address,
-        "amount_sol": amount_sol,
-        "slippage": 0.5,
-        "priority_fee": "high"
-    }
-    
-    response = requests.post(
-        f"{BASE_URL}/v1/trade/buy",
-        headers=headers,
-        json=payload
-    )
-    
-    return response.json()
-
-# Execute trade
-result = buy_token("So11111111111111111111111111111111111112", 0.1)
-print(f"Transaction: {result['signature']}")`}
+                      <code className="language-python">
+                        <span className="text-purple-400">import</span> <span className="text-blue-400">requests</span>
+                        {'\n\n'}
+                        <span className="text-gray-500"># Configuration</span>
+                        {'\n'}
+                        <span className="text-blue-300">API_KEY</span> <span className="text-white">=</span> <span className="text-green-400">"your_api_key_here"</span>
+                        {'\n'}
+                        <span className="text-blue-300">BASE_URL</span> <span className="text-white">=</span> <span className="text-green-400">"https://api.launchpad.trade"</span>
+                        {'\n\n'}
+                        <span className="text-gray-500"># Buy token example</span>
+                        {'\n'}
+                        <span className="text-purple-400">def</span> <span className="text-yellow-400">buy_token</span><span className="text-white">(</span><span className="text-blue-300">token_address</span><span className="text-white">,</span> <span className="text-blue-300">amount_sol</span><span className="text-white">):</span>
+                        {'\n    '}
+                        <span className="text-blue-300">headers</span> <span className="text-white">=</span> <span className="text-white">{'{'}</span>
+                        {'\n        '}
+                        <span className="text-green-400">"Authorization"</span><span className="text-white">:</span> <span className="text-green-400">f"Bearer </span><span className="text-white">{'{'}</span><span className="text-blue-300">API_KEY</span><span className="text-white">{'}'}</span><span className="text-green-400">"</span><span className="text-white">,</span>
+                        {'\n        '}
+                        <span className="text-green-400">"Content-Type"</span><span className="text-white">:</span> <span className="text-green-400">"application/json"</span>
+                        {'\n    '}
+                        <span className="text-white">{'}'}</span>
+                        {'\n    \n    '}
+                        <span className="text-blue-300">payload</span> <span className="text-white">=</span> <span className="text-white">{'{'}</span>
+                        {'\n        '}
+                        <span className="text-green-400">"token_address"</span><span className="text-white">:</span> <span className="text-blue-300">token_address</span><span className="text-white">,</span>
+                        {'\n        '}
+                        <span className="text-green-400">"amount_sol"</span><span className="text-white">:</span> <span className="text-blue-300">amount_sol</span><span className="text-white">,</span>
+                        {'\n        '}
+                        <span className="text-green-400">"slippage"</span><span className="text-white">:</span> <span className="text-orange-400">0.5</span><span className="text-white">,</span>
+                        {'\n        '}
+                        <span className="text-green-400">"priority_fee"</span><span className="text-white">:</span> <span className="text-green-400">"high"</span>
+                        {'\n    '}
+                        <span className="text-white">{'}'}</span>
+                        {'\n    \n    '}
+                        <span className="text-blue-300">response</span> <span className="text-white">=</span> <span className="text-blue-400">requests</span><span className="text-white">.</span><span className="text-yellow-400">post</span><span className="text-white">(</span>
+                        {'\n        '}
+                        <span className="text-green-400">f"</span><span className="text-white">{'{'}</span><span className="text-blue-300">BASE_URL</span><span className="text-white">{'}'}</span><span className="text-green-400">/v1/trade/buy"</span><span className="text-white">,</span>
+                        {'\n        '}
+                        <span className="text-blue-300">headers</span><span className="text-white">=</span><span className="text-blue-300">headers</span><span className="text-white">,</span>
+                        {'\n        '}
+                        <span className="text-blue-300">json</span><span className="text-white">=</span><span className="text-blue-300">payload</span>
+                        {'\n    '}
+                        <span className="text-white">)</span>
+                        {'\n    \n    '}
+                        <span className="text-purple-400">return</span> <span className="text-blue-3000">response</span><span className="text-white">.</span><span className="text-yellow-400">json</span><span className="text-white">()</span>
+                        {'\n\n'}
+                        <span className="text-gray-500"># Execute trade</span>
+                        {'\n'}
+                        <span className="text-blue-300">result</span> <span className="text-white">=</span> <span className="text-yellow-400">buy_token</span><span className="text-white">(</span><span className="text-green-400">"So11111111111111111111111111111111111112"</span><span className="text-white">,</span> <span className="text-orange-400">0.1</span><span className="text-white">)</span>
+                        {'\n'}
+                        <span className="text-purple-400">print</span><span className="text-white">(</span><span className="text-green-400">f"Transaction: </span><span className="text-white">{'{'}</span><span className="text-blue-300">result</span><span className="text-white">['signature']</span><span className="text-white">{'}'}</span><span className="text-green-400">"</span><span className="text-white">)</span>
+                      </code>
                     </pre>
                   </div>
-                  <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="flex items-center text-slate-300 text-sm">
-                      <CheckCircle className="w-4 h-4 text-violet-400 mr-2 flex-shrink-0" />
-                      <span>0.8% fee only</span>
-                    </div>
-                    <div className="flex items-center text-slate-300 text-sm">
-                      <CheckCircle className="w-4 h-4 text-violet-400 mr-2 flex-shrink-0" />
-                      <span>Jito bundles included</span>
-                    </div>
-                    <div className="flex items-center text-slate-300 text-sm">
-                      <CheckCircle className="w-4 h-4 text-violet-400 mr-2 flex-shrink-0" />
-                      <span>Priority transactions</span>
+                  <div className="mt-6 flex justify-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl">
+                      <div className="flex flex-col items-center text-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                        <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
+                        <span className="text-slate-300 text-sm font-medium">0.8% fee only</span>
+                      </div>
+                      <div className="flex flex-col items-center text-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                        <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
+                        <span className="text-slate-300 text-sm font-medium">Jito bundles included</span>
+                      </div>
+                      <div className="flex flex-col items-center text-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                        <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
+                        <span className="text-slate-300 text-sm font-medium">Priority transactions</span>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -424,14 +616,12 @@ print(f"Transaction: {result['signature']}")`}
             <div className="max-w-4xl mx-auto">
               <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
                 <CardContent className="p-16 text-center relative">
-                  {/* Professional badge */}
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
                     <div className="bg-gradient-to-r from-violet-950/70 via-violet-900/75 to-violet-950/70 backdrop-blur-md border border-violet-700/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
                       CHEAPEST ON THE MARKET
                     </div>
                   </div>
 
-                  {/* Large percentage */}
                   <div className="mb-8 mt-4">
                     <div className="text-8xl lg:text-9xl font-bold text-violet-400 mb-4">
                       0.8<span className="text-6xl lg:text-7xl">%</span>
@@ -441,7 +631,6 @@ print(f"Transaction: {result['signature']}")`}
                     </p>
                   </div>
 
-                  {/* Features list */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                     {[
                       "No monthly fees",
@@ -467,12 +656,9 @@ print(f"Transaction: {result['signature']}")`}
         <section id="community" className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
-              {/* Animated gradient border */}
               <div className="absolute -inset-1 bg-gradient-to-r from-slate-700/40 via-slate-600/40 to-slate-700/40 rounded-3xl opacity-30 group-hover:opacity-50 blur-sm transition-all duration-500 animate-pulse"></div>
               
-              {/* Main container */}
               <div className="relative bg-gradient-to-br from-slate-950/98 via-slate-900/98 to-slate-950/98 rounded-3xl border border-slate-700/30 backdrop-blur-xl overflow-hidden">
-                {/* Content */}
                 <div className="relative p-16 text-center">
                   <div className="mb-8">
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-slate-800/40 to-slate-700/40 border border-slate-600/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
@@ -535,7 +721,7 @@ print(f"Transaction: {result['signature']}")`}
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-slate-800/80 backdrop-blur-sm border border-slate-700/60 text-slate-200 hover:bg-slate-700/80 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+              className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-slate-200 hover:bg-slate-700/60 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key and Start</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
