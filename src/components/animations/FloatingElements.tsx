@@ -20,7 +20,7 @@ const FloatingElements: React.FC<FloatingElementsProps> = ({ side }) => {
   ];
 
   const icons = side === 'left' ? leftIcons : rightIcons;
-  const positionClass = side === 'left' ? 'left-4 lg:left-8' : 'right-4 lg:right-8';
+  const positionClass = side === 'left' ? 'left-32 lg:left-40' : 'right-32 lg:right-40';
 
   return (
     <div className={`absolute ${positionClass} top-1/2 transform -translate-y-1/2 z-10 hidden lg:block`}>
