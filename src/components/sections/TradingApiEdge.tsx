@@ -33,12 +33,12 @@ const TradingApiEdge = () => {
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-violet-400 rounded-full opacity-30"
+            className="absolute w-1 h-1 bg-violet-400 rounded-full opacity-30 animate-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`
+              animationDelay: `${Math.random() * 2}s`,
+              animationDuration: `${3 + Math.random() * 4}s`
             }}
           />
         ))}
@@ -58,28 +58,23 @@ const TradingApiEdge = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group relative"
+              className="group relative animate-fade-in"
               style={{ animationDelay: `${index * 0.2}s` }}
             >
-              {/* Main card with diagonal border animation */}
-              <div className="relative h-full p-8 rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 transition-all duration-500 group-hover:transform group-hover:scale-105 diagonal-border-animation">
-                {/* Diagonal moving border */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-transparent to-violet-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute -inset-1 bg-gradient-to-r from-transparent via-violet-500 to-transparent opacity-0 group-hover:opacity-60 blur-sm transition-opacity duration-500 diagonal-sweep" />
-                </div>
-
+              {/* Main card with glowing border */}
+              <div className="relative h-full p-8 rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 transition-all duration-500 group-hover:transform group-hover:scale-105 glowing-border">
+                
                 {/* Floating particles around card */}
-                <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   {[...Array(6)].map((_, i) => (
                     <div
                       key={i}
-                      className="absolute w-0.5 h-0.5 bg-violet-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      className="absolute w-0.5 h-0.5 bg-violet-400 rounded-full animate-float"
                       style={{
                         left: `${Math.random() * 100}%`,
                         top: `${Math.random() * 100}%`,
-                        animation: `particle-float-${i % 3} ${2 + Math.random()}s ease-in-out infinite`,
-                        animationDelay: `${Math.random() * 1}s`
+                        animationDelay: `${Math.random() * 1}s`,
+                        animationDuration: `${2 + Math.random()}s`
                       }}
                     />
                   ))}
@@ -107,72 +102,6 @@ const TradingApiEdge = () => {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .diagonal-border-animation {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .diagonal-border-animation::before {
-          content: '';
-          position: absolute;
-          inset: -2px;
-          background: conic-gradient(
-            from 45deg,
-            transparent 0%,
-            rgba(139, 92, 246, 0.3) 25%,
-            rgba(139, 92, 246, 0.8) 50%,
-            rgba(139, 92, 246, 0.3) 75%,
-            transparent 100%
-          );
-          border-radius: inherit;
-          opacity: 0;
-          transition: opacity 0.5s ease;
-          animation: diagonal-rotate 3s linear infinite;
-        }
-
-        .group:hover .diagonal-border-animation::before {
-          opacity: 1;
-        }
-
-        .diagonal-sweep {
-          background: linear-gradient(
-            45deg,
-            transparent 0%,
-            rgba(139, 92, 246, 0.6) 50%,
-            transparent 100%
-          );
-          transform: translateX(-100%) translateY(-100%);
-          animation: diagonal-sweep 2s ease-in-out infinite;
-        }
-
-        @keyframes diagonal-rotate {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-
-        @keyframes diagonal-sweep {
-          0% { transform: translateX(-100%) translateY(-100%); }
-          50% { transform: translateX(0%) translateY(0%); }
-          100% { transform: translateX(100%) translateY(100%); }
-        }
-
-        @keyframes particle-float-0 {
-          0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
-          50% { transform: translateY(-10px) translateX(5px); opacity: 1; }
-        }
-
-        @keyframes particle-float-1 {
-          0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.4; }
-          50% { transform: translateY(-8px) translateX(-3px); opacity: 1; }
-        }
-
-        @keyframes particle-float-2 {
-          0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
-          50% { transform: translateY(-12px) translateX(2px); opacity: 0.8; }
-        }
-      `}</style>
     </section>
   );
 };
