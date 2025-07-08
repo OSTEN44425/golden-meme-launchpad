@@ -20,10 +20,10 @@ const FloatingElements: React.FC<FloatingElementsProps> = ({ side }) => {
   ];
 
   const icons = side === 'left' ? leftIcons : rightIcons;
-  const positionClass = side === 'left' ? 'left-8' : 'right-8';
+  const positionClass = side === 'left' ? 'left-16' : 'right-16';
 
   return (
-    <div className={`fixed ${positionClass} top-1/2 transform -translate-y-1/2 z-10 hidden lg:block`}>
+    <div className={`absolute ${positionClass} top-1/2 transform -translate-y-1/2 z-10 hidden lg:block`}>
       <div className="relative space-y-20">
         {/* Lignes de connexion */}
         <svg 
