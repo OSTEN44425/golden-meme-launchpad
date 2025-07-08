@@ -30,15 +30,15 @@ const TradingApiEdge = () => {
     <section className="relative py-20 overflow-hidden">
       {/* Background particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-violet-400 rounded-full opacity-30 animate-float"
+            className="absolute w-1 h-1 bg-violet-400 rounded-full opacity-20 animate-float"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 2}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${4 + Math.random() * 3}s`
             }}
           />
         ))}
@@ -54,52 +54,82 @@ const TradingApiEdge = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <div
               key={index}
               className="group relative animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              {/* Main card with glowing border */}
-              <div className="relative h-full p-8 rounded-2xl bg-slate-900/50 backdrop-blur-sm border border-slate-700/50 transition-all duration-500 group-hover:transform group-hover:scale-105 glowing-border">
-                
-                {/* Floating particles around card */}
-                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  {[...Array(6)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-0.5 h-0.5 bg-violet-400 rounded-full animate-float"
-                      style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        animationDelay: `${Math.random() * 1}s`,
-                        animationDuration: `${2 + Math.random()}s`
-                      }}
-                    />
-                  ))}
+              {/* Hexagonal border container */}
+              <div className="relative h-full">
+                {/* Animated hexagonal border */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/30 via-transparent to-violet-500/30 p-[2px] group-hover:from-violet-400/50 group-hover:to-violet-400/50 transition-all duration-500">
+                  <div className="h-full rounded-3xl bg-slate-900/90 backdrop-blur-sm" />
                 </div>
-
+                
+                {/* Glowing corner accents */}
+                <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-violet-400 rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute top-0 right-0 w-6 h-6 border-r-2 border-t-2 border-violet-400 rounded-tr-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-l-2 border-b-2 border-violet-400 rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-r-2 border-b-2 border-violet-400 rounded-br-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
                 {/* Content */}
-                <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="w-7 h-7 text-white" />
+                <div className="relative z-10 p-8 h-full flex flex-col">
+                  {/* Icon with pulse effect */}
+                  <div className="relative mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-violet-500/25">
+                      <feature.icon className="w-8 h-8 text-white" />
+                    </div>
+                    {/* Pulse ring */}
+                    <div className="absolute inset-0 w-16 h-16 rounded-2xl border-2 border-violet-400 opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500" />
                   </div>
                   
                   <h3 className="text-xl font-bold text-white mb-4 group-hover:text-violet-200 transition-colors duration-300">
                     {feature.title}
                   </h3>
                   
-                  <p className="text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
+                  <p className="text-slate-300 leading-relaxed flex-grow group-hover:text-slate-200 transition-colors duration-300">
                     {feature.description}
                   </p>
+
+                  {/* Bottom accent line */}
+                  <div className="mt-6 h-0.5 w-0 bg-gradient-to-r from-violet-500 to-violet-400 group-hover:w-full transition-all duration-500" />
                 </div>
 
-                {/* Corner accent */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-violet-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Floating particles on hover */}
+                <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                  {[...Array(8)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1 h-1 bg-violet-400 rounded-full animate-float"
+                      style={{
+                        left: `${20 + Math.random() * 60}%`,
+                        top: `${20 + Math.random() * 60}%`,
+                        animationDelay: `${Math.random() * 2}s`,
+                        animationDuration: `${2 + Math.random() * 2}s`
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Connecting lines between cards (visible on larger screens) */}
+        <div className="hidden lg:block absolute inset-0 pointer-events-none">
+          <svg className="w-full h-full opacity-20">
+            <defs>
+              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="transparent" />
+                <stop offset="50%" stopColor="rgba(139, 92, 246, 0.5)" />
+                <stop offset="100%" stopColor="transparent" />
+              </linearGradient>
+            </defs>
+            <line x1="25%" y1="50%" x2="42%" y2="50%" stroke="url(#lineGradient)" strokeWidth="1" />
+            <line x1="58%" y1="50%" x2="75%" y2="50%" stroke="url(#lineGradient)" strokeWidth="1" />
+          </svg>
         </div>
       </div>
     </section>
