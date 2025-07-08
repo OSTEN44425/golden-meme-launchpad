@@ -354,7 +354,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
       {/* AI Bot Section */}
       <FadeContent>
-        <section className="py-6 relative">
+        <section className="py-2 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -673,91 +673,113 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Community Section - Fixed background and icon positioning */}
+      {/* Community Section - Improved design with better positioned icons */}
       <FadeContent>
         <section id="community" className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-black/30 via-black/50 to-black/30 rounded-3xl opacity-60 group-hover:opacity-80 blur-sm transition-all duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/20 via-purple-500/20 to-violet-500/20 rounded-3xl opacity-40 group-hover:opacity-60 blur-sm transition-all duration-500 animate-pulse"></div>
               
-              <div className="relative bg-black/90 backdrop-blur-sm border-slate-700/40 border rounded-3xl overflow-hidden hover-scale transition-all duration-300 hover:border-slate-600/50 hover:shadow-2xl hover:shadow-black/20">
-                {/* Background decorative icons - positioned in corners */}
+              <div className="relative bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 border rounded-3xl overflow-hidden hover-scale transition-all duration-300 hover:border-violet-500/40 hover:shadow-2xl hover:shadow-violet-500/10">
+                {/* Background decorative icons - better distributed and larger */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                  {/* Top left corner */}
-                  <div className="absolute top-6 left-6 w-12 h-12 text-slate-500/15 opacity-60">
-                    <MessageCircle className="w-full h-full" />
+                  {/* Top area - more spread out */}
+                  <div className="absolute top-12 left-12 w-8 h-8 text-violet-500/12 opacity-60">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                  </div>
+                  <div className="absolute top-16 right-20 w-7 h-7 text-purple-500/10 opacity-50">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
                   </div>
                   
-                  {/* Top right corner */}
-                  <div className="absolute top-6 right-6 w-12 h-12 text-slate-500/15 opacity-60">
-                    <Users className="w-full h-full" />
+                  {/* Middle area - more distributed */}
+                  <div className="absolute top-1/3 left-6 w-6 h-6 text-violet-500/8 opacity-40">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                  </div>
+                  <div className="absolute top-2/3 right-8 w-8 h-8 text-purple-500/12 opacity-45">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
                   </div>
                   
-                  {/* Bottom left corner */}
-                  <div className="absolute bottom-6 left-6 w-12 h-12 text-slate-500/15 opacity-60">
-                    <Sparkles className="w-full h-full" />
+                  {/* Bottom area - more spread */}
+                  <div className="absolute bottom-16 left-20 w-6 h-6 text-violet-500/10 opacity-35">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </div>
+                  <div className="absolute bottom-12 right-24 w-7 h-7 text-purple-500/8 opacity-50">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
                   </div>
                   
-                  {/* Bottom right corner */}
-                  <div className="absolute bottom-6 right-6 w-12 h-12 text-slate-500/15 opacity-60">
-                    <Star className="w-full h-full" />
+                  {/* Additional center area icons */}
+                  <div className="absolute top-1/2 left-1/4 w-5 h-5 text-violet-500/6 opacity-30">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                  </div>
+                  <div className="absolute top-1/4 right-1/3 w-6 h-6 text-purple-500/8 opacity-35">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="relative z-10 p-16 text-center">
+                
+                <div className="relative p-16 text-center">
                   <div className="mb-8">
-                    <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-violet-500/20 to-purple-500/20 border border-violet-500/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
+                      <Users className="w-10 h-10 text-violet-400" />
+                    </div>
+                    <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
                       <span className="text-white">Join the</span>{" "}
                       <span className="text-violet-400">Community</span>
                     </h2>
-                    <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                      Connect with traders, developers, and creators. Get support, share strategies, and stay updated with the latest features.
+                    <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                      Connect with other developers, get fast support, and share your strategies. Join our community of traders and investors for the latest insights and market analysis.
                     </p>
                   </div>
-
-                  <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-                    <a 
-                      href="https://discord.gg/launchpad" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center space-x-3 hover:scale-105 shadow-lg"
-                    >
-                      <MessageCircle className="w-5 h-5" />
-                      <span>Join Discord</span>
-                    </a>
-                    <a 
-                      href="https://twitter.com/launchpadtrade" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 font-bold px-8 py-4 rounded-full transition-all duration-300 flex items-center space-x-3 hover:scale-105 shadow-lg"
-                    >
-                      <span>Follow Twitter</span>
-                    </a>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-violet-500/30">
-                        <Users className="w-8 h-8 text-violet-400" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-white mb-2">Active Community</h3>
-                      <p className="text-slate-400">Connect with 5000+ traders and developers</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-purple-500/30">
-                        <Headphones className="w-8 h-8 text-purple-400" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-white mb-2">24/7 Support</h3>
-                      <p className="text-slate-400">Get help from our team and community</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gradient-to-br from-violet-500/20 to-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-violet-500/30">
-                        <Sparkles className="w-8 h-8 text-violet-400" />
-                      </div>
-                      <h3 className="text-xl font-semibold text-white mb-2">Latest Updates</h3>
-                      <p className="text-slate-400">Stay informed about new features and improvements</p>
-                    </div>
+                  
+                  <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
+                    <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                      <span className="relative z-10 flex items-center text-lg">
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                          </svg>
+                        </div>
+                        Join our Discord
+                      </span>
+                    </button>
+                    <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                      <span className="relative z-10 flex items-center text-lg">
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                          </svg>
+                        </div>
+                        Follow on Twitter
+                      </span>
+                    </button>
+                    <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                      <span className="relative z-10 flex items-center text-lg">
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                          </svg>
+                        </div>
+                        Join our Telegram
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -766,39 +788,122 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* CTA Final Section */}
+      {/* Final CTA */}
       <FadeContent>
         <section id="cta-final" className="py-20 relative">
           <div className="container mx-auto px-6 text-center">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-8">
-                <span className="text-white">Ready to</span>{" "}
-                <span className="text-violet-400">Get Started?</span>
-              </h2>
-              <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Join thousands of traders and developers who trust launchpad.trade for their Solana trading needs.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <button className="bg-gradient-to-r from-violet-500 to-purple-500 hover:from-violet-600 hover:to-purple-600 text-white font-bold px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg shadow-violet-500/25">
-                  Generate Free API Key
-                </button>
-                <button className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:scale-105">
-                  View Documentation
-                </button>
-              </div>
-            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8">
+              Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
+            </h2>
+            <button 
+              className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-slate-200 hover:bg-slate-700/60 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+            >
+              <span className="relative z-10">Get my API Key and Start</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            </button>
           </div>
         </section>
       </FadeContent>
 
-      {/* Scroll to top button */}
-      <button 
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 p-3 rounded-full transition-all duration-300 hover:scale-110 shadow-lg z-40"
-      >
-        <ArrowUp className="w-5 h-5" />
-      </button>
+      {/* Violet Section separator before footer */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <FadeContent>
+        <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
+          <div className="container mx-auto px-6 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+              <div className="md:col-span-2">
+                <div className="flex items-center space-x-3 mb-1">
+                  <div className="relative">
+                    <div className="w-6 h-6 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
+                      <Zap className="w-3 h-3 text-white" />
+                    </div>
+                    <div className="absolute inset-0 w-6 h-6 rounded-lg bg-violet-500/20 blur-md animate-pulse"></div>
+                  </div>
+                  <span className="text-base font-bold text-white font-mono tracking-wide">
+                    launchpad.trade
+                  </span>
+                </div>
+                <p className="text-slate-300 max-w-sm mb-1 font-medium leading-relaxed text-xs">
+                  The fastest and most reliable API to automate your trades on letsbonk.fun.
+                </p>
+              </div>
+              
+              <div className="space-y-1">
+                <h4 className="font-bold text-white mb-1 text-sm flex items-center">
+                  <Code className="w-4 h-4 mr-2 text-violet-400" />
+                  Product
+                </h4>
+                <ul className="space-y-0.5">
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('documentation')}
+                      className="text-slate-300 hover:text-violet-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm text-left"
+                    >
+                      Documentation
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="space-y-1">
+                <h4 className="font-bold text-white mb-1 text-sm flex items-center">
+                  <Headphones className="w-4 h-4 mr-2 text-violet-400" />
+                  Support
+                </h4>
+                <ul className="space-y-0.5">
+                  {[
+                    { name: "Discord", icon: MessageCircle },
+                    { name: "Twitter", icon: Users },
+                    { name: "Contact", icon: MessageCircle },
+                    { name: "Terms of Service", icon: FileText },
+                    { name: "Privacy Policy", icon: Shield }
+                  ].map((link, i) => (
+                    <li key={i}>
+                      <a 
+                        href="#" 
+                        className="text-slate-300 hover:text-purple-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm flex items-center"
+                      >
+                        <link.icon className="w-3 h-3 mr-2 opacity-60" />
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            
+            <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-xs">
+              <p className="font-medium">
+                © 2025 Copyright{" "}
+                <span className="text-white font-semibold">
+                  launchpad.trade
+                </span>
+                . All rights reserved.
+              </p>
+              <div className="flex space-x-4 mt-1 md:mt-0">
+                {["Privacy Policy", "Terms of Service", "Contact"].map((link, i) => (
+                  <a 
+                    key={i}
+                    href="#" 
+                    className="hover:text-violet-400 transition-all duration-300 font-medium hover:scale-105 hover:underline decoration-violet-400/50 underline-offset-4"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </footer>
+      </FadeContent>
     </div>
   );
 };
