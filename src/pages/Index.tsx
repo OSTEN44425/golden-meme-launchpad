@@ -1,7 +1,8 @@
+
 import React from 'react';
 import CountUp from 'react-countup';
 import { ModernButton } from '@/components/ui/modern-button';
-import { FadeContent } from '@/components/ui/fade-content';
+import { FadeContent } from '@/components/animations/FadeContent';
 import {
   Activity,
   Zap,
