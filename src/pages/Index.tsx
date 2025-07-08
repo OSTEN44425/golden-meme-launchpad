@@ -746,7 +746,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </div>
       </div>
 
-      {/* Community Section - WITH BRIGHTER BUTTONS */}
+      {/* Community Section - WITH MUCH DARKER BUTTONS */}
       <FadeContent>
         <section id="community" className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
@@ -797,9 +797,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     
                     <FadeContent delay={600}>
                       <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                        <button className="group/btn relative bg-slate-700/60 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
-                          <div className="absolute -inset-2 bg-gradient-to-r from-violet-600/20 via-violet-400/30 to-violet-600/20 rounded-3xl blur-lg opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="group/btn relative bg-black/30 backdrop-blur-xl border border-slate-700/30 text-slate-400 hover:text-slate-300 font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-slate-600/40 hover:bg-black/40">
+                          <div className="absolute -inset-2 bg-gradient-to-r from-black/10 via-slate-800/20 to-black/10 rounded-3xl blur-lg opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-600/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -809,9 +809,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             Join our Discord
                           </span>
                         </button>
-                        <button className="group/btn relative bg-slate-700/60 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
-                          <div className="absolute -inset-2 bg-gradient-to-r from-violet-600/20 via-violet-400/30 to-violet-600/20 rounded-3xl blur-lg opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="group/btn relative bg-black/30 backdrop-blur-xl border border-slate-700/30 text-slate-400 hover:text-slate-300 font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-slate-600/40 hover:bg-black/40">
+                          <div className="absolute -inset-2 bg-gradient-to-r from-black/10 via-slate-800/20 to-black/10 rounded-3xl blur-lg opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-600/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -821,9 +821,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             Follow on Twitter
                           </span>
                         </button>
-                        <button className="group/btn relative bg-slate-700/60 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
-                          <div className="absolute -inset-2 bg-gradient-to-r from-violet-600/20 via-violet-400/30 to-violet-600/20 rounded-3xl blur-lg opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="group/btn relative bg-black/30 backdrop-blur-xl border border-slate-700/30 text-slate-400 hover:text-slate-300 font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] hover:border-slate-600/40 hover:bg-black/40">
+                          <div className="absolute -inset-2 bg-gradient-to-r from-black/10 via-slate-800/20 to-black/10 rounded-3xl blur-lg opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-600/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -843,17 +843,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Final CTA */}
+      {/* Final CTA - WITH MUCH DARKER BUTTON */}
       <FadeContent>
         <section id="cta-final" className="py-20 relative">
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl lg:text-4xl font-bold mb-8">
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
-            <button className="group/btn relative bg-slate-700/60 backdrop-blur-xl border border-violet-500/40 text-slate-200 hover:bg-slate-700/80 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 overflow-hidden hover:border-violet-400/60">
-              <div className="absolute -inset-2 bg-gradient-to-r from-violet-600/20 via-violet-400/30 to-violet-600/20 rounded-3xl blur-lg opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+            <button className="group/btn relative bg-black/30 backdrop-blur-xl border border-slate-700/30 text-slate-400 hover:bg-black/40 hover:text-slate-300 font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 overflow-hidden hover:border-slate-600/40">
+              <div className="absolute -inset-2 bg-gradient-to-r from-black/10 via-slate-800/20 to-black/10 rounded-3xl blur-lg opacity-60 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
               <span className="relative z-10">Get my API Key and Start</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-600/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
             </button>
           </div>
         </section>
