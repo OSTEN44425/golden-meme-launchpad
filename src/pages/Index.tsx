@@ -74,12 +74,15 @@ async function buyToken(tokenAddress, amountSol) {
         })
     });
     
-    return await response.json();
+    const result = await response.json();
+    console.log(\`Transaction: \${result.signature}\`);
+    return result;
 }
 
 // Execute trade
-const result = await buyToken("So11111111111111111111111111111111111112", 0.1);
-console.log(\`Transaction: \${result.signature}\`);`
+buyToken("So11111111111111111111111111111111111112", 0.1)
+    .then(result => console.log('Trade completed:', result))
+    .catch(error => console.error('Trade failed:', error));`
     },
     typescript: {
       name: 'TypeScript',
@@ -92,64 +95,122 @@ console.log(\`Transaction: \${result.signature}\`);`
 
 interface TradeResponse {
     signature: string;
-    status: string;
+    status: 'success' | 'failed';
+    transaction_id: string;
+    amount_received?: number;
 }
 
 const API_KEY: string = "your_api_key_here";
 const BASE_URL: string = "https://api.launchpad.trade";
 
-// Buy token example
-async function buyToken(tokenAddress: string, amountSol: number): Promise<TradeResponse> {
-    const response = await fetch(\`\${BASE_URL}/v1/trade/buy\`, {
-        method: 'POST',
-        headers: {
-            'Authorization': \`Bearer \${API_KEY}\`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
+class LaunchpadAPI {
+    private apiKey: string;
+    private baseUrl: string;
+
+    constructor(apiKey: string) {
+        this.apiKey = apiKey;
+        this.baseUrl = BASE_URL;
+    }
+
+    async buyToken(tokenAddress: string, amountSol: number): Promise<TradeResponse> {
+        const payload: TradeRequest = {
             token_address: tokenAddress,
             amount_sol: amountSol,
             slippage: 0.5,
             priority_fee: "high"
-        } as TradeRequest)
-    });
-    
-    return await response.json();
+        };
+
+        const response = await fetch(\`\${this.baseUrl}/v1/trade/buy\`, {
+            method: 'POST',
+            headers: {
+                'Authorization': \`Bearer \${this.apiKey}\`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            throw new Error(\`HTTP error! status: \${response.status}\`);
+        }
+
+        return await response.json();
+    }
 }
 
 // Execute trade
-const result: TradeResponse = await buyToken("So11111111111111111111111111111111111112", 0.1);
+const api = new LaunchpadAPI(API_KEY);
+const result = await api.buyToken("So11111111111111111111111111111111111112", 0.1);
 console.log(\`Transaction: \${result.signature}\`);`
     },
     rust: {
       name: 'Rust',
       code: `use reqwest;
+use serde::{Deserialize, Serialize};
 use serde_json::json;
+use std::collections::HashMap;
+
+#[derive(Serialize)]
+struct TradeRequest {
+    token_address: String,
+    amount_sol: f64,
+    slippage: f64,
+    priority_fee: String,
+}
+
+#[derive(Deserialize, Debug)]
+struct TradeResponse {
+    signature: String,
+    status: String,
+    transaction_id: String,
+    amount_received: Option<f64>,
+}
 
 const API_KEY: &str = "your_api_key_here";
 const BASE_URL: &str = "https://api.launchpad.trade";
 
+struct LaunchpadClient {
+    client: reqwest::Client,
+    api_key: String,
+}
+
+impl LaunchpadClient {
+    fn new(api_key: String) -> Self {
+        Self {
+            client: reqwest::Client::new(),
+            api_key,
+        }
+    }
+
+    async fn buy_token(&self, token_address: &str, amount_sol: f64) -> Result<TradeResponse, Box<dyn std::error::Error>> {
+        let payload = TradeRequest {
+            token_address: token_address.to_string(),
+            amount_sol,
+            slippage: 0.5,
+            priority_fee: "high".to_string(),
+        };
+
+        let response = self.client
+            .post(&format!("{}/v1/trade/buy", BASE_URL))
+            .header("Authorization", format!("Bearer {}", self.api_key))
+            .header("Content-Type", "application/json")
+            .json(&payload)
+            .send()
+            .await?;
+
+        let result: TradeResponse = response.json().await?;
+        println!("Transaction: {}", result.signature);
+        Ok(result)
+    }
+}
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = reqwest::Client::new();
+    let client = LaunchpadClient::new(API_KEY.to_string());
     
-    let payload = json!({
-        "token_address": "So11111111111111111111111111111111111112",
-        "amount_sol": 0.1,
-        "slippage": 0.5,
-        "priority_fee": "high"
-    });
-    
-    let response = client
-        .post(&format!("{}/v1/trade/buy", BASE_URL))
-        .header("Authorization", format!("Bearer {}", API_KEY))
-        .header("Content-Type", "application/json")
-        .json(&payload)
-        .send()
-        .await?;
-    
-    let result: serde_json::Value = response.json().await?;
-    println!("Transaction: {}", result["signature"]);
+    match client.buy_token("So11111111111111111111111111111111111112", 0.1).await {
+        Ok(result) => println!("Trade successful: {:?}", result),
+        Err(e) => eprintln!("Trade failed: {}", e),
+    }
     
     Ok(())
 }`
@@ -174,9 +235,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(codeExamples[selectedLanguage].code);
     toast({
-      title: "Copied to clipboard!",
-      description: "Code example has been copied to your clipboard.",
-      duration: 2000,
+      title: "✅ Copied to clipboard!",
+      description: "Code example has been copied successfully.",
+      duration: 3000,
+      className: "bg-gradient-to-r from-violet-900/90 to-purple-900/90 backdrop-blur-md border-violet-500/30 text-white shadow-xl",
     });
   };
 
@@ -250,8 +312,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </header>
       </FadeContent>
 
-      {/* Hero Section - Moved higher */}
-      <section className="relative flex items-center justify-center pt-8 pb-4">
+      {/* Hero Section - Better spacing */}
+      <section className="relative flex items-center justify-center pt-16 pb-12">
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -264,13 +326,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             </FadeContent>
             
             <FadeContent delay={600}>
-              <p className="text-xl text-slate-300 mb-6 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Integrate professional-grade infrastructure in minutes to automate your trades and token launches. Maximum reliability, minimal fees.
               </p>
             </FadeContent>
             
             <FadeContent delay={800}>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
                   className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
@@ -290,9 +352,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </div>
       </section>
 
-      {/* AI Bot Section - Moved higher */}
+      {/* AI Bot Section - Higher position */}
       <FadeContent>
-        <section className="py-4 relative">
+        <section className="py-8 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -353,27 +415,28 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                       </div>
                     </div>
                     <div className="flex items-center space-x-4">
-                      {/* Language Selector */}
+                      {/* Modern Language Selector */}
                       <div className="relative">
                         <select 
                           value={selectedLanguage}
                           onChange={(e) => setSelectedLanguage(e.target.value)}
-                          className="bg-slate-800/50 border border-slate-700/50 text-slate-300 px-4 py-2 rounded-lg text-sm font-medium focus:outline-none focus:border-violet-500/50 cursor-pointer appearance-none pr-8"
+                          className="bg-gradient-to-r from-slate-800/80 to-slate-700/80 backdrop-blur-md border border-violet-500/30 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer appearance-none pr-10 shadow-lg hover:bg-slate-700/90 transition-all duration-300"
                         >
                           {Object.entries(codeExamples).map(([key, lang]) => (
-                            <option key={key} value={key} className="bg-slate-800 text-slate-300">
+                            <option key={key} value={key} className="bg-slate-800 text-slate-300 py-2">
                               {lang.name}
                             </option>
                           ))}
                         </select>
-                        <ChevronDown className="w-4 h-4 text-slate-400 absolute right-2 top-1/2 transform -translate-y-1/2 pointer-events-none" />
+                        <ChevronDown className="w-4 h-4 text-violet-400 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                       </div>
                       <button 
                         onClick={copyToClipboard}
-                        className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-slate-800/30 px-3 py-2 rounded-lg hover:bg-slate-700/30"
+                        className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-gradient-to-r from-slate-800/60 to-slate-700/60 backdrop-blur-md px-4 py-3 rounded-xl hover:bg-slate-700/80 border border-slate-700/50 hover:border-violet-500/30 shadow-lg group"
                       >
-                        <Copy className="w-4 h-4" />
-                        <span>Copy</span>
+                        <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
+                        <span className="font-medium">Copy</span>
                       </button>
                     </div>
                   </div>
@@ -381,61 +444,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 <CardContent>
                   <div className="bg-slate-950/80 rounded-lg p-6 border border-slate-800/50 font-mono text-sm overflow-x-auto">
                     <pre className="text-slate-300">
-                      <code className="language-python">
-                        <span className="text-purple-400">import</span> <span className="text-blue-400">requests</span>
-                        {'\n\n'}
-                        <span className="text-gray-500"># Configuration</span>
-                        {'\n'}
-                        <span className="text-blue-300">API_KEY</span> <span className="text-white">=</span> <span className="text-green-400">"your_api_key_here"</span>
-                        {'\n'}
-                        <span className="text-blue-300">BASE_URL</span> <span className="text-white">=</span> <span className="text-green-400">"https://api.launchpad.trade"</span>
-                        {'\n\n'}
-                        <span className="text-gray-500"># Buy token example</span>
-                        {'\n'}
-                        <span className="text-purple-400">def</span> <span className="text-yellow-400">buy_token</span><span className="text-white">(</span><span className="text-blue-300">token_address</span><span className="text-white">,</span> <span className="text-blue-300">amount_sol</span><span className="text-white">):</span>
-                        {'\n    '}
-                        <span className="text-blue-300">headers</span> <span className="text-white">=</span> <span className="text-white">{'{'}</span>
-                        {'\n        '}
-                        <span className="text-green-400">"Authorization"</span><span className="text-white">:</span> <span className="text-green-400">f"Bearer </span><span className="text-white">{'{'}</span><span className="text-blue-300">API_KEY</span><span className="text-white">{'}'}</span><span className="text-green-400">"</span><span className="text-white">,</span>
-                        {'\n        '}
-                        <span className="text-green-400">"Content-Type"</span><span className="text-white">:</span> <span className="text-green-400">"application/json"</span>
-                        {'\n    '}
-                        <span className="text-white">{'}'}</span>
-                        {'\n    \n    '}
-                        <span className="text-blue-300">payload</span> <span className="text-white">=</span> <span className="text-white">{'{'}</span>
-                        {'\n        '}
-                        <span className="text-green-400">"token_address"</span><span className="text-white">:</span> <span className="text-blue-300">token_address</span><span className="text-white">,</span>
-                        {'\n        '}
-                        <span className="text-green-400">"amount_sol"</span><span className="text-white">:</span> <span className="text-blue-300">amount_sol</span><span className="text-white">,</span>
-                        {'\n        '}
-                        <span className="text-green-400">"slippage"</span><span className="text-white">:</span> <span className="text-orange-400">0.5</span><span className="text-white">,</span>
-                        {'\n        '}
-                        <span className="text-green-400">"priority_fee"</span><span className="text-white">:</span> <span className="text-green-400">"high"</span>
-                        {'\n    '}
-                        <span className="text-white">{'}'}</span>
-                        {'\n    \n    '}
-                        <span className="text-blue-300">response</span> <span className="text-white">=</span> <span className="text-blue-400">requests</span><span className="text-white">.</span><span className="text-yellow-400">post</span><span className="text-white">(</span>
-                        {'\n        '}
-                        <span className="text-green-400">f"</span><span className="text-white">{'{'}</span><span className="text-blue-300">BASE_URL</span><span className="text-white">{'}'}</span><span className="text-green-400">/v1/trade/buy"</span><span className="text-white">,</span>
-                        {'\n        '}
-                        <span className="text-blue-300">headers</span><span className="text-white">=</span><span className="text-blue-300">headers</span><span className="text-white">,</span>
-                        {'\n        '}
-                        <span className="text-blue-300">json</span><span className="text-white">=</span><span className="text-blue-300">payload</span>
-                        {'\n    '}
-                        <span className="text-white">)</span>
-                        {'\n    \n    '}
-                        <span className="text-purple-400">return</span> <span className="text-blue-3000">response</span><span className="text-white">.</span><span className="text-yellow-400">json</span><span className="text-white">()</span>
-                        {'\n\n'}
-                        <span className="text-gray-500"># Execute trade</span>
-                        {'\n'}
-                        <span className="text-blue-300">result</span> <span className="text-white">=</span> <span className="text-yellow-400">buy_token</span><span className="text-white">(</span><span className="text-green-400">"So11111111111111111111111111111111111112"</span><span className="text-white">,</span> <span className="text-orange-400">0.1</span><span className="text-white">)</span>
-                        {'\n'}
-                        <span className="text-purple-400">print</span><span className="text-white">(</span><span className="text-green-400">f"Transaction: </span><span className="text-white">{'{'}</span><span className="text-blue-300">result</span><span className="text-white">['signature']</span><span className="text-white">{'}'}</span><span className="text-green-400">"</span><span className="text-white">)</span>
+                      <code>
+                        {codeExamples[selectedLanguage].code}
                       </code>
                     </pre>
                   </div>
                   <div className="mt-6 flex justify-center">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl w-full">
                       <div className="flex flex-col items-center text-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
                         <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
                         <span className="text-slate-300 text-sm font-medium">0.8% fee only</span>
@@ -651,14 +666,24 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Community Section */}
+      {/* Community Section - Improved styling */}
       <FadeContent>
         <section id="community" className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-slate-700/40 via-slate-600/40 to-slate-700/40 rounded-3xl opacity-30 group-hover:opacity-50 blur-sm transition-all duration-500 animate-pulse"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-slate-800/30 via-slate-700/30 to-slate-800/30 rounded-3xl opacity-40 group-hover:opacity-60 blur-sm transition-all duration-500 animate-pulse"></div>
               
-              <div className="relative bg-gradient-to-br from-slate-950/98 via-slate-900/98 to-slate-950/98 rounded-3xl border border-slate-700/30 backdrop-blur-xl overflow-hidden">
+              <div className="relative bg-gradient-to-br from-slate-950/95 via-slate-900/95 to-slate-950/95 rounded-3xl border border-slate-700/20 backdrop-blur-xl overflow-hidden">
+                {/* Background decorative icons */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <MessageCircle className="absolute top-8 left-8 w-12 h-12 text-violet-500/10 opacity-30" />
+                  <Users className="absolute top-16 right-12 w-16 h-16 text-purple-500/10 opacity-25" />
+                  <MessageCircle className="absolute bottom-12 left-16 w-10 h-10 text-violet-500/10 opacity-20" />
+                  <Users className="absolute bottom-8 right-8 w-14 h-14 text-purple-500/10 opacity-30" />
+                  <MessageCircle className="absolute top-1/2 left-4 w-8 h-8 text-violet-500/10 opacity-15" />
+                  <Users className="absolute top-1/3 right-4 w-12 h-12 text-purple-500/10 opacity-20" />
+                </div>
+                
                 <div className="relative p-16 text-center">
                   <div className="mb-8">
                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-slate-800/40 to-slate-700/40 border border-slate-600/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
@@ -674,21 +699,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                    <button className="group/btn relative bg-slate-700/20 hover:bg-slate-600/30 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/20 backdrop-blur-sm">
+                    <button className="group/btn relative bg-slate-800/20 hover:bg-slate-700/30 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/20 backdrop-blur-sm">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <MessageCircle className="w-6 h-6 mr-3" />
                         Join our Discord
                       </span>
                     </button>
-                    <button className="group/btn relative bg-slate-700/20 hover:bg-slate-600/30 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/20 backdrop-blur-sm">
+                    <button className="group/btn relative bg-slate-800/20 hover:bg-slate-700/30 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/20 backdrop-blur-sm">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <Users className="w-6 h-6 mr-3" />
                         Follow on Twitter
                       </span>
                     </button>
-                    <button className="group/btn relative bg-slate-700/20 hover:bg-slate-600/30 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/20 backdrop-blur-sm">
+                    <button className="group/btn relative bg-slate-800/20 hover:bg-slate-700/30 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/20 backdrop-blur-sm">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <MessageCircle className="w-6 h-6 mr-3" />
@@ -706,7 +731,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       {/* Violet Section separator */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
