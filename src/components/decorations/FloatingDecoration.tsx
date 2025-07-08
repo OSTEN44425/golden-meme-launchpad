@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { LucideIcon } from 'lucide-react';
 
@@ -15,7 +14,7 @@ const FloatingDecoration: React.FC<FloatingDecorationProps> = ({ side, icons }) 
   const isLeft = side === 'left';
   
   return (
-    <div className={`absolute ${isLeft ? 'left-16' : 'right-16'} top-1/2 -translate-y-1/2 z-10 hidden lg:block`}>
+    <div className={`absolute ${isLeft ? 'left-8' : 'right-8'} top-1/2 -translate-y-1/2 z-10 hidden lg:block`}>
       <div className="relative h-80">
         {/* Icon containers */}
         {icons.map((iconItem, index) => {
