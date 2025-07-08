@@ -7,8 +7,8 @@
 
 .trading-edge-card .bar {
   position: absolute;
-  width: 4rem;
-  height: 0.25rem;
+  width: 5rem;
+  height: 0.5rem;
   background: #8b5cf6;
   transition: all 1s linear;
   animation-duration: 1s;
@@ -21,46 +21,46 @@
 }
 
 .trading-edge-card .bar.top {
-  top: -0.25rem;
-  left: -0.25rem;
+  top: -0.5rem;
+  left: -0.5rem;
   animation-name: h-move-edge;
 }
 
 .trading-edge-card .bar.right {
-  top: 1.5rem;
-  right: -2.25rem;
+  top: 1.8rem;
+  right: -2.8rem;
   transform: rotate(90deg);
   animation-name: v-move-edge;
 }
 
 .trading-edge-card .bar.bottom {
-  bottom: -0.25rem;
-  left: -0.25rem;
+  bottom: -0.5rem;
+  left: -0.5rem;
   animation-name: h-move-edge;
 }
 
 .trading-edge-card .bar.left {
-  top: 1.5rem;
-  left: -2.25rem;
+  top: 1.8rem;
+  left: -2.8rem;
   transform: rotate(90deg);
   animation-name: v-move-edge;
 }
 
 @keyframes h-move-edge {
   0% {
-    left: -0.25rem;
+    left: -0.5rem;
   }
   100% {
-    left: calc(100% + 0.25rem);
+    left: calc(100% + 0.5rem);
   }
 }
 
 @keyframes v-move-edge {
   0% {
-    top: -0.25rem;
+    top: -0.5rem;
   }
   100% {
-    top: calc(100% + 1.75rem);
+    top: calc(100% + 2.3rem);
   }
 }
 
