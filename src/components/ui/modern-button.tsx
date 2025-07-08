@@ -14,7 +14,7 @@ const ModernButton = React.forwardRef<HTMLButtonElement, ModernButtonProps>(
     
     const variantClasses = {
       primary: 'bg-gradient-to-r from-violet-600 via-violet-500 to-violet-600 text-white shadow-lg hover:shadow-xl hover:shadow-violet-500/25 border border-violet-500/20',
-      secondary: 'bg-slate-800/30 backdrop-blur-sm border-2 border-slate-600/30 text-slate-300 hover:border-slate-500/50 hover:text-white hover:bg-slate-700/40',
+      secondary: 'bg-slate-900/60 backdrop-blur-sm border-2 border-slate-700/40 text-slate-300 hover:border-slate-600/60 hover:text-white hover:bg-slate-800/70',
       ghost: 'bg-transparent text-slate-300 hover:text-white hover:bg-slate-800/30'
     };
     
