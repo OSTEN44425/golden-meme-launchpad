@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp, FileText, DollarSign, Headphones, MessageCircle, Sparkles, Target, Timer, Award, Cpu, Server, Wifi } from "lucide-react";
+import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp, FileText, DollarSign, Headphones, MessageCircle, Sparkles, Target, Timer, Award, Cpu, Server, Wifi, BookOpen, Copy } from "lucide-react";
 import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
@@ -86,7 +86,7 @@ const Index = () => {
             </nav>
             <button 
               onClick={() => scrollToSection('cta-final')}
-              className="bg-slate-950/80 backdrop-blur-sm border border-slate-700/60 text-white hover:bg-slate-900/80 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
+              className="bg-slate-800/80 backdrop-blur-sm border border-slate-700/60 text-white hover:bg-slate-700/80 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -123,7 +123,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-4">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-950/80 backdrop-blur-sm border border-slate-700/60 text-white hover:bg-slate-900/80 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  className="bg-slate-800/80 backdrop-blur-sm border border-slate-700/60 text-white hover:bg-slate-700/80 font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -140,9 +140,9 @@ const Index = () => {
         </div>
       </section>
 
-      {/* AI Bot Section - Repositioned higher and smaller spacing */}
+      {/* AI Bot Section - Repositioned higher with less spacing */}
       <FadeContent>
-        <section className="py-8 relative">
+        <section className="py-2 relative -mt-16">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -174,6 +174,96 @@ const Index = () => {
           <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
+
+      {/* Documentation Section */}
+      <FadeContent>
+        <section id="documentation" className="py-20 relative">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                <span className="text-white">API</span>{" "}
+                <span className="text-violet-400">Documentation</span>
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                Get started with our simple and powerful API in minutes. Copy, paste, and start trading.
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-violet-500/30">
+                        <Code className="w-5 h-5 text-violet-400" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-white text-xl font-semibold">Python Integration</CardTitle>
+                        <CardDescription className="text-slate-400">Quick start example to buy tokens</CardDescription>
+                      </div>
+                    </div>
+                    <button className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300">
+                      <Copy className="w-4 h-4" />
+                      <span>Copy</span>
+                    </button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="bg-slate-950/50 rounded-lg p-6 border border-slate-800/30 font-mono text-sm overflow-x-auto">
+                    <pre className="text-slate-300">
+{`import requests
+
+# Configuration
+API_KEY = "your_api_key_here"
+BASE_URL = "https://api.launchpad.trade"
+
+# Buy token example
+def buy_token(token_address, amount_sol):
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+    
+    payload = {
+        "token_address": token_address,
+        "amount_sol": amount_sol,
+        "slippage": 0.5,
+        "priority_fee": "high"
+    }
+    
+    response = requests.post(
+        f"{BASE_URL}/v1/trade/buy",
+        headers=headers,
+        json=payload
+    )
+    
+    return response.json()
+
+# Execute trade
+result = buy_token("So11111111111111111111111111111111111112", 0.1)
+print(f"Transaction: {result['signature']}")`}
+                    </pre>
+                  </div>
+                  <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="flex items-center text-slate-300 text-sm">
+                      <CheckCircle className="w-4 h-4 text-violet-400 mr-2 flex-shrink-0" />
+                      <span>0.8% fee only</span>
+                    </div>
+                    <div className="flex items-center text-slate-300 text-sm">
+                      <CheckCircle className="w-4 h-4 text-violet-400 mr-2 flex-shrink-0" />
+                      <span>Jito bundles included</span>
+                    </div>
+                    <div className="flex items-center text-slate-300 text-sm">
+                      <CheckCircle className="w-4 h-4 text-violet-400 mr-2 flex-shrink-0" />
+                      <span>Priority transactions</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+      </FadeContent>
 
       {/* Use Cases Section */}
       <FadeContent>
@@ -445,7 +535,7 @@ const Index = () => {
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-slate-950/80 backdrop-blur-sm border border-slate-700/60 text-slate-200 hover:bg-slate-900/80 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+              className="bg-slate-800/80 backdrop-blur-sm border border-slate-700/60 text-slate-200 hover:bg-slate-700/80 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key and Start</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -454,7 +544,17 @@ const Index = () => {
         </section>
       </FadeContent>
 
-      {/* Footer - No separator */}
+      {/* Violet Section separator before footer */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
+      {/* Footer */}
       <FadeContent>
         <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
           <div className="container mx-auto px-6 py-4">
