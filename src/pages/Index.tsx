@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -410,23 +409,26 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       <FadeContent>
         <section id="documentation" className="py-20 relative">
           <div className="container mx-auto px-6">
-            <FadeContent delay={200}>
-              <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6 flex items-center justify-center">
-                  <span className="text-white mr-2">API</span>
-                  <SplitText 
-                    text="Documentation"
-                    className="text-violet-400"
-                    delay={80}
-                  />
-                </h2>
-                <FadeContent delay={300}>
-                  <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-                    Get started with our simple and powerful API in minutes. Copy, paste, and start trading.
-                  </p>
-                </FadeContent>
-              </div>
-            </FadeContent>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                <SplitText 
+                  text="API"
+                  className="text-white"
+                  delay={80}
+                />
+                {" "}
+                <SplitText 
+                  text="Documentation"
+                  className="text-violet-400"
+                  delay={80}
+                />
+              </h2>
+              <FadeContent delay={300}>
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                  Get started with our simple and powerful API in minutes. Copy, paste, and start trading.
+                </p>
+              </FadeContent>
+            </div>
 
             <FadeContent delay={500}>
               <div className="max-w-4xl mx-auto">
@@ -522,18 +524,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       <FadeContent>
         <section className="py-16 relative">
           <div className="container mx-auto px-6">
-            <FadeContent delay={200}>
-              <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6 flex items-center justify-center">
-                  <span className="text-white mr-2">Built for</span>
-                  <SplitText 
-                    text="Your Goals"
-                    className="text-violet-400"
-                    delay={80}
-                  />
-                </h2>
-              </div>
-            </FadeContent>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                Built for <SplitText 
+                  text="Your Goals"
+                  className="text-violet-400"
+                  delay={80}
+                />
+              </h2>
+            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               <FadeContent delay={300}>
@@ -594,8 +593,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       <FadeContent>
         <section id="edge" className="py-12 relative">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-16 flex items-center justify-center">
-              <span className="text-white mr-2">Trading</span>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-16">
+              <SplitText 
+                text="Trading"
+                className="text-white"
+                delay={80}
+              />
+              {" "}
               <SplitText 
                 text="API Edge"
                 className="text-violet-400"
@@ -670,8 +674,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           <div className="container mx-auto px-6">
             <FadeContent delay={200}>
               <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6 flex items-center justify-center">
-                  <span className="text-white mr-2">API</span>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                  <SplitText 
+                    text="API"
+                    className="text-white"
+                    delay={80}
+                  />
+                  {" "}
                   <SplitText 
                     text="Pricing"
                     className="text-violet-400"
@@ -768,8 +777,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                           <Users className="w-10 h-10 text-slate-300" />
                         </div>
                       </FadeContent>
-                      <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight flex items-center justify-center">
-                        <span className="text-white mr-2">Join the</span>
+                      <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+                        <SplitText 
+                          text="Join the"
+                          className="text-white"
+                          delay={80}
+                        />
+                        {" "}
                         <SplitText 
                           text="Community"
                           className="text-violet-400"
@@ -815,7 +829,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
                               </svg>
                             </div>
-                            Join Telegram
+                            Join our Telegram
                           </span>
                         </button>
                       </div>
@@ -828,61 +842,128 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Final CTA Section */}
+      {/* Final CTA */}
       <FadeContent>
         <section id="cta-final" className="py-20 relative">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <FadeContent delay={300}>
-              <div className="text-center mb-12">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight flex items-center justify-center">
-                  <span className="text-white mr-2">Ready to Dominate</span>
-                  <span className="text-violet-400 ml-2">letsbonk.fun</span>
-                  <span className="text-violet-400 ml-2">?</span>
-                </h2>
-                <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                  Join thousands of traders and developers who trust our API for their automated trading strategies.
-                </p>
-              </div>
-            </FadeContent>
-            
-            <FadeContent delay={600}>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                <button className="group relative bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-bold px-12 py-6 rounded-2xl shadow-2xl transition-all duration-300 overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.4)] border border-violet-500/30">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                  <span className="relative z-10 text-lg">Get Free API Key</span>
-                </button>
-                <button className="group relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white font-bold px-12 py-6 rounded-2xl shadow-2xl transition-all duration-300 overflow-hidden hover:scale-105 border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                  <span className="relative z-10 text-lg">View Documentation</span>
-                </button>
-              </div>
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8">
+              Ready to Dominate <SplitText 
+                text="letsbonk.fun"
+                className="text-violet-400"
+                delay={80}
+              />?
+            </h2>
+            <FadeContent delay={400}>
+              <button 
+                className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-slate-200 hover:bg-slate-700/60 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+              >
+                <span className="relative z-10">Get my API Key and Start</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              </button>
             </FadeContent>
           </div>
         </section>
       </FadeContent>
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-slate-800/50">
-        <div className="container mx-auto px-6 text-center">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="w-8 h-8 bg-gradient-to-br from-violet-400 via-violet-500 to-violet-600 rounded-lg flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-lg font-bold text-white font-mono">launchpad.trade</span>
-          </div>
-          <p className="text-slate-400 text-sm">
-            © 2024 launchpad.trade. All rights reserved.
-          </p>
+      {/* Violet Section separator before footer */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
         </div>
-      </footer>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
-      {/* Scroll to top button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 z-50 flex items-center justify-center group"
-      >
-        <ArrowUp className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
-      </button>
+      {/* Footer */}
+      <FadeContent>
+        <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
+          <div className="container mx-auto px-6 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+              <div className="md:col-span-2">
+                <div className="flex items-center space-x-3 mb-1">
+                  <div className="relative">
+                    <div className="w-6 h-6 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
+                      <Zap className="w-3 h-3 text-white" />
+                    </div>
+                    <div className="absolute inset-0 w-6 h-6 rounded-lg bg-violet-500/20 blur-md animate-pulse"></div>
+                  </div>
+                  <span className="text-base font-bold text-white font-mono tracking-wide">
+                    launchpad.trade
+                  </span>
+                </div>
+                <p className="text-slate-300 max-w-sm mb-1 font-medium leading-relaxed text-xs">
+                  The fastest and most reliable API to automate your trades on letsbonk.fun.
+                </p>
+              </div>
+              
+              <div className="space-y-1">
+                <h4 className="font-bold text-white mb-1 text-sm flex items-center">
+                  <Code className="w-4 h-4 mr-2 text-violet-400" />
+                  Product
+                </h4>
+                <ul className="space-y-0.5">
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('documentation')}
+                      className="text-slate-300 hover:text-violet-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm text-left"
+                    >
+                      Documentation
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="space-y-1">
+                <h4 className="font-bold text-white mb-1 text-sm flex items-center">
+                  <Headphones className="w-4 h-4 mr-2 text-violet-400" />
+                  Support
+                </h4>
+                <ul className="space-y-0.5">
+                  {[
+                    { name: "Discord", icon: MessageCircle },
+                    { name: "Twitter", icon: Users },
+                    { name: "Contact", icon: MessageCircle },
+                    { name: "Terms of Service", icon: FileText },
+                    { name: "Privacy Policy", icon: Shield }
+                  ].map((link, i) => (
+                    <li key={i}>
+                      <a 
+                        href="#" 
+                        className="text-slate-300 hover:text-purple-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm flex items-center"
+                      >
+                        <link.icon className="w-3 h-3 mr-2 opacity-60" />
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            
+            <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-xs">
+              <p className="font-medium">
+                © 2025 Copyright{" "}
+                <span className="text-white font-semibold">
+                  launchpad.trade
+                </span>
+                . All rights reserved.
+              </p>
+              <div className="flex space-x-4 mt-1 md:mt-0">
+                {["Privacy Policy", "Terms of Service", "Contact"].map((link, i) => (
+                  <a 
+                    key={i}
+                    href="#" 
+                    className="hover:text-violet-400 transition-all duration-300 font-medium hover:scale-105 hover:underline decoration-violet-400/50 underline-offset-4"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </footer>
+      </FadeContent>
     </div>
   );
 };
