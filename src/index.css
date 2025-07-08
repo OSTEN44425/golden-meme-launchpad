@@ -222,6 +222,30 @@ All colors MUST be HSL.
   .border-blue-500 {
     border-color: hsl(217 91% 60%);
   }
+
+  /* Violet Glow Button Effect */
+  .violet-glow-button {
+    position: relative;
+  }
+  
+  .violet-glow-button::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 6px;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+    border-radius: 10px;
+    filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .violet-glow-button:hover::before {
+    opacity: 1;
+  }
 }
 
 /* Enhanced animations */
@@ -468,6 +492,51 @@ All colors MUST be HSL.
     background: rgba(139, 92, 246, 0.1);
     transform: translateY(-2px);
   }
+
+  /* Animated Border Box Animation */
+  .animated-border-box, .animated-border-box-glow {
+    max-height: 200px;
+    max-width: 250px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden; 
+    z-index: 0;
+    border-radius: 10px;
+  }
+
+  .animated-border-box-glow {
+    overflow: hidden;
+    filter: blur(20px);
+  }
+
+  .animated-border-box:before, .animated-border-box-glow:before {
+    content: '';
+    z-index: -2;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    position: absolute;
+    width: 99999px;
+    height: 99999px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-image: conic-gradient(rgba(0,0,0,0), #8b5cf6, rgba(0,0,0,0) 25%);
+    animation: rotate 4s linear infinite;
+  }
+
+  .animated-border-box:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 5px;
+    top: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    background: #000;
+    border-radius: 7px;
+  }
 }
 
 @property --angle {
@@ -499,6 +568,12 @@ All colors MUST be HSL.
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(1turn);
   }
 }
 
