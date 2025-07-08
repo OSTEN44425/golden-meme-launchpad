@@ -10,7 +10,6 @@ import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
 import AIBot from "@/components/animations/AIBot";
 import MouseLightEffect from "@/components/animations/MouseLightEffect";
-import FloatingElements from "@/components/animations/FloatingElements";
 import { useLenis } from "@/hooks/useLenis";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -318,12 +317,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </header>
       </FadeContent>
 
-      {/* Hero Section - Better spacing with floating elements */}
+      {/* Hero Section - Better spacing */}
       <section className="relative flex items-center justify-center pt-40 pb-20">
-        {/* Floating Elements - positioned relative to hero section */}
-        <FloatingElements side="left" />
-        <FloatingElements side="right" />
-        
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -387,6 +382,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
+      {/* Violet Section separator BEFORE API Documentation */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
       {/* Documentation Section */}
       <FadeContent>
         <section id="documentation" className="py-20 relative">
@@ -421,13 +426,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Modern Language Selector - Custom Dropdown */}
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <button className="bg-black/60 backdrop-blur-2xl border border-violet-500/30 text-white px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer shadow-2xl hover:bg-black/80 transition-all duration-300 hover:border-violet-500/50 flex items-center gap-3 hover:shadow-violet-500/20">
+                            <button className="bg-black/40 backdrop-blur-2xl border border-violet-500/30 text-white px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer shadow-2xl hover:bg-black/60 transition-all duration-300 hover:border-violet-500/50 flex items-center gap-3 hover:shadow-violet-500/20">
                               <span className="text-white">{codeExamples[selectedLanguage].name}</span>
                               <ChevronDown className="w-4 h-4 text-violet-400 group-hover:rotate-180 transition-transform duration-300" />
                             </button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent 
-                            className="bg-black/80 backdrop-blur-2xl border border-violet-500/30 shadow-2xl shadow-black/50 rounded-xl p-2 min-w-[160px] z-50"
+                            className="bg-black/70 backdrop-blur-2xl border border-violet-500/30 shadow-2xl shadow-black/50 rounded-xl p-2 min-w-[160px] z-50"
                             align="end"
                           >
                             {Object.entries(codeExamples).map(([key, lang]) => (
@@ -450,7 +455,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Copy Button - Improved */}
                         <button 
                           onClick={copyToClipboard}
-                          className="flex items-center space-x-2 text-sm text-white hover:text-white transition-all duration-300 bg-black/60 backdrop-blur-2xl px-5 py-3 rounded-xl hover:bg-black/80 border border-violet-500/30 hover:border-violet-500/50 shadow-2xl group hover:shadow-violet-500/20"
+                          className="flex items-center space-x-2 text-sm text-white hover:text-white transition-all duration-300 bg-black/40 backdrop-blur-2xl px-5 py-3 rounded-xl hover:bg-black/60 border border-violet-500/30 hover:border-violet-500/50 shadow-2xl group hover:shadow-violet-500/20"
                         >
                           <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200 text-violet-400" />
                           <span className="font-medium text-white">Copy</span>
@@ -508,6 +513,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
+
+      {/* Violet Section separator */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
       {/* Use Cases Section */}
       <FadeContent>
@@ -573,6 +588,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
+
+      {/* Violet Section separator */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
       {/* Trading API Edge Title */}
       <FadeContent>
@@ -644,6 +669,83 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
+      {/* Violet Section separator */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
+      {/* Pricing Section */}
+      <FadeContent>
+        <section id="pricing" className="py-20 relative">
+          <div className="container mx-auto px-6">
+            <FadeContent delay={200}>
+              <div className="text-center mb-16">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight whitespace-nowrap">
+                  <span className="text-white">API</span>{" "}
+                  <span className="text-violet-400">Pricing</span>
+                </h2>
+              </div>
+            </FadeContent>
+
+            <FadeContent delay={400}>
+              <div className="max-w-4xl mx-auto">
+                <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
+                  <CardContent className="p-16 text-center relative">
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                      <div className="bg-gradient-to-r from-violet-950/70 via-violet-900/75 to-violet-950/70 backdrop-blur-md border border-violet-700/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
+                        CHEAPEST ON THE MARKET
+                      </div>
+                    </div>
+
+                    <FadeContent delay={600}>
+                      <div className="mb-8 mt-4">
+                        <div className="text-8xl lg:text-9xl font-bold text-violet-400 mb-4">
+                          0.8<span className="text-6xl lg:text-7xl">%</span>
+                        </div>
+                        <p className="text-2xl text-slate-300 font-medium mb-4">
+                          Per successful transaction
+                        </p>
+                      </div>
+                    </FadeContent>
+
+                    <FadeContent delay={800}>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                        {[
+                          "No monthly fees",
+                          "No subscription fees", 
+                          "No fees on read-only API calls",
+                          "No fees on failed transactions"
+                        ].map((feature, i) => (
+                          <div key={i} className="flex items-center text-slate-300 text-lg">
+                            <CheckCircle className="w-6 h-6 text-violet-400 mr-4 flex-shrink-0" />
+                            <span>{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </FadeContent>
+                  </CardContent>
+                </Card>
+              </div>
+            </FadeContent>
+          </div>
+        </section>
+      </FadeContent>
+
+      {/* Violet Section separator */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
       {/* Community Section - Modified background and icons */}
       <FadeContent>
         <section id="community" className="py-20 relative">
@@ -658,7 +760,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     {/* Top-left corner - Discord */}
                     <div className="absolute top-6 left-6 w-12 h-12 text-slate-400/60 opacity-80">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418z"/>
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
                       </svg>
                     </div>
                     
@@ -743,6 +845,123 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             </FadeContent>
           </div>
         </section>
+      </FadeContent>
+
+      {/* Final CTA */}
+      <FadeContent>
+        <section id="cta-final" className="py-20 relative">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8">
+              Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
+            </h2>
+            <button 
+              className="bg-black/80 backdrop-blur-xl border border-violet-500/40 text-slate-200 hover:bg-black/90 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 relative overflow-hidden group hover:border-violet-400/60"
+            >
+              <span className="relative z-10">Get my API Key and Start</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+            </button>
+          </div>
+        </section>
+      </FadeContent>
+
+      {/* Violet Section separator before footer */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <FadeContent>
+        <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
+          <div className="container mx-auto px-6 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-6">
+              <div className="md:col-span-2">
+                <div className="flex items-center space-x-3 mb-1">
+                  <div className="relative">
+                    <div className="w-6 h-6 bg-gradient-to-br from-violet-400 via-violet-500 to-purple-500 rounded-lg flex items-center justify-center shadow-lg shadow-violet-500/40">
+                      <Zap className="w-3 h-3 text-white" />
+                    </div>
+                    <div className="absolute inset-0 w-6 h-6 rounded-lg bg-violet-500/20 blur-md animate-pulse"></div>
+                  </div>
+                  <span className="text-base font-bold text-white font-mono tracking-wide">
+                    launchpad.trade
+                  </span>
+                </div>
+                <p className="text-slate-300 max-w-sm mb-1 font-medium leading-relaxed text-xs">
+                  The fastest and most reliable API to automate your trades on letsbonk.fun.
+                </p>
+              </div>
+              
+              <div className="space-y-1">
+                <h4 className="font-bold text-white mb-1 text-sm flex items-center">
+                  <Code className="w-4 h-4 mr-2 text-violet-400" />
+                  Product
+                </h4>
+                <ul className="space-y-0.5">
+                  <li>
+                    <button
+                      onClick={() => scrollToSection('documentation')}
+                      className="text-slate-300 hover:text-violet-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm text-left"
+                    >
+                      Documentation
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="space-y-1">
+                <h4 className="font-bold text-white mb-1 text-sm flex items-center">
+                  <Headphones className="w-4 h-4 mr-2 text-violet-400" />
+                  Support
+                </h4>
+                <ul className="space-y-0.5">
+                  {[
+                    { name: "Discord", icon: MessageCircle },
+                    { name: "Twitter", icon: Users },
+                    { name: "Contact", icon: MessageCircle },
+                    { name: "Terms of Service", icon: FileText },
+                    { name: "Privacy Policy", icon: Shield }
+                  ].map((link, i) => (
+                    <li key={i}>
+                      <a 
+                        href="#" 
+                        className="text-slate-300 hover:text-purple-400 transition-all duration-300 text-xs font-medium hover:translate-x-1 block py-0.5 hover:bg-slate-800/20 px-1 rounded-md backdrop-blur-sm flex items-center"
+                      >
+                        <link.icon className="w-3 h-3 mr-2 opacity-60" />
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            
+            <div className="flex flex-col md:flex-row items-center justify-between text-slate-300 text-xs">
+              <p className="font-medium">
+                © 2025 Copyright{" "}
+                <span className="text-white font-semibold">
+                  launchpad.trade
+                </span>
+                . All rights reserved.
+              </p>
+              <div className="flex space-x-4 mt-1 md:mt-0">
+                {["Privacy Policy", "Terms of Service", "Contact"].map((link, i) => (
+                  <a 
+                    key={i}
+                    href="#" 
+                    className="hover:text-violet-400 transition-all duration-300 font-medium hover:scale-105 hover:underline decoration-violet-400/50 underline-offset-4"
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </footer>
       </FadeContent>
     </div>
   );
