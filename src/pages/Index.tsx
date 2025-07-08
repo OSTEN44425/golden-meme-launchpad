@@ -313,7 +313,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       </FadeContent>
 
       {/* Hero Section - Better spacing */}
-      <section className="relative flex items-center justify-center pt-40 pb-32">
+      <section className="relative flex items-center justify-center pt-40 pb-20">
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -352,34 +352,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </div>
       </section>
 
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
-      {/* AI Bot Section - Higher position */}
+      {/* AI Bot Section - Plus haut */}
       <FadeContent>
-        <section className="py-16 relative">
+        <section className="py-8 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
         </section>
       </FadeContent>
-
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
 
       {/* Social Proof / Trust */}
       <FadeContent>
@@ -397,7 +377,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator */}
+      {/* Violet Section separator BEFORE API Documentation */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
@@ -502,16 +482,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
       {/* Use Cases Section */}
       <FadeContent>
         <section className="py-16 relative">
@@ -576,16 +546,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
-
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
 
       {/* Trading API Edge Title */}
       <FadeContent>
@@ -657,16 +617,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
       {/* Pricing Section */}
       <FadeContent>
         <section id="pricing" className="py-20 relative">
@@ -715,16 +665,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
-
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
 
       {/* Community Section - Dark background with social icons */}
       <FadeContent>
@@ -872,16 +812,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
-
-      {/* Violet Section separator before footer */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
 
       {/* Footer */}
       <FadeContent>
