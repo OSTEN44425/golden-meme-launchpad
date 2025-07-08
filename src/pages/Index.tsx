@@ -1,10 +1,10 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle, Zap, Shield, BarChart3, Rocket, Code, Users, Star, Plus, Minus, ArrowRight, Layers, TrendingUp, Globe, Lock, Activity, Database, Settings, ArrowUp, FileText, DollarSign, Headphones, MessageCircle, Sparkles, Target, Timer, Award, Cpu, Server, Wifi, BookOpen, Copy, ChevronDown } from "lucide-react";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import FadeContent from "@/components/animations/FadeContent";
 import CountUp from "@/components/animations/CountUp";
 import ModernGrid from "@/components/animations/ModernGrid";
@@ -382,7 +382,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator AFTER Social Proof */}
+      {/* Violet Section separator BEFORE API Documentation */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
@@ -398,11 +398,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           <div className="container mx-auto px-6">
             <FadeContent delay={200}>
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                   <span className="text-white">API</span>{" "}
-                  <FadeContent delay={300}>
-                    <span className="text-violet-400">Documentation</span>
-                  </FadeContent>
+                  <span className="text-violet-400">Documentation</span>
                 </h2>
                 <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
                   Get started with our simple and powerful API in minutes. Copy, paste, and start trading.
@@ -425,36 +423,25 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         </div>
                       </div>
                       <div className="flex items-center space-x-4">
-                        {/* Modern Language Selector Dropdown */}
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              variant="outline"
-                              className="bg-black/70 backdrop-blur-xl border border-slate-700/60 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium hover:bg-black/80 cursor-pointer shadow-2xl hover:border-violet-400/50 transition-all duration-300 min-w-[120px] flex items-center justify-between"
-                            >
-                              <span>{codeExamples[selectedLanguage].name}</span>
-                              <ChevronDown className="w-4 h-4 text-violet-400 ml-2" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent 
-                            className="bg-black/90 backdrop-blur-xl border border-slate-700/60 shadow-2xl rounded-xl min-w-[120px] z-[100]"
-                            align="end"
+                        {/* Modern Language Selector */}
+                        <div className="relative">
+                          <select 
+                            value={selectedLanguage}
+                            onChange={(e) => setSelectedLanguage(e.target.value)}
+                            className="bg-gradient-to-r from-slate-800/90 to-slate-700/90 backdrop-blur-md border border-violet-500/40 text-slate-200 px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/70 focus:ring-2 focus:ring-violet-500/30 cursor-pointer appearance-none pr-10 shadow-lg hover:bg-slate-700/95 transition-all duration-300"
                           >
                             {Object.entries(codeExamples).map(([key, lang]) => (
-                              <DropdownMenuItem
-                                key={key}
-                                onClick={() => setSelectedLanguage(key)}
-                                className="text-slate-300 hover:text-white hover:bg-slate-800/60 cursor-pointer py-2 px-4 rounded-lg transition-all duration-200"
-                              >
+                              <option key={key} value={key} className="bg-slate-800 text-slate-300 py-2">
                                 {lang.name}
-                              </DropdownMenuItem>
+                              </option>
                             ))}
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                        
+                          </select>
+                          <ChevronDown className="w-4 h-4 text-violet-400 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
+                          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                        </div>
                         <button 
                           onClick={copyToClipboard}
-                          className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-black/70 backdrop-blur-xl px-4 py-3 rounded-xl hover:bg-black/80 border border-slate-700/60 hover:border-violet-500/50 shadow-2xl group"
+                          className="flex items-center space-x-2 text-sm text-slate-400 hover:text-violet-400 transition-colors duration-300 bg-gradient-to-r from-slate-800/70 to-slate-700/70 backdrop-blur-md px-4 py-3 rounded-xl hover:bg-slate-700/85 border border-slate-700/60 hover:border-violet-500/40 shadow-lg group"
                         >
                           <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200" />
                           <span className="font-medium">Copy</span>
@@ -513,38 +500,22 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator AFTER API Documentation */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
       {/* Use Cases Section */}
       <FadeContent>
         <section className="py-16 relative">
           <div className="container mx-auto px-6">
-            <FadeContent delay={200}>
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                  <span className="text-white">Built for</span>{" "}
-                  <FadeContent delay={300}>
-                    <span className="text-violet-400">Your Goals</span>
-                  </FadeContent>
-                </h2>
-              </div>
-            </FadeContent>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+                Built for <span className="text-violet-400">Your Goals</span>
+              </h2>
+            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               <FadeContent delay={300}>
                 <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl h-full flex flex-col hover-scale">
                   <CardHeader className="pb-6">
-                    <Badge className="bg-black/60 backdrop-blur-xl border border-slate-700/60 font-bold px-4 py-1 text-sm mb-4 w-fit">
-                      <span className="text-white">BOT </span>
-                      <span className="text-violet-400">DEVELOPERS</span>
+                    <Badge className="bg-gradient-to-r from-violet-500 to-purple-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
+                      BOT DEVELOPERS
                     </Badge>
                     <CardTitle className="text-2xl font-bold text-white mb-4">Create Unstoppable Trading Bots</CardTitle>
                   </CardHeader>
@@ -568,9 +539,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               <FadeContent delay={500}>
                 <Card className="glowing-border glass-effect bg-gradient-to-br from-purple-500/10 to-pink-500/10 backdrop-blur-sm border-purple-500/30 h-full flex flex-col hover-scale">
                   <CardHeader className="pb-6">
-                    <Badge className="bg-black/60 backdrop-blur-xl border border-slate-700/60 font-bold px-4 py-1 text-sm mb-4 w-fit">
-                      <span className="text-white">PROJECT </span>
-                      <span className="text-purple-400">CREATORS</span>
+                    <Badge className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-4 py-1 text-sm animate-pulse mb-4 w-fit">
+                      PROJECT CREATORS
                     </Badge>
                     <CardTitle className="text-2xl font-bold text-white mb-4">Launch Your Token Seamlessly</CardTitle>
                   </CardHeader>
@@ -595,25 +565,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator AFTER Built for Your Goals */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
       {/* Trading API Edge Title */}
       <FadeContent>
-        <section id="edge" className="py-8 relative">
+        <section id="edge" className="py-12 relative">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-16">
               <span className="text-white">Trading</span>{" "}
-              <FadeContent delay={200}>
-                <span className="text-violet-400">API Edge</span>
-              </FadeContent>
+              <span className="text-violet-400">API Edge</span>
             </h2>
           </div>
         </section>
@@ -621,7 +579,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
       {/* Key Benefits */}
       <FadeContent>
-        <section className="py-8 relative">
+        <section className="py-20 relative">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -677,27 +635,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator AFTER Trading API Edge */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
       {/* Pricing Section */}
       <FadeContent>
         <section id="pricing" className="py-20 relative">
           <div className="container mx-auto px-6">
             <FadeContent delay={200}>
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-6">
                   <span className="text-white">API</span>{" "}
-                  <FadeContent delay={300}>
-                    <span className="text-violet-400">Pricing</span>
-                  </FadeContent>
+                  <span className="text-violet-400">Pricing</span>
                 </h2>
               </div>
             </FadeContent>
@@ -707,9 +653,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
                   <CardContent className="p-16 text-center relative">
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                      <div className="bg-black/80 backdrop-blur-xl border border-slate-700/60 font-bold px-8 py-3 text-base rounded-full shadow-lg">
-                        <span className="text-violet-400">CHEAPEST ON </span>
-                        <span className="text-white">THE MARKET</span>
+                      <div className="bg-gradient-to-r from-violet-950/70 via-violet-900/75 to-violet-950/70 backdrop-blur-md border border-violet-700/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
+                        CHEAPEST ON THE MARKET
                       </div>
                     </div>
 
@@ -747,16 +692,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Violet Section separator AFTER API Pricing */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
       {/* Community Section - Modified background and icons */}
       <FadeContent>
         <section id="community" className="py-20 relative">
@@ -766,31 +701,31 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 <div className="absolute -inset-1 bg-gradient-to-r from-black/40 via-black/50 to-black/40 rounded-3xl opacity-60 group-hover:opacity-80 blur-sm transition-all duration-500"></div>
                 
                 <div className="relative bg-black/80 backdrop-blur-sm border-slate-700/50 border rounded-3xl overflow-hidden hover-scale transition-all duration-300 hover:border-slate-600/60 hover:shadow-2xl hover:shadow-black/20">
-                  {/* Background decorative icons - positioned in corners */}
+                  {/* Background decorative icons - one in each corner */}
                   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    {/* Top-left corner - Discord */}
-                    <div className="absolute top-2 left-2 w-12 h-12 text-slate-200/60 opacity-90">
+                    {/* Top-left corner */}
+                    <div className="absolute top-8 left-8 w-5 h-5 text-slate-600/20 opacity-40">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                         <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
                       </svg>
                     </div>
                     
-                    {/* Top-right corner - Twitter X */}
-                    <div className="absolute top-2 right-2 w-12 h-12 text-slate-200/60 opacity-90">
+                    {/* Top-right corner */}
+                    <div className="absolute top-8 right-8 w-5 h-5 text-slate-600/20 opacity-40">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                         <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                       </svg>
                     </div>
                     
-                    {/* Bottom-left corner - Telegram */}
-                    <div className="absolute bottom-2 left-2 w-12 h-12 text-slate-200/60 opacity-90">
+                    {/* Bottom-left corner */}
+                    <div className="absolute bottom-8 left-8 w-5 h-5 text-slate-600/20 opacity-40">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
                       </svg>
                     </div>
                     
-                    {/* Bottom-right corner - Discord (duplicate) */}
-                    <div className="absolute bottom-2 right-2 w-12 h-12 text-slate-200/60 opacity-90">
+                    {/* Bottom-right corner */}
+                    <div className="absolute bottom-8 right-8 w-5 h-5 text-slate-600/20 opacity-40">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                         <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
                       </svg>
@@ -803,11 +738,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-slate-800/40 to-slate-700/40 border border-slate-600/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
                           <Users className="w-10 h-10 text-slate-300" />
                         </div>
-                        <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-8 leading-tight">
+                        <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
                           <span className="text-white">Join the</span>{" "}
-                          <FadeContent delay={500}>
-                            <span className="text-violet-400">Community</span>
-                          </FadeContent>
+                          <span className="text-violet-400">Community</span>
                         </h2>
                         <p className="text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
                           Connect with other developers, get fast support, and share your strategies. Join our community of traders and investors for the latest insights and market analysis.
@@ -817,8 +750,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     
                     <FadeContent delay={600}>
                       <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                        <button className="group/btn relative bg-black/20 backdrop-blur-xl border border-violet-400/70 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/90">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -828,8 +761,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             Join our Discord
                           </span>
                         </button>
-                        <button className="group/btn relative bg-black/20 backdrop-blur-xl border border-violet-400/70 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/90">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
@@ -839,12 +772,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                             Follow on Twitter
                           </span>
                         </button>
-                        <button className="group/btn relative bg-black/20 backdrop-blur-xl border border-violet-400/70 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/90">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="group/btn relative bg-gradient-to-br from-slate-800/90 to-slate-700/90 hover:from-slate-700/95 hover:to-slate-600/95 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] border border-slate-600/60 hover:border-violet-400/60 backdrop-blur-sm">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                              </svg>
                             </div>
                             Join our Telegram
                           </span>
@@ -863,18 +797,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       <FadeContent>
         <section id="cta-final" className="py-20 relative">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-              <span className="text-white">Ready to Dominate</span>{" "}
-              <FadeContent delay={200}>
-                <span className="text-violet-400">letsbonk.fun</span>{" "}
-                <span className="text-violet-400">?</span>
-              </FadeContent>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-8">
+              Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-black/40 backdrop-blur-xl border border-slate-700/40 text-slate-200 hover:bg-black/50 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group hover:border-violet-500/40"
+              className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-slate-200 hover:bg-slate-700/60 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key and Start</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </button>
           </div>
         </section>
