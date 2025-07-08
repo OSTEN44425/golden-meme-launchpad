@@ -1,0 +1,131 @@
+
+/* Trading API Edge Cards Animation */
+:root {
+  font-size: 10px;
+  --delay: .5s;
+  --timing: 1s;
+}
+
+.trading-edge-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.trading-edge-card::before {
+  content: '';
+  position: absolute;
+  width: 5rem;
+  height: 0.5rem;
+  background: #8b5cf6;
+  top: -0.5rem;
+  left: -0.5rem;
+  animation: h-move var(--timing) linear infinite;
+  z-index: 1;
+}
+
+.trading-edge-card::after {
+  content: '';
+  position: absolute;
+  width: 0.5rem;
+  height: 5rem;
+  background: #8b5cf6;
+  top: -0.5rem;
+  right: -0.5rem;
+  animation: v-move var(--timing) linear infinite;
+  animation-delay: var(--delay);
+  z-index: 1;
+}
+
+@keyframes h-move {
+  0% {
+    left: -0.5rem;
+  }
+  100% {
+    left: calc(100% + 0.5rem);
+  }
+}
+
+@keyframes v-move {
+  0% {
+    top: -0.5rem;
+  }
+  100% {
+    top: calc(100% + 0.5rem);
+  }
+}
+
+/* Glow Button Animation */
+.glow-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(circle, #8b5cf6, #a855f7, transparent);
+  border-radius: inherit;
+  animation: move 5s linear infinite;
+  offset-path: rect(0% auto 100% auto);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes move {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+/* Community Card Gradient Border Animation */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: false;
+}
+
+.community-card {
+  position: relative;
+}
+
+.community-card::after,
+.community-card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -0.5rem;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #1f2937,
+    #6420aa,
+    #ff3ea5,
+    #ff7ed4,
+    #ff3ea5,
+    #6420aa,
+    #1f2937
+  );
+  border-radius: inherit;
+  animation: rotate 2.5s linear infinite;
+}
+
+.community-card::after {
+  filter: blur(3rem);
+}
+
+@keyframes rotate {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}

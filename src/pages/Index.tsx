@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -319,28 +318,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </header>
       </FadeContent>
 
-      {/* Hero Section - Better spacing */}
+      {/* Hero Section - Removed floating decorations */}
       <section className="relative flex items-center justify-center pt-40 pb-20">
-        {/* Left Floating Decoration - Only in hero section */}
-        <FloatingDecoration 
-          side="left" 
-          icons={[
-            { icon: Send, position: 'top', delay: 0 },
-            { icon: Users, position: 'middle', delay: 1 },
-            { icon: MessageCircle, position: 'bottom', delay: 2 }
-          ]} 
-        />
-
-        {/* Right Floating Decoration - Only in hero section */}
-        <FloatingDecoration 
-          side="right" 
-          icons={[
-            { icon: Bell, position: 'top', delay: 0.5 },
-            { icon: Search, position: 'middle', delay: 1.5 },
-            { icon: Star, position: 'bottom', delay: 2.5 }
-          ]} 
-        />
-
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -362,7 +341,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 hover:text-white font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  className="glow-button bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 hover:text-white font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -633,7 +612,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Key Benefits */}
+      {/* Key Benefits - Updated with new animation */}
       <FadeContent>
         <section className="py-12 relative">
           <div className="container mx-auto px-6">
@@ -673,17 +652,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
-                  <Card className={`glowing-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
-                    <CardHeader className="pb-4">
+                  <div className="trading-edge-card glass-effect bg-black backdrop-blur-sm relative shadow-xl h-full flex flex-col hover-scale">
+                    <div className="p-6 pb-4">
                       <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
                         <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />
                       </div>
-                      <CardTitle className="text-white text-xl font-semibold">{feature.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-1">
+                      <h3 className="text-white text-xl font-semibold mb-4">{feature.title}</h3>
+                    </div>
+                    <div className="px-6 pb-6 flex-1">
                       <p className="text-slate-300 text-sm leading-relaxed">{feature.description}</p>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </FadeContent>
               ))}
             </div>
@@ -768,15 +747,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </div>
       </div>
 
-      {/* Community Section - Modified background and icons */}
+      {/* Community Section - Updated with gradient border animation */}
       <FadeContent>
         <section id="community" className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <FadeContent delay={200}>
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-black/40 via-black/50 to-black/40 rounded-3xl opacity-60 group-hover:opacity-80 blur-sm transition-all duration-500"></div>
-                
-                <div className="relative bg-black/80 backdrop-blur-sm border-violet-500/40 border rounded-3xl overflow-hidden hover-scale transition-all duration-300 hover:border-violet-500/60 hover:shadow-2xl hover:shadow-black/20">
+              <div className="relative group community-card">
+                <div className="relative bg-black/80 backdrop-blur-sm rounded-3xl overflow-hidden hover-scale transition-all duration-300">
                   {/* Background decorative icons - improved positioning and visibility */}
                   <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     {/* Top-left corner - Discord */}
@@ -826,41 +803,34 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     
                     <FadeContent delay={600}>
                       <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                        <button className="glow-button relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
                           <span className="relative z-10 flex items-center text-lg">
                             <div className="w-6 h-6 mr-3">
                               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                                 <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-                              </svg>
-                            </div>
-                            Join our Discord
-                          </span>
-                        </button>
-                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
-                          <span className="relative z-10 flex items-center text-lg">
-                            <div className="w-6 h-6 mr-3">
-                              <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                              </svg>
-                            </div>
-                            Follow on Twitter
-                          </span>
-                        </button>
-                        <button className="group/btn relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
-                          <span className="relative z-10 flex items-center text-lg">
-                            <div className="w-6 h-6 mr-3">
-                              <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                              </svg>
-                            </div>
-                            Join our Telegram
-                          </span>
-                        </button>
-                      </div>
-                    </FadeContent>
+                      </svg>
+                    </div>
+                    
+                    <button className="glow-button relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
+                      <span className="relative z-10 flex items-center text-lg">
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26l8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                          </svg>
+                        </div>
+                        Follow on Twitter
+                      </span>
+                    </button>
+                    <button className="glow-button relative bg-black/80 backdrop-blur-xl border border-violet-500/40 text-white hover:text-white font-bold px-12 py-6 transition-all duration-300 shadow-2xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(139,92,246,0.3)] hover:border-violet-400/60">
+                      <span className="relative z-10 flex items-center text-lg">
+                        <div className="w-6 h-6 mr-3">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12a12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472c-.18 1.898-.962 6.502-1.36 8.627c-.168.9-.499 1.201-.82 1.23c-.696.065-1.225-.46-1.9-.902c-1.056-.693-1.653-1.124-2.678-1.8c-1.185-.78-.417-1.21.258-1.91c.177-.184 3.247-2.977 3.307-3.23c.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345c-.48.33-.913.49-1.302.48c-.428-.008-1.252-.241-1.865-.44c-.752-.245-1.349-.374-1.297-.789c.027-.216.325-.437.893-.663c3.498-1.524 5.83-2.529 6.998-3.014c3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                          </svg>
+                        </div>
+                        Join our Telegram
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -869,7 +839,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Final CTA */}
+      {/* Final CTA - Updated button */}
       <FadeContent>
         <section id="cta-final" className="py-20 relative">
           <div className="container mx-auto px-6 text-center">
@@ -877,10 +847,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               Ready to Dominate <span className="text-violet-400">letsbonk.fun</span>?
             </h2>
             <button 
-              className="bg-black/80 backdrop-blur-xl border border-violet-500/40 text-slate-200 hover:bg-black/90 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 relative overflow-hidden group hover:border-violet-400/60"
+              className="glow-button bg-black/80 backdrop-blur-xl border border-violet-500/40 text-slate-200 hover:bg-black/90 hover:text-white font-bold px-12 py-4 text-lg rounded-full shadow-2xl transition-all duration-300 relative overflow-hidden group hover:border-violet-400/60"
             >
               <span className="relative z-10">Get my API Key and Start</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </button>
           </div>
         </section>
