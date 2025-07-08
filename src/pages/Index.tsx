@@ -235,10 +235,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(codeExamples[selectedLanguage].code);
     toast({
-      title: "✅ Copied to clipboard!",
-      description: "Code example has been copied successfully.",
-      duration: 3000,
-      className: "bg-gradient-to-r from-violet-900/90 to-purple-900/90 backdrop-blur-md border-violet-500/30 text-white shadow-xl",
+      title: "✓ Copied to clipboard",
+      description: "Code example ready to use",
+      duration: 2000,
+      className: "bg-black/90 backdrop-blur-md border-violet-500/20 text-white shadow-2xl rounded-xl border",
     });
   };
 
@@ -313,7 +313,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       </FadeContent>
 
       {/* Hero Section - Better spacing */}
-      <section className="relative flex items-center justify-center pt-16 pb-12">
+      <section className="relative flex items-center justify-center pt-24 pb-16">
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
@@ -354,7 +354,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
       {/* AI Bot Section - Higher position */}
       <FadeContent>
-        <section className="py-8 relative">
+        <section className="py-12 relative">
           <div className="container mx-auto px-6 flex justify-center">
             <AIBot />
           </div>
@@ -444,22 +444,30 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 <CardContent>
                   <div className="bg-slate-950/80 rounded-lg p-6 border border-slate-800/50 font-mono text-sm overflow-x-auto">
                     <pre className="text-slate-300">
-                      <code>
-                        {codeExamples[selectedLanguage].code}
-                      </code>
+                      <code dangerouslySetInnerHTML={{
+                        __html: codeExamples[selectedLanguage].code
+                          .replace(/import|from|def|class|interface|const|let|var|function|async|await|struct|impl|use/g, '<span style="color: #c792ea">$&</span>')
+                          .replace(/"[^"]*"/g, '<span style="color: #a3f7a3">$&</span>')
+                          .replace(/'[^']*'/g, '<span style="color: #a3f7a3">$&</span>')
+                          .replace(/`[^`]*`/g, '<span style="color: #a3f7a3">$&</span>')
+                          .replace(/#.*$/gm, '<span style="color: #646cff">$&</span>')
+                          .replace(/\b(True|False|None|true|false|null|Ok|Err|Some|self)\b/g, '<span style="color: #ff9cac">$&</span>')
+                          .replace(/\b(\d+\.?\d*)\b/g, '<span style="color: #ffcb6b">$&</span>')
+                          .replace(/\b(if|else|elif|for|while|match|return|try|catch|throw|async|await|fn|pub|mut|let|const|var)\b/g, '<span style="color: #c792ea">$&</span>')
+                      }}/>
                     </pre>
                   </div>
                   <div className="mt-6 flex justify-center">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl w-full">
-                      <div className="flex flex-col items-center text-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl w-full text-center">
+                      <div className="flex flex-col items-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
                         <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
                         <span className="text-slate-300 text-sm font-medium">0.8% fee only</span>
                       </div>
-                      <div className="flex flex-col items-center text-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                      <div className="flex flex-col items-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
                         <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
                         <span className="text-slate-300 text-sm font-medium">Jito bundles included</span>
                       </div>
-                      <div className="flex flex-col items-center text-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
+                      <div className="flex flex-col items-center p-4 bg-slate-800/20 rounded-lg border border-slate-700/30">
                         <CheckCircle className="w-6 h-6 text-violet-400 mb-2" />
                         <span className="text-slate-300 text-sm font-medium">Priority transactions</span>
                       </div>
@@ -671,23 +679,26 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         <section id="community" className="py-20 relative">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-slate-800/30 via-slate-700/30 to-slate-800/30 rounded-3xl opacity-40 group-hover:opacity-60 blur-sm transition-all duration-500 animate-pulse"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-500/10 via-purple-500/10 to-violet-500/10 rounded-3xl opacity-40 group-hover:opacity-60 blur-sm transition-all duration-500 animate-pulse"></div>
               
-              <div className="relative bg-gradient-to-br from-slate-950/95 via-slate-900/95 to-slate-950/95 rounded-3xl border border-slate-700/20 backdrop-blur-xl overflow-hidden">
+              <div className="relative bg-gradient-to-br from-slate-950/95 via-slate-900/95 to-slate-950/95 rounded-3xl border border-violet-500/30 backdrop-blur-xl overflow-hidden">
                 {/* Background decorative icons */}
                 <div className="absolute inset-0 overflow-hidden">
-                  <MessageCircle className="absolute top-8 left-8 w-12 h-12 text-violet-500/10 opacity-30" />
-                  <Users className="absolute top-16 right-12 w-16 h-16 text-purple-500/10 opacity-25" />
-                  <MessageCircle className="absolute bottom-12 left-16 w-10 h-10 text-violet-500/10 opacity-20" />
-                  <Users className="absolute bottom-8 right-8 w-14 h-14 text-purple-500/10 opacity-30" />
-                  <MessageCircle className="absolute top-1/2 left-4 w-8 h-8 text-violet-500/10 opacity-15" />
-                  <Users className="absolute top-1/3 right-4 w-12 h-12 text-purple-500/10 opacity-20" />
+                  <MessageCircle className="absolute top-8 left-8 w-12 h-12 text-violet-500/20 opacity-60" />
+                  <Users className="absolute top-16 right-12 w-16 h-16 text-purple-500/20 opacity-50" />
+                  <MessageCircle className="absolute bottom-12 left-16 w-10 h-10 text-violet-500/15 opacity-40" />
+                  <Users className="absolute bottom-8 right-8 w-14 h-14 text-purple-500/20 opacity-60" />
+                  <Code className="absolute top-1/2 left-4 w-8 h-8 text-violet-500/15 opacity-30" />
+                  <Globe className="absolute top-1/3 right-4 w-12 h-12 text-purple-500/20 opacity-45" />
+                  <Zap className="absolute top-1/4 left-1/4 w-6 h-6 text-violet-500/15 opacity-25" />
+                  <Rocket className="absolute bottom-1/4 right-1/4 w-8 h-8 text-purple-500/15 opacity-35" />
+                  <Settings className="absolute top-3/4 left-1/3 w-7 h-7 text-violet-500/15 opacity-20" />
                 </div>
                 
                 <div className="relative p-16 text-center">
                   <div className="mb-8">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-slate-800/40 to-slate-700/40 border border-slate-600/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
-                      <Users className="w-10 h-10 text-slate-300" />
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-violet-500/20 to-purple-500/20 border border-violet-500/30 mb-8 group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm">
+                      <Users className="w-10 h-10 text-violet-400" />
                     </div>
                     <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight">
                       <span className="text-white">Join the</span>{" "}
@@ -699,22 +710,22 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
-                    <button className="group/btn relative bg-slate-800/20 hover:bg-slate-700/30 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/20 backdrop-blur-sm">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                    <button className="group/btn relative bg-gradient-to-br from-violet-500/10 to-purple-500/10 hover:from-violet-500/20 hover:to-purple-500/20 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/30 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <MessageCircle className="w-6 h-6 mr-3" />
                         Join our Discord
                       </span>
                     </button>
-                    <button className="group/btn relative bg-slate-800/20 hover:bg-slate-700/30 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/20 backdrop-blur-sm">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                    <button className="group/btn relative bg-gradient-to-br from-violet-500/10 to-purple-500/10 hover:from-violet-500/20 hover:to-purple-500/20 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/30 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <Users className="w-6 h-6 mr-3" />
                         Follow on Twitter
                       </span>
                     </button>
-                    <button className="group/btn relative bg-slate-800/20 hover:bg-slate-700/30 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/20 backdrop-blur-sm">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
+                    <button className="group/btn relative bg-gradient-to-br from-violet-500/10 to-purple-500/10 hover:from-violet-500/20 hover:to-purple-500/20 text-slate-200 hover:text-white font-bold px-10 py-5 transition-all duration-300 shadow-xl rounded-2xl overflow-hidden hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-violet-500/30 backdrop-blur-sm">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-400/10 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700"></div>
                       <span className="relative z-10 flex items-center text-lg">
                         <MessageCircle className="w-6 h-6 mr-3" />
                         Join our Telegram
