@@ -431,13 +431,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Modern Language Selector - Custom Dropdown */}
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <button className="bg-black/40 backdrop-blur-2xl border border-violet-500/30 text-white px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer shadow-2xl hover:bg-black/60 transition-all duration-300 hover:border-violet-500/50 flex items-center gap-3 hover:shadow-violet-500/20">
+                            <button className="bg-black/60 backdrop-blur-2xl border border-violet-500/30 text-white px-6 py-3 rounded-xl text-sm font-medium focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer shadow-2xl hover:bg-black/80 transition-all duration-300 hover:border-violet-500/50 flex items-center gap-3 hover:shadow-violet-500/20">
                               <span className="text-white">{codeExamples[selectedLanguage].name}</span>
                               <ChevronDown className="w-4 h-4 text-violet-400 group-hover:rotate-180 transition-transform duration-300" />
                             </button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent 
-                            className="bg-black/70 backdrop-blur-2xl border border-violet-500/30 shadow-2xl shadow-black/50 rounded-xl p-2 min-w-[160px] z-50"
+                            className="bg-black/80 backdrop-blur-2xl border border-violet-500/30 shadow-2xl shadow-black/50 rounded-xl p-2 min-w-[160px] z-50"
                             align="end"
                           >
                             {Object.entries(codeExamples).map(([key, lang]) => (
@@ -460,7 +460,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Copy Button - Improved */}
                         <button 
                           onClick={copyToClipboard}
-                          className="flex items-center space-x-2 text-sm text-white hover:text-white transition-all duration-300 bg-black/40 backdrop-blur-2xl px-5 py-3 rounded-xl hover:bg-black/60 border border-violet-500/30 hover:border-violet-500/50 shadow-2xl group hover:shadow-violet-500/20"
+                          className="flex items-center space-x-2 text-sm text-white hover:text-white transition-all duration-300 bg-black/60 backdrop-blur-2xl px-5 py-3 rounded-xl hover:bg-black/80 border border-violet-500/30 hover:border-violet-500/50 shadow-2xl group hover:shadow-violet-500/20"
                         >
                           <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200 text-violet-400" />
                           <span className="font-medium text-white">Copy</span>
@@ -684,73 +684,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </div>
       </div>
 
-      {/* Pricing Section */}
-      <FadeContent>
-        <section id="pricing" className="py-20 relative">
-          <div className="container mx-auto px-6">
-            <FadeContent delay={200}>
-              <div className="text-center mb-16">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight whitespace-nowrap">
-                  <span className="text-white">API</span>{" "}
-                  <span className="text-violet-400">Pricing</span>
-                </h2>
-              </div>
-            </FadeContent>
-
-            <FadeContent delay={400}>
-              <div className="max-w-4xl mx-auto">
-                <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
-                  <CardContent className="p-16 text-center relative">
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                      <div className="bg-gradient-to-r from-violet-950/70 via-violet-900/75 to-violet-950/70 backdrop-blur-md border border-violet-700/30 text-violet-200 font-bold px-8 py-3 text-base rounded-full shadow-lg shadow-violet-900/30">
-                        CHEAPEST ON THE MARKET
-                      </div>
-                    </div>
-
-                    <FadeContent delay={600}>
-                      <div className="mb-8 mt-4">
-                        <div className="text-8xl lg:text-9xl font-bold text-violet-400 mb-4">
-                          0.8<span className="text-6xl lg:text-7xl">%</span>
-                        </div>
-                        <p className="text-2xl text-slate-300 font-medium mb-4">
-                          Per successful transaction
-                        </p>
-                      </div>
-                    </FadeContent>
-
-                    <FadeContent delay={800}>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                        {[
-                          "No monthly fees",
-                          "No subscription fees", 
-                          "No fees on read-only API calls",
-                          "No fees on failed transactions"
-                        ].map((feature, i) => (
-                          <div key={i} className="flex items-center text-slate-300 text-lg">
-                            <CheckCircle className="w-6 h-6 text-violet-400 mr-4 flex-shrink-0" />
-                            <span>{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </FadeContent>
-                  </CardContent>
-                </Card>
-              </div>
-            </FadeContent>
-          </div>
-        </section>
-      </FadeContent>
-
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
-
       {/* Community Section - Modified background and icons */}
       <FadeContent>
         <section id="community" className="py-20 relative">
@@ -851,5 +784,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
+    </div>
+  );
+};
 
-      {/*
+export default Index;
