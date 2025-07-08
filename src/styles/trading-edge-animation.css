@@ -36,7 +36,7 @@
   height: 600px;
   background-repeat: no-repeat;
   background-position: 0 0;
-  background-image: conic-gradient(rgba(0,0,0,0), rgba(139, 92, 246, 0.4), rgba(0,0,0,0) 25%);
+  background-image: conic-gradient(rgba(0,0,0,0), rgba(0, 0, 0, 0.8), rgba(0,0,0,0) 25%);
   animation: rotate 4s linear infinite;
 }
 
@@ -48,12 +48,73 @@
   top: 2px;
   width: calc(100% - 4px);
   height: calc(100% - 4px);
-  background: rgba(2, 6, 23, 0.95);
+  background: #000000;
   border-radius: 14px;
 }
 
 @keyframes rotate {
   100% {
     transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+
+/* Button glow animation */
+.glow {
+  animation: move 5s linear infinite;
+  offset-path: rect(0% auto 100% auto);
+  background: radial-gradient(#8b5cf6, #a855f7, transparent);
+}
+
+@keyframes move {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+/* Community section gradient border animation */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: false;
+}
+
+.community-card {
+  position: relative;
+  background-color: #1f2937;
+}
+
+.community-card::after,
+.community-card::before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  inset: -0.5rem;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    #1f2937,
+    #6420aa,
+    #ff3ea5,
+    #ff7ed4,
+    #ff3ea5,
+    #6420aa,
+    #1f2937
+  );
+  border-radius: inherit;
+  animation: rotate-gradient 2.5s linear infinite;
+}
+
+.community-card::after {
+  filter: blur(3rem);
+}
+
+@keyframes rotate-gradient {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
   }
 }
