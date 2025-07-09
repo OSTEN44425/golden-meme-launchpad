@@ -128,7 +128,7 @@ All colors MUST be HSL.
     position: relative;
   }
   
-  /* Enhanced Grid background - more visible */
+/* Enhanced Grid background - more visible */
   body::before {
     content: '';
     position: fixed;
@@ -142,6 +142,57 @@ All colors MUST be HSL.
     background-size: 50px 50px;
     pointer-events: none;
     z-index: 0;
+  }
+
+  /* Shooting stars background */
+  .shooting-stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    transform: rotateZ(45deg);
+    overflow: hidden;
+  }
+
+  .shooting_star {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 2px;
+    background: linear-gradient(-45deg, rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0));
+    border-radius: 999px;
+    filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.4));
+    animation:
+      tail 3000ms ease-in-out infinite,
+      shooting 3000ms ease-in-out infinite;
+    opacity: 0.6;
+  }
+
+  .shooting_star::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 0;
+    height: 2px;
+    background: linear-gradient(-45deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0));
+    transform: translateX(50%) rotateZ(45deg);
+    border-radius: 100%;
+    animation: shining 3000ms ease-in-out infinite;
+  }
+
+  .shooting_star::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 1px);
+    right: 0;
+    height: 2px;
+    background: linear-gradient(-45deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0));
+    transform: translateX(50%) rotateZ(-45deg);
+    border-radius: 100%;
+    animation: shining 3000ms ease-in-out infinite;
   }
 
   /* Grid highlights with violet accents - no white lights */
@@ -679,6 +730,39 @@ All colors MUST be HSL.
   100% {
     transform: translateX(100vw);
     opacity: 0;
+  }
+}
+
+@keyframes tail {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes shining {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 30px;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes shooting {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(300px);
   }
 }
 

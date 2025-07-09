@@ -246,6 +246,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans relative">
+      {/* Shooting Stars Background */}
+      <div className="shooting-stars-container">
+        {Array.from({length: 15}).map((_, i) => (
+          <div 
+            key={i}
+            className="shooting_star"
+            style={{
+              top: `calc(50% - ${Math.random() * 400 - 200}px)`,
+              left: `calc(50% - ${Math.random() * 300}px)`,
+              animationDelay: `${Math.random() * 9999}ms`,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Mouse Light Effect */}
       <MouseLightEffect />
       
@@ -842,6 +857,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
+
+      {/* Violet Section separator BEFORE Footer */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
 
       {/* Footer - Simplified without copyright and links */}
       <FadeContent>
