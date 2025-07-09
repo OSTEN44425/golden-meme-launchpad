@@ -454,18 +454,18 @@ All colors MUST be HSL.
     background: conic-gradient(
       from var(--gradient-angle),
       transparent,
-      hsl(263 70% 30%),
-      hsl(263 70% 50%),
-      hsl(263 70% 70%),
-      hsl(263 70% 50%),
-      hsl(263 70% 30%),
+      hsla(263, 70%, 40%, 0.4),
+      hsla(263, 70%, 50%, 0.6),
+      hsla(263, 70%, 55%, 0.7),
+      hsla(263, 70%, 50%, 0.6),
+      hsla(263, 70%, 40%, 0.4),
       transparent
     );
     animation: trading-edge-rotate 2.5s linear infinite;
   }
 
   .trading-edge-card > * {
-    background: rgba(15, 15, 25, 0.95);
+    background: rgba(10, 10, 15, 0.85);
     border-radius: 10px;
     position: relative;
     z-index: 1;
