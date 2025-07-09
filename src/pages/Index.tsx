@@ -252,18 +252,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       {/* Modern Grid Background */}
       <ModernGrid />
 
-      {/* Enhanced Navigation */}
+      {/* Enhanced Navigation with animations */}
       <FadeContent>
-        <header className="backdrop-blur-xl bg-slate-950/99 sticky top-0 z-50 transition-all duration-500 border-b border-slate-800/30">
+        <header className="backdrop-blur-xl bg-slate-950/99 sticky top-0 z-50 transition-all duration-500 border-b border-slate-800/30 animate-reveal-up">
           <div className="container mx-auto px-8 py-4 flex items-center justify-between">
             <div className="flex items-center space-x-3 group">
-              <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-br from-violet-400 via-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/50 group-hover:scale-110 transition-all duration-300">
+              <div className="relative animate-float">
+                <div className="w-10 h-10 bg-gradient-to-br from-violet-400 via-violet-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-violet-500/50 group-hover:scale-110 transition-all duration-300 animate-glow">
                   <Zap className="w-6 h-6 text-white drop-shadow-lg" />
                 </div>
                 <div className="absolute inset-0 w-10 h-10 rounded-xl bg-violet-500/30 blur-md animate-pulse"></div>
               </div>
-              <span className="text-xl font-bold text-white font-mono tracking-wide">
+              <span className="text-xl font-bold text-white font-mono tracking-wide text-gradient-animate">
                 launchpad.trade
               </span>
             </div>
@@ -271,7 +271,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               <FadeContent delay={100}>
                 <button 
                   onClick={() => scrollToSection('documentation')}
-                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-violet-500/10 nav-link-pro"
                 >
                   Documentation
                 </button>
@@ -279,7 +279,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               <FadeContent delay={150}>
                 <button 
                   onClick={() => scrollToSection('edge')}
-                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-violet-500/10 nav-link-pro"
                 >
                   Edge
                 </button>
@@ -287,7 +287,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               <FadeContent delay={200}>
                 <button 
                   onClick={() => scrollToSection('pricing')}
-                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-violet-500/10 nav-link-pro"
                 >
                   Pricing
                 </button>
@@ -295,7 +295,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
               <FadeContent delay={250}>
                 <button 
                   onClick={() => scrollToSection('community')}
-                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-colors duration-300"
+                  className="text-slate-200 hover:text-violet-400 font-semibold text-sm px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:bg-violet-500/10 nav-link-pro"
                 >
                   Community
                 </button>
@@ -303,10 +303,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             </nav>
             <button 
               onClick={() => scrollToSection('cta-final')}
-              className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
+              className="modern-button magnetic-button bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 font-bold shadow-xl transition-all duration-300 text-sm px-6 py-2 rounded-full relative overflow-hidden group"
             >
               <span className="relative z-10">Get my API Key</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </button>
           </div>
           {/* Full-width animated violet separator line */}
@@ -317,37 +316,36 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </header>
       </FadeContent>
 
-      {/* Hero Section - NO FLOATING ICONS */}
+      {/* Hero Section with advanced animations */}
       <section className="relative flex items-center justify-center pt-40 pb-20">
         <div className="container mx-auto px-6 text-center relative z-10">
           <div className="max-w-4xl mx-auto">
             <FadeContent delay={400} blur={true}>
-              <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                <span className="text-violet-400">The Fastest API</span>
+              <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight animate-reveal-up stagger-1">
+                <span className="text-gradient-animate">The Fastest API</span>
                 <br />
-                <span className="text-white">for Trading and Launching on</span>{" "}
-                <span className="text-violet-400">letsbonk.fun</span>
+                <span className="text-white animate-reveal-left stagger-2">for Trading and Launching on</span>{" "}
+                <span className="text-gradient-animate animate-reveal-right stagger-3">letsbonk.fun</span>
               </h1>
             </FadeContent>
             
             <FadeContent delay={600}>
-              <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed animate-reveal-up stagger-4">
                 Integrate professional-grade infrastructure in minutes to automate your trades and token launches. Maximum reliability, minimal fees.
               </p>
             </FadeContent>
             
             <FadeContent delay={800}>
-              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8 animate-reveal-scale stagger-5">
                 <button 
                   onClick={() => scrollToSection('cta-final')}
-                  className="bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 hover:text-white font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
+                  className="modern-button magnetic-button bg-slate-800/60 backdrop-blur-sm border border-slate-700/40 text-white hover:bg-slate-700/60 hover:text-white font-bold px-8 py-3 rounded-full shadow-xl transition-all duration-300 relative overflow-hidden group"
                 >
                   <span className="relative z-10">Generate my Free API Key</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 </button>
                 <button 
                   onClick={() => scrollToSection('documentation')}
-                  className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
+                  className="card-hover-effect glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300"
                 >
                   Explore Documentation
                 </button>
@@ -357,32 +355,34 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </div>
       </section>
 
-      {/* AI Bot Section */}
+      {/* AI Bot Section with enhanced animation */}
       <FadeContent>
         <section className="py-2 relative">
           <div className="container mx-auto px-6 flex justify-center">
-            <AIBot />
-          </div>
-        </section>
-      </FadeContent>
-
-      {/* Social Proof / Trust */}
-      <FadeContent>
-        <section className="py-12 relative">
-          <div className="container mx-auto px-6 text-center">
-            <p className="text-sm text-slate-400 mb-8 uppercase tracking-wider">Compatible with Solana Ecosystem</p>
-            <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
-              <div className="text-2xl font-bold text-slate-500">Solana</div>
-              <div className="text-2xl font-bold text-slate-500">letsbonk.fun</div>
-              <div className="text-2xl font-bold text-slate-500">Jito Labs</div>
-              <div className="text-2xl font-bold text-slate-500">Temporal</div>
-              <div className="text-2xl font-bold text-slate-500">0slot</div>
+            <div className="animate-float">
+              <AIBot />
             </div>
           </div>
         </section>
       </FadeContent>
 
-      {/* Violet Section separator BEFORE API Documentation */}
+      {/* Social Proof / Trust with staggered animations */}
+      <FadeContent>
+        <section className="py-12 relative">
+          <div className="container mx-auto px-6 text-center">
+            <p className="text-sm text-slate-400 mb-8 uppercase tracking-wider animate-reveal-up">Compatible with Solana Ecosystem</p>
+            <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
+              <div className="text-2xl font-bold text-slate-500 animate-reveal-up stagger-1 loading-pulse">Solana</div>
+              <div className="text-2xl font-bold text-slate-500 animate-reveal-up stagger-2 loading-pulse">letsbonk.fun</div>
+              <div className="text-2xl font-bold text-slate-500 animate-reveal-up stagger-3 loading-pulse">Jito Labs</div>
+              <div className="text-2xl font-bold text-slate-500 animate-reveal-up stagger-4 loading-pulse">Temporal</div>
+              <div className="text-2xl font-bold text-slate-500 animate-reveal-up stagger-5 loading-pulse">0slot</div>
+            </div>
+          </div>
+        </section>
+      </FadeContent>
+
+      {/* Animated Section separator BEFORE API Documentation */}
       <div className="relative py-6">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
@@ -392,17 +392,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </div>
       </div>
 
-      {/* Documentation Section */}
+      {/* Documentation Section with enhanced animations */}
       <FadeContent>
         <section id="documentation" className="py-20 relative">
           <div className="container mx-auto px-6">
             <FadeContent delay={200}>
-              <div className="text-center mb-16">
+              <div className="text-center mb-16 animate-reveal-up">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight">
                   <span className="text-white">API</span>{" "}
-                  <span className="text-violet-400">Documentation</span>
+                  <span className="text-gradient-animate">Documentation</span>
                 </h2>
-                <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed animate-reveal-up stagger-1">
                   Get started with our simple and powerful API in minutes. Copy, paste, and start trading.
                 </p>
               </div>
@@ -410,11 +410,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
             <FadeContent delay={400}>
               <div className="max-w-4xl mx-auto">
-                <Card className="api-integration-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
+                <Card className="card-hover-effect api-integration-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl">
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-violet-500/30">
+                      <div className="flex items-center space-x-3 animate-reveal-left">
+                        <div className="w-10 h-10 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-lg flex items-center justify-center border border-violet-500/30 animate-glow">
                           <Code className="w-5 h-5 text-violet-400" />
                         </div>
                         <div>
