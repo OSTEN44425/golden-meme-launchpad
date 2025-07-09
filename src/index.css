@@ -454,11 +454,11 @@ All colors MUST be HSL.
     background: conic-gradient(
       from var(--gradient-angle),
       transparent,
-      hsla(263, 70%, 30%, 0.35),
-      hsla(263, 70%, 35%, 0.45),
-      hsla(263, 70%, 40%, 0.5),
-      hsla(263, 70%, 35%, 0.45),
-      hsla(263, 70%, 30%, 0.35),
+      hsla(263, 70%, 30%, 0.25),
+      hsla(263, 70%, 35%, 0.35),
+      hsla(263, 70%, 40%, 0.4),
+      hsla(263, 70%, 35%, 0.35),
+      hsla(263, 70%, 30%, 0.25),
       transparent
     );
     animation: trading-edge-rotate 2.5s linear infinite;
