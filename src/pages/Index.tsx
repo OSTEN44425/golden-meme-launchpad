@@ -245,17 +245,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans relative">
+    <div className="min-h-screen relative">
       {/* Shooting Stars Background */}
       <div className="shooting-stars">
-        <div className="shooting_star"></div>
-        <div className="shooting_star"></div>
-        <div className="shooting_star"></div>
-        <div className="shooting_star"></div>
-        <div className="shooting_star"></div>
-        <div className="shooting_star"></div>
-        <div className="shooting_star"></div>
-        <div className="shooting_star"></div>
+        {Array.from({ length: 25 }).map((_, i) => (
+          <div key={i} className="shooting_star"></div>
+        ))}
       </div>
 
       {/* Mouse Light Effect */}
