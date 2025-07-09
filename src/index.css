@@ -381,13 +381,13 @@ All colors MUST be HSL.
     border-radius: inherit;
     background-image: conic-gradient(
       from var(--angle),
-      rgba(139, 92, 246, 0.6) 0%,
-      rgba(139, 92, 246, 0.9) 5%,
-      rgba(139, 92, 246, 0.6) 15%,
-      rgba(139, 92, 246, 0.4) 75%,
-      transparent 80%,
-      transparent 95%,
-      rgba(139, 92, 246, 0.4) 100%
+      transparent 70%,
+      rgba(139, 92, 246, 0.2) 80%,
+      rgba(139, 92, 246, 0.6) 85%,
+      rgba(139, 92, 246, 0.9) 90%,
+      rgba(139, 92, 246, 0.6) 95%,
+      rgba(139, 92, 246, 0.2) 100%,
+      transparent 10%
     );
     background-origin: border-box;
     -webkit-mask: linear-gradient(black, black) content-box,
