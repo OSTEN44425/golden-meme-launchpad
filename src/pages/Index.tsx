@@ -248,13 +248,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans relative">
       {/* Shooting Stars Background */}
       <div className="shooting-stars-container">
-        {Array.from({length: 35}).map((_, i) => (
+        {Array.from({length: 22}).map((_, i) => (
           <div 
             key={i}
             className="shooting_star"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 80 + 10}%`,
+              left: `${Math.random() * 30}%`,
               animationDelay: `${Math.random() * 9999}ms`,
             }}
           />
