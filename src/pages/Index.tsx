@@ -765,7 +765,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                               Join our Discord
                             </span>
                           </button>
-                          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-violet-500/10 rounded-full blur-xl opacity-30"></div>
+                          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-violet-500/10 rounded-full blur-xl opacity-40"></div>
                         </div>
                         <div className="relative">
                           <button className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 relative overflow-hidden group">
@@ -779,7 +779,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                               Follow on Twitter
                             </span>
                           </button>
-                          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-violet-500/10 rounded-full blur-xl opacity-30"></div>
+                          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-violet-500/10 rounded-full blur-xl opacity-40"></div>
                         </div>
                         <div className="relative">
                           <button className="glowing-border bg-transparent border-2 border-slate-600/50 text-slate-300 hover:border-slate-500 hover:text-white backdrop-blur-sm hover:bg-slate-800/20 font-semibold px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 relative overflow-hidden group">
@@ -793,7 +793,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                               Join our Telegram
                             </span>
                           </button>
-                          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-violet-500/10 rounded-full blur-xl opacity-30"></div>
+                          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-violet-500/10 rounded-full blur-xl opacity-40"></div>
                         </div>
                       </div>
                     </FadeContent>
@@ -817,7 +817,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <span className="relative z-10">Get my API Key and Start</span>
               </button>
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-32 h-12 bg-violet-500/10 rounded-full blur-xl opacity-30"></div>
+              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-32 h-12 bg-violet-500/10 rounded-full blur-xl opacity-40"></div>
             </div>
           </div>
         </section>
