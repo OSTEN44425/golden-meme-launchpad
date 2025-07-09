@@ -465,7 +465,7 @@ All colors MUST be HSL.
   }
 
   .trading-edge-card > * {
-    background: rgba(10, 10, 15, 0.85);
+    background: rgba(10, 10, 15, 0.25);
     border-radius: 10px;
     position: relative;
     z-index: 1;
