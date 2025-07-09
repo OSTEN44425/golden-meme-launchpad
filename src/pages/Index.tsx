@@ -515,7 +515,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       </FadeContent>
 
       {/* Violet Section separator */}
-      <div className="relative py-6">
+      <div className="relative py-8">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
         </div>
@@ -603,7 +603,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
       <FadeContent>
         <section id="edge" className="py-10 relative">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-12 leading-tight whitespace-nowrap">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-16 leading-tight whitespace-nowrap">
               <span className="text-white">Trading</span>{" "}
               <span className="text-violet-400">API Edge</span>
             </h2>
@@ -611,7 +611,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Key Benefits - WITH NEW ANIMATED BORDERS */}
+      {/* Key Benefits - WITH DARKER ANIMATED BORDERS */}
       <FadeContent>
         <section className="py-16 relative">
           <div className="container mx-auto px-6">
@@ -621,32 +621,32 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                   icon: Zap,
                   title: "Radical Simplicity",
                   description: "Integrate our API in less than 5 minutes. Clear documentation and logical endpoints to focus on your strategy, not our infrastructure.",
-                  color: "from-violet-500/20 to-purple-500/20",
-                  borderColor: "border-violet-700/25",
+                  color: "from-violet-500/15 to-purple-500/15",
+                  borderColor: "border-violet-800/20",
                   iconColor: "text-violet-400"
                 },
                 {
                   icon: Rocket,
                   title: "Performance & Stability",
                   description: "Leverage Jito bundles for atomic and priority transactions. Our service relies on the best providers (0slot, astralane) for near-instant execution.",
-                  color: "from-purple-500/20 to-pink-500/20",
-                  borderColor: "border-violet-700/25",
+                  color: "from-purple-500/15 to-pink-500/15",
+                  borderColor: "border-violet-800/20",
                   iconColor: "text-purple-400"
                 },
                 {
                   icon: DollarSign,
                   title: "Lowest & Transparent Fees",
                   description: "A unique and clear fee structure: 0.8% on transactions. That's it. No hidden fees, no subscription.",
-                  color: "from-violet-500/20 to-emerald-500/20",
-                  borderColor: "border-violet-700/25",
+                  color: "from-violet-500/15 to-emerald-500/15",
+                  borderColor: "border-violet-800/20",
                   iconColor: "text-violet-400"
                 },
                 {
                   icon: FileText,
                   title: "Exemplary Documentation",
                   description: "Copy-paste guides, complete API reference, and tutorials to get you operational immediately.",
-                  color: "from-violet-500/20 to-red-500/20",
-                  borderColor: "border-violet-700/25",
+                  color: "from-violet-500/15 to-red-500/15",
+                  borderColor: "border-violet-800/20",
                   iconColor: "text-violet-400"
                 }
               ].map((feature, index) => (
@@ -668,16 +668,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
-
-      {/* Violet Section separator */}
-      <div className="relative py-8">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
 
       {/* Pricing Section */}
       <FadeContent>
@@ -735,16 +725,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
-
-      {/* Violet Section separator */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
 
       {/* Community Section - WITHOUT decorative icons */}
       <FadeContent>
@@ -836,16 +816,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
           </div>
         </section>
       </FadeContent>
-
-      {/* Violet Section separator before footer */}
-      <div className="relative py-6">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent animate-pulse"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
-        </div>
-      </div>
 
       {/* Footer - Simplified without copyright and links */}
       <FadeContent>
