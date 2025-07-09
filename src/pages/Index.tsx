@@ -248,7 +248,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans relative">
       {/* Shooting Stars Background */}
       <div className="shooting-stars-container">
-        {Array.from({length: 18}).map((_, i) => (
+        {Array.from({length: 12}).map((_, i) => (
           <div 
             key={i}
             className="shooting_star"
