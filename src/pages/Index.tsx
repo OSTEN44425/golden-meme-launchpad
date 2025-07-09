@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,7 +7,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CountUp from "@/components/animations/CountUp";
 import TypingAnimation from "@/components/animations/TypingAnimation";
-import { FloatingDecoration } from "@/components/decorations/FloatingDecoration";
+import FloatingDecoration from "@/components/decorations/FloatingDecoration";
 
 const Index = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -45,7 +46,22 @@ const Index = () => {
       </div>
 
       {/* Floating Decorations */}
-      <FloatingDecoration />
+      <FloatingDecoration 
+        side="left"
+        icons={[
+          { icon: TrendingUp, position: 'top', delay: 0 },
+          { icon: Bot, position: 'middle', delay: 1 },
+          { icon: BarChart3, position: 'bottom', delay: 2 }
+        ]}
+      />
+      <FloatingDecoration 
+        side="right"
+        icons={[
+          { icon: Shield, position: 'top', delay: 0.5 },
+          { icon: Globe, position: 'middle', delay: 1.5 },
+          { icon: Zap, position: 'bottom', delay: 2.5 }
+        ]}
+      />
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-background/80 glass-effect py-4">
@@ -215,7 +231,7 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <Users className="w-8 h-8 mb-4 text-violet-400" />
-              <h3 className="text-2xl font-bold font-pro"><CountUp end={5000} duration={5} />+</h3>
+              <h3 className="text-2xl font-bold font-pro"><CountUp to={5000} duration={5} />+</h3>
               <p className="text-lg">Happy Clients</p>
             </motion.div>
 
@@ -227,7 +243,7 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <TrendingUp className="w-8 h-8 mb-4 text-violet-400" />
-              <h3 className="text-2xl font-bold font-pro"><CountUp end={30} duration={5} />%</h3>
+              <h3 className="text-2xl font-bold font-pro"><CountUp to={30} duration={5} />%</h3>
               <p className="text-lg">Average Profit Increase</p>
             </motion.div>
 
@@ -239,7 +255,7 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
             >
               <CheckCircle className="w-8 h-8 mb-4 text-violet-400" />
-              <h3 className="text-2xl font-bold font-pro"><CountUp end={99} duration={5} />%</h3>
+              <h3 className="text-2xl font-bold font-pro"><CountUp to={99} duration={5} />%</h3>
               <p className="text-lg">Client Satisfaction</p>
             </motion.div>
           </div>
