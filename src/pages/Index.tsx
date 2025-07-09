@@ -248,17 +248,22 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans relative">
       {/* Shooting Stars Background */}
       <div className="shooting-stars-container">
-        {Array.from({length: 12}).map((_, i) => (
-          <div 
-            key={i}
-            className="shooting_star"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${i * 1500 + Math.random() * 3000}ms`,
-            }}
-          />
-        ))}
+        {Array.from({length: 12}).map((_, i) => {
+          const directions = ['from-top', 'from-bottom', 'from-left', 'from-right', 'from-top-left', 'from-top-right'];
+          const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+          
+          return (
+            <div 
+              key={i}
+              className={`shooting_star ${randomDirection}`}
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${i * 1500 + Math.random() * 3000}ms`,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* Mouse Light Effect */}

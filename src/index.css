@@ -153,21 +153,15 @@ All colors MUST be HSL.
     height: 100%;
     pointer-events: none;
     z-index: 1;
-    transform: rotateZ(45deg);
     overflow: hidden;
   }
 
   .shooting_star {
     position: absolute;
-    left: 50%;
-    top: 50%;
     height: 2px;
     background: linear-gradient(-45deg, rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0));
     border-radius: 999px;
     filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.4));
-    animation:
-      tail 3000ms ease-in-out infinite,
-      shooting 3000ms ease-in-out infinite;
     opacity: 0.6;
   }
 
@@ -180,7 +174,6 @@ All colors MUST be HSL.
     background: linear-gradient(-45deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0));
     transform: translateX(50%) rotateZ(45deg);
     border-radius: 100%;
-    animation: shining 3000ms ease-in-out infinite;
   }
 
   .shooting_star::after {
@@ -192,7 +185,31 @@ All colors MUST be HSL.
     background: linear-gradient(-45deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0));
     transform: translateX(50%) rotateZ(-45deg);
     border-radius: 100%;
-    animation: shining 3000ms ease-in-out infinite;
+  }
+
+  /* Direction animations */
+  .shooting_star.from-top {
+    animation: shootFromTop 4s ease-in-out infinite, tail 4s ease-in-out infinite;
+  }
+  
+  .shooting_star.from-bottom {
+    animation: shootFromBottom 4s ease-in-out infinite, tail 4s ease-in-out infinite;
+  }
+  
+  .shooting_star.from-left {
+    animation: shootFromLeft 4s ease-in-out infinite, tail 4s ease-in-out infinite;
+  }
+  
+  .shooting_star.from-right {
+    animation: shootFromRight 4s ease-in-out infinite, tail 4s ease-in-out infinite;
+  }
+
+  .shooting_star.from-top-left {
+    animation: shootFromTopLeft 4s ease-in-out infinite, tail 4s ease-in-out infinite;
+  }
+  
+  .shooting_star.from-top-right {
+    animation: shootFromTopRight 4s ease-in-out infinite, tail 4s ease-in-out infinite;
   }
 
   /* Grid highlights with violet accents - no white lights */
@@ -757,12 +774,105 @@ All colors MUST be HSL.
   }
 }
 
-@keyframes shooting {
+@keyframes shootFromTop {
   0% {
-    transform: translateX(0);
+    transform: translateY(-100px) translateX(-50px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
   }
   100% {
-    transform: translateX(300px);
+    transform: translateY(100vh) translateX(300px);
+    opacity: 0;
+  }
+}
+
+@keyframes shootFromBottom {
+  0% {
+    transform: translateY(100px) translateX(300px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes shootFromLeft {
+  0% {
+    transform: translateX(-100px) translateY(-50px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(300px);
+    opacity: 0;
+  }
+}
+
+@keyframes shootFromRight {
+  0% {
+    transform: translateX(100px) translateY(300px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100vw) translateY(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes shootFromTopLeft {
+  0% {
+    transform: translate(-100px, -100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100vw, 100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes shootFromTopRight {
+  0% {
+    transform: translate(100px, -100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100vw, 100vh);
+    opacity: 0;
   }
 }
 
