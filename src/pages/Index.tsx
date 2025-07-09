@@ -669,10 +669,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Separator */}
-      <div className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent"></div>
+      {/* Violet Section separator */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
 
@@ -733,10 +736,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Separator */}
-      <div className="py-8">
-        <div className="container mx-auto px-6">
-          <div className="h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent"></div>
+      {/* Violet Section separator */}
+      <div className="relative py-8">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
         </div>
       </div>
 
