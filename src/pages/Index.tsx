@@ -843,6 +843,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
+      {/* Violet Section separator BEFORE Footer */}
+      <div className="relative py-6">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent animate-pulse"></div>
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-2 h-2 bg-violet-500 rounded-full animate-ping"></div>
+        </div>
+      </div>
+
       {/* Footer - Simplified without copyright and links */}
       <FadeContent>
         <footer className="bg-slate-950/99 backdrop-blur-xl shadow-2xl shadow-slate-900/50">
