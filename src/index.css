@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -304,7 +303,84 @@ All colors MUST be HSL.
   .shooting_star:nth-child(8)::after {
     animation-delay: 3000ms;
   }
+
+  .shooting_star:nth-child(9) {
+    top: calc(50% + 150px);
+    left: calc(50% + 250px);
+    animation-delay: 4800ms;
+  }
   
+  .shooting_star:nth-child(9)::before,
+  .shooting_star:nth-child(9)::after {
+    animation-delay: 4800ms;
+  }
+
+  .shooting_star:nth-child(10) {
+    top: calc(50% - 100px);
+    left: calc(50% - 250px);
+    animation-delay: 1000ms;
+  }
+  
+  .shooting_star:nth-child(10)::before,
+  .shooting_star:nth-child(10)::after {
+    animation-delay: 1000ms;
+  }
+
+  .shooting_star:nth-child(11) {
+    top: calc(50% + 80px);
+    left: calc(50% - 80px);
+    animation-delay: 3400ms;
+  }
+  
+  .shooting_star:nth-child(11)::before,
+  .shooting_star:nth-child(11)::after {
+    animation-delay: 3400ms;
+  }
+
+  .shooting_star:nth-child(12) {
+    top: calc(50% - 160px);
+    left: calc(50% + 150px);
+    animation-delay: 2000ms;
+  }
+  
+  .shooting_star:nth-child(12)::before,
+  .shooting_star:nth-child(12)::after {
+    animation-delay: 2000ms;
+  }
+
+  .shooting_star:nth-child(13) {
+    top: calc(50% + 100px);
+    left: calc(50% + 300px);
+    animation-delay: 5400ms;
+  }
+  
+  .shooting_star:nth-child(13)::before,
+  .shooting_star:nth-child(13)::after {
+    animation-delay: 5400ms;
+  }
+
+  .shooting_star:nth-child(14) {
+    top: calc(50% - 50px);
+    left: calc(50% - 350px);
+    animation-delay: 400ms;
+  }
+  
+  .shooting_star:nth-child(14)::before,
+  .shooting_star:nth-child(14)::after {
+    animation-delay: 400ms;
+  }
+
+  .shooting_star:nth-child(15) {
+    top: calc(50% + 250px);
+    left: calc(50% + 80px);
+    animation-delay: 2800ms;
+  }
+  
+  .shooting_star:nth-child(15)::before,
+  .shooting_star:nth-child(15)::after {
+    animation-delay: 2800ms;
+  }
+
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
