@@ -611,7 +611,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
-      {/* Key Benefits */}
+      {/* Key Benefits - WITH NEW ANIMATED BORDERS */}
       <FadeContent>
         <section className="py-12 relative">
           <div className="container mx-auto px-6">
@@ -651,7 +651,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
               ].map((feature, index) => (
                 <FadeContent key={index} delay={index * 200}>
-                  <Card className={`glowing-border glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
+                  <Card className={`trading-edge-card glass-effect bg-gradient-to-br ${feature.color} backdrop-blur-sm ${feature.borderColor} hover:border-opacity-50 transition-all duration-300 group h-full flex flex-col hover-scale`}>
                     <CardHeader className="pb-4">
                       <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 border ${feature.borderColor}`}>
                         <feature.icon className={`w-6 h-6 ${feature.iconColor}`} />

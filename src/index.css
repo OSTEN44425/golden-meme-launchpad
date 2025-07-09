@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -63,6 +62,9 @@ All colors MUST be HSL.
 
     /* Border animation angle */
     --angle: 0turn;
+
+    /* Custom gradient angle for trading edge cards */
+    --gradient-angle: 90deg;
   }
 
   .dark {
@@ -102,6 +104,13 @@ All colors MUST be HSL.
     --sidebar-border: 263 70% 50%;
     --sidebar-ring: 263 70% 50%;
   }
+}
+
+/* Custom gradient angle property for Houdini API */
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 90deg;
+  inherits: false;
 }
 
 @layer base {
@@ -435,6 +444,36 @@ All colors MUST be HSL.
     filter: blur(1px) brightness(1.8);
   }
 
+  /* Trading Edge Cards - Special animated border */
+  .trading-edge-card {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .trading-edge-card::after,
+  .trading-edge-card::before {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    inset: -0.5rem;
+    background: conic-gradient(
+      from var(--gradient-angle),
+      hsl(222 84% 5%),
+      hsl(263 70% 30%),
+      hsl(263 70% 50%),
+      hsl(263 70% 70%),
+      hsl(263 70% 50%),
+      hsl(263 70% 30%),
+      hsl(222 84% 5%)
+    );
+    border-radius: inherit;
+    animation: trading-edge-rotate 2.5s linear infinite;
+  }
+
+  .trading-edge-card::after {
+    filter: blur(3rem);
+  }
+
   /* Button hover fixes - subtle hover effects */
   .button-hover-fix {
     transition: all 0.3s ease;
@@ -479,6 +518,15 @@ All colors MUST be HSL.
 @keyframes glowing-border-spin {
   to {
     --angle: 1turn;
+  }
+}
+
+@keyframes trading-edge-rotate {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
   }
 }
 
