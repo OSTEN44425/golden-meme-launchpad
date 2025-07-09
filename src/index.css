@@ -766,6 +766,51 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes shooting-reverse {
+  0% {
+    transform: translateX(300px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes shooting-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(300px);
+  }
+}
+
+@keyframes shooting-vertical-reverse {
+  0% {
+    transform: translateY(300px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shooting-diagonal {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(300px, 300px);
+  }
+}
+
+@keyframes shooting-diagonal-reverse {
+  0% {
+    transform: translate(300px, 300px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
