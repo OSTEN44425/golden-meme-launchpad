@@ -410,7 +410,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
             <FadeContent delay={400}>
               <div className="max-w-4xl mx-auto">
-                <Card className="glowing-border glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
+                <Card className="glowing-border-api glass-effect bg-gradient-to-br from-violet-500/10 to-purple-500/10 backdrop-blur-sm border-violet-500/30 relative shadow-xl hover-scale">
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-3">
