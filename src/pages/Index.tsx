@@ -601,9 +601,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
       {/* Trading API Edge Title */}
       <FadeContent>
-        <section id="edge" className="py-10 relative">
+        <section id="edge" className="py-6 relative">
           <div className="container mx-auto px-6 text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-16 leading-tight whitespace-nowrap">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-8 leading-tight whitespace-nowrap">
               <span className="text-white">Trading</span>{" "}
               <span className="text-violet-400">API Edge</span>
             </h2>
@@ -613,7 +613,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
       {/* Key Benefits - WITH DARKER ANIMATED BORDERS */}
       <FadeContent>
-        <section className="py-16 relative">
+        <section className="py-8 relative">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
