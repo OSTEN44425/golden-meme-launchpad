@@ -444,34 +444,31 @@ All colors MUST be HSL.
     filter: blur(1px) brightness(1.8);
   }
 
-  /* Trading Edge Cards - Special animated border */
+  /* Trading Edge Cards - Animated border effect */
   .trading-edge-card {
+    --border-width: 2px;
     position: relative;
     cursor: pointer;
-  }
-
-  .trading-edge-card::after,
-  .trading-edge-card::before {
-    content: " ";
-    position: absolute;
-    z-index: -1;
-    inset: -0.5rem;
+    border-radius: 12px;
+    padding: var(--border-width);
     background: conic-gradient(
       from var(--gradient-angle),
-      hsl(222 84% 5%),
+      transparent,
       hsl(263 70% 30%),
       hsl(263 70% 50%),
       hsl(263 70% 70%),
       hsl(263 70% 50%),
       hsl(263 70% 30%),
-      hsl(222 84% 5%)
+      transparent
     );
-    border-radius: inherit;
     animation: trading-edge-rotate 2.5s linear infinite;
   }
 
-  .trading-edge-card::after {
-    filter: blur(3rem);
+  .trading-edge-card > * {
+    background: rgba(15, 15, 25, 0.95);
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
   }
 
   /* Button hover fixes - subtle hover effects */
