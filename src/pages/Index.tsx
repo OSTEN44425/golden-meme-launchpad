@@ -426,9 +426,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Modern Language Selector - Custom Dropdown */}
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
-                            <button className="bg-black/40 backdrop-blur-2xl border border-violet-500/30 text-white px-6 py-3 rounded-xl text-sm font-mono focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer shadow-2xl hover:bg-black/60 transition-all duration-300 hover:border-violet-500/50 flex items-center gap-3 hover:shadow-violet-500/20 relative">
-                              {/* Subtle violet light underneath */}
-                              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-violet-500/10 rounded-full blur-sm opacity-40"></div>
+                            <button className="bg-black/40 backdrop-blur-2xl border border-violet-500/30 text-white px-6 py-3 rounded-xl text-sm font-mono focus:outline-none focus:border-violet-400/60 focus:ring-2 focus:ring-violet-500/20 cursor-pointer shadow-2xl hover:bg-black/60 transition-all duration-300 hover:border-violet-500/50 flex items-center gap-3 hover:shadow-violet-500/20">
                               <span className="text-white font-mono">{codeExamples[selectedLanguage].name}</span>
                               <ChevronDown className="w-4 h-4 text-violet-400 group-hover:rotate-180 transition-transform duration-300" />
                             </button>
@@ -457,10 +455,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                         {/* Copy Button - Improved */}
                         <button 
                           onClick={copyToClipboard}
-                          className="flex items-center space-x-2 text-sm text-white hover:text-white transition-all duration-300 bg-black/40 backdrop-blur-2xl px-5 py-3 rounded-xl hover:bg-black/60 border border-violet-500/30 hover:border-violet-500/50 shadow-2xl group hover:shadow-violet-500/20 relative"
+                          className="flex items-center space-x-2 text-sm text-white hover:text-white transition-all duration-300 bg-black/40 backdrop-blur-2xl px-5 py-3 rounded-xl hover:bg-black/60 border border-violet-500/30 hover:border-violet-500/50 shadow-2xl group hover:shadow-violet-500/20"
                         >
-                          {/* Subtle violet light underneath */}
-                          <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-violet-500/10 rounded-full blur-sm opacity-40"></div>
                           <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-200 text-violet-400" />
                           <span className="font-mono text-white">Copy</span>
                         </button>
