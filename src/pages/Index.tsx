@@ -669,6 +669,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         </section>
       </FadeContent>
 
+      {/* Separator */}
+      <div className="py-8">
+        <div className="container mx-auto px-6">
+          <div className="h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent"></div>
+        </div>
+      </div>
+
       {/* Pricing Section */}
       <FadeContent>
         <section id="pricing" className="py-20 relative">
